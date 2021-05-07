@@ -23,11 +23,6 @@ namespace UI.Pages
         private async Task SetupUI()
         {
             await AddSahdows();
-            await SetupNavBar();
-        }
-
-        private async Task SetupNavBar()
-        {
         }
 
         private async Task AddSahdows()
