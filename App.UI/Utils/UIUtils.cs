@@ -15,16 +15,17 @@ namespace UI
 
         public static void SetupContent(View content, View navBar, View bottomNavBar)
         {
-            var offset = 20; // todo: No idea what this number is for! Remove it ASAP.
+            //var offset = 20; // todo: No idea what this number is for! Remove it ASAP.
             content.Margin.Top.BindTo(navBar.Height);
             //content.Height.BindTo(View.Root.Height, h => h - navBar.CalculateTotalHeight() - bottomNavBar.CalculateTotalHeight());
             //content.Height.BindTo(navBar.Height, nbh => View.Root.CalculateTotalHeight() - nbh - bottomNavBar.CalculateTotalHeight());
-            content.Margin.Bottom.BindTo(bottomNavBar.Height, bh => bottomNavBar.CalculateTotalHeight() + offset);
+            //content.Margin.Bottom.BindTo(bottomNavBar.Height, bh => bottomNavBar.CalculateTotalHeight() + offset);
         }
+
         public static void Trim(this NavigationBar navBar)
         {
-            string s = UI.Paths.Icons.StarOutline;
             foreach (var ib in navBar.Left.AllChildren.OfType<IconButton>())
+            {
                 ib.TextView.Set(t =>
                 {
                     if (t.Text == "Back")
@@ -32,7 +33,8 @@ namespace UI
                         t.Text = "<";
                         t.ScaleY(1.5f);
                     }
-                });
+                }).On(x => x.Tapped, () => Zebble.Mvvm.ViewModel.Back());
+            }
         }
     }
 

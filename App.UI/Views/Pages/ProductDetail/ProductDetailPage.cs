@@ -17,7 +17,17 @@ namespace UI.Pages
         override public async Task OnInitializing()
         {
             await base.OnInitializing();
+            await SetupUI();
+        }
+
+        private async Task SetupUI()
+        {
             await AddSahdows();
+            await SetupNavBar();
+        }
+
+        private async Task SetupNavBar()
+        {
         }
 
         private async Task AddSahdows()
