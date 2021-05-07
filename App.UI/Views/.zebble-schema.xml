@@ -1,0 +1,2148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="zbl">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:any minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="class">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:any minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+      <xs:attribute name="type" type="xs:Name" use="required" />
+      <xs:attribute name="base" type="xs:string" use="required" />
+      <xs:attribute name="namespace" type="xs:Name" />
+      <xs:attribute name="implements" type="xs:string" />
+      <xs:attribute name="cache" type="Boolean" />
+      <xs:attribute name="viewmodel" type="xs:string" />
+      <xs:attribute name="Title" type="xs:string" />
+      <xs:anyAttribute processContents="skip" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="place">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:any minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+      <xs:attribute name="inside" type="xs:Name" use="required" />
+      <xs:anyAttribute processContents="skip" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="foreach">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:any minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+      <xs:attribute name="var" type="xs:Name" use="required" />
+      <xs:attribute name="in" type="xs:string" use="required" />
+      <xs:anyAttribute processContents="skip" />
+    </xs:complexType>
+  </xs:element>
+  <xs:simpleType name="BooleanEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="true" />
+      <xs:enumeration value="false" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Boolean">
+    <xs:union memberTypes="BooleanEnum StringPattern" />
+  </xs:simpleType>
+  <xs:simpleType name="StringPattern">
+    <xs:restriction base="xs:string" />
+  </xs:simpleType>
+  <xs:simpleType name="ImagesPathEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="/Resources/Images/Logo.png" />
+      <xs:enumeration value="/Resources/Images/Splash.png" />
+      <xs:enumeration value="/Resources/Images/Icons/cart.png" />
+      <xs:enumeration value="/Resources/Images/Icons/category.png" />
+      <xs:enumeration value="/Resources/Images/Icons/category2.png" />
+      <xs:enumeration value="/Resources/Images/Icons/eye.png" />
+      <xs:enumeration value="/Resources/Images/Icons/eye2.png" />
+      <xs:enumeration value="/Resources/Images/Icons/gift.png" />
+      <xs:enumeration value="/Resources/Images/Icons/gift2.png" />
+      <xs:enumeration value="/Resources/Images/Icons/heart-gray.png" />
+      <xs:enumeration value="/Resources/Images/Icons/heart.png" />
+      <xs:enumeration value="/Resources/Images/Icons/home.png" />
+      <xs:enumeration value="/Resources/Images/Icons/icon.png" />
+      <xs:enumeration value="/Resources/Images/Icons/menu.png" />
+      <xs:enumeration value="/Resources/Images/Icons/new.png" />
+      <xs:enumeration value="/Resources/Images/Icons/new2.png" />
+      <xs:enumeration value="/Resources/Images/Icons/not-found.png" />
+      <xs:enumeration value="/Resources/Images/Icons/profile.png" />
+      <xs:enumeration value="/Resources/Images/Icons/search.png" />
+      <xs:enumeration value="/Resources/Images/Icons/shoes.png" />
+      <xs:enumeration value="/Resources/Images/Icons/spinner.png" />
+      <xs:enumeration value="/Resources/Images/Icons/star-outline.png" />
+      <xs:enumeration value="/Resources/Images/Icons/star.png" />
+      <xs:enumeration value="/Resources/Images/Icons/star2.png" />
+      <xs:enumeration value="/Resources/drawable/Featured_Graphic.png" />
+      <xs:enumeration value="/Resources/1024x1024.png" />
+      <xs:enumeration value="/Resources/Default-568h@2x.png" />
+      <xs:enumeration value="/Resources/Default-667h@2x.png" />
+      <xs:enumeration value="/Resources/Default-Landscape.png" />
+      <xs:enumeration value="/Resources/Default-Landscape~ipad.png" />
+      <xs:enumeration value="/Resources/Default-Portrait-736h@3x.png" />
+      <xs:enumeration value="/Resources/Default-Portrait.png" />
+      <xs:enumeration value="/Resources/Default-Portrait@2x~ipad.png" />
+      <xs:enumeration value="/Resources/Default-Portrait@3x~ipad.png" />
+      <xs:enumeration value="/Resources/Default.png" />
+      <xs:enumeration value="/Resources/Default1024x768.png" />
+      <xs:enumeration value="/Resources/Default768x1024.png" />
+      <xs:enumeration value="/Resources/Default@2x.png" />
+      <xs:enumeration value="/Resources/Default~ipad.png" />
+      <xs:enumeration value="/Resources/Icon-120.png" />
+      <xs:enumeration value="/Resources/Icon-40.png" />
+      <xs:enumeration value="/Resources/Icon-40@2x.png" />
+      <xs:enumeration value="/Resources/Icon-40@3x.png" />
+      <xs:enumeration value="/Resources/Icon-60.png" />
+      <xs:enumeration value="/Resources/Icon-60@2x.png" />
+      <xs:enumeration value="/Resources/Icon-60@3x.png" />
+      <xs:enumeration value="/Resources/Icon-76.png" />
+      <xs:enumeration value="/Resources/Icon-76@2x.png" />
+      <xs:enumeration value="/Resources/Icon-83.5@2x.png" />
+      <xs:enumeration value="/Resources/Icon-Small.png" />
+      <xs:enumeration value="/Resources/Icon-Small@2x.png" />
+      <xs:enumeration value="/Resources/Icon-Small@3x.png" />
+      <xs:enumeration value="/Resources/iTunesArtwork.png" />
+      <xs:enumeration value="/Resources/iTunesArtwork@2x.png" />
+      <xs:enumeration value="/Resources/Launch-Bg.png" />
+      <xs:enumeration value="/Resources/Legacy-Icon-100.png" />
+      <xs:enumeration value="/Resources/Legacy-Icon-1024-768.png" />
+      <xs:enumeration value="/Resources/Legacy-Icon-114.png" />
+      <xs:enumeration value="/Resources/Legacy-Icon-144.png" />
+      <xs:enumeration value="/Resources/Legacy-Icon-20.png" />
+      <xs:enumeration value="/Resources/Legacy-Icon-50.png" />
+      <xs:enumeration value="/Resources/Legacy-Icon-57.png" />
+      <xs:enumeration value="/Resources/Legacy-Icon-72.png" />
+      <xs:enumeration value="/Resources/Images/Logo.png" />
+      <xs:enumeration value="/Resources/Images/Icons/Cart.png" />
+      <xs:enumeration value="/Resources/Images/Icons/Category.png" />
+      <xs:enumeration value="/Resources/Images/Icons/Category2.png" />
+      <xs:enumeration value="/Resources/Images/Icons/Eye.png" />
+      <xs:enumeration value="/Resources/Images/Icons/Eye2.png" />
+      <xs:enumeration value="/Resources/Images/Icons/Gift.png" />
+      <xs:enumeration value="/Resources/Images/Icons/Gift2.png" />
+      <xs:enumeration value="/Resources/Images/Icons/heart-gray.png" />
+      <xs:enumeration value="/Resources/Images/Icons/heart.png" />
+      <xs:enumeration value="/Resources/Images/Icons/Home.png" />
+      <xs:enumeration value="/Resources/Images/Icons/Menu.png" />
+      <xs:enumeration value="/Resources/Images/Icons/New.png" />
+      <xs:enumeration value="/Resources/Images/Icons/New2.png" />
+      <xs:enumeration value="/Resources/Images/Icons/not-found.png" />
+      <xs:enumeration value="/Resources/Images/Icons/Profile.png" />
+      <xs:enumeration value="/Resources/Images/Icons/Search.png" />
+      <xs:enumeration value="/Resources/Images/Icons/Shoes.png" />
+      <xs:enumeration value="/Resources/Images/Icons/Spinner.png" />
+      <xs:enumeration value="/Resources/Images/Icons/Star-Outline.png" />
+      <xs:enumeration value="/Resources/Images/Icons/Star.png" />
+      <xs:enumeration value="/Resources/Images/Icons/Star2.png" />
+      <xs:enumeration value="/Resources/Images/Logo.png" />
+      <xs:enumeration value="/Resources/Images/Icons/cart.png" />
+      <xs:enumeration value="/Resources/Images/Icons/category.png" />
+      <xs:enumeration value="/Resources/Images/Icons/category2.png" />
+      <xs:enumeration value="/Resources/Images/Icons/eye.png" />
+      <xs:enumeration value="/Resources/Images/Icons/eye2.png" />
+      <xs:enumeration value="/Resources/Images/Icons/gift.png" />
+      <xs:enumeration value="/Resources/Images/Icons/gift2.png" />
+      <xs:enumeration value="/Resources/Images/Icons/heart-gray.png" />
+      <xs:enumeration value="/Resources/Images/Icons/heart.png" />
+      <xs:enumeration value="/Resources/Images/Icons/home.png" />
+      <xs:enumeration value="/Resources/Images/Icons/menu.png" />
+      <xs:enumeration value="/Resources/Images/Icons/new.png" />
+      <xs:enumeration value="/Resources/Images/Icons/new2.png" />
+      <xs:enumeration value="/Resources/Images/Icons/not-found.png" />
+      <xs:enumeration value="/Resources/Images/Icons/profile.png" />
+      <xs:enumeration value="/Resources/Images/Icons/search.png" />
+      <xs:enumeration value="/Resources/Images/Icons/shoes.png" />
+      <xs:enumeration value="/Resources/Images/Icons/spinner.png" />
+      <xs:enumeration value="/Resources/Images/Icons/star-outline.png" />
+      <xs:enumeration value="/Resources/Images/Icons/star.png" />
+      <xs:enumeration value="/Resources/Images/Icons/star2.png" />
+      <xs:enumeration value="@....." />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ImagesPath">
+    <xs:union memberTypes="ImagesPathEnum StringPattern" />
+  </xs:simpleType>
+  <xs:simpleType name="ZNavTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Pages.TestPage" />
+      <xs:enumeration value="Pages.CartOrderCardItem" />
+      <xs:enumeration value="Pages.CartPage" />
+      <xs:enumeration value="Pages.CategoryPage" />
+      <xs:enumeration value="Pages.ProductCardItem" />
+      <xs:enumeration value="Pages.HomePage" />
+      <xs:enumeration value="Pages.CategoryCardItem" />
+      <xs:enumeration value="Pages.CategorySubPage" />
+      <xs:enumeration value="Pages.MostVisitedSubPage" />
+      <xs:enumeration value="Pages.NewSubPage" />
+      <xs:enumeration value="Pages.OfferSubPage" />
+      <xs:enumeration value="Pages.PopularSubPage" />
+      <xs:enumeration value="Pages.OrderCardItem" />
+      <xs:enumeration value="Pages.OrderInfoPage" />
+      <xs:enumeration value="Pages.ProductDetailPage" />
+      <xs:enumeration value="Pages.ProfilePage" />
+      <xs:enumeration value="Pages.ProfileFavoriteCardItem" />
+      <xs:enumeration value="Pages.ProfileFavoritesSubPage" />
+      <xs:enumeration value="Pages.ProfileInfoSubPage" />
+      <xs:enumeration value="Pages.ProfileOrderCardItem" />
+      <xs:enumeration value="Pages.ProfileOrdersSubPage" />
+      <xs:enumeration value="Pages.ProfileSecuritySubPage" />
+      <xs:enumeration value="Pages.SearchPage" />
+      <xs:enumeration value="@....." />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ZNavType">
+    <xs:union memberTypes="ZNavTypeEnum StringPattern" />
+  </xs:simpleType>
+  <xs:simpleType name="CssStyleEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Scroller" />
+      <xs:enumeration value="Space" />
+      <xs:enumeration value="SpaceTight" />
+      <xs:enumeration value="RatingIcon" />
+      <xs:enumeration value="ProfileExpanderButton" />
+      <xs:enumeration value="Section" />
+      <xs:enumeration value="ItemPickerHolder" />
+      <xs:enumeration value="LabelText" />
+      <xs:enumeration value="OrderInfo" />
+      <xs:enumeration value="TopBorder" />
+      <xs:enumeration value="Left" />
+      <xs:enumeration value="Right" />
+      <xs:enumeration value="Price" />
+      <xs:enumeration value="Divider" />
+      <xs:enumeration value="Left" />
+      <xs:enumeration value="Right" />
+      <xs:enumeration value="Price" />
+      <xs:enumeration value="Scroller" />
+      <xs:enumeration value="Left" />
+      <xs:enumeration value="Right" />
+      <xs:enumeration value="LabelText" />
+      <xs:enumeration value="Right" />
+      <xs:enumeration value="Price" />
+      <xs:enumeration value="Remove" />
+      <xs:enumeration value="TopBorder" />
+      <xs:enumeration value="ItemPickerHolder" />
+      <xs:enumeration value="windows-only" />
+      <xs:enumeration value="ios-only" />
+      <xs:enumeration value="android-only" />
+      <xs:enumeration value="options-list" />
+      <xs:enumeration value="toggle-icon" />
+      <xs:enumeration value="tree-node" />
+      <xs:enumeration value="@....." />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CssStyle">
+    <xs:union memberTypes="CssStyleEnum StringPattern" />
+  </xs:simpleType>
+  <xs:complexType name="BoxShadowType">
+    <xs:sequence>
+      <xs:any minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+    <xs:attribute name="For" type="xs:string" />
+    <xs:attribute name="BlurRadius" type="xs:string" />
+    <xs:attribute name="Options" type="xs:string" />
+    <xs:attribute name="XOffset" type="xs:string" />
+    <xs:attribute name="YOffset" type="xs:string" />
+    <xs:attribute name="Expand" type="xs:string" />
+    <xs:anyAttribute processContents="skip" />
+  </xs:complexType>
+  <xs:element name="BoxShadow" nillable="true" type="BoxShadowType" />
+  <xs:complexType name="BoxShadowCanvasType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="View-AbstractType">
+        <xs:attribute name="Color" type="xs:string" />
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="BoxShadowCanvas" nillable="true" type="BoxShadowCanvasType" />
+  <xs:complexType name="SlidesContainerType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="CanvasType">
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SlidesContainer" nillable="true" type="SlidesContainerType" />
+  <xs:complexType name="CarouselType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="StackType">
+        <xs:attribute name="Stickiness" type="StickinessOption" />
+        <xs:attribute name="ShowBullets" type="Boolean" />
+        <xs:attribute name="CenterAligned" type="Boolean" />
+        <xs:attribute name="EnableZooming" type="Boolean" />
+        <xs:attribute name="SlideWidth" type="xs:string" />
+        <xs:attribute name="on-SlideChanged" type="xs:string" />
+        <xs:attribute name="on-SlideChanging" type="xs:string" />
+        <xs:attribute name="on-SlideWidthChanged" type="xs:string" />
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Carousel" nillable="true" type="CarouselType" />
+  <xs:complexType name="RecyclerCarouselType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="CarouselType">
+        <xs:attribute name="of" type="xs:string" use="required" />
+        <xs:attribute name="DataSource" type="xs:string" />
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RecyclerCarousel" nillable="true" type="RecyclerCarouselType" />
+  <xs:complexType name="RecyclerCarouselSlide-AbstractType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="StackType">
+        <xs:attribute name="of" type="xs:string" />
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="CheckBoxType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="StackType">
+        <xs:attribute name="Alignment" type="Alignment" />
+        <xs:attribute name="Checked" type="Boolean" />
+        <xs:attribute name="on-CheckedChanged" type="xs:string" />
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CheckBox" nillable="true" type="CheckBoxType" />
+  <xs:complexType name="DatePickerType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="Picker-AbstractType">
+        <xs:attribute name="SelectedValue" type="xs:string" />
+        <xs:attribute name="TextFormat" type="xs:string" />
+        <xs:attribute name="DayFormat" type="xs:string" />
+        <xs:attribute name="MonthFormat" type="xs:string" />
+        <xs:attribute name="YearFrom" type="xs:string" />
+        <xs:attribute name="YearTo" type="xs:string" />
+        <xs:attribute name="on-SelectedValueChanged" type="xs:string" />
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DatePicker" nillable="true" type="DatePickerType" />
+  <xs:complexType name="TimePickerType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="Picker-AbstractType">
+        <xs:attribute name="TextFormat" type="xs:string" />
+        <xs:attribute name="SelectedValue" type="xs:string" />
+        <xs:attribute name="MinuteInterval" type="xs:string" />
+        <xs:attribute name="TimeFormat" type="xs:string" />
+        <xs:attribute name="on-SelectedValueChanged" type="xs:string" />
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TimePicker" nillable="true" type="TimePickerType" />
+  <xs:complexType name="TextInputType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="TextControl-AbstractType">
+        <xs:attribute name="TextMode" type="TextMode" />
+        <xs:attribute name="KeyboardActionType" type="KeyboardActionType" />
+        <xs:attribute name="Text" type="xs:string" />
+        <xs:attribute name="SpellChecking" type="SpellCheckingType" />
+        <xs:attribute name="AutoCorrection" type="AutoCorrectionType" />
+        <xs:attribute name="AutoCapitalization" type="AutoCapitalizationType" />
+        <xs:attribute name="Placeholder" type="xs:string" />
+        <xs:attribute name="PlaceholderColor" type="xs:string" />
+        <xs:attribute name="AutoResizeMaxHeight" type="xs:string" />
+        <xs:attribute name="AutoResizeMaxLineNumber" type="xs:string" />
+        <xs:attribute name="AutoResize" type="Boolean" />
+        <xs:attribute name="MultiLineAutoResize" type="Boolean" />
+        <xs:attribute name="Lines" type="xs:string" />
+        <xs:attribute name="on-UserKeyUp" type="xs:string" />
+        <xs:attribute name="on-UserKeyDown" type="xs:string" />
+        <xs:attribute name="on-UserTextChangeSubmitted" type="xs:string" />
+        <xs:attribute name="on-UserTextChanged" type="xs:string" />
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TextInput" nillable="true" type="TextInputType" />
+  <xs:complexType name="PopUpType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="Page-AbstractType">
+        <xs:attribute name="HostPage" type="xs:string" />
+        <xs:attribute name="of" type="xs:string" use="required" />
+        <xs:attribute name="View" type="xs:string" />
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PopUp" nillable="true" type="PopUpType" />
+  <xs:complexType name="ButtonType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="TextViewType">
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Button" nillable="true" type="ButtonType" />
+  <xs:complexType name="FormFieldType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="StackType">
+        <xs:attribute name="Mandatory" type="Boolean" />
+        <xs:attribute name="LabelText" type="xs:string" />
+        <xs:attribute name="IconPath" type="xs:string" />
+        <xs:attribute name="of" type="xs:string" use="required" />
+        <xs:attribute name="Placeholder" type="xs:string" />
+        <xs:attribute name="Value" type="xs:string" />
+        <xs:attribute name="Control" type="xs:string" />
+        <xs:attribute name="PlaceholderChanged" type="xs:string" />
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FormField" nillable="true" type="FormFieldType" />
+  <xs:complexType name="ImageViewType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="View-AbstractType">
+        <xs:attribute name="FailedPlaceholderImagePath" type="xs:string" />
+        <xs:attribute name="Path" type="xs:string" />
+        <xs:attribute name="ImageData" type="xs:string" />
+        <xs:attribute name="Alignment" type="Alignment" />
+        <xs:attribute name="Stretch" type="Stretch" />
+        <xs:attribute name="IsLazyLoaded" type="xs:string" />
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ImageView" nillable="true" type="ImageViewType" />
+  <xs:complexType name="AlertDialogType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="Dialog-AbstractType">
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AlertDialog" nillable="true" type="AlertDialogType" />
+  <xs:complexType name="CanvasType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="View-AbstractType">
+        <xs:attribute name="ClipChildren" type="Boolean" />
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Canvas" nillable="true" type="CanvasType" />
+  <xs:complexType name="Dialog-AbstractType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="StackType">
+        <xs:attribute name="ScrollContent" type="Boolean" />
+        <xs:attribute name="ButtonsAtTop" type="Boolean" />
+        <xs:attribute name="on-Displayed" type="xs:string" />
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="FlowLayoutType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="CanvasType">
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FlowLayout" nillable="true" type="FlowLayoutType" />
+  <xs:complexType name="LazyLoaderType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="StackType">
+        <xs:attribute name="on-StartingContentLoad" type="xs:string" />
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="LazyLoader" nillable="true" type="LazyLoaderType" />
+  <xs:complexType name="OverlayType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="CanvasType">
+        <xs:attribute name="BlocksGestures" type="Boolean" />
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Overlay" nillable="true" type="OverlayType" />
+  <xs:complexType name="PromptType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="Dialog-AbstractType">
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Prompt" nillable="true" type="PromptType" />
+  <xs:complexType name="StackType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="CanvasType">
+        <xs:attribute name="Direction" type="RepeatDirection" />
+        <xs:attribute name="HorizontalAlignment" type="HorizontalAlignment" />
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Stack" nillable="true" type="StackType" />
+  <xs:complexType name="ToastType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="CanvasType">
+        <xs:attribute name="Message" type="xs:string" />
+        <xs:attribute name="ShowButton" type="Boolean" />
+        <xs:attribute name="Duration" type="xs:string" />
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Toast" nillable="true" type="ToastType" />
+  <xs:complexType name="Page-AbstractType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="CanvasType">
+        <xs:attribute name="EnablePullToRefresh" type="Boolean" />
+        <xs:attribute name="NavParams" type="xs:string" />
+        <xs:attribute name="Transition" type="xs:string" />
+        <xs:attribute name="on-PulledToRefresh" type="xs:string" />
+        <xs:attribute name="on-OnRevisiting" type="xs:string" />
+        <xs:attribute name="on-OnRevisited" type="xs:string" />
+        <xs:attribute name="on-OnExiting" type="xs:string" />
+        <xs:attribute name="on-OnExited" type="xs:string" />
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="TreeViewType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="StackType">
+        <xs:attribute name="IndentSpace" type="xs:string" />
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TreeView" nillable="true" type="TreeViewType" />
+  <xs:complexType name="ScrollViewType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="View-AbstractType">
+        <xs:attribute name="EnableZooming" type="Boolean" />
+        <xs:attribute name="MinZoomScale" type="xs:string" />
+        <xs:attribute name="MaxZoomScale" type="xs:string" />
+        <xs:attribute name="ShowVerticalScrollBars" type="Boolean" />
+        <xs:attribute name="ShowHorizontalScrollBars" type="Boolean" />
+        <xs:attribute name="PagingEnabled" type="Boolean" />
+        <xs:attribute name="PartialPagingEnabled" type="Boolean" />
+        <xs:attribute name="OnePagePartialPagingEnabled" type="Boolean" />
+        <xs:attribute name="Direction" type="RepeatDirection" />
+        <xs:attribute name="EnableScrolling" type="Boolean" />
+        <xs:attribute name="PartialPagingSize" type="xs:string" />
+        <xs:attribute name="ScrollX" type="xs:string" />
+        <xs:attribute name="Zoom" type="xs:string" />
+        <xs:attribute name="ScrollY" type="xs:string" />
+        <xs:attribute name="ShowScroll" type="Boolean" />
+        <xs:attribute name="on-ScrollEnded" type="xs:string" />
+        <xs:attribute name="on-UserScrolledHorizontally" type="xs:string" />
+        <xs:attribute name="on-UserScrolledVertically" type="xs:string" />
+        <xs:attribute name="on-EnableScrollingChanged" type="xs:string" />
+        <xs:attribute name="on-ContentSizeChanged" type="xs:string" />
+        <xs:attribute name="on-ScrolledToNewPage" type="xs:string" />
+        <xs:attribute name="on-RefreshScrollContentSize" type="xs:string" />
+        <xs:attribute name="on-UserZoomChanged" type="xs:string" />
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ScrollView" nillable="true" type="ScrollViewType" />
+  <xs:complexType name="TextControl-AbstractType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="View-AbstractType">
+        <xs:attribute name="TextAlignment" type="Alignment" />
+        <xs:attribute name="TextColor" type="xs:string" />
+        <xs:attribute name="Font" type="xs:string" />
+        <xs:attribute name="TextTransform" type="TextTransform" />
+        <xs:attribute name="on-TextAlignmentChanged" type="xs:string" />
+        <xs:attribute name="on-FontChanged" type="xs:string" />
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="View-AbstractType">
+    <xs:sequence>
+      <xs:any minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+    <xs:attribute name="PseudoCssState" type="xs:string" />
+    <xs:attribute name="CssClass" type="CssStyle" />
+    <xs:attribute name="AutoFlash" type="xs:string" />
+    <xs:attribute name="IsShown" type="Boolean" />
+    <xs:attribute name="IsDisposed" type="Boolean" />
+    <xs:attribute name="Id" type="xs:string" />
+    <xs:attribute name="Enabled" type="Boolean" />
+    <xs:attribute name="BackgroundImagePath" type="ImagesPath" />
+    <xs:attribute name="BackgroundImageData" type="xs:string" />
+    <xs:attribute name="HasAnimatedBackgroundImage" type="Boolean" />
+    <xs:attribute name="BackgroundImageStretch" type="Stretch" />
+    <xs:attribute name="BackgroundImageAlignment" type="Alignment" />
+    <xs:attribute name="Absolute" type="Boolean" />
+    <xs:attribute name="Ignored" type="Boolean" />
+    <xs:attribute name="Opacity" type="xs:string" />
+    <xs:attribute name="Rotation" type="xs:string" />
+    <xs:attribute name="TransformOrigin" type="xs:string" />
+    <xs:attribute name="RotationX" type="xs:string" />
+    <xs:attribute name="RotationY" type="xs:string" />
+    <xs:attribute name="ScaleX" type="xs:string" />
+    <xs:attribute name="ScaleY" type="xs:string" />
+    <xs:attribute name="Visible" type="Boolean" />
+    <xs:attribute name="BackgroundColor" type="xs:string" />
+    <xs:attribute name="Border" type="xs:string" />
+    <xs:attribute name="ZIndex" type="xs:string" />
+    <xs:attribute name="on-Touched" type="xs:string" />
+    <xs:attribute name="on-Tapped" type="xs:string" />
+    <xs:attribute name="on-LongPressed" type="xs:string" />
+    <xs:attribute name="on-Swiped" type="xs:string" />
+    <xs:attribute name="on-Panning" type="xs:string" />
+    <xs:attribute name="on-PanFinished" type="xs:string" />
+    <xs:attribute name="on-Pinching" type="xs:string" />
+    <xs:attribute name="on-UserRotating" type="xs:string" />
+    <xs:attribute name="AnimationContext" type="xs:string" />
+    <xs:attribute name="on-PreRendered" type="xs:string" />
+    <xs:attribute name="on-Rendered" type="xs:string" />
+    <xs:attribute name="on-Initializing" type="xs:string" />
+    <xs:attribute name="on-Initialized" type="xs:string" />
+    <xs:attribute name="on-Flashed" type="xs:string" />
+    <xs:attribute name="on-BackgroundImageChanged" type="xs:string" />
+    <xs:attribute name="on-IgnoredChanged" type="xs:string" />
+    <xs:attribute name="on-AbsoluteChanged" type="xs:string" />
+    <xs:attribute name="on-VisibilityChanged" type="xs:string" />
+    <xs:attribute name="on-ZIndexChanged" type="xs:string" />
+    <xs:attribute name="on-BorderChanged" type="xs:string" />
+    <xs:attribute name="on-OpacityChanged" type="xs:string" />
+    <xs:attribute name="on-ParentSet" type="xs:string" />
+    <xs:attribute name="Style" type="xs:string" />
+    <xs:attribute name="z-ctor" type="xs:string" />
+    <xs:attribute name="z-navBar" type="xs:string" />
+    <xs:attribute name="z-nav-go" type="ZNavType" />
+    <xs:attribute name="z-nav-forward" type="ZNavType" />
+    <xs:attribute name="z-nav-params" type="xs:string" />
+    <xs:attribute name="z-nav-transition" type="PageTransition" />
+    <xs:attribute name="z-nav-throws" type="Boolean" />
+    <xs:attribute name="z-animate-to" type="xs:string" />
+    <xs:attribute name="z-animate-duration" type="xs:string" />
+    <xs:attribute name="z-animate-easing" type="AnimationEasing" />
+    <xs:attribute name="z-animate-factor" type="EasingFactor" />
+    <xs:anyAttribute processContents="skip" />
+  </xs:complexType>
+  <xs:complexType name="TextViewType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="TextControl-AbstractType">
+        <xs:attribute name="Text" type="xs:string" />
+        <xs:attribute name="Wrap" type="xs:string" />
+        <xs:attribute name="AutoSizeWidth" type="Boolean" />
+        <xs:attribute name="LineHeight" type="xs:string" />
+        <xs:attribute name="on-TextChanged" type="xs:string" />
+        <xs:attribute name="on-LineHeightChanged" type="xs:string" />
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TextView" nillable="true" type="TextViewType" />
+  <xs:complexType name="Mvvm__AutoPageType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="Page-AbstractType">
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Zebble.Mvvm.AutoPage" nillable="true" type="Mvvm__AutoPageType" />
+  <xs:complexType name="DrawingType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="CanvasType">
+        <xs:attribute name="on-LineAdded" type="xs:string" />
+        <xs:attribute name="on-PolygonAdded" type="xs:string" />
+        <xs:attribute name="on-Cleared" type="xs:string" />
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Drawing" nillable="true" type="DrawingType" />
+  <xs:complexType name="FilePickerType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="StackType">
+        <xs:attribute name="AllowedSources" type="xs:string" />
+        <xs:attribute name="VideoQuality" type="VideoQuality" />
+        <xs:attribute name="File" type="xs:string" />
+        <xs:attribute name="on-FilePicked" type="xs:string" />
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FilePicker" nillable="true" type="FilePickerType" />
+  <xs:complexType name="GridCellType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="StackType">
+        <xs:attribute name="of" type="xs:string" />
+        <xs:attribute name="Item" type="xs:string" />
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GridCell" nillable="true" type="GridCellType" />
+  <xs:complexType name="GridType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="StackType">
+        <xs:attribute name="Columns" type="xs:string" />
+        <xs:attribute name="on-EmptyTemplateChanged" type="xs:string" />
+        <xs:attribute name="of" type="xs:string" />
+        <xs:attribute name="ExactColumns" type="Boolean" />
+        <xs:attribute name="DataSource" type="xs:string" />
+        <xs:attribute name="LazyLoad" type="Boolean" />
+        <xs:attribute name="on-LazyLoadEnded" type="xs:string" />
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Grid" nillable="true" type="GridType" />
+  <xs:complexType name="IconButtonType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="CanvasType">
+        <xs:attribute name="IconPath" type="xs:string" />
+        <xs:attribute name="Text" type="xs:string" />
+        <xs:attribute name="IconLocation" type="IconLocation" />
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IconButton" nillable="true" type="IconButtonType" />
+  <xs:complexType name="UWP__DevicePanelType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="StackType">
+        <xs:attribute name="GeoLocationForm" type="xs:string" />
+        <xs:attribute name="HeaderButtons" type="xs:string" />
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Zebble.UWP.DevicePanel" nillable="true" type="UWP__DevicePanelType" />
+  <xs:complexType name="UWP__GroupViewType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="GeneralRecyclerListViewItemType">
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Zebble.UWP.GroupView" nillable="true" type="UWP__GroupViewType" />
+  <xs:complexType name="UWP__InspectionBoxType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="StackType">
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Zebble.UWP.InspectionBox" nillable="true" type="UWP__InspectionBoxType" />
+  <xs:complexType name="UWP__PropertiesListType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="StackType">
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Zebble.UWP.PropertiesList" nillable="true" type="UWP__PropertiesListType" />
+  <xs:complexType name="UWP__PropertiesRecyclerListType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="GeneralRecyclerListViewType">
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Zebble.UWP.PropertiesRecyclerList" nillable="true" type="UWP__PropertiesRecyclerListType" />
+  <xs:complexType name="UWP__ReadonlySettingType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="Zebble__UWP__PropertyView-AbstractType">
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Zebble.UWP.ReadonlySetting" nillable="true" type="UWP__ReadonlySettingType" />
+  <xs:complexType name="UWP__BooleanSettingType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="Zebble__UWP__PropertyView-AbstractType">
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Zebble.UWP.BooleanSetting" nillable="true" type="UWP__BooleanSettingType" />
+  <xs:complexType name="UWP__TextSettingType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="Zebble__UWP__PropertyView-AbstractType">
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Zebble.UWP.TextSetting" nillable="true" type="UWP__TextSettingType" />
+  <xs:complexType name="UWP__PropertiesScrollerType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="ScrollViewType">
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Zebble.UWP.PropertiesScroller" nillable="true" type="UWP__PropertiesScrollerType" />
+  <xs:complexType name="UWP__PropertyView-AbstractType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="GeneralRecyclerListViewItemType">
+        <xs:attribute name="of" type="xs:string" />
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ItemPickerType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="Picker-AbstractType">
+        <xs:attribute name="of" type="xs:string" use="required" />
+        <xs:attribute name="Source" type="xs:string" />
+        <xs:attribute name="SelectedItems" type="xs:string" />
+        <xs:attribute name="SelectedItem" type="xs:string" />
+        <xs:attribute name="MultiSelect" type="Boolean" />
+        <xs:attribute name="ButtonsAtTop" type="Boolean" />
+        <xs:attribute name="Searchable" type="xs:string" />
+        <xs:attribute name="SearchCharacterCount" type="xs:string" />
+        <xs:attribute name="on-DialogOpenning" type="xs:string" />
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ItemPicker" nillable="true" type="ItemPickerType" />
+  <xs:complexType name="ItemPickerDialogType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="Dialog-AbstractType">
+        <xs:attribute name="of" type="xs:string" use="required" />
+        <xs:attribute name="on-Accepted" type="xs:string" />
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ItemPickerDialog" nillable="true" type="ItemPickerDialogType" />
+  <xs:complexType name="Picker-AbstractType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="StackType">
+        <xs:attribute name="Placeholder" type="xs:string" />
+        <xs:attribute name="AllowNull" type="Boolean" />
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="CollectionViewType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="CanvasType">
+        <xs:attribute name="of" type="xs:string" use="required" />
+        <xs:attribute name="Direction" type="RepeatDirection" />
+        <xs:attribute name="Source" type="xs:string" />
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CollectionView" nillable="true" type="CollectionViewType" />
+  <xs:complexType name="GeneralRecyclerListViewItemType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="ListViewItemType">
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GeneralRecyclerListViewItem" nillable="true" type="GeneralRecyclerListViewItemType" />
+  <xs:complexType name="GeneralListViewType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="CanvasType">
+        <xs:attribute name="on-EmptyTemplateChanged" type="xs:string" />
+        <xs:attribute name="of" type="xs:string" use="required" />
+        <xs:attribute name="DataSource" type="xs:string" />
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GeneralListView" nillable="true" type="GeneralListViewType" />
+  <xs:complexType name="GeneralRecyclerListViewType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="GeneralListViewType">
+        <xs:attribute name="Offset" type="xs:string" />
+        <xs:attribute name="on-LazyLoadEnded" type="xs:string" />
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GeneralRecyclerListView" nillable="true" type="GeneralRecyclerListViewType" />
+  <xs:complexType name="ListViewType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="StackType">
+        <xs:attribute name="on-EmptyTemplateChanged" type="xs:string" />
+        <xs:attribute name="of" type="xs:string" use="required" />
+        <xs:attribute name="DataSource" type="xs:string" />
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ListView" nillable="true" type="ListViewType" />
+  <xs:complexType name="ListViewItemType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="CanvasType">
+        <xs:attribute name="SwipeAnimationDuration" type="xs:string" />
+        <xs:attribute name="of" type="xs:string" />
+        <xs:attribute name="Item" type="xs:string" />
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ListViewItem" nillable="true" type="ListViewItemType" />
+  <xs:complexType name="RecyclerListViewType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="ListViewType">
+        <xs:attribute name="of" type="xs:string" />
+        <xs:attribute name="on-LazyLoadEnded" type="xs:string" />
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RecyclerListView" nillable="true" type="RecyclerListViewType" />
+  <xs:complexType name="RecyclerListViewItemType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="ListViewItemType">
+        <xs:attribute name="of" type="xs:string" />
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RecyclerListViewItem" nillable="true" type="RecyclerListViewItemType" />
+  <xs:complexType name="RotatorType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="View-AbstractType">
+        <xs:attribute name="of" type="xs:string" />
+        <xs:attribute name="ItemsToDisplay" type="xs:string" />
+        <xs:attribute name="on-SelectionChanged" type="xs:string" />
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Rotator" nillable="true" type="RotatorType" />
+  <xs:complexType name="MainMenuLauncherType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="CanvasType">
+        <xs:attribute name="of" type="xs:string" />
+        <xs:attribute name="on-Toggled" type="xs:string" />
+        <xs:attribute name="MenuWidth" type="xs:string" />
+        <xs:attribute name="OverlayOpacity" type="xs:string" />
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MainMenuLauncher" nillable="true" type="MainMenuLauncherType" />
+  <xs:complexType name="NavBarPage-AbstractType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="Page-AbstractType">
+        <xs:attribute name="Title" type="xs:string" />
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="NavBarTabsPage-AbstractType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="NavBarPage-AbstractType">
+        <xs:attribute name="of" type="xs:string" />
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="NavigationBarType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="CanvasType">
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="NavigationBar" nillable="true" type="NavigationBarType" />
+  <xs:complexType name="TabsType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="StackType">
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Tabs" nillable="true" type="TabsType" />
+  <xs:complexType name="OptionsListType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="CollectionViewType">
+        <xs:attribute name="of" type="xs:string" />
+        <xs:attribute name="CheckboxAlignment" type="HorizontalAlignment" />
+        <xs:attribute name="Source" type="xs:string" />
+        <xs:attribute name="SelectedItems" type="xs:string" />
+        <xs:attribute name="SelectedItem" type="xs:string" />
+        <xs:attribute name="MultiSelect" type="Boolean" />
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="OptionsList" nillable="true" type="OptionsListType" />
+  <xs:complexType name="SelectableItemViewType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="StackType">
+        <xs:attribute name="of" type="xs:string" />
+        <xs:attribute name="Model" type="xs:string" />
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SelectableItemView" nillable="true" type="SelectableItemViewType" />
+  <xs:complexType name="SearchInputType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="CanvasType">
+        <xs:attribute name="Text" type="xs:string" />
+        <xs:attribute name="on-Searched" type="xs:string" />
+        <xs:attribute name="on-Searching" type="xs:string" />
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SearchInput" nillable="true" type="SearchInputType" />
+  <xs:complexType name="SwitchType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="View-AbstractType">
+        <xs:attribute name="Checked" type="Boolean" />
+        <xs:attribute name="AnimationDuration" type="xs:string" />
+        <xs:attribute name="on-CheckedChanged" type="xs:string" />
+        <xs:attribute name="Alignment" type="xs:string" />
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Switch" nillable="true" type="SwitchType" />
+  <xs:complexType name="PrimaryButtonType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="ButtonType">
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PrimaryButton" nillable="true" type="PrimaryButtonType" />
+  <xs:complexType name="SecondaryButtonType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="PrimaryButtonType">
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SecondaryButton" nillable="true" type="SecondaryButtonType" />
+  <xs:complexType name="CenterType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="RowType">
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Center" nillable="true" type="CenterType" />
+  <xs:complexType name="CloseButtonType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="TextViewType">
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CloseButton" nillable="true" type="CloseButtonType" />
+  <xs:complexType name="ContentFrameType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="StackType">
+        <xs:attribute name="Shadow" type="xs:string" />
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ContentFrame" nillable="true" type="ContentFrameType" />
+  <xs:complexType name="IconTextType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="RowType">
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IconText" nillable="true" type="IconTextType" />
+  <xs:complexType name="IconTextChevronType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="RowType">
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IconTextChevron" nillable="true" type="IconTextChevronType" />
+  <xs:complexType name="IconTitleType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="RowType">
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IconTitle" nillable="true" type="IconTitleType" />
+  <xs:complexType name="IconTitleDescriptionType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="RowType">
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IconTitleDescription" nillable="true" type="IconTitleDescriptionType" />
+  <xs:complexType name="IconTitleDescriptionChevronType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="RowType">
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IconTitleDescriptionChevron" nillable="true" type="IconTitleDescriptionChevronType" />
+  <xs:complexType name="IndexTextType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="RowType">
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IndexText" nillable="true" type="IndexTextType" />
+  <xs:complexType name="IndexTextChevronType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="RowType">
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IndexTextChevron" nillable="true" type="IndexTextChevronType" />
+  <xs:complexType name="IndexTitleType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="RowType">
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IndexTitle" nillable="true" type="IndexTitleType" />
+  <xs:complexType name="IndexTitleDescriptionType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="RowType">
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IndexTitleDescription" nillable="true" type="IndexTitleDescriptionType" />
+  <xs:complexType name="IndexTitleDescriptionChevronType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="RowType">
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IndexTitleDescriptionChevron" nillable="true" type="IndexTitleDescriptionChevronType" />
+  <xs:complexType name="LinkType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="TextViewType">
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Link" nillable="true" type="LinkType" />
+  <xs:complexType name="CancelLinkType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="TextViewType">
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CancelLink" nillable="true" type="CancelLinkType" />
+  <xs:complexType name="ListCardType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="StackType">
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ListCard" nillable="true" type="ListCardType" />
+  <xs:complexType name="ListItemType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="StackType">
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ListItem" nillable="true" type="ListItemType" />
+  <xs:complexType name="MainMenu-AbstractType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="StackType">
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="MiddleType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="StackType">
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Middle" nillable="true" type="MiddleType" />
+  <xs:complexType name="RowType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="StackType">
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Row" nillable="true" type="RowType" />
+  <xs:complexType name="TextType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="RowType">
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Text" nillable="true" type="TextType" />
+  <xs:complexType name="TextChevronType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="RowType">
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TextChevron" nillable="true" type="TextChevronType" />
+  <xs:complexType name="TextIconType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="RowType">
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TextIcon" nillable="true" type="TextIconType" />
+  <xs:complexType name="TitleType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="RowType">
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Title" nillable="true" type="TitleType" />
+  <xs:complexType name="TitleChevronType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="RowType">
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TitleChevron" nillable="true" type="TitleChevronType" />
+  <xs:complexType name="TitleDescriptionType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="RowType">
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TitleDescription" nillable="true" type="TitleDescriptionType" />
+  <xs:complexType name="TitleDescriptionChevronType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="RowType">
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TitleDescriptionChevron" nillable="true" type="TitleDescriptionChevronType" />
+  <xs:complexType name="TitleDescriptionIconType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="RowType">
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TitleDescriptionIcon" nillable="true" type="TitleDescriptionIconType" />
+  <xs:complexType name="TitleIconType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="RowType">
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TitleIcon" nillable="true" type="TitleIconType" />
+  <xs:complexType name="TopUnsafeAreaFillerType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="CanvasType">
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TopUnsafeAreaFiller" nillable="true" type="TopUnsafeAreaFillerType" />
+  <xs:complexType name="BottomUnsafeAreaFillerType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="CanvasType">
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="BottomUnsafeAreaFiller" nillable="true" type="BottomUnsafeAreaFillerType" />
+  <xs:complexType name="UI__Templates__BlankType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="Page-AbstractType">
+        <xs:attribute name="Body" type="xs:string" />
+        <xs:attribute name="Wrapper" type="xs:string" />
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UI.Templates.Blank" nillable="true" type="UI__Templates__BlankType" />
+  <xs:complexType name="UI__Templates__SimpleNavBarPageType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="NavBarPage-AbstractType">
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UI.Templates.SimpleNavBarPage" nillable="true" type="UI__Templates__SimpleNavBarPageType" />
+  <xs:complexType name="UI__Pages__TestPageType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="UI__Templates__SimpleNavBarPageType">
+        <xs:attribute name="Model" type="xs:string" />
+        <xs:attribute name="Expander" type="xs:string" />
+        <xs:attribute name="FolderView" type="xs:string" />
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UI.Pages.TestPage" nillable="true" type="UI__Pages__TestPageType" />
+  <xs:complexType name="UI__Pages__CartOrderCardItemType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="RowType">
+        <xs:attribute name="OnDataChanged" type="xs:string" />
+        <xs:attribute name="OnRemove" type="xs:string" />
+        <xs:attribute name="Name" type="xs:string" />
+        <xs:attribute name="ShortCription" type="xs:string" />
+        <xs:attribute name="CountPicker" type="xs:string" />
+        <xs:attribute name="Image" type="xs:string" />
+        <xs:attribute name="OrderItem" type="xs:string" />
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UI.Pages.CartOrderCardItem" nillable="true" type="UI__Pages__CartOrderCardItemType" />
+  <xs:complexType name="UI__Pages__CartPageType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="UI__Templates__SimpleNavBarPageType">
+        <xs:attribute name="Model" type="xs:string" />
+        <xs:attribute name="HeaderPrice" type="xs:string" />
+        <xs:attribute name="BuyButton" type="xs:string" />
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UI.Pages.CartPage" nillable="true" type="UI__Pages__CartPageType" />
+  <xs:complexType name="UI__Pages__CategoryPageType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="UI__Templates__SimpleNavBarPageType">
+        <xs:attribute name="Model" type="xs:string" />
+        <xs:attribute name="List" type="xs:string" />
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UI.Pages.CategoryPage" nillable="true" type="UI__Pages__CategoryPageType" />
+  <xs:complexType name="UI__Pages__ProductCardItemType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="Page-AbstractType">
+        <xs:attribute name="Model" type="xs:string" />
+        <xs:attribute name="CardItem" type="xs:string" />
+        <xs:attribute name="TextHolder" type="xs:string" />
+        <xs:attribute name="Title" type="xs:string" />
+        <xs:attribute name="Description" type="xs:string" />
+        <xs:attribute name="Price" type="xs:string" />
+        <xs:attribute name="Image" type="xs:string" />
+        <xs:attribute name="Product" type="xs:string" />
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UI.Pages.ProductCardItem" nillable="true" type="UI__Pages__ProductCardItemType" />
+  <xs:complexType name="UI__Pages__HomePageType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="UI__Templates__SimpleNavBarPageType">
+        <xs:attribute name="Model" type="xs:string" />
+        <xs:attribute name="BottomNavBar" type="xs:string" />
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UI.Pages.HomePage" nillable="true" type="UI__Pages__HomePageType" />
+  <xs:complexType name="UI__Pages__OrderCardItemType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="StackType">
+        <xs:attribute name="OrderItem" type="xs:string" />
+        <xs:attribute name="ShowProductDetail" type="xs:string" />
+        <xs:attribute name="Image" type="xs:string" />
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UI.Pages.OrderCardItem" nillable="true" type="UI__Pages__OrderCardItemType" />
+  <xs:complexType name="UI__Pages__OrderInfoPageType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="UI__Templates__SimpleNavBarPageType">
+        <xs:attribute name="Model" type="xs:string" />
+        <xs:attribute name="Description" type="xs:string" />
+        <xs:attribute name="OrderGrid" type="xs:string" />
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UI.Pages.OrderInfoPage" nillable="true" type="UI__Pages__OrderInfoPageType" />
+  <xs:complexType name="UI__Pages__ProductDetailPageType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="UI__Templates__SimpleNavBarPageType">
+        <xs:attribute name="Model" type="xs:string" />
+        <xs:attribute name="InfoSection" type="xs:string" />
+        <xs:attribute name="Image" type="xs:string" />
+        <xs:attribute name="Name" type="xs:string" />
+        <xs:attribute name="ShortCription" type="xs:string" />
+        <xs:attribute name="BuySection" type="xs:string" />
+        <xs:attribute name="Price" type="xs:string" />
+        <xs:attribute name="FavoriteButton" type="xs:string" />
+        <xs:attribute name="CartButton" type="xs:string" />
+        <xs:attribute name="DescriptionSection" type="xs:string" />
+        <xs:attribute name="Description" type="xs:string" />
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UI.Pages.ProductDetailPage" nillable="true" type="UI__Pages__ProductDetailPageType" />
+  <xs:complexType name="UI__Pages__ProfilePageType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="UI__Templates__SimpleNavBarPageType">
+        <xs:attribute name="Model" type="xs:string" />
+        <xs:attribute name="InfoButton" type="xs:string" />
+        <xs:attribute name="InfoExpander" type="xs:string" />
+        <xs:attribute name="OrdersButton" type="xs:string" />
+        <xs:attribute name="OrdersExpander" type="xs:string" />
+        <xs:attribute name="FavoritesButton" type="xs:string" />
+        <xs:attribute name="FavoritesExpander" type="xs:string" />
+        <xs:attribute name="SecurityButton" type="xs:string" />
+        <xs:attribute name="SecurityExpander" type="xs:string" />
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UI.Pages.ProfilePage" nillable="true" type="UI__Pages__ProfilePageType" />
+  <xs:complexType name="UI__Pages__SearchPageType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="UI__Templates__SimpleNavBarPageType">
+        <xs:attribute name="Model" type="xs:string" />
+        <xs:attribute name="SearchInput" type="xs:string" />
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UI.Pages.SearchPage" nillable="true" type="UI__Pages__SearchPageType" />
+  <xs:complexType name="UI__Pages__CategoryCardItemType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="Page-AbstractType">
+        <xs:attribute name="Data" type="xs:string" />
+        <xs:attribute name="IsHead" type="Boolean" />
+        <xs:attribute name="Model" type="xs:string" />
+        <xs:attribute name="CardItem" type="xs:string" />
+        <xs:attribute name="Name" type="xs:string" />
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UI.Pages.CategoryCardItem" nillable="true" type="UI__Pages__CategoryCardItemType" />
+  <xs:complexType name="UI__Pages__CategorySubPageType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="Page-AbstractType">
+        <xs:attribute name="Model" type="xs:string" />
+        <xs:attribute name="FolderView" type="xs:string" />
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UI.Pages.CategorySubPage" nillable="true" type="UI__Pages__CategorySubPageType" />
+  <xs:complexType name="UI__Pages__MostVisitedSubPageType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="Page-AbstractType">
+        <xs:attribute name="Model" type="xs:string" />
+        <xs:attribute name="List" type="xs:string" />
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UI.Pages.MostVisitedSubPage" nillable="true" type="UI__Pages__MostVisitedSubPageType" />
+  <xs:complexType name="UI__Pages__NewSubPageType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="Page-AbstractType">
+        <xs:attribute name="Model" type="xs:string" />
+        <xs:attribute name="List" type="xs:string" />
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UI.Pages.NewSubPage" nillable="true" type="UI__Pages__NewSubPageType" />
+  <xs:complexType name="UI__Pages__OfferSubPageType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="Page-AbstractType">
+        <xs:attribute name="Model" type="xs:string" />
+        <xs:attribute name="List" type="xs:string" />
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UI.Pages.OfferSubPage" nillable="true" type="UI__Pages__OfferSubPageType" />
+  <xs:complexType name="UI__Pages__PopularSubPageType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="Page-AbstractType">
+        <xs:attribute name="Model" type="xs:string" />
+        <xs:attribute name="List" type="xs:string" />
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UI.Pages.PopularSubPage" nillable="true" type="UI__Pages__PopularSubPageType" />
+  <xs:complexType name="UI__Pages__ProfileFavoriteCardItemType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="StackType">
+        <xs:attribute name="Favorite" type="xs:string" />
+        <xs:attribute name="ShowDetail" type="xs:string" />
+        <xs:attribute name="RemoveButtonClicked" type="xs:string" />
+        <xs:attribute name="TextHolder" type="xs:string" />
+        <xs:attribute name="Name" type="xs:string" />
+        <xs:attribute name="Remove" type="xs:string" />
+        <xs:attribute name="Image" type="xs:string" />
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UI.Pages.ProfileFavoriteCardItem" nillable="true" type="UI__Pages__ProfileFavoriteCardItemType" />
+  <xs:complexType name="UI__Pages__ProfileFavoritesSubPageType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="StackType">
+        <xs:attribute name="Model" type="xs:string" />
+        <xs:attribute name="List" type="xs:string" />
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UI.Pages.ProfileFavoritesSubPage" nillable="true" type="UI__Pages__ProfileFavoritesSubPageType" />
+  <xs:complexType name="UI__Pages__ProfileInfoSubPageType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="StackType">
+        <xs:attribute name="Model" type="xs:string" />
+        <xs:attribute name="ProfileInfoCard" type="xs:string" />
+        <xs:attribute name="FirstName" type="xs:string" />
+        <xs:attribute name="LastName" type="xs:string" />
+        <xs:attribute name="Gender" type="xs:string" />
+        <xs:attribute name="BirthDate" type="xs:string" />
+        <xs:attribute name="Email" type="xs:string" />
+        <xs:attribute name="PhoneNumber" type="xs:string" />
+        <xs:attribute name="Country" type="xs:string" />
+        <xs:attribute name="State" type="xs:string" />
+        <xs:attribute name="City" type="xs:string" />
+        <xs:attribute name="StreetAddress" type="xs:string" />
+        <xs:attribute name="ZipCode" type="xs:string" />
+        <xs:attribute name="SaveButton" type="xs:string" />
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UI.Pages.ProfileInfoSubPage" nillable="true" type="UI__Pages__ProfileInfoSubPageType" />
+  <xs:complexType name="UI__Pages__ProfileOrderCardItemType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="StackType">
+        <xs:attribute name="Order" type="xs:string" />
+        <xs:attribute name="ShowInfo" type="xs:string" />
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UI.Pages.ProfileOrderCardItem" nillable="true" type="UI__Pages__ProfileOrderCardItemType" />
+  <xs:complexType name="UI__Pages__ProfileOrdersSubPageType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="StackType">
+        <xs:attribute name="Model" type="xs:string" />
+        <xs:attribute name="List" type="xs:string" />
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UI.Pages.ProfileOrdersSubPage" nillable="true" type="UI__Pages__ProfileOrdersSubPageType" />
+  <xs:complexType name="UI__Pages__ProfileSecuritySubPageType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="StackType">
+        <xs:attribute name="Model" type="xs:string" />
+        <xs:attribute name="ProfileSecurityCard" type="xs:string" />
+        <xs:attribute name="Username" type="xs:string" />
+        <xs:attribute name="Password" type="xs:string" />
+        <xs:attribute name="LogoutButton" type="xs:string" />
+        <xs:attribute name="SaveButton" type="xs:string" />
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UI.Pages.ProfileSecuritySubPage" nillable="true" type="UI__Pages__ProfileSecuritySubPageType" />
+  <xs:complexType name="UI__Modules__RatingBoxType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="Page-AbstractType">
+        <xs:attribute name="Model" type="xs:string" />
+        <xs:attribute name="Holder" type="xs:string" />
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UI.Modules.RatingBox" nillable="true" type="UI__Modules__RatingBoxType" />
+  <xs:complexType name="UI__Modules__ExpandableLayoutType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="View-AbstractType">
+        <xs:attribute name="IsExpanded" type="Boolean" />
+        <xs:attribute name="Direction" type="RepeatDirection" />
+        <xs:attribute name="Duration" type="xs:string" />
+        <xs:attribute name="AnimationEasing" type="AnimationEasing" />
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UI.Modules.ExpandableLayout" nillable="true" type="UI__Modules__ExpandableLayoutType" />
+  <xs:complexType name="UI__Modules__FolderLayoutType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="StackType">
+        <xs:attribute name="of" type="xs:string" />
+        <xs:attribute name="FolderData" type="xs:string" />
+        <xs:attribute name="ViewGen" type="xs:string" />
+        <xs:attribute name="Indentation" type="xs:string" />
+        <xs:attribute name="OnItemSelected" type="xs:string" />
+        <xs:attribute name="Duration" type="xs:string" />
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UI.Modules.FolderLayout" nillable="true" type="UI__Modules__FolderLayoutType" />
+  <xs:complexType name="Zebble__UWP__PropertyView-AbstractType">
+    <xs:sequence>
+      <xs:any minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="CornerPositionEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="TopLeft" />
+      <xs:enumeration value="TopRight" />
+      <xs:enumeration value="BottomRight" />
+      <xs:enumeration value="BottomLeft" />
+      <xs:enumeration value="@....." />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CornerPosition">
+    <xs:union memberTypes="CornerPositionEnum StringPattern" />
+  </xs:simpleType>
+  <xs:simpleType name="SpellCheckingTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Default" />
+      <xs:enumeration value="No" />
+      <xs:enumeration value="Yes" />
+      <xs:enumeration value="@....." />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SpellCheckingType">
+    <xs:union memberTypes="SpellCheckingTypeEnum StringPattern" />
+  </xs:simpleType>
+  <xs:simpleType name="AutoCorrectionTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Default" />
+      <xs:enumeration value="No" />
+      <xs:enumeration value="Yes" />
+      <xs:enumeration value="@....." />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AutoCorrectionType">
+    <xs:union memberTypes="AutoCorrectionTypeEnum StringPattern" />
+  </xs:simpleType>
+  <xs:simpleType name="AutoCapitalizationTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="Words" />
+      <xs:enumeration value="Sentences" />
+      <xs:enumeration value="AllCharacters" />
+      <xs:enumeration value="@....." />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AutoCapitalizationType">
+    <xs:union memberTypes="AutoCapitalizationTypeEnum StringPattern" />
+  </xs:simpleType>
+  <xs:simpleType name="AlignmentEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="TopLeft" />
+      <xs:enumeration value="TopRight" />
+      <xs:enumeration value="TopMiddle" />
+      <xs:enumeration value="Top" />
+      <xs:enumeration value="Left" />
+      <xs:enumeration value="Right" />
+      <xs:enumeration value="Middle" />
+      <xs:enumeration value="Bottom" />
+      <xs:enumeration value="BottomLeft" />
+      <xs:enumeration value="BottomRight" />
+      <xs:enumeration value="BottomMiddle" />
+      <xs:enumeration value="None" />
+      <xs:enumeration value="Justify" />
+      <xs:enumeration value="@....." />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Alignment">
+    <xs:union memberTypes="AlignmentEnum StringPattern" />
+  </xs:simpleType>
+  <xs:simpleType name="RepeatDirectionEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Horizontal" />
+      <xs:enumeration value="Vertical" />
+      <xs:enumeration value="@....." />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="RepeatDirection">
+    <xs:union memberTypes="RepeatDirectionEnum StringPattern" />
+  </xs:simpleType>
+  <xs:simpleType name="TextTransformEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="Uppercase" />
+      <xs:enumeration value="Lowercase" />
+      <xs:enumeration value="Capitalize" />
+      <xs:enumeration value="@....." />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="TextTransform">
+    <xs:union memberTypes="TextTransformEnum StringPattern" />
+  </xs:simpleType>
+  <xs:simpleType name="DeviceSharingOptionEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="AssignToContact" />
+      <xs:enumeration value="CopyToPasteboard" />
+      <xs:enumeration value="Mail" />
+      <xs:enumeration value="Message" />
+      <xs:enumeration value="PostToFacebook" />
+      <xs:enumeration value="PostToTwitter" />
+      <xs:enumeration value="PostToWeibo" />
+      <xs:enumeration value="Print" />
+      <xs:enumeration value="SaveToCameraRoll" />
+      <xs:enumeration value="AddToReadingList" />
+      <xs:enumeration value="AirDrop" />
+      <xs:enumeration value="PostToFlickr" />
+      <xs:enumeration value="PostToTencentWeibo" />
+      <xs:enumeration value="PostToVimeo" />
+      <xs:enumeration value="OpenInIBooks" />
+      <xs:enumeration value="@....." />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="DeviceSharingOption">
+    <xs:union memberTypes="DeviceSharingOptionEnum StringPattern" />
+  </xs:simpleType>
+  <xs:simpleType name="HorizontalAlignmentEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Left" />
+      <xs:enumeration value="Center" />
+      <xs:enumeration value="Right" />
+      <xs:enumeration value="@....." />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="HorizontalAlignment">
+    <xs:union memberTypes="HorizontalAlignmentEnum StringPattern" />
+  </xs:simpleType>
+  <xs:simpleType name="VerticalAlignmentEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Top" />
+      <xs:enumeration value="Middle" />
+      <xs:enumeration value="Bottom" />
+      <xs:enumeration value="@....." />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="VerticalAlignment">
+    <xs:union memberTypes="VerticalAlignmentEnum StringPattern" />
+  </xs:simpleType>
+  <xs:simpleType name="DirectionEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Left" />
+      <xs:enumeration value="Right" />
+      <xs:enumeration value="Up" />
+      <xs:enumeration value="Down" />
+      <xs:enumeration value="@....." />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Direction">
+    <xs:union memberTypes="DirectionEnum StringPattern" />
+  </xs:simpleType>
+  <xs:simpleType name="TextModeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Auto" />
+      <xs:enumeration value="GeneralText" />
+      <xs:enumeration value="Email" />
+      <xs:enumeration value="Password" />
+      <xs:enumeration value="Telephone" />
+      <xs:enumeration value="Url" />
+      <xs:enumeration value="Integer" />
+      <xs:enumeration value="Decimal" />
+      <xs:enumeration value="PersonName" />
+      <xs:enumeration value="@....." />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="TextMode">
+    <xs:union memberTypes="TextModeEnum StringPattern" />
+  </xs:simpleType>
+  <xs:simpleType name="KeyboardActionTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Default" />
+      <xs:enumeration value="Done" />
+      <xs:enumeration value="Go" />
+      <xs:enumeration value="Next" />
+      <xs:enumeration value="Search" />
+      <xs:enumeration value="Send" />
+      <xs:enumeration value="@....." />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="KeyboardActionType">
+    <xs:union memberTypes="KeyboardActionTypeEnum StringPattern" />
+  </xs:simpleType>
+  <xs:simpleType name="SensorDelayEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Realtime" />
+      <xs:enumeration value="Game" />
+      <xs:enumeration value="UI" />
+      <xs:enumeration value="Background" />
+      <xs:enumeration value="@....." />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SensorDelay">
+    <xs:union memberTypes="SensorDelayEnum StringPattern" />
+  </xs:simpleType>
+  <xs:simpleType name="StretchEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Default" />
+      <xs:enumeration value="Fill" />
+      <xs:enumeration value="Fit" />
+      <xs:enumeration value="AspectFill" />
+      <xs:enumeration value="@....." />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Stretch">
+    <xs:union memberTypes="StretchEnum StringPattern" />
+  </xs:simpleType>
+  <xs:simpleType name="DevicePlatformEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="IOS" />
+      <xs:enumeration value="Android" />
+      <xs:enumeration value="Windows" />
+      <xs:enumeration value="@....." />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="DevicePlatform">
+    <xs:union memberTypes="DevicePlatformEnum StringPattern" />
+  </xs:simpleType>
+  <xs:simpleType name="BackgroundRepeatEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="X" />
+      <xs:enumeration value="Y" />
+      <xs:enumeration value="@....." />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="BackgroundRepeat">
+    <xs:union memberTypes="BackgroundRepeatEnum StringPattern" />
+  </xs:simpleType>
+  <xs:simpleType name="DeviceOrientationEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Portrait" />
+      <xs:enumeration value="Landscape" />
+      <xs:enumeration value="@....." />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="DeviceOrientation">
+    <xs:union memberTypes="DeviceOrientationEnum StringPattern" />
+  </xs:simpleType>
+  <xs:simpleType name="ButtonLocationEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Left" />
+      <xs:enumeration value="Right" />
+      <xs:enumeration value="@....." />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ButtonLocation">
+    <xs:union memberTypes="ButtonLocationEnum StringPattern" />
+  </xs:simpleType>
+  <xs:simpleType name="MediaSourceEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="PickPhoto" />
+      <xs:enumeration value="TakePhoto" />
+      <xs:enumeration value="PickVideo" />
+      <xs:enumeration value="TakeVideo" />
+      <xs:enumeration value="@....." />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="MediaSource">
+    <xs:union memberTypes="MediaSourceEnum StringPattern" />
+  </xs:simpleType>
+  <xs:simpleType name="ShareTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Text" />
+      <xs:enumeration value="Link" />
+      <xs:enumeration value="Clipboard" />
+      <xs:enumeration value="Browser" />
+      <xs:enumeration value="@....." />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ShareType">
+    <xs:union memberTypes="ShareTypeEnum StringPattern" />
+  </xs:simpleType>
+  <xs:simpleType name="IconLocationEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Left" />
+      <xs:enumeration value="Right" />
+      <xs:enumeration value="@....." />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="IconLocation">
+    <xs:union memberTypes="IconLocationEnum StringPattern" />
+  </xs:simpleType>
+  <xs:simpleType name="VideoQualityEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="High" />
+      <xs:enumeration value="Medium" />
+      <xs:enumeration value="Low" />
+      <xs:enumeration value="@....." />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="VideoQuality">
+    <xs:union memberTypes="VideoQualityEnum StringPattern" />
+  </xs:simpleType>
+  <xs:simpleType name="CameraOptionEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Rear" />
+      <xs:enumeration value="Front" />
+      <xs:enumeration value="@....." />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CameraOption">
+    <xs:union memberTypes="CameraOptionEnum StringPattern" />
+  </xs:simpleType>
+  <xs:simpleType name="RevisitModeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NewParams" />
+      <xs:enumeration value="SameParams" />
+      <xs:enumeration value="@....." />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="RevisitMode">
+    <xs:union memberTypes="RevisitModeEnum StringPattern" />
+  </xs:simpleType>
+  <xs:simpleType name="ConcurrentEventRaisePolicyEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Ignore" />
+      <xs:enumeration value="Queue" />
+      <xs:enumeration value="Parallel" />
+      <xs:enumeration value="@....." />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ConcurrentEventRaisePolicy">
+    <xs:union memberTypes="ConcurrentEventRaisePolicyEnum StringPattern" />
+  </xs:simpleType>
+  <xs:simpleType name="DependencyFetchTargetEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="GlobalInstance" />
+      <xs:enumeration value="NewInstance" />
+      <xs:enumeration value="@....." />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="DependencyFetchTarget">
+    <xs:union memberTypes="DependencyFetchTargetEnum StringPattern" />
+  </xs:simpleType>
+  <xs:simpleType name="PageTransitionEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="SlideForward" />
+      <xs:enumeration value="SlideBack" />
+      <xs:enumeration value="Fade" />
+      <xs:enumeration value="SlideDown" />
+      <xs:enumeration value="SlideUp" />
+      <xs:enumeration value="DropDown" />
+      <xs:enumeration value="DropUp" />
+      <xs:enumeration value="@....." />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PageTransition">
+    <xs:union memberTypes="PageTransitionEnum StringPattern" />
+  </xs:simpleType>
+  <xs:simpleType name="OnErrorEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Throw" />
+      <xs:enumeration value="Toast" />
+      <xs:enumeration value="Alert" />
+      <xs:enumeration value="Ignore" />
+      <xs:enumeration value="@....." />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="OnError">
+    <xs:union memberTypes="OnErrorEnum StringPattern" />
+  </xs:simpleType>
+  <xs:simpleType name="ApiResponseCacheEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Prefer" />
+      <xs:enumeration value="PreferThenUpdate" />
+      <xs:enumeration value="Accept" />
+      <xs:enumeration value="AcceptButWarn" />
+      <xs:enumeration value="Refuse" />
+      <xs:enumeration value="CacheOrNull" />
+      <xs:enumeration value="@....." />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ApiResponseCache">
+    <xs:union memberTypes="ApiResponseCacheEnum StringPattern" />
+  </xs:simpleType>
+  <xs:simpleType name="AnimationEasingEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="EaseIn" />
+      <xs:enumeration value="EaseInOut" />
+      <xs:enumeration value="EaseOut" />
+      <xs:enumeration value="Linear" />
+      <xs:enumeration value="EaseInBounceOut" />
+      <xs:enumeration value="@....." />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AnimationEasing">
+    <xs:union memberTypes="AnimationEasingEnum StringPattern" />
+  </xs:simpleType>
+  <xs:simpleType name="EasingFactorEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Quadratic" />
+      <xs:enumeration value="Cubic" />
+      <xs:enumeration value="Quartic" />
+      <xs:enumeration value="Quintic" />
+      <xs:enumeration value="@....." />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="EasingFactor">
+    <xs:union memberTypes="EasingFactorEnum StringPattern" />
+  </xs:simpleType>
+  <xs:simpleType name="TimeFormatEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="AMPM" />
+      <xs:enumeration value="Twentyfour" />
+      <xs:enumeration value="@....." />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="TimeFormat">
+    <xs:union memberTypes="TimeFormatEnum StringPattern" />
+  </xs:simpleType>
+  <xs:simpleType name="DeviceConnectionTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Cellular" />
+      <xs:enumeration value="WiFi" />
+      <xs:enumeration value="Ethernet" />
+      <xs:enumeration value="Other" />
+      <xs:enumeration value="@....." />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="DeviceConnectionType">
+    <xs:union memberTypes="DeviceConnectionTypeEnum StringPattern" />
+  </xs:simpleType>
+  <xs:simpleType name="Zebble.Device.PermissionEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Albums" />
+      <xs:enumeration value="Camera" />
+      <xs:enumeration value="Microphone" />
+      <xs:enumeration value="BodyMotions" />
+      <xs:enumeration value="Location" />
+      <xs:enumeration value="Contacts" />
+      <xs:enumeration value="Calendar" />
+      <xs:enumeration value="Reminders" />
+      <xs:enumeration value="PhoneCall" />
+      <xs:enumeration value="SendSms" />
+      <xs:enumeration value="Speech" />
+      <xs:enumeration value="LocalNotification" />
+      <xs:enumeration value="Vibration" />
+      <xs:enumeration value="Fingerprint" />
+      <xs:enumeration value="@....." />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Permission">
+    <xs:union memberTypes="Zebble.Device.PermissionEnum StringPattern" />
+  </xs:simpleType>
+  <xs:simpleType name="Zebble.Device.PermissionResultEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Granted" />
+      <xs:enumeration value="Denied" />
+      <xs:enumeration value="FeatureDisabled" />
+      <xs:enumeration value="Restricted" />
+      <xs:enumeration value="Unknown" />
+      <xs:enumeration value="@....." />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PermissionResult">
+    <xs:union memberTypes="Zebble.Device.PermissionResultEnum StringPattern" />
+  </xs:simpleType>
+  <xs:simpleType name="Zebble.Device.LocationTrackingPurposeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="AutomotiveNavigation" />
+      <xs:enumeration value="OtherNavigation" />
+      <xs:enumeration value="Fitness" />
+      <xs:enumeration value="Other" />
+      <xs:enumeration value="@....." />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="LocationTrackingPurpose">
+    <xs:union memberTypes="Zebble.Device.LocationTrackingPurposeEnum StringPattern" />
+  </xs:simpleType>
+  <xs:simpleType name="QueueStatusEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="Added" />
+      <xs:enumeration value="Applied" />
+      <xs:enumeration value="Rejected" />
+      <xs:enumeration value="@....." />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="QueueStatus">
+    <xs:union memberTypes="QueueStatusEnum StringPattern" />
+  </xs:simpleType>
+  <xs:simpleType name="Domain.Models.PageTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Category" />
+      <xs:enumeration value="MostVisited" />
+      <xs:enumeration value="Popular" />
+      <xs:enumeration value="Offer" />
+      <xs:enumeration value="New" />
+      <xs:enumeration value="@....." />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PageType">
+    <xs:union memberTypes="Domain.Models.PageTypeEnum StringPattern" />
+  </xs:simpleType>
+  <xs:simpleType name="Domain.Models.GenderEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Male" />
+      <xs:enumeration value="Female" />
+      <xs:enumeration value="Unknown" />
+      <xs:enumeration value="@....." />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Gender">
+    <xs:union memberTypes="Domain.Models.GenderEnum StringPattern" />
+  </xs:simpleType>
+  <xs:simpleType name="Domain.Models.StatusEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="InCart" />
+      <xs:enumeration value="InProcessQue" />
+      <xs:enumeration value="Affirmed" />
+      <xs:enumeration value="Preparation" />
+      <xs:enumeration value="Sent" />
+      <xs:enumeration value="Delivered" />
+      <xs:enumeration value="Rejected" />
+      <xs:enumeration value="@....." />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Status">
+    <xs:union memberTypes="Domain.Models.StatusEnum StringPattern" />
+  </xs:simpleType>
+  <xs:simpleType name="FormField-OfEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="@....." />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="FormField-Of">
+    <xs:union memberTypes="FormField-OfEnum StringPattern" />
+  </xs:simpleType>
+</xs:schema>

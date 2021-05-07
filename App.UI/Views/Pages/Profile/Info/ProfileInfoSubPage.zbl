@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<zbl xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:noNamespaceSchemaLocation="../../../.zebble-schema.xml">
+   <class type="ProfileInfoSubPage" base="Stack" namespace="UI.Pages" viewmodel="ViewModel.ProfileInfoSubPage">
+      <Stack Id="ProfileInfoCard">
+         <FormField of="TextInput"
+                    Id="FirstName"
+                    LabelText="First Name"
+                    Value="@{Model.User, u => u.FirstName}"
+                    Control.on-UserTextChanged="@{Model.User.Value.FirstName = FirstName.Text}"
+                    Control.TextMode="PersonName" />
+         <FormField of="TextInput"
+                    Id="LastName"
+                    LabelText="Last Name"
+                    Value="@{Model.User, u => u.LastName}"
+                    Control.on-UserTextChanged="@{Model.User.Value.LastName = LastName.Text}"
+                    Control.TextMode="PersonName" />
+         <Row CssClass="ItemPickerHolder">
+            <TextView Text="Gender" CssClass="LabelText" />
+            <ItemPicker of="Domain.Models.Gender"
+                        Id="Gender"
+                        Placeholder="dd/MM/yyyy"
+                        MultiSelect="false"
+                        Searchable="false"
+                        Source="@{Model.Genders}"
+                        Label.Text="@{Model.User, u => u.Gender}" />
+         </Row>
+         <Row CssClass="ItemPickerHolder">
+            <TextView Text="Birth Date" CssClass="LabelText" />
+            <DatePicker Id="BirthDate"
+                        DayFormat="d"
+                        TextFormat="dd/MM/yyyy"
+                        YearFrom="1900"
+                        YearTo="@Model.MaxBirthYear"
+                        on-SelectedValueChanged="@{Model.User.Value.BirthDate = BirthDate.SelectedValue}"
+                        Label.Text="@{Model.User, u => u.BirthDateString()}" />
+         </Row>
+         <FormField of="TextInput"
+                    Id="Email"
+                    LabelText="E-Mail"
+                    Control.TextMode="Email"
+                    Control.on-UserTextChanged="@{Model.User.Value.Email = Email.Text}"
+                    Value="@{Model.User, u => u.Email}" />
+         <FormField of="TextInput"
+                    Id="PhoneNumber"
+                    LabelText="Phone Number"
+                    Control.TextMode="Telephone"
+                    Control.on-UserTextChanged="@{Model.User.Value.PhoneNumber = PhoneNumber.Text}"
+                    Value="@{Model.User, u => u.PhoneNumber}" />
+         <TextView Text="Address:" CssClass="Section" />
+         <Row CssClass="ItemPickerHolder">
+            <TextView Text="Country" CssClass="LabelText" />
+            <ItemPicker of="string"
+                        Id="Country"
+                        MultiSelect="false"
+                        Searchable="false"
+                        Source="@{Model.Countries}"
+                        Label.Text="@{Model.User, u => u.Address.Country}" />
+         </Row>
+         <FormField of="TextInput"
+                    Id="State"
+                    LabelText="State"
+                    Control.TextMode="GeneralText"
+                    Control.on-UserTextChanged="@{Model.User.Value.Address.State = State.Text}"
+                    Value="@{Model.User, u => u.Address.State}" />
+         <FormField of="TextInput"
+                    Id="City"
+                    LabelText="City"
+                    Control.TextMode="GeneralText"
+                    Control.on-UserTextChanged="@{Model.User.Value.Address.City = City.Text}"
+                    Value="@{Model.User, u => u.Address.City}" />
+         <FormField of="TextInput"
+                    Id="StreetAddress"
+                    LabelText="Street Address"
+                    Control.Lines="2"
+                    Control.TextMode="GeneralText"
+                    Control.on-UserTextChanged="@{Model.User.Value.Address.StreetAddress = StreetAddress.Text}"
+                    Value="@{Model.User, u => u.Address.StreetAddress}" />
+         <FormField of="TextInput"
+                    Id="ZipCode"
+                    LabelText="Zip Code"
+                    Control.TextMode="Integer"
+                    Control.on-UserTextChanged="@{Model.User.Value.Address.ZipCode = ZipCode.Text}"
+                    Value="@{Model.User, u => u.Address.ZipCode}" />
+      </Stack>
+      <Button Id="SaveButton" Text="Save" on-Tapped="@{Model.OnSave(Gender.Label.Text, Country.Label.Text)}" />
+   </class>
+</zbl>

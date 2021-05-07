@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<data>
+  <image path="Images/Logo.png" width="397" height="390" />
+  <image path="Images/Splash.png" width="3000" height="3000" />
+  <image path="Images/Icons/cart.png" width="512" height="512" />
+  <image path="Images/Icons/category.png" width="512" height="512" />
+  <image path="Images/Icons/category2.png" width="512" height="512" />
+  <image path="Images/Icons/eye.png" width="512" height="512" />
+  <image path="Images/Icons/eye2.png" width="512" height="512" />
+  <image path="Images/Icons/gift.png" width="512" height="512" />
+  <image path="Images/Icons/gift2.png" width="512" height="512" />
+  <image path="Images/Icons/heart-gray.png" width="512" height="512" />
+  <image path="Images/Icons/heart.png" width="512" height="512" />
+  <image path="Images/Icons/home.png" width="200" height="200" />
+  <image path="Images/Icons/icon.png" width="2000" height="2000" />
+  <image path="Images/Icons/menu.png" width="200" height="200" />
+  <image path="Images/Icons/new.png" width="512" height="512" />
+  <image path="Images/Icons/new2.png" width="512" height="512" />
+  <image path="Images/Icons/not-found.png" width="255" height="256" />
+  <image path="Images/Icons/profile.png" width="512" height="512" />
+  <image path="Images/Icons/search.png" width="512" height="512" />
+  <image path="Images/Icons/shoes.png" width="564" height="466" />
+  <image path="Images/Icons/spinner.png" width="512" height="512" />
+  <image path="Images/Icons/star-outline.png" width="487" height="512" />
+  <image path="Images/Icons/star.png" width="487" height="512" />
+  <image path="Images/Icons/star2.png" width="487" height="512" />
+</data>

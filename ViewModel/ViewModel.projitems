@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>c208a491-00e6-4463-8f44-41cdafc77ce0</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>ViewModel</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)CategoryCardItem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CartPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SearchPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ProfileFavoritesSubPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ProfileSecuritySubPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ProfileOrdersSubPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ProfileInfoSubPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)OrderInfoPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ProfilePage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TestPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CategoryPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ProductDetailPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)NewSubPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MostedVisitSubPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)OfferSubPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CategorySubPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PopularSubPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)HomePage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ProductCardItem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RatingBox.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Base\SubPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)StartUp.cs" />
+  </ItemGroup>
+</Project>

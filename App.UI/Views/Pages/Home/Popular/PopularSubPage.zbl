@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<zbl xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:noNamespaceSchemaLocation="../../../.zebble-schema.xml">
+   <class type="PopularSubPage" base="Page" namespace="UI.Pages" viewmodel="ViewModel.PopularSubPage">
+      <ScrollView CssClass="Scroller">
+         <Canvas>
+            <ListView of="Domain.Models.Product, Row" DataSource="@{Model.Products}" Id="List">
+               <class type="Row" base="ListViewItem[Domain.Models.Product]">
+                  <ProductCardItem Model.Data="@Item" />
+               </class>
+            </ListView>
+         </Canvas>
+      </ScrollView>
+   </class>
+</zbl>

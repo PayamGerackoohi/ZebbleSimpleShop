@@ -1,0 +1,21 @@
+{
+    "compilers": {
+        "sass": {
+            "includePath": "",
+            "indentType": "space",
+            "indentWidth": 2,
+            "outputStyle": "compact",
+            "Precision": 5,
+            "relativeUrls": true,
+            "sourceMapRoot": "",
+            "sourceMap": true
+        }        
+    },
+    "minifiers": {
+        "css": {
+            "enabled": false,
+            "termSemicolons": true,
+            "gzip": false
+        }
+    }
+}

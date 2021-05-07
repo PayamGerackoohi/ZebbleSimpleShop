@@ -1,0 +1,13 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Target Name="ZebbleGenerateZebbleGeneratedCs" BeforeTargets="PrepareForBuild">
+    <Exec WorkingDirectory="$(SolutionDir)" Command="zebble-compile-zbl" />
+    <Exec WorkingDirectory="$(SolutionDir)" Command="zebble-css generate" />        
+  </Target>
+  <Target Name="UpdateZebbleSchemaAndWatchForCssChanges" AfterTargets="AfterBuild">
+    <Exec WorkingDirectory="$(SolutionDir)" Command="start zebble-schema" />
+    <Exec WorkingDirectory="$(SolutionDir)" Command="start zebble-css watch" />
+    <Exec WorkingDirectory="$(SolutionDir)" Command="start zebble-build nav-xml" />
+    <Exec WorkingDirectory="$(SolutionDir)" Command="zebble-format-zbl" />
+    <Exec WorkingDirectory="$(SolutionDir)" Command="zebble-image update-sizes" />    
+  </Target>
+</Project>

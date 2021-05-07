@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<zbl xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:noNamespaceSchemaLocation="../../../.zebble-schema.xml">
+   <class type="CategoryCardItem" base="Page" namespace="UI.Pages" viewmodel="ViewModel.CategoryCardItem">
+      <Stack Id="CardItem">
+         <TextView Id="Name" Text="@DataValue" />
+      </Stack>
+   </class>
+</zbl>

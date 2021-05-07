@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<zbl xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:noNamespaceSchemaLocation="../../.zebble-schema.xml">
+   <class type="CartPage"
+          base="UI.Templates.SimpleNavBarPage"
+          Title="Cart"
+          namespace="UI.Pages"
+          viewmodel="ViewModel.CartPage">
+      <z-place inside="Body">
+         <Stack Id="HeaderPrice" Direction="Horizontal">
+            <TextView Text="Total Price" CssClass="Left" />
+            <TextView Text="@{Model.Cart, x => x.FormattedTotalPrice()}" CssClass="Right" />
+         </Stack>
+         <ScrollView CssClass="Scroller">
+            <TextView CssClass="SpaceTight" />
+            <ListView of="Domain.Models.OrderItem, Row" DataSource="@{Model.Cart, c => c.OrderItems}">
+               <class type="Row" base="ListViewItem[Domain.Models.OrderItem]">
+                  <CartOrderCardItem OrderItem="@Item"
+                                     OnRemove="@orderItem => FindParent&lt;CartPage&gt;().Model.OnRemove(orderItem)"
+                                     OnDataChanged="@() => FindParent&lt;CartPage&gt;().Model.OnDataChanged()" />
+               </class>
+            </ListView>
+            <TextView CssClass="SpaceTight" />
+         </ScrollView>
+         <Button Id="BuyButton" Text="Buy" on-Tapped="@() => Model.Buy()" />
+      </z-place>
+   </class>
+</zbl>

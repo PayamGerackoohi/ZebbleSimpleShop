@@ -1,0 +1,174 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>cd40d45a-cffe-46fc-8a9d-055ef9ff9440</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>UI</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)compilerconfig.json.defaults" />
+    <None Include="$(MSBuildThisFileDirectory)compilerconfig.json" />
+    <None Include="$(MSBuildThisFileDirectory)Resources\Images\Splash.png" />
+    <None Include="$(MSBuildThisFileDirectory)Resources\Images\Icons\icon.png" />
+    <None Include="$(MSBuildThisFileDirectory)Styles\Components\Defaults.scss" />
+    <None Include="$(MSBuildThisFileDirectory)Styles\Components\_Button.scss" />
+    <None Include="$(MSBuildThisFileDirectory)Styles\PlatformSpecific.scss" />
+    <None Include="$(MSBuildThisFileDirectory)Styles\Common.scss" />
+    <None Include="$(MSBuildThisFileDirectory)Styles\Shared\_Colors.scss" />
+    <None Include="$(MSBuildThisFileDirectory)Styles\Shared\_Fonts.scss" />
+    <None Include="$(MSBuildThisFileDirectory)Templates\SimpleNavBarPage.zbl" />
+    <None Include="$(MSBuildThisFileDirectory)Templates\Blank.zbl" />
+    <None Include="$(MSBuildThisFileDirectory)Views\Modules\RatingBox.zbl" />
+    <None Include="$(MSBuildThisFileDirectory)Views\Pages\Cart\CartPage.zbl" />
+    <None Include="$(MSBuildThisFileDirectory)Views\Pages\Cart\CartOrderCardItem.zbl" />
+    <None Include="$(MSBuildThisFileDirectory)Views\Pages\Home\Category\CategoryCardItem.zbl" />
+    <None Include="$(MSBuildThisFileDirectory)Views\Pages\OrderInfo\OrderCardItem.zbl" />
+    <None Include="$(MSBuildThisFileDirectory)Views\Pages\Profile\Favorites\ProfileFavoriteCardItem.zbl" />
+    <None Include="$(MSBuildThisFileDirectory)Views\Pages\Profile\Favorites\ProfileFavoritesSubPage.zbl" />
+    <None Include="$(MSBuildThisFileDirectory)Views\Pages\Profile\Orders\ProfileOrderCardItem.zbl" />
+    <None Include="$(MSBuildThisFileDirectory)Views\Pages\Profile\Orders\ProfileOrdersSubPage.zbl" />
+    <None Include="$(MSBuildThisFileDirectory)Views\Pages\Profile\Info\ProfileInfoSubPage.zbl" />
+    <None Include="$(MSBuildThisFileDirectory)Views\Pages\OrderInfo\OrderInfoPage.zbl" />
+    <None Include="$(MSBuildThisFileDirectory)Views\Pages\Profile\ProfilePage.zbl" />
+    <None Include="$(MSBuildThisFileDirectory)Views\Pages\Profile\Security\ProfileSecuritySubPage.zbl" />
+    <None Include="$(MSBuildThisFileDirectory)Views\Pages\Search\SearchPage.zbl" />
+    <None Include="$(MSBuildThisFileDirectory)Views\Pages\TestPage.zbl" />
+    <None Include="$(MSBuildThisFileDirectory)Views\Pages\Category\CategoryPage.zbl" />
+    <None Include="$(MSBuildThisFileDirectory)Views\Pages\ProductDetail\ProductDetailPage.zbl" />
+    <None Include="$(MSBuildThisFileDirectory)Views\Pages\Home\New\NewSubPage.zbl" />
+    <None Include="$(MSBuildThisFileDirectory)Views\Pages\Home\Offer\OfferSubPage.zbl" />
+    <None Include="$(MSBuildThisFileDirectory)Views\Pages\Category\ProductCardItem.zbl" />
+    <None Include="$(MSBuildThisFileDirectory)Views\Pages\Home\Popular\PopularSubPage.zbl" />
+    <None Include="$(MSBuildThisFileDirectory)Views\Pages\Home\Category\CategorySubPage.zbl" />
+    <None Include="$(MSBuildThisFileDirectory)Views\Pages\Home\MostVisit\MostVisitedSubPage.zbl" />
+    <None Include="$(MSBuildThisFileDirectory)Views\Pages\Home\HomePage.zbl" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Config.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Images\Icons\home.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Images\Icons\menu.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Images\Icons\not-found.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Images\Icons\shoes.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Images\Icons\spinner.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Images\Logo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Zebble-Meta.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)Styles\Common.css" />
+    <None Include="$(MSBuildThisFileDirectory)Styles\PlatformSpecific.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory).zebble-generated-css.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory).zebble-generated.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)StartUp.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Templates\SimpleNavBarPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utils\Extensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Modules\ExpandableLayout.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Modules\FolderLayout.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Modules\RatingBox.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Pages\Cart\CartPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Pages\Cart\CartOrderCardItem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Pages\Home\Category\CategorySubPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Pages\Home\Category\CategoryCardItem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Pages\OrderInfo\OrderInfoPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Pages\OrderInfo\OrderCardItem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Pages\Profile\Favorites\ProfileFavoriteCardItem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Pages\Profile\Favorites\ProfileFavoritesSubPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Pages\Profile\Info\ProfileInfoSubPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Pages\Profile\Orders\ProfileOrdersSubPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Pages\Profile\Orders\ProfileOrderCardItem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Pages\Profile\ProfilePage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Pages\Profile\Security\ProfileSecuritySubPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Pages\Search\SearchPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Pages\TestPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Pages\Home\New\NewSubPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Pages\Home\Offer\OfferSubPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Pages\Home\MostVisit\MostVisitedSubPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Pages\Category\CategoryPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Pages\ProductDetail\ProductDetailPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Pages\Category\ProductCardItem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Pages\Home\Popular\PopularSubPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Pages\Home\HomePage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utils\UIUtils.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Images\Icons\star2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Images\Icons\new2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Images\Icons\gift2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Images\Icons\eye2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Images\Icons\category2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Images\Icons\heart-gray.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Images\Icons\heart.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Images\Icons\star-outline.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Images\Icons\search.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Images\Icons\profile.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Images\Icons\cart.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Images\Icons\category.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Images\Icons\gift.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Images\Icons\new.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Images\Icons\star.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Images\Icons\eye.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <Content Include="$(MSBuildThisFileDirectory)Views\.zebble-schema.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Views\Pages\Home\Category\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Views\Pages\Home\MostVisit\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Views\Pages\Home\New\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Views\Pages\Home\Offer\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Views\Pages\Category\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Views\Pages\ProductDetail\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Views\Pages\Profile\Info\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Views\Pages\Profile\Orders\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Widgets\" />
+  </ItemGroup>
+</Project>

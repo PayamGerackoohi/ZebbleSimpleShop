@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<zbl xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:noNamespaceSchemaLocation="../../.zebble-schema.xml">
+   <class type="ProductCardItem" base="Page" namespace="UI.Pages" viewmodel="ViewModel.ProductCardItem">
+      <Row Id="CardItem" on-Tapped="@ShowDetails()">
+         <Stack Id="TextHolder">
+            <TextView Id="Title" Text="@{Model.Data, x => Model.Title()}" />
+            <TextView Id="Description" Text="@{Model.Data, x => Model.ShortCription()}" />
+            <TextView Id="Price" Text="@{Model.Data, x => Model.Price()}" />
+         </Stack>
+         <ImageView Id="Image" Path="@UI.Paths.Icons.Star" Stretch="Fit" />
+      </Row>
+   </class>
+</zbl>

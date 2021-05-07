@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<zbl xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:noNamespaceSchemaLocation="../../../.zebble-schema.xml">
+   <class type="ProfileOrderCardItem" base="Stack" namespace="UI.Pages">
+      <Row>
+         <TextView Text="Id" CssClass="Left" />
+         <TextView Text="@Order.Id.ToString()" CssClass="Right" />
+      </Row>
+      <Row CssClass="OrderInfo" on-Tapped="@() => ShowInfo(Order)">
+         <TextView Text="Info" CssClass="Left TopBorder" />
+         <TextView Text="&gt;" CssClass="Right TopBorder" />
+      </Row>
+      <Row>
+         <TextView Text="Date" CssClass="Left" />
+         <TextView Text="@Order.FormattedTime()" CssClass="Right" />
+      </Row>
+      <Row>
+         <TextView Text="Total Price" CssClass="Left" />
+         <TextView Text="@Order.FormattedTotalPrice()" CssClass="Right  Price" />
+      </Row>
+      <Row>
+         <TextView Text="Status" CssClass="Left" />
+         <TextView Text="@Order.Status.Status.ToString()" CssClass="Right" />
+      </Row>
+   </class>
+</zbl>

@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<zbl xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:noNamespaceSchemaLocation="../../.zebble-schema.xml">
+   <class type="CartOrderCardItem" base="Row" namespace="UI.Pages">
+      <Stack>
+         <TextView Id="Name" Text="@OrderItem.Product.Name" />
+         <TextView Id="ShortCription" Text="@OrderItem.Product.ShortCription" />
+         <Row CssClass="ItemPickerHolder">
+            <TextView Text="Count" CssClass="LabelText" />
+            <ItemPicker of="string"
+                        Id="CountPicker"
+                        MultiSelect="false"
+                        Searchable="false"
+                        Source="@Counts"
+                        Label.Text="@OrderItem.Count.ToString()" />
+         </Row>
+         <Row CssClass="TopBorder">
+            <TextView Text="Unit Price" CssClass="LabelText" />
+            <TextView Text="@OrderItem.Product.FormattedPrice()" CssClass="Right Price" />
+         </Row>
+         <Row CssClass="TopBorder">
+            <TextView Text="Total Price" CssClass="LabelText" />
+            <TextView Text="@OrderItem.FormattedPrice()" CssClass="Right Price" />
+         </Row>
+         <Row CssClass="TopBorder">
+            <TextView Text="Remove" CssClass="Remove" on-Tapped="@() => OnRemove(OrderItem)" />
+         </Row>
+      </Stack>
+      <ImageView Id="Image" Path="@Paths.Icons.Star" />
+   </class>
+</zbl>

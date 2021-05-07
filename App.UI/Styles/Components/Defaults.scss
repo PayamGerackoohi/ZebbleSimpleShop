@@ -1,0 +1,301 @@
+﻿$module-border-color: #aaaaaa;
+$checkbox-checked-color: dimgray;
+$checkbox-size: 16px;
+$file-picker-size: 64px;
+$spacex2: 32px;
+$space: 16px;
+$space-tight: 8px;
+$bullet-size: 8px;
+$item-picker-cater-size: 40px;
+$date-picker-size: 50px;
+$indicator-size: 100px;
+$primary-color: #00b9f0;
+$secondary-color: #008db7;
+$toast-back-color: rgba(0.5, 0.5, 0.5, 0.7);
+$corner-radius: 8px;
+$corner-radius-smooth: 16px;
+$form-label-size: 35%;
+$form-label-font-size: 3.5fvw;
+$form-border-color: #AAAAAA;
+
+@function wrap-content() {
+    @return calc("Content");
+}
+
+@function match-parent() {
+    @return calc("Container");
+}
+
+@function sum($numbers...) {
+    $sum: 0;
+
+    @each $number in $numbers {
+        $sum: $sum + $number;
+    }
+
+    @return $sum;
+}
+
+@function mul($a, $b) {
+    @return a * b;
+}
+
+@mixin horizontal-align { margin-left: calc("view.Parent.Width, view.Parent.Padding.Left, view.Parent.Padding.Right, view.Width, (pw, ppl, ppr, vw) => (pw  - ppl - ppr - vw) / 2"); }
+@mixin right-align { margin-left: calc("view.Parent.Width, view.Parent.Padding.Left, view.Parent.Padding.Right, view.Width, (pw, ppl, ppr, vw) => pw  - ppl - ppr - vw"); }
+@mixin vertical-align { margin-top: calc("view.Parent.Height, view.Parent.Padding.Top, view.Parent.Padding.Bottom, view.Height, (ph, ppt, ppb, vh) => (ph  - ppt - ppb - vh) / 2"); }
+@mixin bottom-align { margin-top: calc("view.Parent.Height, view.Parent.Padding.Top, view.Parent.Padding.Bottom, view.Height, (ph, ppt, ppb, vh) => ph  - ppt - ppb - vh"); }
+@mixin item-paddingx2 { padding: $spacex2; }
+@mixin item-padding { padding: $space; }
+@mixin item-padding-tight { padding: $space-tight; }
+@mixin item-margin { margin: $space; }
+@mixin item-margin-tight { margin: $space-tight; }
+@mixin square($size) { width: $size; height: $size; }
+@mixin border-default { border: 1px solid $module-border-color; }
+@mixin wrap-size() { width: wrap-content(); height: wrap-content(); }
+@mixin match-size() { width: match-parent(); height: match-parent(); }
+
+@mixin item-spacing {
+    @include item-margin-tight;
+    @include item-padding-tight;
+}
+
+@mixin dialog-center {
+    background-color: white;
+    border-radius: $space;
+    @include item-margin;
+    @include item-padding-tight;
+    @include vertical-align;
+}
+
+TextView {
+    @include item-padding-tight;
+}
+
+Carousel { height: 100%;
+    #BulletsContainer {
+        padding: 32px;
+        @include horizontal-align;
+
+        Carousel-Bullet {
+            @include square($bullet-size);
+            background-color: #eee;
+            margin: 4px;
+            border-radius: $bullet-size;
+            &:active { background-color: #333; }
+        }
+    }
+}
+
+AlertDialog {
+    @include dialog-center;
+    #Title { padding: 8px; font-weight: bold; }
+    #Message { padding: 8px; }
+    Button { margin: 8px; }
+}
+
+TextInput {
+    padding: 8px;
+    margin: 8px;
+    margin-top: 0;
+    border-radius: 4px;
+    @include border-default;
+}
+
+ItemPicker {
+    #Label {
+        @include item-padding-tight;
+    }
+    #Caret {
+        @include square($item-picker-cater-size);
+    }
+}
+
+ItemPickerDialog {
+    @include dialog-center;
+    #Title { padding: 8px; margin: 8px; }
+
+    TextInput { }
+
+    ScrollView { height: calc("Content");
+        .options-list { margin: 0px;
+            SelectableItemView {
+                #CheckBox {
+                    margin: 8px;
+                    @include vertical-align;
+                }
+                #Label { margin: 0px; }
+            }
+        }
+    }
+    #ButtonsRow {
+        #CancelButton {
+            margin: 8px;
+            width: wrap-content();
+            padding-left: $spacex2;
+            padding-right: $spacex2;
+            @include horizontal-align;
+        }
+        #OkButton { margin: 8px; }
+    }
+}
+
+CheckBox {
+    @include square($checkbox-size);
+    border: 1px solid $module-border-color;
+    border-radius: $checkbox-size;
+    background: transparent;
+    &:checked { background-color: $module-border-color; }
+}
+
+DatePicker {
+    #Label { background-color: red; height: calc("Content"); color: white; font-weight: bold; padding: 16px; }
+    #Caret {
+        background-color: blue;
+        @include square($date-picker-size);
+    }
+}
+
+DatePicker-Dialog {
+    @include dialog-center;
+
+    #Title {
+        @include item-padding-tight;
+    }
+
+    #DialogContent {
+        @include item-padding-tight;
+    }
+
+    #ButtonsRow {
+        & > Button { margin: 8px; }
+    }
+}
+
+Drawing { height: 500px; }
+
+FilePicker { height: $file-picker-size;
+    Button {
+        border-radius: 0;
+        @include item-margin;
+    }
+    #Preview {
+        @include square($file-picker-size);
+        background-color: blue;
+    }
+}
+
+FilePicker-Dialog {
+    @include dialog-center;
+
+    #Title {
+        @include item-padding;
+        font-weight: bold;
+    }
+
+    ScrollView {
+        Stack {
+            IconButton {
+                height: calc("Content");
+                @include border-default;
+                @include item-spacing;
+
+                #TextView {
+                    @include item-margin-tight;
+                    padding-left: $file-picker-size;
+                    height: calc("Container");
+                }
+
+                #Icon {
+                    @include square($file-picker-size);
+                    background-color: red;
+                }
+            }
+            #PickPhotoButton { }
+            #TakePhotoButton { }
+            #PickVideoButton { }
+            #TakeVideoButton { }
+        }
+    }
+
+    #ButtonsRow {
+        Button {
+            @include item-margin;
+        }
+    }
+}
+
+#Indicator {
+    @include dialog-center;
+    @include horizontal-align;
+    @include square($indicator-size);
+
+    ImageView {
+        @include square(100%);
+    }
+}
+
+NavigationBar {
+    background-color: $primary-color;
+    #Title { padding: $space + $space-tight; text-align: center; font-weight: bold; color: white; }
+
+    @mixin NavButtonStack {
+        @include item-padding-tight;
+
+        #TextView { height: match-parent(); color: white; font-size: 7vw; }
+
+        #Icon {
+            width: wrap-content();
+            @include item-margin-tight;
+        }
+
+        ImageView {
+            width: wrap-content();
+            @include item-margin-tight;
+        }
+    }
+
+    #Left {
+        @include NavButtonStack;
+    }
+
+    #Right {
+        @include NavButtonStack;
+    }
+}
+
+Tabs {
+    padding-top: $space-tight;
+    @include bottom-align;
+    background-color: $primary-color;
+    z-index: 10;
+    Tabs-Tab {
+        #Icon { background-position: center; }
+        #Label { font-size: 3vw; text-align: center; padding-left: 4px; padding-right: 4px; }
+    }
+}
+
+TreeView {
+    Stack {
+        .toggle-icon { width: wrap-content(); }
+        .tree-node { }
+    }
+}
+
+FormField { padding: 4px;
+    #Icon { }
+    #Label {
+        width: $form-label-size;
+        font-size: $form-label-font-size;
+        @include vertical-align;
+    }
+    TextInput { margin: 0; }
+}
+
+Toast {
+    background-color: $toast-back-color;
+    @include item-padding-tight;
+    @include item-margin;
+    border-radius: $corner-radius;
+    #Label { color: white; }
+    #OKButton { color: white; }
+}

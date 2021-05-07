@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<zbl xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:noNamespaceSchemaLocation="../../.zebble-schema.xml">
+   <class type="OrderInfoPage"
+          base="UI.Templates.SimpleNavBarPage"
+          Title="Order Info"
+          namespace="UI.Pages"
+          viewmodel="ViewModel.OrderInfoPage">
+      <z-place inside="BodyScroller">
+         <Row>
+            <TextView Id="Description" Text="@{Model.Order, x => x.Status.Description}" />
+         </Row>
+         <Grid Id="OrderGrid" Columns="2" />
+      </z-place>
+   </class>
+</zbl>

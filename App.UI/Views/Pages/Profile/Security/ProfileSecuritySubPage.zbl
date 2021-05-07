@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<zbl xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:noNamespaceSchemaLocation="../../../.zebble-schema.xml">
+   <class type="ProfileSecuritySubPage" base="Stack" namespace="UI.Pages" viewmodel="ViewModel.ProfileSecuritySubPage">
+      <Stack Id="ProfileSecurityCard">
+         <FormField of="TextInput"
+                    Id="Username"
+                    LabelText="Username"
+                    Value="@{Model.User, u => u.Credential.Username}"
+                    Control.on-UserTextChanged="@{Model.User.Value.Credential.Username = Username.Text}"
+                    Control.Enabled="false"
+                    Control.TextMode="Auto" />
+         <FormField of="TextInput"
+                    Id="Password"
+                    LabelText="Password"
+                    Value="@{Model.User, u => u.Credential.Password}"
+                    Control.on-UserTextChanged="@{Model.User.Value.Credential.Password = Password.Text}"
+                    Control.TextMode="Password" />
+      </Stack>
+      <Row>
+         <Button Id="LogoutButton" Text="Logout" on-Tapped="@{Model.OnLogout()}" />
+         <Button Id="SaveButton" Text="Save" on-Tapped="@{Model.OnSave()}" />
+      </Row>
+   </class>
+</zbl>

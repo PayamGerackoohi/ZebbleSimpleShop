@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<zbl xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:noNamespaceSchemaLocation="../../../.zebble-schema.xml">
+   <class type="CategorySubPage" base="Page" namespace="UI.Pages" viewmodel="ViewModel.CategorySubPage">
+      <ScrollView CssClass="Scroller">
+         <Row CssClass="SpaceTight" />
+         <Modules.FolderLayout of="Domain.Models.Category, CategoryViewGen"
+                               Id="FolderView"
+                               OnItemSelected="@data => Model.OnCategorySelected(data)"
+                               ViewGen="@new CategoryViewGen()"
+                               FolderData="@{Model.Categories, x => Model.GetData()}" />
+      </ScrollView>
+   </class>
+</zbl>

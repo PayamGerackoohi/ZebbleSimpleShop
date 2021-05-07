@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<zbl xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:noNamespaceSchemaLocation="../../.zebble-schema.xml">
+   <class type="OrderCardItem" base="Stack" namespace="UI.Pages" on-Tapped="@() => ShowProductDetail(OrderItem.Product)">
+      <ImageView Id="Image" Path="@UI.Paths.Icons.Star" />
+      <Row>
+         <TextView Text="Price" CssClass="Left" />
+         <TextView Text="@OrderItem.FormattedPrice()" CssClass="Right Price" />
+      </Row>
+      <Row>
+         <TextView Text="Count" CssClass="Left" />
+         <TextView Text="@OrderItem.Count.ToString()" CssClass="Right" />
+      </Row>
+   </class>
+</zbl>

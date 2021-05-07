@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<zbl xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:noNamespaceSchemaLocation="../../.zebble-schema.xml">
+   <class type="HomePage"
+          base="UI.Templates.SimpleNavBarPage"
+          Title="Simple Shop"
+          namespace="UI.Pages"
+          viewmodel="ViewModel.HomePage">
+      <Carousel Id="Body" ShowBullets="false" />
+      <Tabs Id="BottomNavBar">
+         <Tabs.Tab Label.Text="Category"
+                   Icon.Path="@UI.Paths.Icons.Category"
+                   data-1="@UI.Paths.Icons.Category"
+                   data-2="@UI.Paths.Icons.Category2"
+                   on-Tapped="@{Model.TabSelected(Domain.Models.PageType.Category)}"
+                   Icon.Style.Padding="4" />
+         <Tabs.Tab Label.Text="Most Visited"
+                   Icon.Path="@UI.Paths.Icons.Eye"
+                   data-1="@UI.Paths.Icons.Eye"
+                   data-2="@UI.Paths.Icons.Eye2"
+                   on-Tapped="@{Model.TabSelected(Domain.Models.PageType.MostVisited)}" />
+         <Tabs.Tab Label.Text="Popular"
+                   Icon.Path="@UI.Paths.Icons.Star"
+                   data-1="@UI.Paths.Icons.Star"
+                   data-2="@UI.Paths.Icons.Star2"
+                   on-Tapped="@{Model.TabSelected(Domain.Models.PageType.Popular)}"
+                   Icon.Style.Padding="2" />
+         <Tabs.Tab Label.Text="Offer"
+                   Icon.Path="@UI.Paths.Icons.Gift"
+                   data-1="@UI.Paths.Icons.Gift"
+                   data-2="@UI.Paths.Icons.Gift2"
+                   on-Tapped="@{Model.TabSelected(Domain.Models.PageType.Offer)}" />
+         <Tabs.Tab Label.Text="New"
+                   Icon.Path="@UI.Paths.Icons.New"
+                   data-1="@UI.Paths.Icons.New"
+                   data-2="@UI.Paths.Icons.New2"
+                   on-Tapped="@{Model.TabSelected(Domain.Models.PageType.New)}" />
+      </Tabs>
+   </class>
+</zbl>

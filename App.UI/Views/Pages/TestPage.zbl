@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<zbl xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:noNamespaceSchemaLocation="../.zebble-schema.xml">
+   <class type="TestPage"
+          base="UI.Templates.SimpleNavBarPage"
+          Title="Test Page"
+          namespace="UI.Pages"
+          viewmodel="ViewModel.TestPage">
+      <z-place inside="Body">
+         <Button Text="Toggle" on-Tapped="@Expander.Toggle()" />
+         <Modules.ExpandableLayout Id="Expander">
+            <TextView Text="Text 1" />
+            <TextView Text="Text 2" />
+            <TextView Text="Text 3" />
+         </Modules.ExpandableLayout>
+         <Modules.FolderLayout of="Domain.Models.Category, CategoryViewGen"
+                               Id="FolderView"
+                               OnItemSelected="@data => NotifyUser(data.Name).RunInParallel()"
+                               ViewGen="@new CategoryViewGen()"
+                               FolderData="@await GetData()" />
+         <ImageView Style.BackgroundColor="#f00" Style.Height="100" />
+      </z-place>
+   </class>
+</zbl>

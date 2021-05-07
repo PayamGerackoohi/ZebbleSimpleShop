@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{573F454C-6003-40C8-A09D-3304F28D5F10}</ProjectGuid>
+    <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Android</RootNamespace>
+    <AssemblyName>ZebbleTestApp</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <AndroidApplication>true</AndroidApplication>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <TargetFrameworkVersion>v10.0</TargetFrameworkVersion>
+    <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
+    <AndroidResgenFile>Resources\Resource.Designer.cs</AndroidResgenFile>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;ANDROID</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AndroidUseSharedRuntime>true</AndroidUseSharedRuntime>
+    <AndroidLinkMode>None</AndroidLinkMode>
+    <EmbedAssembliesIntoApk>false</EmbedAssembliesIntoApk>
+    <BundleAssemblies>False</BundleAssemblies>
+    <AndroidCreatePackagePerAbi>True</AndroidCreatePackagePerAbi>
+    <Debugger>Xamarin</Debugger>
+    <AndroidEnableMultiDex>False</AndroidEnableMultiDex>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <JavaMaximumHeapSize>1G</JavaMaximumHeapSize>
+    <AotAssemblies>False</AotAssemblies>
+    <EnableLLVM>False</EnableLLVM>
+    <EnableProguard>False</EnableProguard>
+    <AndroidSupportedAbis>armeabi-v7a;arm64-v8a</AndroidSupportedAbis>
+    <NoWarn>1998</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AndroidUseSharedRuntime>true</AndroidUseSharedRuntime>
+    <AndroidLinkMode>SdkOnly</AndroidLinkMode>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Mono.Android" />
+    <Reference Include="Mono.Android.Export" />
+    <Reference Include="mscorlib" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MainActivity.cs" />
+    <Compile Include="MainApplication.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\Resource.Designer.cs" />
+    <Compile Include="SplashScreen.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\AndroidManifest.xml" />
+    <AndroidResource Include="Resources\layout\Main.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\values\Styles.xml" />
+    <AndroidResource Include="Resources\drawable\Featured_Graphic.png" />
+    <AndroidResource Include="Resources\drawable\splash_screen.xml" />
+    <AndroidResource Include="Resources\drawable\Icon.webp" />
+    <AndroidResource Include="Resources\drawable\Splash.webp" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\Splash.webp" />
+    <AndroidResource Include="Resources\drawable-hdpi\Splash.webp" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\Splash.webp" />
+    <AndroidResource Include="Resources\drawable-ldpi\Splash.webp" />
+    <AndroidResource Include="Resources\drawable-mdpi\Splash.webp" />
+    <AndroidResource Include="Resources\drawable-xhdpi\Splash.webp" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="System.Net.Http">
+      <Version>4.3.4</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.AndroidX.Activity">
+      <Version>1.2.1</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.AndroidX.AppCompat">
+      <Version>1.2.0.7</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Essentials">
+      <Version>1.6.1</Version>
+    </PackageReference>
+    <PackageReference Include="Zebble">
+      <Version>4.5.504</Version>
+    </PackageReference>
+    <PackageReference Include="Zebble.CheckBox">
+      <Version>1.22.125</Version>
+    </PackageReference>
+    <PackageReference Include="Zebble.DateTimePicker">
+      <Version>4.6.293</Version>
+    </PackageReference>
+    <PackageReference Include="Zebble.FirebaseAuth">
+      <Version>1.0.9</Version>
+    </PackageReference>
+    <PackageReference Include="Zebble.Grid">
+      <Version>3.12.160</Version>
+    </PackageReference>
+    <PackageReference Include="Zebble.IconButton">
+      <Version>3.20.282</Version>
+    </PackageReference>
+    <PackageReference Include="Zebble.ItemPicker">
+      <Version>3.12.173</Version>
+    </PackageReference>
+    <PackageReference Include="Zebble.ListView">
+      <Version>4.10.197</Version>
+    </PackageReference>
+    <PackageReference Include="Zebble.OptionsList">
+      <Version>3.15.146</Version>
+    </PackageReference>
+    <PackageReference Include="Zebble.SearchInput">
+      <Version>3.18.281</Version>
+    </PackageReference>
+    <PackageReference Include="Zebble.Switch">
+      <Version>1.31.244</Version>
+    </PackageReference>
+    <PackageReference Include="Zebble.WebApi">
+      <Version>4.5.395</Version>
+    </PackageReference>
+    <PackageReference Include="Zebble.Testing">
+      <Version>1.2.112</Version>
+    </PackageReference>
+    <PackageReference Include="Zebble.BoxShadow">
+      <Version>1.2.151</Version>
+    </PackageReference>
+    <PackageReference Include="Zebble.Widgets">
+      <Version>1.1.120</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Assets\" />
+  </ItemGroup>
+  <Import Project="..\..\App.Domain\Domain.projitems" Label="Shared" Condition="Exists('..\..\App.Domain\Domain.projitems')" />
+  <Import Project="..\..\App.UI\UI.projitems" Label="Shared" Condition="Exists('..\..\App.UI\UI.projitems')" />
+  <Import Project="..\..\ViewModel\ViewModel.projitems" Label="Shared" />
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
+  <Import Project="$(SolutionDir)\Zebble.targets" />
+</Project>

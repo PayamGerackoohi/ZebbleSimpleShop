@@ -1,0 +1,400 @@
+﻿@import "Shared/_Colors.scss";
+@import "Components/_Button.scss";
+@import "Components/Defaults.scss";
+
+$back-color: #eaeaea;
+
+@mixin full-round { border-radius: $corner-radius; }
+@mixin half-round { border-top-right-radius: $corner-radius; border-bottom-left-radius: $corner-radius; }
+@mixin full-smooth-round { border-radius: $corner-radius-smooth; }
+@mixin half-smooth-round { border-top-right-radius: $corner-radius-smooth; border-bottom-left-radius: $corner-radius-smooth; }
+@mixin marginHv { margin: $space-tight $space $space-tight $space; }
+@mixin marginVh { margin: $space $space-tight $space $space-tight; }
+
+#BodyScroller { height: match-parent(); }
+#Body { height: match-parent(); }
+.Scroller { height: match-parent(); }
+.Space { height: $space; }
+.SpaceTight { height: $space-tight; }
+
+HomePage { background-color: $back-color;
+    NavigationBar {
+        $badge-size: 24px;
+        $badge-holder-size: 30px;
+        #Left {
+            Row {
+                width: $badge-holder-size;
+                height: $badge-holder-size;
+                @include item-margin-tight;
+
+                #Badge {
+                    width: $badge-size;
+                    height: $badge-size;
+                    font-size: 12px;
+                    color: $primary-color;
+                    background-color: white;
+                    @include full-smooth-round;
+                    padding: 4px;
+                    margin-left: -12px;
+                    margin-top: -8px;
+                    font-weight: bold;
+                    text-align: center;
+                }
+
+                ImageView { margin: 0; }
+            }
+        }
+    }
+    ListView { padding-top: $space;
+        #Content {
+            @include item-margin;
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+    }
+    #Body { height: match-parent(); }
+}
+
+ProductDetailPage { background-color: $back-color;
+    #Body { height: wrap-content(); }
+    #InfoSection { background-color: white;
+        #Image { width: match-parent(); height: 30vh; background-position: center; }
+        #Name {
+            font-size: 5vw;
+            font-weight: bold;
+            @include item-margin-tight;
+        }
+        #ShortCription {
+            font-size: 3vw;
+            color: gray;
+            @include item-margin-tight;
+            @include item-padding-tight;
+        }
+    }
+    #BuySection { background-color: white; margin: $space $space 0 $space; border-radius: $corner-radius;
+        #FavoriteButton {
+            height: match-parent();
+            width: wrap-content();
+            background-position: center;
+            @include item-padding-tight;
+            margin-left: $space-tight;
+        }
+        #Price {
+            text-align: center;
+            font-size: 4vw;
+            font-weight: bold;
+            color: green;
+            @include item-padding;
+        }
+        #CartButton {
+            background-color: green;
+            @include item-padding-tight;
+            #Icon { padding-left: $space-tight; height: match-parent(); }
+            #TextView { text-align: center; font-size: 4vw; color: white; }
+        }
+    }
+    #DescriptionSection { background-color: white; margin: $space $space 0 $space; border-radius: $corner-radius;
+        #Description {
+            font-size: 4vw;
+            @include item-margin-tight;
+        }
+    }
+}
+
+RatingBox { height: wrap-content();
+    #Holder {
+        @include item-padding;
+
+        .RatingIcon {
+            @include square(6vw);
+            @include vertical-align;
+        }
+
+        #RateText {
+            @include vertical-align;
+            font-size: 3vw;
+        }
+    }
+}
+
+CategoryPage { background-color: $back-color;
+    #Body { height: wrap-content(); }
+    ListView {
+        @include item-margin;
+        margin-bottom: 0;
+    }
+}
+
+ProductCardItem { height: wrap-content();
+    #CardItem { height: wrap-content(); background: white; border-radius: $corner-radius;
+        #TextHolder {
+            @include vertical-align;
+            @include item-padding-tight;
+            #Title { font-size: 5vw; font-weight: bold; }
+            #Description { font-size: 3vw; color: gray; }
+            #Price { font-size: 3vw; color: green; margin-left: $space-tight; padding-left: 0; border-top: 1px solid $module-border-color; }
+        }
+
+        #Image {
+            width: 30%;
+            height: wrap-content();
+            background-position: center;
+            @include item-padding;
+            @include vertical-align;
+        }
+    }
+}
+
+CategorySubPage {
+    @include item-padding-tight;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+CategoryCardItem { height: wrap-content(); padding: 0 $space-tight 0 $space-tight; margin-top: -$space-tight;
+    #CardItem {
+        height: wrap-content();
+        background: white;
+        border-bottom-left-radius: $corner-radius;
+        border-top-right-radius: $corner-radius;
+        @include vertical-align;
+        @include item-padding-tight;
+        #Name { font-size: 3vw; font-weight: bold; }
+    }
+}
+
+ProfilePage {
+    #Body { height: wrap-content(); }
+    background-color: $back-color;
+
+    .ProfileExpanderButton {
+        background-color: white;
+        font-size: 4vw;
+        font-weight: bold;
+        @include item-padding;
+        @include half-smooth-round;
+        @include item-margin;
+        margin-top: $space-tight;
+        margin-bottom: $space-tight;
+    }
+
+    @mixin profile-card {
+        height: wrap-content();
+        background-color: white;
+        @include half-smooth-round;
+        @include item-padding-tight;
+        margin: $space-tight $space $space-tight $space;
+    }
+
+    #InfoExpander {
+        #ProfileInfoCard {
+            @include profile-card;
+
+            FormField {
+                #Icon { }
+                #Label { }
+                TextInput { }
+            }
+
+            .Section { padding-top: $space; font-weight: bold; }
+
+            .ItemPickerHolder { padding: 4px;
+                .LabelText {
+                    width: $form-label-size;
+                    font-size: $form-label-font-size;
+                    @include vertical-align;
+                }
+                ItemPicker { border: 1px solid $form-border-color; margin: 0;
+                    #Label { }
+                    #Caret { display: none; }
+                }
+            }
+
+            DatePicker {
+                #Label {
+                    font-size: $form-label-font-size;
+                    background-color: transparent;
+                    color: black;
+                    font-weight: normal;
+                    border: 1px solid $form-border-color;
+                    @include item-padding-tight;
+                    margin: 0;
+                }
+                #Caret { display: none; }
+            }
+        }
+        #SaveButton {
+            background-color: green;
+            color: white;
+            @include marginHv;
+        }
+    }
+
+    #OrdersExpander {
+        ProfileOrdersSubPage {
+            ProfileOrderCardItem {
+                @include profile-card;
+                margin-top: $space-tight;
+                margin-bottom: $space-tight;
+                .OrderInfo { border-bottom: 1px solid $form-border-color;
+                    .TopBorder { border-top: 1px solid $form-border-color; color: dodgerblue; }
+                }
+                .Left { width: wrap-content(); }
+                .Right { text-align: right; }
+                .Price { color: green; }
+            }
+        }
+    }
+
+    #FavoritesExpander {
+        ProfileFavoritesSubPage {
+            ProfileFavoriteCardItem {
+                @include profile-card;
+
+                #TextHolder { height: match-parent();
+                    #Name { height: match-parent(); font-size: 4vw; font-weight: bold; margin-bottom: $space; }
+                    .Divider { height: 1px; background-color: $form-border-color; margin: 1px; }
+                    #Remove { width: wrap-content(); font-size: 3vw; color: red; font-weight: bold; }
+                }
+
+                #Image {
+                    width: 30%;
+                    height: wrap-content();
+                    background-position: center;
+                    @include item-padding;
+                    @include vertical-align;
+                }
+            }
+        }
+    }
+
+    #SecurityExpander {
+        #ProfileSecurityCard {
+            @include profile-card;
+            FormField {
+                #Icon { }
+                #Label { }
+                TextInput { }
+            }
+        }
+
+        Button {
+            @include marginHv;
+            color: white;
+            margin-left: $space;
+        }
+        #SaveButton { background-color: green; margin-right: $space; }
+        #LogoutButton { background-color: red; }
+    }
+}
+
+OrderInfoPage { background-color: $back-color;
+    #Body { height: wrap-content(); }
+    #Description {
+        background-color: white;
+        font-size: 3.5fvw;
+        font-weight: bold;
+        @include item-padding;
+        @include full-round;
+        @include item-margin;
+        margin-bottom: 0;
+    }
+
+    #OrderGrid { height: wrap-content(); padding-left: $space; padding-bottom: $space;
+        OrderCardItem {
+            height: wrap-content();
+            background-color: white;
+            @include full-round;
+            @include item-padding-tight;
+            padding-top: $space;
+            margin-top: $space;
+            margin-right: $space;
+            #Image { background-position: center; height: 20vh; }
+
+            .Left {
+                width: wrap-content();
+                font-size: 3fvw;
+                color: gray;
+                @include vertical-align;
+            }
+
+            .Right { text-align: right; font-size: 3.5fvw; }
+            .Price { color: green; }
+        }
+    }
+}
+
+SearchPage { background-color: $back-color;
+    TextInput {
+        @include item-padding;
+        margin: 0;
+        background-color: white;
+        border: none;
+    }
+    .Scroller { z-index: -1;
+        ListView { padding-top: $space;
+            #Content {
+                @include item-margin;
+                margin-top: 0;
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+
+CartPage { background-color: $back-color;
+    #HeaderPrice {
+        background-color: white;
+        height: wrap-content();
+        @include item-padding-tight;
+        .Left { }
+        .Right { color: green; text-align: right; font-weight: bold; }
+    }
+
+    ScrollView { z-index: -1;
+        CartOrderCardItem {
+            height: wrap-content();
+            background: white;
+            border-radius: $corner-radius;
+            @include item-padding;
+            @include marginHv;
+
+            #Image { width: 30%; height: wrap-content(); }
+
+            #Name { font-size: 4vw; }
+
+            #ShortCription { font-size: 3vw; color: gray; }
+
+            .LabelText {
+                width: wrap-content();
+                font-size: $form-label-font-size;
+                @include vertical-align;
+            }
+
+            .Right { text-align: right; }
+
+            .Price { color: green; }
+
+            .Remove { color: red; }
+
+            .TopBorder { border-top: 1px solid $form-border-color; }
+
+            .ItemPickerHolder { padding: 4px;
+                ItemPicker { border: 1px solid $form-border-color; margin: 0; width: wrap-content();
+                    #Label { text-align: center; }
+                    #Caret { display: none; }
+                }
+            }
+        }
+    }
+
+    #BuyButton {
+        height: wrap-content();
+        border-radius: 0;
+        background-color: green;
+        border: none;
+        color: white;
+        font-weight: bold;
+        @include item-padding;
+    }
+}

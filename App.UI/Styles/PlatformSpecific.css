@@ -1,0 +1,7 @@
+﻿.windows-only TextView, .windows-only TextInput { font-family: "Segoe UI"; }
+
+.ios-only TextInput, .ios-only TextView { font-family: Arial; }
+
+.android-only TextInput, .android-only TextView { font-family: Roboto; }
+
+/*# sourceMappingURL=data:application/json;base64,ewoJInZlcnNpb24iOiAzLAoJImZpbGUiOiAiU3R5bGVzL1BsYXRmb3JtU3BlY2lmaWMuY3NzIiwKCSJzb3VyY2VzIjogWwoJCSJTdHlsZXMvUGxhdGZvcm1TcGVjaWZpYy5zY3NzIgoJXSwKCSJuYW1lcyI6IFtdLAoJIm1hcHBpbmdzIjogIkFBQUEsQUFDSSxhQURTLENBQ1QsUUFBUSxFQURaLEFBRUksYUFGUyxDQUVULFNBQVMsQ0FBQyxFQUNOLFdBQVcsRUFBRSxVQUFVLEdBQzFCOztBQUlMLEFBQ0ksU0FESyxDQUNMLFNBQVMsRUFEYixBQUNlLFNBRE4sQ0FDTSxRQUFRLENBQUMsRUFDaEIsV0FBVyxFQUFFLEtBQUssR0FDckI7O0FBSUwsQUFDSSxhQURTLENBQ1QsU0FBUyxFQURiLEFBQ2UsYUFERixDQUNFLFFBQVEsQ0FBQyxFQUNoQixXQUFXLEVBQUUsTUFBTSxHQUN0QiIKfQ== */

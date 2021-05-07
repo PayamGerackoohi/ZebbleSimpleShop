@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<zbl xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:noNamespaceSchemaLocation="./../Views/.zebble-schema.xml">
+   <class type="Blank" base="Page" namespace="UI.Templates" Style="height:Container">
+      <ScrollView CssClass="Body" Id="Body">
+         <Stack CssClass="Wrapper" Id="Wrapper" />
+      </ScrollView>
+   </class>
+</zbl>

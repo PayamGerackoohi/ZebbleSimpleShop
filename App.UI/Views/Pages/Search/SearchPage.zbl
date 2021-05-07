@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<zbl xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:noNamespaceSchemaLocation="../../.zebble-schema.xml">
+   <class type="SearchPage"
+          base="UI.Templates.SimpleNavBarPage"
+          Title="Search"
+          namespace="UI.Pages"
+          viewmodel="ViewModel.SearchPage">
+      <z-place inside="Body">
+         <TextInput Id="SearchInput"
+                    Placeholder="Enter your search keyword"
+                    on-UserTextChanged="@() => Model.OnSearch(SearchInput.Text)" />
+         <ScrollView CssClass="Scroller">
+            <ListView of="Domain.Models.Product, Row" DataSource="@{Model.Results}">
+               <class type="Row" base="ListViewItem[Domain.Models.Product]">
+                  <ProductCardItem Model.Data="@Item" />
+               </class>
+            </ListView>
+         </ScrollView>
+      </z-place>
+   </class>
+</zbl>

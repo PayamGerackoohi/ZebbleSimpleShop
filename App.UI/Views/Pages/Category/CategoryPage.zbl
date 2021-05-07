@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<zbl xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:noNamespaceSchemaLocation="../../.zebble-schema.xml">
+   <class type="CategoryPage"
+          base="UI.Templates.SimpleNavBarPage"
+          Title="@{Model.Title}"
+          namespace="UI.Pages"
+          viewmodel="ViewModel.CategoryPage">
+      <z-place inside="BodyScroller" CssClass="Scroller">
+         <Canvas>
+            <ListView of="Domain.Models.Product, Row" DataSource="@{Model.Products}" Id="List">
+               <class type="Row" base="ListViewItem[Domain.Models.Product]">
+                  <Pages.ProductCardItem Model.Data="@Item" />
+               </class>
+            </ListView>
+         </Canvas>
+      </z-place>
+   </class>
+</zbl>

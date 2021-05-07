@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<zbl xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:noNamespaceSchemaLocation="../../.zebble-schema.xml">
+   <class type="ProductDetailPage"
+          base="UI.Templates.SimpleNavBarPage"
+          Title="Product Detail"
+          namespace="UI.Pages"
+          viewmodel="ViewModel.ProductDetailPage">
+      <z-place inside="BodyScroller">
+         <Row>
+            <Stack Id="InfoSection">
+               <ImageView Id="Image" Path="@UI.Paths.Icons.Star" Stretch="Fit" />
+               <TextView Id="Name" Text="@{Model.Data, d => d.Name}" />
+               <TextView Id="ShortCription" Text="@{Model.Data, d => d.ShortCription}" />
+            </Stack>
+         </Row>
+         <Row>
+            <Stack Id="BuySection">
+               <Canvas>
+                  <TextView Id="Price" Text="@{Model.Data, d => d.FormattedPrice()}" />
+                  <ImageView Id="FavoriteButton"
+                             Path="@{Model.IsFavorite, d => d ? UI.Paths.Icons.Heart : UI.Paths.Icons.HeartGray}"
+                             on-Tapped="@() => Model.OnFavoriteButtonClicked()" />
+               </Canvas>
+               <IconButton Id="CartButton"
+                           Text="Add To Cart"
+                           IconPath="@UI.Paths.Icons.Cart"
+                           on-Tapped="@() => Model.OnBuyButtonClicked()" />
+            </Stack>
+         </Row>
+         <Row>
+            <Stack Id="DescriptionSection">
+               <TextView Id="Description" Text="@{Model.Data, d => d.Description}" />
+               <Modules.RatingBox Model.Data="@Model.Data.Value" />
+            </Stack>
+         </Row>
+         <Row CssClass="Space" />
+      </z-place>
+   </class>
+</zbl>

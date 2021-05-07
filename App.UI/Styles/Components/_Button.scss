@@ -1,0 +1,14 @@
+﻿
+
+Button {
+	height: 32px;
+	border: 1px solid $clrGrey200;
+	border-radius: 16px;
+	color: $clrBlack;
+}
+
+Button:disabled {
+	color: $clrGrey200;
+	border: 1px solid $clrGrey300;
+	border-radius: 16px;
+}

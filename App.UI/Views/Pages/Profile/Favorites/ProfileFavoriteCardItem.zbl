@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<zbl xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:noNamespaceSchemaLocation="../../../.zebble-schema.xml">
+   <class type="ProfileFavoriteCardItem" base="Stack" namespace="UI.Pages" on-Tapped="@() => ShowDetail(Favorite)">
+      <Row>
+         <Stack Id="TextHolder">
+            <TextView Id="Name" Text="@Favorite.Name" />
+            <Canvas CssClass="Divider" />
+            <TextView Id="Remove" Text="Remove" on-Tapped="@() => RemoveButtonClicked(Favorite)" />
+         </Stack>
+         <ImageView Id="Image" Path="@UI.Paths.Icons.Star" />
+      </Row>
+   </class>
+</zbl>
