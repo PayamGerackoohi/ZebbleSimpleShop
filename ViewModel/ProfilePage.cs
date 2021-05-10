@@ -37,15 +37,15 @@ namespace ViewModel
         public async Task RefreshFavorites()
         {
             User.Value = await Api.ShopApi.GetUser();
-            Favorites.Replace(User.Value.Favorits);
+            Favorites.Replace(User.Value.Favorites);
         }
 
         public override async Task OnRefresh()
         {
             User.Value = await Api.ShopApi.GetUser();
             Orders.Replace(User.Value.Orders);
-            Favorites.Replace(User.Value.Favorits);
-            Favorites.Refresh();
+            Favorites.Replace(User.Value.Favorites);
+            //Favorites.Refresh();
         }
     }
 }

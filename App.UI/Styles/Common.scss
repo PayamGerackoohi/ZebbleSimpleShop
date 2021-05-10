@@ -17,6 +17,11 @@ $back-color: #eaeaea;
 .Space { height: $space; }
 .SpaceTight { height: $space-tight; }
 
+.ErrorButton {
+    Button { background-color: red; color: white; }
+    @include item-padding;
+}
+
 HomePage { background-color: $back-color;
     NavigationBar {
         $badge-size: 24px;
@@ -166,6 +171,8 @@ CategoryCardItem { height: wrap-content(); padding: 0 $space-tight 0 $space-tigh
 ProfilePage {
     #Body { height: wrap-content(); }
     background-color: $back-color;
+
+    .ErrorButton { padding-bottom: 0; }
 
     .ProfileExpanderButton {
         background-color: white;

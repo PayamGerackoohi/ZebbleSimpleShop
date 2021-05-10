@@ -1,5 +1,6 @@
 ﻿using Domain;
 using Domain.Models;
+using Domain.Utils;
 using Olive;
 using System;
 using System.Collections.Generic;
@@ -18,24 +19,33 @@ namespace UI.Pages
         {
             await base.OnInitializing();
             SetupViewModelBidings();
+        }
+
+        override public async Task OnRendered()
+        {
+            await base.OnRendered();
+        }
+
+        private void SetupViewModelBidings()
+        {
+            Model.ShowRemoveConfirmationDialog.Changed += () => ShowRemoveConfirmationDialog(Model.ShowRemoveConfirmationDialog.Value).RunInParallel();
             //Model.Favorites.Changed += () => UpdateFavorites().RunInParallel();
         }
 
         //private async Task UpdateFavorites()
         //{
-        //    $"UpdateFavorites: size: {Model.Favorites.Value.Count}".Toast();
-        //    //var list =
-        //    while (List.DataSource.Count() > 1)
-        //    {
-        //        await List.Remove(List.DataSource.First(), false);
-        //    }
-        //    List.DataSource = Model.Favorites.Value;
+        //    $"UpdateFavorites: size: {Model.Favorites.Value.Count}, DS: {List.DataSource.Count()}, Children: {List.ManagedChildren.Count()}".Toast();
+        //    //List.DataSource = new List<Product>();
+        //    //List.DataSource = Model.Favorites.Value;
+        //await List.ClearChildren();
+        //List.DataSource.Also(x =>
+        //{
+        //    if (x.None())
+        //        List.Height(0);
+        //    else
+        //        List.Height(x.Count() * List.AllChildren.First().CalculateTotalHeight());
+        //});
         //}
-
-        private void SetupViewModelBidings()
-        {
-            Model.ShowRemoveConfirmationDialog.Changed += () => ShowRemoveConfirmationDialog(Model.ShowRemoveConfirmationDialog.Value).RunInParallel();
-        }
 
         private async Task ShowRemoveConfirmationDialog(Product product)
         {

@@ -41,7 +41,7 @@ namespace UI.Modules
     /// </zbl>
     /// </code>
     /// </exmaple>
-    partial class ExpandableLayout : View
+    partial class ExpandableLayout : Canvas
     {
         private readonly Stack holder = new();
         public bool IsAnimating { get; private set; }
@@ -103,14 +103,14 @@ namespace UI.Modules
         {
             if (IsAnimating || (IsExpanded ^ !expand)) return;
             IsAnimating = true;
-            holder.ClipChildren = false;
+            //holder.ClipChildren = false;
             this.Height(holder.ActualHeight);
             await holder.Animate(Duration.Milliseconds(), AnimationEasing, v => v.ScaleY(expand ? 1f : 0f));
             if (expand)
                 this.Height(Length.AutoStrategy.Content);
             else
                 this.Height(0f);
-            holder.ClipChildren = true;
+            //holder.ClipChildren = true;
             IsAnimating = false;
             IsExpanded = expand;
         }

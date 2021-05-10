@@ -26,7 +26,7 @@ namespace ViewModel
         private async Task InitiateIsFavorite()
         {
             var user = await Api.ShopApi.GetUser();
-            var isFav = user.Favorits.Any(f => f == Data.Value);
+            var isFav = user.Favorites.Any(f => f == Data.Value);
             IsFavorite.Value = isFav;
         }
 

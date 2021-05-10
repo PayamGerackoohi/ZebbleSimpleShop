@@ -20,7 +20,7 @@ namespace Domain.Models
         public byte[] Photo { get; set; }
         public Gender Gender { get; set; } = Gender.Unknown;
         public DateTime? BirthDate { get; set; }
-        public List<Product> Favorits { get; set; } = new();
+        public List<Product> Favorites { get; set; } = new();
         public List<Order> Orders { get; set; } = new();
         public Credential Credential { get; set; } = new();
 
@@ -60,7 +60,7 @@ namespace Domain.Models
             hashCode = hashCode * -1521134295 + EqualityComparer<byte[]>.Default.GetHashCode(Photo);
             hashCode = hashCode * -1521134295 + Gender.GetHashCode();
             hashCode = hashCode * -1521134295 + BirthDate.GetHashCode();
-            hashCode = hashCode * -1521134295 + EqualityComparer<List<Product>>.Default.GetHashCode(Favorits);
+            hashCode = hashCode * -1521134295 + EqualityComparer<List<Product>>.Default.GetHashCode(Favorites);
             hashCode = hashCode * -1521134295 + EqualityComparer<List<Order>>.Default.GetHashCode(Orders);
             return hashCode;
         }
@@ -69,7 +69,7 @@ namespace Domain.Models
         {
             var user = (User)MemberwiseClone();
             user.Address = Address.Copy();
-            user.Favorits = new List<Product>(Favorits);
+            user.Favorites = new List<Product>(Favorites);
             user.Orders = new List<Order>(Orders);
             //public byte[] Photo { get; set; }
             return user;

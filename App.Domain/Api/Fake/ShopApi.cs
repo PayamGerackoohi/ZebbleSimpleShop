@@ -67,14 +67,14 @@ namespace Domain.Api.Fake
 
         public Task RemoveFavorite(Guid productId)
         {
-            User.Favorits.RemoveWhere(f => f.Id == productId);
+            User.Favorites.RemoveWhere(f => f.Id == productId);
             return Task.CompletedTask;
         }
 
         public Task AddFavorite(Guid productId)
         {
-            if (!User.Favorits.Any(f => f.Id == productId))
-                User.Favorits.Add(Products.Find(p => p.Id == productId));
+            if (!User.Favorites.Any(f => f.Id == productId))
+                User.Favorites.Add(Products.Find(p => p.Id == productId));
             return Task.CompletedTask;
         }
 
@@ -97,7 +97,7 @@ namespace Domain.Api.Fake
             Gender = Gender.Male,
             BirthDate = new DateTime(1991, 10, 14),
             Orders = GenOrderList(3),
-            Favorits = Products.Take(3).ToList(),
+            Favorites = Products.Take(3).ToList(),
             Credential = new Credential
             {
                 Username = "PayamGr",
@@ -106,7 +106,7 @@ namespace Domain.Api.Fake
             },
         };
 
-        private static List<Product> GenProducts() => Enumerable.Range(1, 10).Select(n => new Product
+        private static List<Product> GenProducts() => Enumerable.Range(1, SubCategories.Count).Select(n => new Product
         {
             Name = $"Product {n}",
             Categories = Enumerable.Range(0, 1 + (n % SubCategories.Count)).Select(m => SubCategories[m]).ToList(),

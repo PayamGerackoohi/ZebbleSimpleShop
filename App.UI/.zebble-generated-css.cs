@@ -92,6 +92,8 @@ namespace UI
             CssEngine.Add(new File_App.UI.Styles.Common.ScrollerCssRule());
             CssEngine.Add(new File_App.UI.Styles.Common.SpaceCssRule());
             CssEngine.Add(new File_App.UI.Styles.Common.SpaceTightCssRule());
+            CssEngine.Add(new File_App.UI.Styles.Common.ErrorButtonCssRule());
+            CssEngine.Add(new File_App.UI.Styles.Common.ErrorButtonButtonCssRule());
             CssEngine.Add(new File_App.UI.Styles.Common.HomePageCssRule());
             CssEngine.Add(new File_App.UI.Styles.Common.HomePageNavigationBarLeftRowCssRule());
             CssEngine.Add(new File_App.UI.Styles.Common.HomePageNavigationBarLeftRowBadgeCssRule());
@@ -133,6 +135,7 @@ namespace UI
             CssEngine.Add(new File_App.UI.Styles.Common.CategoryCardItemCardItemNameCssRule());
             CssEngine.Add(new File_App.UI.Styles.Common.ProfilePageCssRule());
             CssEngine.Add(new File_App.UI.Styles.Common.ProfilePageBodyCssRule());
+            CssEngine.Add(new File_App.UI.Styles.Common.ProfilePageErrorButtonCssRule());
             CssEngine.Add(new File_App.UI.Styles.Common.ProfilePageProfileExpanderButtonCssRule());
             CssEngine.Add(new File_App.UI.Styles.Common.ProfilePageInfoExpanderProfileInfoCardCssRule());
             CssEngine.Add(new File_App.UI.Styles.Common.ProfilePageInfoExpanderProfileInfoCardSectionCssRule());
@@ -2182,7 +2185,59 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:19", "HomePage")]
+    [CssSelector("Styles/Common.scss:19", ".ErrorButton")]
+    [CssBody("padding: 16px;")]
+    class ErrorButtonCssRule : CssRule
+    {
+        public override bool Matches(View view)
+        {
+            // CssEngine will only call me if a view matches: .ErrorButton
+
+            return true;
+        }
+
+        public override Task Apply(View view)
+        {
+            view.Css.Padding(16);
+
+            return Task.CompletedTask;
+        }
+    }
+}
+
+namespace File_App.UI.Styles.Common
+{
+    [EscapeGCop("Auto-generated")]
+    [CssSelector("Styles/Common.scss:19", ".ErrorButton Button")]
+    [CssBody("background-color: red; color: white;")]
+    class ErrorButtonButtonCssRule : CssRule
+    {
+        public override bool Matches(View view)
+        {
+            // CssEngine will only call me if a view matches: Button
+
+            view = CssEngine.FindParentByCssClass(view, "ErrorButton");
+
+            if (view is null) return false;
+
+            return true;
+        }
+
+        public override Task Apply(View untypedView)
+        {
+            var view = (Button)untypedView;
+            view.Css.BackgroundColor = Colors.Red;
+            view.Css.TextColor = Colors.White;
+
+            return Task.CompletedTask;
+        }
+    }
+}
+
+namespace File_App.UI.Styles.Common
+{
+    [EscapeGCop("Auto-generated")]
+    [CssSelector("Styles/Common.scss:24", "HomePage")]
     [CssBody("background-color: #eaeaea;")]
     class HomePageCssRule : CssRule
     {
@@ -2206,7 +2261,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:19", "HomePage NavigationBar #Left Row")]
+    [CssSelector("Styles/Common.scss:24", "HomePage NavigationBar #Left Row")]
     [CssBody("width: 30px; height: 30px; margin: 8px;")]
     class HomePageNavigationBarLeftRowCssRule : CssRule
     {
@@ -2244,7 +2299,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:19", "HomePage NavigationBar #Left Row #Badge")]
+    [CssSelector("Styles/Common.scss:24", "HomePage NavigationBar #Left Row #Badge")]
     [CssBody("width: 24px; height: 24px; font-size: 12px; color: #00b9f0; background-color: white; border-radius: 16px; padding: 4px; margin-left: -12px; margin-top: -8px; font-weight: bold; text-align: center;")]
     class HomePageNavigationBarLeftRowBadgeCssRule : CssRule
     {
@@ -2293,7 +2348,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:19", "HomePage NavigationBar #Left Row ImageView")]
+    [CssSelector("Styles/Common.scss:24", "HomePage NavigationBar #Left Row ImageView")]
     [CssBody("margin: 0;")]
     class HomePageNavigationBarLeftRowImageViewCssRule : CssRule
     {
@@ -2333,7 +2388,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:19", "HomePage ListView")]
+    [CssSelector("Styles/Common.scss:24", "HomePage ListView")]
     [CssBody("padding-top: 16px;")]
     class HomePageListViewCssRule : CssRule
     {
@@ -2361,7 +2416,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:19", "HomePage ListView #Content")]
+    [CssSelector("Styles/Common.scss:24", "HomePage ListView #Content")]
     [CssBody("margin: 16px; margin-top: 0; margin-bottom: 0;")]
     class HomePageListViewContentCssRule : CssRule
     {
@@ -2394,7 +2449,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:19", "HomePage #Body")]
+    [CssSelector("Styles/Common.scss:24", "HomePage #Body")]
     [CssBody("height: calc(\"Container\");")]
     class HomePageBodyCssRule : CssRule
     {
@@ -2421,7 +2476,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:57", "ProductDetailPage")]
+    [CssSelector("Styles/Common.scss:62", "ProductDetailPage")]
     [CssBody("background-color: #eaeaea;")]
     class ProductDetailPageCssRule : CssRule
     {
@@ -2445,7 +2500,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:57", "ProductDetailPage #Body")]
+    [CssSelector("Styles/Common.scss:62", "ProductDetailPage #Body")]
     [CssBody("height: calc(\"Content\");")]
     class ProductDetailPageBodyCssRule : CssRule
     {
@@ -2472,7 +2527,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:57", "ProductDetailPage #InfoSection")]
+    [CssSelector("Styles/Common.scss:62", "ProductDetailPage #InfoSection")]
     [CssBody("background-color: white;")]
     class ProductDetailPageInfoSectionCssRule : CssRule
     {
@@ -2499,7 +2554,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:57", "ProductDetailPage #InfoSection #Image")]
+    [CssSelector("Styles/Common.scss:62", "ProductDetailPage #InfoSection #Image")]
     [CssBody("width: calc(\"Container\"); height: 30vh; background-position: center;")]
     class ProductDetailPageInfoSectionImageCssRule : CssRule
     {
@@ -2532,7 +2587,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:57", "ProductDetailPage #InfoSection #Name")]
+    [CssSelector("Styles/Common.scss:62", "ProductDetailPage #InfoSection #Name")]
     [CssBody("font-size: 5vw; font-weight: bold; margin: 8px;")]
     class ProductDetailPageInfoSectionNameCssRule : CssRule
     {
@@ -2565,7 +2620,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:57", "ProductDetailPage #InfoSection #ShortCription")]
+    [CssSelector("Styles/Common.scss:62", "ProductDetailPage #InfoSection #ShortCription")]
     [CssBody("font-size: 3vw; color: gray; margin: 8px; padding: 8px;")]
     class ProductDetailPageInfoSectionShortCriptionCssRule : CssRule
     {
@@ -2599,7 +2654,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:57", "ProductDetailPage #BuySection")]
+    [CssSelector("Styles/Common.scss:62", "ProductDetailPage #BuySection")]
     [CssBody("background-color: white; margin: 16px 16px 0 16px; border-radius: 8px;")]
     class ProductDetailPageBuySectionCssRule : CssRule
     {
@@ -2628,7 +2683,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:57", "ProductDetailPage #BuySection #FavoriteButton")]
+    [CssSelector("Styles/Common.scss:62", "ProductDetailPage #BuySection #FavoriteButton")]
     [CssBody("height: calc(\"Container\"); width: calc(\"Content\"); background-position: center; padding: 8px; margin-left: 8px;")]
     class ProductDetailPageBuySectionFavoriteButtonCssRule : CssRule
     {
@@ -2663,7 +2718,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:57", "ProductDetailPage #BuySection #Price")]
+    [CssSelector("Styles/Common.scss:62", "ProductDetailPage #BuySection #Price")]
     [CssBody("text-align: center; font-size: 4vw; font-weight: bold; color: green; padding: 16px;")]
     class ProductDetailPageBuySectionPriceCssRule : CssRule
     {
@@ -2698,7 +2753,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:57", "ProductDetailPage #BuySection #CartButton")]
+    [CssSelector("Styles/Common.scss:62", "ProductDetailPage #BuySection #CartButton")]
     [CssBody("background-color: green; padding: 8px;")]
     class ProductDetailPageBuySectionCartButtonCssRule : CssRule
     {
@@ -2730,7 +2785,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:57", "ProductDetailPage #BuySection #CartButton #Icon")]
+    [CssSelector("Styles/Common.scss:62", "ProductDetailPage #BuySection #CartButton #Icon")]
     [CssBody("padding-left: 8px; height: calc(\"Container\");")]
     class ProductDetailPageBuySectionCartButtonIconCssRule : CssRule
     {
@@ -2766,7 +2821,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:57", "ProductDetailPage #BuySection #CartButton #TextView")]
+    [CssSelector("Styles/Common.scss:62", "ProductDetailPage #BuySection #CartButton #TextView")]
     [CssBody("text-align: center; font-size: 4vw; color: white;")]
     class ProductDetailPageBuySectionCartButtonTextViewCssRule : CssRule
     {
@@ -2803,7 +2858,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:57", "ProductDetailPage #DescriptionSection")]
+    [CssSelector("Styles/Common.scss:62", "ProductDetailPage #DescriptionSection")]
     [CssBody("background-color: white; margin: 16px 16px 0 16px; border-radius: 8px;")]
     class ProductDetailPageDescriptionSectionCssRule : CssRule
     {
@@ -2832,7 +2887,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:57", "ProductDetailPage #DescriptionSection #Description")]
+    [CssSelector("Styles/Common.scss:62", "ProductDetailPage #DescriptionSection #Description")]
     [CssBody("font-size: 4vw; margin: 8px;")]
     class ProductDetailPageDescriptionSectionDescriptionCssRule : CssRule
     {
@@ -2864,7 +2919,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:103", "RatingBox")]
+    [CssSelector("Styles/Common.scss:108", "RatingBox")]
     [CssBody("height: calc(\"Content\");")]
     class RatingBoxCssRule : CssRule
     {
@@ -2888,7 +2943,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:103", "RatingBox #Holder")]
+    [CssSelector("Styles/Common.scss:108", "RatingBox #Holder")]
     [CssBody("padding: 16px;")]
     class RatingBoxHolderCssRule : CssRule
     {
@@ -2915,7 +2970,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:103", "RatingBox #Holder .RatingIcon")]
+    [CssSelector("Styles/Common.scss:108", "RatingBox #Holder .RatingIcon")]
     [CssBody("width: 6vw; height: 6vw; margin-top: calc(\"view.Parent.Height, view.Parent.Padding.Top, view.Parent.Padding.Bottom, view.Height, (ph, ppt, ppb, vh) => (ph - ppt - ppb - vh) / 2\");")]
     class RatingBoxHolderRatingIconCssRule : CssRule
     {
@@ -2948,7 +3003,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:103", "RatingBox #Holder #RateText")]
+    [CssSelector("Styles/Common.scss:108", "RatingBox #Holder #RateText")]
     [CssBody("margin-top: calc(\"view.Parent.Height, view.Parent.Padding.Top, view.Parent.Padding.Bottom, view.Height, (ph, ppt, ppb, vh) => (ph - ppt - ppb - vh) / 2\"); font-size: 3vw;")]
     class RatingBoxHolderRateTextCssRule : CssRule
     {
@@ -2980,7 +3035,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:119", "CategoryPage")]
+    [CssSelector("Styles/Common.scss:124", "CategoryPage")]
     [CssBody("background-color: #eaeaea;")]
     class CategoryPageCssRule : CssRule
     {
@@ -3004,7 +3059,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:119", "CategoryPage #Body")]
+    [CssSelector("Styles/Common.scss:124", "CategoryPage #Body")]
     [CssBody("height: calc(\"Content\");")]
     class CategoryPageBodyCssRule : CssRule
     {
@@ -3031,7 +3086,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:119", "CategoryPage ListView")]
+    [CssSelector("Styles/Common.scss:124", "CategoryPage ListView")]
     [CssBody("margin: 16px; margin-bottom: 0;")]
     class CategoryPageListViewCssRule : CssRule
     {
@@ -3060,7 +3115,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:127", "ProductCardItem")]
+    [CssSelector("Styles/Common.scss:132", "ProductCardItem")]
     [CssBody("height: calc(\"Content\");")]
     class ProductCardItemCssRule : CssRule
     {
@@ -3084,7 +3139,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:127", "ProductCardItem #CardItem")]
+    [CssSelector("Styles/Common.scss:132", "ProductCardItem #CardItem")]
     [CssBody("height: calc(\"Content\"); background: white; border-radius: 8px;")]
     class ProductCardItemCardItemCssRule : CssRule
     {
@@ -3113,7 +3168,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:127", "ProductCardItem #CardItem #TextHolder")]
+    [CssSelector("Styles/Common.scss:132", "ProductCardItem #CardItem #TextHolder")]
     [CssBody("margin-top: calc(\"view.Parent.Height, view.Parent.Padding.Top, view.Parent.Padding.Bottom, view.Height, (ph, ppt, ppb, vh) => (ph - ppt - ppb - vh) / 2\"); padding: 8px;")]
     class ProductCardItemCardItemTextHolderCssRule : CssRule
     {
@@ -3145,7 +3200,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:127", "ProductCardItem #CardItem #TextHolder #Title")]
+    [CssSelector("Styles/Common.scss:132", "ProductCardItem #CardItem #TextHolder #Title")]
     [CssBody("font-size: 5vw; font-weight: bold;")]
     class ProductCardItemCardItemTextHolderTitleCssRule : CssRule
     {
@@ -3181,7 +3236,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:127", "ProductCardItem #CardItem #TextHolder #Description")]
+    [CssSelector("Styles/Common.scss:132", "ProductCardItem #CardItem #TextHolder #Description")]
     [CssBody("font-size: 3vw; color: gray;")]
     class ProductCardItemCardItemTextHolderDescriptionCssRule : CssRule
     {
@@ -3217,7 +3272,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:127", "ProductCardItem #CardItem #TextHolder #Price")]
+    [CssSelector("Styles/Common.scss:132", "ProductCardItem #CardItem #TextHolder #Price")]
     [CssBody("font-size: 3vw; color: green; margin-left: 8px; padding-left: 0; border-top: 1px solid #aaaaaa;")]
     class ProductCardItemCardItemTextHolderPriceCssRule : CssRule
     {
@@ -3256,7 +3311,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:127", "ProductCardItem #CardItem #Image")]
+    [CssSelector("Styles/Common.scss:132", "ProductCardItem #CardItem #Image")]
     [CssBody("width: 30%; height: calc(\"Content\"); background-position: center; padding: 16px; margin-top: calc(\"view.Parent.Height, view.Parent.Padding.Top, view.Parent.Padding.Bottom, view.Height, (ph, ppt, ppb, vh) => (ph - ppt - ppb - vh) / 2\");")]
     class ProductCardItemCardItemImageCssRule : CssRule
     {
@@ -3291,7 +3346,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:147", "CategorySubPage")]
+    [CssSelector("Styles/Common.scss:152", "CategorySubPage")]
     [CssBody("padding: 8px; padding-top: 0; padding-bottom: 0;")]
     class CategorySubPageCssRule : CssRule
     {
@@ -3317,7 +3372,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:153", "CategoryCardItem")]
+    [CssSelector("Styles/Common.scss:158", "CategoryCardItem")]
     [CssBody("height: calc(\"Content\"); padding: 0 8px 0 8px; margin-top: -8px;")]
     class CategoryCardItemCssRule : CssRule
     {
@@ -3343,7 +3398,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:153", "CategoryCardItem #CardItem")]
+    [CssSelector("Styles/Common.scss:158", "CategoryCardItem #CardItem")]
     [CssBody("height: calc(\"Content\"); background: white; border-bottom-left-radius: 8px; border-top-right-radius: 8px; margin-top: calc(\"view.Parent.Height, view.Parent.Padding.Top, view.Parent.Padding.Bottom, view.Height, (ph, ppt, ppb, vh) => (ph - ppt - ppb - vh) / 2\"); padding: 8px;")]
     class CategoryCardItemCardItemCssRule : CssRule
     {
@@ -3375,7 +3430,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:153", "CategoryCardItem #CardItem #Name")]
+    [CssSelector("Styles/Common.scss:158", "CategoryCardItem #CardItem #Name")]
     [CssBody("font-size: 3vw; font-weight: bold;")]
     class CategoryCardItemCardItemNameCssRule : CssRule
     {
@@ -3407,7 +3462,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:165", "ProfilePage")]
+    [CssSelector("Styles/Common.scss:170", "ProfilePage")]
     [CssBody("background-color: #eaeaea;")]
     class ProfilePageCssRule : CssRule
     {
@@ -3431,7 +3486,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:165", "ProfilePage #Body")]
+    [CssSelector("Styles/Common.scss:170", "ProfilePage #Body")]
     [CssBody("height: calc(\"Content\");")]
     class ProfilePageBodyCssRule : CssRule
     {
@@ -3458,7 +3513,34 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:165", "ProfilePage .ProfileExpanderButton")]
+    [CssSelector("Styles/Common.scss:170", "ProfilePage .ErrorButton")]
+    [CssBody("padding-bottom: 0;")]
+    class ProfilePageErrorButtonCssRule : CssRule
+    {
+        public override bool Matches(View view)
+        {
+            // CssEngine will only call me if a view matches: .ErrorButton
+
+            view = CssEngine.FindParentByType<ProfilePage>(view);
+
+            if (view is null) return false;
+
+            return true;
+        }
+
+        public override Task Apply(View view)
+        {
+            view.Css.Padding.Bottom = 0;
+
+            return Task.CompletedTask;
+        }
+    }
+}
+
+namespace File_App.UI.Styles.Common
+{
+    [EscapeGCop("Auto-generated")]
+    [CssSelector("Styles/Common.scss:170", "ProfilePage .ProfileExpanderButton")]
     [CssBody("background-color: white; font-size: 4vw; font-weight: bold; padding: 16px; border-top-right-radius: 16px; border-bottom-left-radius: 16px; margin: 16px; margin-top: 8px; margin-bottom: 8px;")]
     class ProfilePageProfileExpanderButtonCssRule : CssRule
     {
@@ -3493,7 +3575,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:165", "ProfilePage #InfoExpander #ProfileInfoCard")]
+    [CssSelector("Styles/Common.scss:170", "ProfilePage #InfoExpander #ProfileInfoCard")]
     [CssBody("height: calc(\"Content\"); background-color: white; border-top-right-radius: 16px; border-bottom-left-radius: 16px; padding: 8px; margin: 8px 16px 8px 16px;")]
     class ProfilePageInfoExpanderProfileInfoCardCssRule : CssRule
     {
@@ -3529,7 +3611,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:165", "ProfilePage #InfoExpander #ProfileInfoCard .Section")]
+    [CssSelector("Styles/Common.scss:170", "ProfilePage #InfoExpander #ProfileInfoCard .Section")]
     [CssBody("padding-top: 16px; font-weight: bold;")]
     class ProfilePageInfoExpanderProfileInfoCardSectionCssRule : CssRule
     {
@@ -3565,7 +3647,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:165", "ProfilePage #InfoExpander #ProfileInfoCard .ItemPickerHolder")]
+    [CssSelector("Styles/Common.scss:170", "ProfilePage #InfoExpander #ProfileInfoCard .ItemPickerHolder")]
     [CssBody("padding: 4px;")]
     class ProfilePageInfoExpanderProfileInfoCardItemPickerHolderCssRule : CssRule
     {
@@ -3600,7 +3682,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:165", "ProfilePage #InfoExpander #ProfileInfoCard .ItemPickerHolder .LabelText")]
+    [CssSelector("Styles/Common.scss:170", "ProfilePage #InfoExpander #ProfileInfoCard .ItemPickerHolder .LabelText")]
     [CssBody("width: 35%; font-size: 3.5fvw; margin-top: calc(\"view.Parent.Height, view.Parent.Padding.Top, view.Parent.Padding.Bottom, view.Height, (ph, ppt, ppb, vh) => (ph - ppt - ppb - vh) / 2\");")]
     class ProfilePageInfoExpanderProfileInfoCardItemPickerHolderLabelTextCssRule : CssRule
     {
@@ -3641,7 +3723,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:165", "ProfilePage #InfoExpander #ProfileInfoCard .ItemPickerHolder ItemPicker")]
+    [CssSelector("Styles/Common.scss:170", "ProfilePage #InfoExpander #ProfileInfoCard .ItemPickerHolder ItemPicker")]
     [CssBody("border: 1px solid #AAAAAA; margin: 0;")]
     class ProfilePageInfoExpanderProfileInfoCardItemPickerHolderItemPickerCssRule : CssRule
     {
@@ -3682,7 +3764,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:165", "ProfilePage #InfoExpander #ProfileInfoCard .ItemPickerHolder ItemPicker #Caret")]
+    [CssSelector("Styles/Common.scss:170", "ProfilePage #InfoExpander #ProfileInfoCard .ItemPickerHolder ItemPicker #Caret")]
     [CssBody("display: none;")]
     class ProfilePageInfoExpanderProfileInfoCardItemPickerHolderItemPickerCaretCssRule : CssRule
     {
@@ -3723,7 +3805,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:165", "ProfilePage #InfoExpander #ProfileInfoCard DatePicker #Label")]
+    [CssSelector("Styles/Common.scss:170", "ProfilePage #InfoExpander #ProfileInfoCard DatePicker #Label")]
     [CssBody("font-size: 3.5fvw; background-color: transparent; color: black; font-weight: normal; border: 1px solid #AAAAAA; padding: 8px; margin: 0;")]
     class ProfilePageInfoExpanderProfileInfoCardDatePickerLabelCssRule : CssRule
     {
@@ -3768,7 +3850,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:165", "ProfilePage #InfoExpander #ProfileInfoCard DatePicker #Caret")]
+    [CssSelector("Styles/Common.scss:170", "ProfilePage #InfoExpander #ProfileInfoCard DatePicker #Caret")]
     [CssBody("display: none;")]
     class ProfilePageInfoExpanderProfileInfoCardDatePickerCaretCssRule : CssRule
     {
@@ -3805,7 +3887,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:165", "ProfilePage #InfoExpander #SaveButton")]
+    [CssSelector("Styles/Common.scss:170", "ProfilePage #InfoExpander #SaveButton")]
     [CssBody("background-color: green; color: white; margin: 8px 16px 8px 16px;")]
     class ProfilePageInfoExpanderSaveButtonCssRule : CssRule
     {
@@ -3838,7 +3920,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:165", "ProfilePage #OrdersExpander ProfileOrdersSubPage ProfileOrderCardItem")]
+    [CssSelector("Styles/Common.scss:170", "ProfilePage #OrdersExpander ProfileOrdersSubPage ProfileOrderCardItem")]
     [CssBody("height: calc(\"Content\"); background-color: white; border-top-right-radius: 16px; border-bottom-left-radius: 16px; padding: 8px; margin: 8px 16px 8px 16px; margin-top: 8px; margin-bottom: 8px;")]
     class ProfilePageOrdersExpanderProfileOrdersSubPageProfileOrderCardItemCssRule : CssRule
     {
@@ -3881,7 +3963,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:165", "ProfilePage #OrdersExpander ProfileOrdersSubPage ProfileOrderCardItem .OrderInfo")]
+    [CssSelector("Styles/Common.scss:170", "ProfilePage #OrdersExpander ProfileOrdersSubPage ProfileOrderCardItem .OrderInfo")]
     [CssBody("border-bottom: 1px solid #AAAAAA;")]
     class ProfilePageOrdersExpanderProfileOrdersSubPageProfileOrderCardItemOrderInfoCssRule : CssRule
     {
@@ -3920,7 +4002,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:165", "ProfilePage #OrdersExpander ProfileOrdersSubPage ProfileOrderCardItem .OrderInfo .TopBorder")]
+    [CssSelector("Styles/Common.scss:170", "ProfilePage #OrdersExpander ProfileOrdersSubPage ProfileOrderCardItem .OrderInfo .TopBorder")]
     [CssBody("border-top: 1px solid #AAAAAA; color: dodgerblue;")]
     class ProfilePageOrdersExpanderProfileOrdersSubPageProfileOrderCardItemOrderInfoTopBorderCssRule : CssRule
     {
@@ -3964,7 +4046,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:165", "ProfilePage #OrdersExpander ProfileOrdersSubPage ProfileOrderCardItem .Left")]
+    [CssSelector("Styles/Common.scss:170", "ProfilePage #OrdersExpander ProfileOrdersSubPage ProfileOrderCardItem .Left")]
     [CssBody("width: calc(\"Content\");")]
     class ProfilePageOrdersExpanderProfileOrdersSubPageProfileOrderCardItemLeftCssRule : CssRule
     {
@@ -4003,7 +4085,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:165", "ProfilePage #OrdersExpander ProfileOrdersSubPage ProfileOrderCardItem .Right")]
+    [CssSelector("Styles/Common.scss:170", "ProfilePage #OrdersExpander ProfileOrdersSubPage ProfileOrderCardItem .Right")]
     [CssBody("text-align: right;")]
     class ProfilePageOrdersExpanderProfileOrdersSubPageProfileOrderCardItemRightCssRule : CssRule
     {
@@ -4042,7 +4124,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:165", "ProfilePage #OrdersExpander ProfileOrdersSubPage ProfileOrderCardItem .Price")]
+    [CssSelector("Styles/Common.scss:170", "ProfilePage #OrdersExpander ProfileOrdersSubPage ProfileOrderCardItem .Price")]
     [CssBody("color: green;")]
     class ProfilePageOrdersExpanderProfileOrdersSubPageProfileOrderCardItemPriceCssRule : CssRule
     {
@@ -4081,7 +4163,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:165", "ProfilePage #FavoritesExpander ProfileFavoritesSubPage ProfileFavoriteCardItem")]
+    [CssSelector("Styles/Common.scss:170", "ProfilePage #FavoritesExpander ProfileFavoritesSubPage ProfileFavoriteCardItem")]
     [CssBody("height: calc(\"Content\"); background-color: white; border-top-right-radius: 16px; border-bottom-left-radius: 16px; padding: 8px; margin: 8px 16px 8px 16px;")]
     class ProfilePageFavoritesExpanderProfileFavoritesSubPageProfileFavoriteCardItemCssRule : CssRule
     {
@@ -4122,7 +4204,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:165", "ProfilePage #FavoritesExpander ProfileFavoritesSubPage ProfileFavoriteCardItem #TextHolder")]
+    [CssSelector("Styles/Common.scss:170", "ProfilePage #FavoritesExpander ProfileFavoritesSubPage ProfileFavoriteCardItem #TextHolder")]
     [CssBody("height: calc(\"Container\");")]
     class ProfilePageFavoritesExpanderProfileFavoritesSubPageProfileFavoriteCardItemTextHolderCssRule : CssRule
     {
@@ -4161,7 +4243,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:165", "ProfilePage #FavoritesExpander ProfileFavoritesSubPage ProfileFavoriteCardItem #TextHolder #Name")]
+    [CssSelector("Styles/Common.scss:170", "ProfilePage #FavoritesExpander ProfileFavoritesSubPage ProfileFavoriteCardItem #TextHolder #Name")]
     [CssBody("height: calc(\"Container\"); font-size: 4vw; font-weight: bold; margin-bottom: 16px;")]
     class ProfilePageFavoritesExpanderProfileFavoritesSubPageProfileFavoriteCardItemTextHolderNameCssRule : CssRule
     {
@@ -4207,7 +4289,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:165", "ProfilePage #FavoritesExpander ProfileFavoritesSubPage ProfileFavoriteCardItem #TextHolder .Divider")]
+    [CssSelector("Styles/Common.scss:170", "ProfilePage #FavoritesExpander ProfileFavoritesSubPage ProfileFavoriteCardItem #TextHolder .Divider")]
     [CssBody("height: 1px; background-color: #AAAAAA; margin: 1px;")]
     class ProfilePageFavoritesExpanderProfileFavoritesSubPageProfileFavoriteCardItemTextHolderDividerCssRule : CssRule
     {
@@ -4252,7 +4334,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:165", "ProfilePage #FavoritesExpander ProfileFavoritesSubPage ProfileFavoriteCardItem #TextHolder #Remove")]
+    [CssSelector("Styles/Common.scss:170", "ProfilePage #FavoritesExpander ProfileFavoritesSubPage ProfileFavoriteCardItem #TextHolder #Remove")]
     [CssBody("width: calc(\"Content\"); font-size: 3vw; color: red; font-weight: bold;")]
     class ProfilePageFavoritesExpanderProfileFavoritesSubPageProfileFavoriteCardItemTextHolderRemoveCssRule : CssRule
     {
@@ -4298,7 +4380,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:165", "ProfilePage #FavoritesExpander ProfileFavoritesSubPage ProfileFavoriteCardItem #Image")]
+    [CssSelector("Styles/Common.scss:170", "ProfilePage #FavoritesExpander ProfileFavoritesSubPage ProfileFavoriteCardItem #Image")]
     [CssBody("width: 30%; height: calc(\"Content\"); background-position: center; padding: 16px; margin-top: calc(\"view.Parent.Height, view.Parent.Padding.Top, view.Parent.Padding.Bottom, view.Height, (ph, ppt, ppb, vh) => (ph - ppt - ppb - vh) / 2\");")]
     class ProfilePageFavoritesExpanderProfileFavoritesSubPageProfileFavoriteCardItemImageCssRule : CssRule
     {
@@ -4341,7 +4423,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:165", "ProfilePage #SecurityExpander #ProfileSecurityCard")]
+    [CssSelector("Styles/Common.scss:170", "ProfilePage #SecurityExpander #ProfileSecurityCard")]
     [CssBody("height: calc(\"Content\"); background-color: white; border-top-right-radius: 16px; border-bottom-left-radius: 16px; padding: 8px; margin: 8px 16px 8px 16px;")]
     class ProfilePageSecurityExpanderProfileSecurityCardCssRule : CssRule
     {
@@ -4377,7 +4459,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:165", "ProfilePage #SecurityExpander Button")]
+    [CssSelector("Styles/Common.scss:170", "ProfilePage #SecurityExpander Button")]
     [CssBody("margin: 8px 16px 8px 16px; color: white; margin-left: 16px;")]
     class ProfilePageSecurityExpanderButtonCssRule : CssRule
     {
@@ -4411,7 +4493,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:165", "ProfilePage #SecurityExpander #SaveButton")]
+    [CssSelector("Styles/Common.scss:170", "ProfilePage #SecurityExpander #SaveButton")]
     [CssBody("background-color: green; margin-right: 16px;")]
     class ProfilePageSecurityExpanderSaveButtonCssRule : CssRule
     {
@@ -4443,7 +4525,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:165", "ProfilePage #SecurityExpander #LogoutButton")]
+    [CssSelector("Styles/Common.scss:170", "ProfilePage #SecurityExpander #LogoutButton")]
     [CssBody("background-color: red;")]
     class ProfilePageSecurityExpanderLogoutButtonCssRule : CssRule
     {
@@ -4474,7 +4556,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:290", "OrderInfoPage")]
+    [CssSelector("Styles/Common.scss:297", "OrderInfoPage")]
     [CssBody("background-color: #eaeaea;")]
     class OrderInfoPageCssRule : CssRule
     {
@@ -4498,7 +4580,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:290", "OrderInfoPage #Body")]
+    [CssSelector("Styles/Common.scss:297", "OrderInfoPage #Body")]
     [CssBody("height: calc(\"Content\");")]
     class OrderInfoPageBodyCssRule : CssRule
     {
@@ -4525,7 +4607,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:290", "OrderInfoPage #Description")]
+    [CssSelector("Styles/Common.scss:297", "OrderInfoPage #Description")]
     [CssBody("background-color: white; font-size: 3.5fvw; font-weight: bold; padding: 16px; border-radius: 8px; margin: 16px; margin-bottom: 0;")]
     class OrderInfoPageDescriptionCssRule : CssRule
     {
@@ -4558,7 +4640,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:290", "OrderInfoPage #OrderGrid")]
+    [CssSelector("Styles/Common.scss:297", "OrderInfoPage #OrderGrid")]
     [CssBody("height: calc(\"Content\"); padding-left: 16px; padding-bottom: 16px;")]
     class OrderInfoPageOrderGridCssRule : CssRule
     {
@@ -4587,7 +4669,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:290", "OrderInfoPage #OrderGrid OrderCardItem")]
+    [CssSelector("Styles/Common.scss:297", "OrderInfoPage #OrderGrid OrderCardItem")]
     [CssBody("height: calc(\"Content\"); background-color: white; border-radius: 8px; padding: 8px; padding-top: 16px; margin-top: 16px; margin-right: 16px;")]
     class OrderInfoPageOrderGridOrderCardItemCssRule : CssRule
     {
@@ -4625,7 +4707,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:290", "OrderInfoPage #OrderGrid OrderCardItem #Image")]
+    [CssSelector("Styles/Common.scss:297", "OrderInfoPage #OrderGrid OrderCardItem #Image")]
     [CssBody("background-position: center; height: 20vh;")]
     class OrderInfoPageOrderGridOrderCardItemImageCssRule : CssRule
     {
@@ -4661,7 +4743,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:290", "OrderInfoPage #OrderGrid OrderCardItem .Left")]
+    [CssSelector("Styles/Common.scss:297", "OrderInfoPage #OrderGrid OrderCardItem .Left")]
     [CssBody("width: calc(\"Content\"); font-size: 3fvw; color: gray; margin-top: calc(\"view.Parent.Height, view.Parent.Padding.Top, view.Parent.Padding.Bottom, view.Height, (ph, ppt, ppb, vh) => (ph - ppt - ppb - vh) / 2\");")]
     class OrderInfoPageOrderGridOrderCardItemLeftCssRule : CssRule
     {
@@ -4699,7 +4781,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:290", "OrderInfoPage #OrderGrid OrderCardItem .Right")]
+    [CssSelector("Styles/Common.scss:297", "OrderInfoPage #OrderGrid OrderCardItem .Right")]
     [CssBody("text-align: right; font-size: 3.5fvw;")]
     class OrderInfoPageOrderGridOrderCardItemRightCssRule : CssRule
     {
@@ -4735,7 +4817,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:290", "OrderInfoPage #OrderGrid OrderCardItem .Price")]
+    [CssSelector("Styles/Common.scss:297", "OrderInfoPage #OrderGrid OrderCardItem .Price")]
     [CssBody("color: green;")]
     class OrderInfoPageOrderGridOrderCardItemPriceCssRule : CssRule
     {
@@ -4770,7 +4852,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:326", "SearchPage")]
+    [CssSelector("Styles/Common.scss:333", "SearchPage")]
     [CssBody("background-color: #eaeaea;")]
     class SearchPageCssRule : CssRule
     {
@@ -4794,7 +4876,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:326", "SearchPage TextInput")]
+    [CssSelector("Styles/Common.scss:333", "SearchPage TextInput")]
     [CssBody("padding: 16px; margin: 0; background-color: white; border: none;")]
     class SearchPageTextInputCssRule : CssRule
     {
@@ -4825,7 +4907,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:326", "SearchPage .Scroller")]
+    [CssSelector("Styles/Common.scss:333", "SearchPage .Scroller")]
     [CssBody("z-index: -1;")]
     class SearchPageScrollerCssRule : CssRule
     {
@@ -4852,7 +4934,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:326", "SearchPage .Scroller ListView")]
+    [CssSelector("Styles/Common.scss:333", "SearchPage .Scroller ListView")]
     [CssBody("padding-top: 16px;")]
     class SearchPageScrollerListViewCssRule : CssRule
     {
@@ -4884,7 +4966,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:326", "SearchPage .Scroller ListView #Content")]
+    [CssSelector("Styles/Common.scss:333", "SearchPage .Scroller ListView #Content")]
     [CssBody("margin: 16px; margin-top: 0; margin-bottom: 0;")]
     class SearchPageScrollerListViewContentCssRule : CssRule
     {
@@ -4921,7 +5003,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:344", "CartPage")]
+    [CssSelector("Styles/Common.scss:351", "CartPage")]
     [CssBody("background-color: #eaeaea;")]
     class CartPageCssRule : CssRule
     {
@@ -4945,7 +5027,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:344", "CartPage #HeaderPrice")]
+    [CssSelector("Styles/Common.scss:351", "CartPage #HeaderPrice")]
     [CssBody("background-color: white; height: calc(\"Content\"); padding: 8px;")]
     class CartPageHeaderPriceCssRule : CssRule
     {
@@ -4974,7 +5056,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:344", "CartPage #HeaderPrice .Right")]
+    [CssSelector("Styles/Common.scss:351", "CartPage #HeaderPrice .Right")]
     [CssBody("color: green; text-align: right; font-weight: bold;")]
     class CartPageHeaderPriceRightCssRule : CssRule
     {
@@ -5007,7 +5089,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:344", "CartPage ScrollView")]
+    [CssSelector("Styles/Common.scss:351", "CartPage ScrollView")]
     [CssBody("z-index: -1;")]
     class CartPageScrollViewCssRule : CssRule
     {
@@ -5035,7 +5117,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:344", "CartPage ScrollView CartOrderCardItem")]
+    [CssSelector("Styles/Common.scss:351", "CartPage ScrollView CartOrderCardItem")]
     [CssBody("height: calc(\"Content\"); background: white; border-radius: 8px; padding: 16px; margin: 8px 16px 8px 16px;")]
     class CartPageScrollViewCartOrderCardItemCssRule : CssRule
     {
@@ -5071,7 +5153,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:344", "CartPage ScrollView CartOrderCardItem #Image")]
+    [CssSelector("Styles/Common.scss:351", "CartPage ScrollView CartOrderCardItem #Image")]
     [CssBody("width: 30%; height: calc(\"Content\");")]
     class CartPageScrollViewCartOrderCardItemImageCssRule : CssRule
     {
@@ -5107,7 +5189,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:344", "CartPage ScrollView CartOrderCardItem #Name")]
+    [CssSelector("Styles/Common.scss:351", "CartPage ScrollView CartOrderCardItem #Name")]
     [CssBody("font-size: 4vw;")]
     class CartPageScrollViewCartOrderCardItemNameCssRule : CssRule
     {
@@ -5142,7 +5224,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:344", "CartPage ScrollView CartOrderCardItem #ShortCription")]
+    [CssSelector("Styles/Common.scss:351", "CartPage ScrollView CartOrderCardItem #ShortCription")]
     [CssBody("font-size: 3vw; color: gray;")]
     class CartPageScrollViewCartOrderCardItemShortCriptionCssRule : CssRule
     {
@@ -5178,7 +5260,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:344", "CartPage ScrollView CartOrderCardItem .LabelText")]
+    [CssSelector("Styles/Common.scss:351", "CartPage ScrollView CartOrderCardItem .LabelText")]
     [CssBody("width: calc(\"Content\"); font-size: 3.5fvw; margin-top: calc(\"view.Parent.Height, view.Parent.Padding.Top, view.Parent.Padding.Bottom, view.Height, (ph, ppt, ppb, vh) => (ph - ppt - ppb - vh) / 2\");")]
     class CartPageScrollViewCartOrderCardItemLabelTextCssRule : CssRule
     {
@@ -5215,7 +5297,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:344", "CartPage ScrollView CartOrderCardItem .Right")]
+    [CssSelector("Styles/Common.scss:351", "CartPage ScrollView CartOrderCardItem .Right")]
     [CssBody("text-align: right;")]
     class CartPageScrollViewCartOrderCardItemRightCssRule : CssRule
     {
@@ -5250,7 +5332,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:344", "CartPage ScrollView CartOrderCardItem .Price")]
+    [CssSelector("Styles/Common.scss:351", "CartPage ScrollView CartOrderCardItem .Price")]
     [CssBody("color: green;")]
     class CartPageScrollViewCartOrderCardItemPriceCssRule : CssRule
     {
@@ -5285,7 +5367,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:344", "CartPage ScrollView CartOrderCardItem .Remove")]
+    [CssSelector("Styles/Common.scss:351", "CartPage ScrollView CartOrderCardItem .Remove")]
     [CssBody("color: red;")]
     class CartPageScrollViewCartOrderCardItemRemoveCssRule : CssRule
     {
@@ -5320,7 +5402,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:344", "CartPage ScrollView CartOrderCardItem .TopBorder")]
+    [CssSelector("Styles/Common.scss:351", "CartPage ScrollView CartOrderCardItem .TopBorder")]
     [CssBody("border-top: 1px solid #AAAAAA;")]
     class CartPageScrollViewCartOrderCardItemTopBorderCssRule : CssRule
     {
@@ -5355,7 +5437,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:344", "CartPage ScrollView CartOrderCardItem .ItemPickerHolder")]
+    [CssSelector("Styles/Common.scss:351", "CartPage ScrollView CartOrderCardItem .ItemPickerHolder")]
     [CssBody("padding: 4px;")]
     class CartPageScrollViewCartOrderCardItemItemPickerHolderCssRule : CssRule
     {
@@ -5390,7 +5472,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:344", "CartPage ScrollView CartOrderCardItem .ItemPickerHolder ItemPicker")]
+    [CssSelector("Styles/Common.scss:351", "CartPage ScrollView CartOrderCardItem .ItemPickerHolder ItemPicker")]
     [CssBody("border: 1px solid #AAAAAA; margin: 0; width: calc(\"Content\");")]
     class CartPageScrollViewCartOrderCardItemItemPickerHolderItemPickerCssRule : CssRule
     {
@@ -5432,7 +5514,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:344", "CartPage ScrollView CartOrderCardItem .ItemPickerHolder ItemPicker #Label")]
+    [CssSelector("Styles/Common.scss:351", "CartPage ScrollView CartOrderCardItem .ItemPickerHolder ItemPicker #Label")]
     [CssBody("text-align: center;")]
     class CartPageScrollViewCartOrderCardItemItemPickerHolderItemPickerLabelCssRule : CssRule
     {
@@ -5475,7 +5557,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:344", "CartPage ScrollView CartOrderCardItem .ItemPickerHolder ItemPicker #Caret")]
+    [CssSelector("Styles/Common.scss:351", "CartPage ScrollView CartOrderCardItem .ItemPickerHolder ItemPicker #Caret")]
     [CssBody("display: none;")]
     class CartPageScrollViewCartOrderCardItemItemPickerHolderItemPickerCaretCssRule : CssRule
     {
@@ -5516,7 +5598,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:344", "CartPage #BuyButton")]
+    [CssSelector("Styles/Common.scss:351", "CartPage #BuyButton")]
     [CssBody("height: calc(\"Content\"); border-radius: 0; background-color: green; border: none; color: white; font-weight: bold; padding: 16px;")]
     class CartPageBuyButtonCssRule : CssRule
     {

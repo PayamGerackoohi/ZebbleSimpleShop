@@ -204,7 +204,9 @@
       <xs:enumeration value="Scroller" />
       <xs:enumeration value="Space" />
       <xs:enumeration value="SpaceTight" />
+      <xs:enumeration value="ErrorButton" />
       <xs:enumeration value="RatingIcon" />
+      <xs:enumeration value="ErrorButton" />
       <xs:enumeration value="ProfileExpanderButton" />
       <xs:enumeration value="Section" />
       <xs:enumeration value="ItemPickerHolder" />
@@ -1598,7 +1600,7 @@
   <xs:element name="UI.Modules.RatingBox" nillable="true" type="UI__Modules__RatingBoxType" />
   <xs:complexType name="UI__Modules__ExpandableLayoutType">
     <xs:complexContent mixed="false">
-      <xs:extension base="View-AbstractType">
+      <xs:extension base="CanvasType">
         <xs:attribute name="IsExpanded" type="Boolean" />
         <xs:attribute name="Direction" type="RepeatDirection" />
         <xs:attribute name="Duration" type="xs:string" />

@@ -1,5 +1,6 @@
 ﻿using Domain;
 using Domain.Models;
+using Domain.Utils;
 using Olive;
 using System;
 using System.Collections.Generic;
@@ -20,12 +21,23 @@ namespace UI.Pages
             SeutpShadows();
             UpdateFavorites();
             Model.Favorites.Changed += () => UpdateFavorites();
+            //FavoritesSubPage.List.Height.Changed.Event += () => OnListHeightChanged();
         }
+
+        //private void OnListHeightChanged()
+        //{
+        //    FavoritesExpander.ClipChildren = true;
+        //$"OnListHeightChanged is called. FavoritesExpander.ClipChildren: {FavoritesExpander.ClipChildren}".Toast();
+        //}
 
         private void UpdateFavorites()
         {
-            FavoritesSubPage.Model.Favorites.Replace(Model.Favorites.Value);
-            FavoritesSubPage.Model.Favorites.Refresh();
+            FavoritesSubPage.Model.Favorites.Also(x =>
+            {
+                x.Replace(Model.Favorites.Value);
+                x.Refresh();
+            });
+            FavoritesExpander.ClipChildren = true;
         }
 
         private void SeutpShadows()
@@ -34,6 +46,12 @@ namespace UI.Pages
             OrdersButton.AddShadow();
             FavoritesButton.AddShadow();
             SecurityButton.AddShadow();
+        }
+
+        private void InformErrorLog()
+        {
+            $"FavList.Children: {FavoritesSubPage.List.AllChildren.Count()}, FavList.DataSource: {FavoritesSubPage.List.DataSource.Count()}\nFavoritesExpander.ClipChildren: {FavoritesExpander.ClipChildren}".Toast();
+            FavoritesExpander.ClipChildren = true;
         }
     }
 }
