@@ -11,6 +11,7 @@ using UI.Modules;
 using UI;
 using Zebble;
 using Zebble.Plugin;
+using ViewModel.Base;
 
 namespace UI.Pages
 {
@@ -19,15 +20,14 @@ namespace UI.Pages
         override public async Task OnInitializing()
         {
             await base.OnInitializing();
-            await Model.OnUIReady();
         }
     }
 
     public class CategoryViewGen : IViewGenerator<Category>
     {
-        public View Generate(Category data, bool isHead)
+        public View Generate(Category data, bool isHead, EzPage holder)
         {
-            var view = new CategoryCardItem { Data = data, IsHead = isHead };
+            var view = new CategoryCardItem { Data = data, IsHead = isHead }.Set(x => x.Model.Holder = holder);
             return view;
         }
     }

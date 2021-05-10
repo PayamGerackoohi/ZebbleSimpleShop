@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UI;
+using ViewModel.Base;
 using Zebble;
 using Zebble.Plugin;
 
@@ -14,6 +15,7 @@ namespace UI.Pages
 {
     partial class CartOrderCardItem
     {
+        public EzPage ModelHolder { get; set; }
         public OrderItem OrderItem;
         public IEnumerable<string> Counts { get => Enumerable.Range(1, 5).Select(i => i.ToString()); }
         public Action OnDataChanged { get; set; }

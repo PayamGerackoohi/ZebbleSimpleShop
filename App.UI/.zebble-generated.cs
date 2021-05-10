@@ -42,7 +42,7 @@ namespace UI.Templates
 }
 #endregion
 
-#region UI.Templates.SimpleNavBarPage
+#region UI.Templates.EzNavBarPage
 namespace UI.Templates
 {
     using System;
@@ -57,8 +57,8 @@ namespace UI.Templates
     using Zebble.Services.Css;
 
     [EscapeGCop("Auto-generated")]
-    [SourceCode(@"Templates\SimpleNavBarPage.zbl")]
-    partial class SimpleNavBarPage : NavBarPage
+    [SourceCode(@"Templates\EzNavBarPage.zbl")]
+    partial class EzNavBarPage : NavBarPage
     {
     }
 }
@@ -114,7 +114,7 @@ namespace UI.Pages
     [CacheView]
     [EscapeGCop("Auto-generated")]
     [SourceCode(@"Views\Pages\TestPage.zbl")]
-    partial class TestPage : UI.Templates.SimpleNavBarPage, ITemplate<ViewModel.TestPage>
+    partial class TestPage : UI.Templates.EzNavBarPage, ITemplate<ViewModel.TestPage>
     {
         public ViewModel.TestPage Model = Zebble.Mvvm.ViewModel.The<ViewModel.TestPage>();
         public Modules.ExpandableLayout Expander = new Modules.ExpandableLayout();
@@ -128,6 +128,7 @@ namespace UI.Pages
             var __button1 = new Button() { Text = "Toggle" }.On(x => x.Tapped, () => Expander.Toggle());
 
             Expander.Id = "Expander";
+            Expander.ModelHolder = Model;
 
             var __textView1 = new TextView() { Text = "Text 1" };
 
@@ -136,6 +137,7 @@ namespace UI.Pages
             var __textView3 = new TextView() { Text = "Text 3" };
 
             FolderView.Id = "FolderView";
+            FolderView.ModelHolder = Model;
             FolderView.OnItemSelected = data => NotifyUser(data.Name).RunInParallel();
             FolderView.ViewGen = new CategoryViewGen();
             FolderView.FolderData = await GetData();
@@ -240,7 +242,7 @@ namespace UI.Pages
     [CacheView]
     [EscapeGCop("Auto-generated")]
     [SourceCode(@"Views\Pages\Cart\CartPage.zbl")]
-    partial class CartPage : UI.Templates.SimpleNavBarPage, ITemplate<ViewModel.CartPage>
+    partial class CartPage : UI.Templates.EzNavBarPage, ITemplate<ViewModel.CartPage>
     {
         public ViewModel.CartPage Model = Zebble.Mvvm.ViewModel.The<ViewModel.CartPage>();
         public Stack HeaderPrice = new Stack();
@@ -285,6 +287,7 @@ namespace UI.Pages
 
                 var __cartOrderCardItem1 = new CartOrderCardItem()
                 {
+                    ModelHolder = FindParent<CartPage>().Model,
                     OrderItem = Item,
                     OnRemove = orderItem => FindParent<CartPage>().Model.OnRemove(orderItem),
                     OnDataChanged = () => FindParent<CartPage>().Model.OnDataChanged()
@@ -313,7 +316,7 @@ namespace UI.Pages
     [CacheView]
     [EscapeGCop("Auto-generated")]
     [SourceCode(@"Views\Pages\Category\CategoryPage.zbl")]
-    partial class CategoryPage : UI.Templates.SimpleNavBarPage, ITemplate<ViewModel.CategoryPage>
+    partial class CategoryPage : UI.Templates.EzNavBarPage, ITemplate<ViewModel.CategoryPage>
     {
         public ViewModel.CategoryPage Model = Zebble.Mvvm.ViewModel.The<ViewModel.CategoryPage>();
         public ListView<Domain.Models.Product, Row> List = new ListView<Domain.Models.Product, Row>();
@@ -340,7 +343,7 @@ namespace UI.Pages
             {
                 await base.InitializeFromMarkup();
 
-                var __pages_ProductCardItem1 = new Pages.ProductCardItem().Set(x => x.Model.Data = Item);
+                var __pages_ProductCardItem1 = new Pages.ProductCardItem().Set(x => x.Model.Holder = FindParent<CategoryPage>().Model).Set(x => x.Model.Data = Item);
 
                 await Add(__pages_ProductCardItem1);
             }
@@ -421,7 +424,7 @@ namespace UI.Pages
     [CacheView]
     [EscapeGCop("Auto-generated")]
     [SourceCode(@"Views\Pages\Home\HomePage.zbl")]
-    partial class HomePage : UI.Templates.SimpleNavBarPage, ITemplate<ViewModel.HomePage>
+    partial class HomePage : UI.Templates.EzNavBarPage, ITemplate<ViewModel.HomePage>
     {
         public ViewModel.HomePage Model = Zebble.Mvvm.ViewModel.The<ViewModel.HomePage>();
         public Carousel Body = new Carousel();
@@ -546,7 +549,7 @@ namespace UI.Pages
     [CacheView]
     [EscapeGCop("Auto-generated")]
     [SourceCode(@"Views\Pages\OrderInfo\OrderInfoPage.zbl")]
-    partial class OrderInfoPage : UI.Templates.SimpleNavBarPage, ITemplate<ViewModel.OrderInfoPage>
+    partial class OrderInfoPage : UI.Templates.EzNavBarPage, ITemplate<ViewModel.OrderInfoPage>
     {
         public ViewModel.OrderInfoPage Model = Zebble.Mvvm.ViewModel.The<ViewModel.OrderInfoPage>();
         public TextView Description = new TextView();
@@ -589,7 +592,7 @@ namespace UI.Pages
     [CacheView]
     [EscapeGCop("Auto-generated")]
     [SourceCode(@"Views\Pages\ProductDetail\ProductDetailPage.zbl")]
-    partial class ProductDetailPage : UI.Templates.SimpleNavBarPage, ITemplate<ViewModel.ProductDetailPage>
+    partial class ProductDetailPage : UI.Templates.EzNavBarPage, ITemplate<ViewModel.ProductDetailPage>
     {
         public ViewModel.ProductDetailPage Model = Zebble.Mvvm.ViewModel.The<ViewModel.ProductDetailPage>();
         public Stack InfoSection = new Stack();
@@ -647,7 +650,7 @@ namespace UI.Pages
             Description.Id = "Description";
             Description.Bind("Text", () => Model.Data, d => d.Description);
 
-            var __modules_RatingBox1 = new Modules.RatingBox().Set(x => x.Model.Data = Model.Data.Value);
+            var __modules_RatingBox1 = new Modules.RatingBox().Set(x => x.Model.Holder = Model).Set(x => x.Model.Data = Model.Data.Value);
 
             var __row4 = new Row() { CssClass = "Space" };
 
@@ -681,7 +684,7 @@ namespace UI.Pages
     [CacheView]
     [EscapeGCop("Auto-generated")]
     [SourceCode(@"Views\Pages\Profile\ProfilePage.zbl")]
-    partial class ProfilePage : UI.Templates.SimpleNavBarPage, ITemplate<ViewModel.ProfilePage>
+    partial class ProfilePage : UI.Templates.EzNavBarPage, ITemplate<ViewModel.ProfilePage>
     {
         public ViewModel.ProfilePage Model = Zebble.Mvvm.ViewModel.The<ViewModel.ProfilePage>();
         public TextView InfoButton = new TextView();
@@ -690,6 +693,7 @@ namespace UI.Pages
         public Modules.ExpandableLayout OrdersExpander = new Modules.ExpandableLayout();
         public TextView FavoritesButton = new TextView();
         public Modules.ExpandableLayout FavoritesExpander = new Modules.ExpandableLayout();
+        public ProfileFavoritesSubPage FavoritesSubPage = new ProfileFavoritesSubPage();
         public TextView SecurityButton = new TextView();
         public Modules.ExpandableLayout SecurityExpander = new Modules.ExpandableLayout();
         protected override async Task InitializeFromMarkup()
@@ -708,8 +712,9 @@ namespace UI.Pages
             InfoButton.On(x => x.Tapped, () => InfoExpander.Toggle());
 
             InfoExpander.Id = "InfoExpander";
+            InfoExpander.ModelHolder = Model;
 
-            var __profileInfoSubPage1 = new ProfileInfoSubPage();
+            var __profileInfoSubPage1 = new ProfileInfoSubPage().Set(x => x.Model.Holder = Model);
 
             var __row3 = new Row();
 
@@ -719,6 +724,7 @@ namespace UI.Pages
             OrdersButton.On(x => x.Tapped, () => OrdersExpander.Toggle());
 
             OrdersExpander.Id = "OrdersExpander";
+            OrdersExpander.ModelHolder = Model;
 
             var __profileOrdersSubPage1 = new ProfileOrdersSubPage()
             .Set(x => x.Model.Orders.Value = Model.Orders.Value)
@@ -732,10 +738,10 @@ namespace UI.Pages
             FavoritesButton.On(x => x.Tapped, () => FavoritesExpander.Toggle());
 
             FavoritesExpander.Id = "FavoritesExpander";
+            FavoritesExpander.ModelHolder = Model;
 
-            var __profileFavoritesSubPage1 = new ProfileFavoritesSubPage()
-            .Set(x => x.Model.Favorites.Value = Model.Favorites.Value)
-            .Set(x => x.Model.ShowDetail = p => Model.ShowProductDetail(p).RunInParallel())
+            FavoritesSubPage.Id = "FavoritesSubPage";
+            FavoritesSubPage.Set(x => x.Model.ShowDetail = p => Model.ShowProductDetail(p).RunInParallel())
             .Set(x => x.Model.RefreshFavorites = () => Model.RefreshFavorites().RunInParallel());
 
             var __row5 = new Row();
@@ -746,6 +752,7 @@ namespace UI.Pages
             SecurityButton.On(x => x.Tapped, () => SecurityExpander.Toggle());
 
             SecurityExpander.Id = "SecurityExpander";
+            SecurityExpander.ModelHolder = Model;
 
             var __profileSecuritySubPage1 = new ProfileSecuritySubPage();
 
@@ -756,7 +763,7 @@ namespace UI.Pages
             await __row3.Add(OrdersButton);
             await OrdersExpander.Add(__profileOrdersSubPage1);
             await __row4.Add(FavoritesButton);
-            await FavoritesExpander.Add(__profileFavoritesSubPage1);
+            await FavoritesExpander.Add(FavoritesSubPage);
             await __row5.Add(SecurityButton);
             await SecurityExpander.Add(__profileSecuritySubPage1);
             await BodyScroller.AddRange(new View[] { __row1, __row2, InfoExpander, __row3, OrdersExpander, __row4, FavoritesExpander, __row5, SecurityExpander, __row6 });
@@ -782,7 +789,7 @@ namespace UI.Pages
     [CacheView]
     [EscapeGCop("Auto-generated")]
     [SourceCode(@"Views\Pages\Search\SearchPage.zbl")]
-    partial class SearchPage : UI.Templates.SimpleNavBarPage, ITemplate<ViewModel.SearchPage>
+    partial class SearchPage : UI.Templates.EzNavBarPage, ITemplate<ViewModel.SearchPage>
     {
         public ViewModel.SearchPage Model = Zebble.Mvvm.ViewModel.The<ViewModel.SearchPage>();
         public TextInput SearchInput = new TextInput();
@@ -812,7 +819,7 @@ namespace UI.Pages
             {
                 await base.InitializeFromMarkup();
 
-                var __productCardItem1 = new ProductCardItem().Set(x => x.Model.Data = Item);
+                var __productCardItem1 = new ProductCardItem().Set(x => x.Model.Holder = FindParent<SearchPage>().Model).Set(x => x.Model.Data = Item);
 
                 await Add(__productCardItem1);
             }
@@ -888,6 +895,7 @@ namespace UI.Pages
             var __row1 = new Row() { CssClass = "SpaceTight" };
 
             FolderView.Id = "FolderView";
+            FolderView.ModelHolder = Model.Holder;
             FolderView.OnItemSelected = data => Model.OnCategorySelected(data);
             FolderView.ViewGen = new CategoryViewGen();
             FolderView.Bind("FolderData", () => Model.Categories, x => Model.GetData());
@@ -944,7 +952,9 @@ namespace UI.Pages
             {
                 await base.InitializeFromMarkup();
 
-                var __productCardItem1 = new ProductCardItem().Set(x => x.Model.Data = Item);
+                var __productCardItem1 = new ProductCardItem()
+                .Set(x => x.Model.Holder = FindParent<MostVisitedSubPage>().Model.Holder)
+                .Set(x => x.Model.Data = Item);
 
                 await Add(__productCardItem1);
             }
@@ -997,7 +1007,7 @@ namespace UI.Pages
             {
                 await base.InitializeFromMarkup();
 
-                var __productCardItem1 = new ProductCardItem().Set(x => x.Model.Data = Item);
+                var __productCardItem1 = new ProductCardItem().Set(x => x.Model.Holder = FindParent<NewSubPage>().Model.Holder).Set(x => x.Model.Data = Item);
 
                 await Add(__productCardItem1);
             }
@@ -1050,7 +1060,7 @@ namespace UI.Pages
             {
                 await base.InitializeFromMarkup();
 
-                var __productCardItem1 = new ProductCardItem().Set(x => x.Model.Data = Item);
+                var __productCardItem1 = new ProductCardItem().Set(x => x.Model.Holder = FindParent<OfferSubPage>().Model.Holder).Set(x => x.Model.Data = Item);
 
                 await Add(__productCardItem1);
             }
@@ -1103,7 +1113,7 @@ namespace UI.Pages
             {
                 await base.InitializeFromMarkup();
 
-                var __productCardItem1 = new ProductCardItem().Set(x => x.Model.Data = Item);
+                var __productCardItem1 = new ProductCardItem().Set(x => x.Model.Holder = FindParent<PopularSubPage>().Model.Holder).Set(x => x.Model.Data = Item);
 
                 await Add(__productCardItem1);
             }
@@ -1204,6 +1214,7 @@ namespace UI.Pages
 
                 var __profileFavoriteCardItem1 = new ProfileFavoriteCardItem()
                 {
+                    ModelHolder = FindParent<ProfileFavoritesSubPage>().Model.Holder,
                     Favorite = Item,
                     ShowDetail = p => FindParent<ProfileFavoritesSubPage>().Model.ShowDetail(p),
                     RemoveButtonClicked = p => FindParent<ProfileFavoritesSubPage>().Model.RemoveButtonClicked(p)
@@ -1454,7 +1465,12 @@ namespace UI.Pages
             {
                 await base.InitializeFromMarkup();
 
-                var __profileOrderCardItem1 = new ProfileOrderCardItem() { Order = Item, ShowInfo = order => ((ProfileOrdersSubPage)(Parent.Parent)).Model.ShowOrderInfo(order) };
+                var __profileOrderCardItem1 = new ProfileOrderCardItem()
+                {
+                    ModelHolder = FindParent<ProfileOrdersSubPage>().Model.Holder,
+                    Order = Item,
+                    ShowInfo = order => ((ProfileOrdersSubPage)(Parent.Parent)).Model.ShowOrderInfo(order)
+                };
 
                 await Add(__profileOrderCardItem1);
             }

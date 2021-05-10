@@ -14,7 +14,7 @@ namespace UI.Pages
 {
     partial class CategoryCardItem
     {
-        public Category Data { get; set; }
+        public new Category Data { get; set; }
         public bool IsHead { get; set; }
         public string DataValue { get => $"{(IsHead ? "❖ " : "")}{Data.Name}"; }
 

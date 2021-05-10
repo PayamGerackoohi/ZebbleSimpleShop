@@ -4,7 +4,8 @@
    <class type="ProfileOrdersSubPage" base="Stack" namespace="UI.Pages" viewmodel="ViewModel.ProfileOrdersSubPage">
       <ListView of="Domain.Models.Order, Row" DataSource="@{Model.Orders}" Id="List">
          <class type="Row" base="ListViewItem[Domain.Models.Order]">
-            <ProfileOrderCardItem Order="@Item"
+            <ProfileOrderCardItem ModelHolder="@FindParent&lt;ProfileOrdersSubPage&gt;().Model.Holder"
+                                  Order="@Item"
                                   ShowInfo="@order => ((ProfileOrdersSubPage)(Parent.Parent)).Model.ShowOrderInfo(order)" />
          </class>
       </ListView>

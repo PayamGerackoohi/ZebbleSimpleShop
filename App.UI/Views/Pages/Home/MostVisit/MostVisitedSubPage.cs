@@ -17,7 +17,6 @@ namespace UI.Pages
         override public async Task OnInitializing()
         {
             await base.OnInitializing();
-            await Model.OnUIReady();
         }
     }
 }

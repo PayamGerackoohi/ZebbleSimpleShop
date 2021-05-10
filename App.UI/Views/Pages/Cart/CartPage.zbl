@@ -2,7 +2,7 @@
 <zbl xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
      xsi:noNamespaceSchemaLocation="../../.zebble-schema.xml">
    <class type="CartPage"
-          base="UI.Templates.SimpleNavBarPage"
+          base="UI.Templates.EzNavBarPage"
           Title="Cart"
           namespace="UI.Pages"
           viewmodel="ViewModel.CartPage">
@@ -15,7 +15,8 @@
             <TextView CssClass="SpaceTight" />
             <ListView of="Domain.Models.OrderItem, Row" DataSource="@{Model.Cart, c => c.OrderItems}">
                <class type="Row" base="ListViewItem[Domain.Models.OrderItem]">
-                  <CartOrderCardItem OrderItem="@Item"
+                  <CartOrderCardItem ModelHolder="@FindParent&lt;CartPage&gt;().Model"
+                                     OrderItem="@Item"
                                      OnRemove="@orderItem => FindParent&lt;CartPage&gt;().Model.OnRemove(orderItem)"
                                      OnDataChanged="@() => FindParent&lt;CartPage&gt;().Model.OnDataChanged()" />
                </class>

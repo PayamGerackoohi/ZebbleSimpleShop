@@ -2,7 +2,7 @@
 <zbl xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
      xsi:noNamespaceSchemaLocation="../../.zebble-schema.xml">
    <class type="HomePage"
-          base="UI.Templates.SimpleNavBarPage"
+          base="UI.Templates.EzNavBarPage"
           Title="Simple Shop"
           namespace="UI.Pages"
           viewmodel="ViewModel.HomePage">

@@ -13,14 +13,9 @@ using Zebble.Mvvm;
 
 namespace ViewModel
 {
-    class ProfileSecuritySubPage : SubPage
+    class ProfileSecuritySubPage : EzSubPage
     {
         public Bindable<User> User { get; set; } = new User();
-
-        override public async Task OnUIReady()
-        {
-            User.Value = await Api.ShopApi.GetUser();
-        }
 
         public async Task OnSave()
         {
@@ -35,6 +30,15 @@ namespace ViewModel
         public async Task OnLogout()
         {
             "Not implemented yet!".Toast();
+        }
+
+        //public override async Task OnRefresh()
+        //{
+        //}
+
+        protected override async Task Setup()
+        {
+            User.Value = await Api.ShopApi.GetUser();
         }
     }
 }

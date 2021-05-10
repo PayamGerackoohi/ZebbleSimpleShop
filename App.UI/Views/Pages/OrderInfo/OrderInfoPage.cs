@@ -44,7 +44,7 @@ namespace UI.Pages
             {
                 OrderItem = oi,
                 ShowProductDetail = p => Model.ShowProductDetail(p).RunInParallel()
-            }));
+            }.Set(x => x.ModelHolder = Model)));
             if (Model.Order.Value.OrderItems.Count % 2 == 1)
                 OrderGrid.Add(new Canvas().Set(c => c.Margin(8)));
         }

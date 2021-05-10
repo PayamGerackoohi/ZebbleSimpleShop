@@ -13,16 +13,9 @@ using Zebble.Mvvm;
 
 namespace ViewModel
 {
-    class CategorySubPage : SubPage
+    class CategorySubPage : EzSubPage
     {
         public BindableCollection<Category> Categories = new();
-
-        public override async Task OnUIReady()
-        {
-            Categories.Clear();
-            Categories.Add(await Api.ShopApi.GetCategories());
-            Categories.Refresh();
-        }
 
         public IEnumerable<FolderData<Category>> GetData()
         {
@@ -31,7 +24,15 @@ namespace ViewModel
 
         public void OnCategorySelected(Category category)
         {
-            Forward<CategoryPage>(vm => vm.Setup(category).RunInParallel());
+            Holder.EzForward<CategoryPage>(config: vm => vm.Setup(category).RunInParallel());
+        }
+
+        //public override async Task Setup()
+        protected override async Task Setup()
+        {
+            Categories.Clear();
+            Categories.Add(await Api.ShopApi.GetCategories());
+            Categories.Refresh();
         }
     }
 }

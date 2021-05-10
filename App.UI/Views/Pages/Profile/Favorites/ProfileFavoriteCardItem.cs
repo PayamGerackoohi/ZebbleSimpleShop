@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UI;
+using ViewModel.Base;
 using Zebble;
 using Zebble.Plugin;
 
@@ -14,6 +15,7 @@ namespace UI.Pages
 {
     partial class ProfileFavoriteCardItem
     {
+        public EzPage ModelHolder { get; set; }
         public Product Favorite { get; set; }
         public Action<Product> ShowDetail { get; set; }
         public Action<Product> RemoveButtonClicked { get; set; }

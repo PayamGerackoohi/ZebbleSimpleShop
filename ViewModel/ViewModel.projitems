@@ -9,6 +9,9 @@
     <Import_RootNamespace>ViewModel</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Base\EzNav.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Base\Interface\INavigationHandler.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Base\EzPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CategoryCardItem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CartPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SearchPage.cs" />
@@ -29,7 +32,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)HomePage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ProductCardItem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)RatingBox.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Base\SubPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Base\EzSubPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)StartUp.cs" />
   </ItemGroup>
 </Project>

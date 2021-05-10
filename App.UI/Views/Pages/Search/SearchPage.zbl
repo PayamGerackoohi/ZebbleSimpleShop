@@ -2,7 +2,7 @@
 <zbl xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
      xsi:noNamespaceSchemaLocation="../../.zebble-schema.xml">
    <class type="SearchPage"
-          base="UI.Templates.SimpleNavBarPage"
+          base="UI.Templates.EzNavBarPage"
           Title="Search"
           namespace="UI.Pages"
           viewmodel="ViewModel.SearchPage">
@@ -13,7 +13,7 @@
          <ScrollView CssClass="Scroller">
             <ListView of="Domain.Models.Product, Row" DataSource="@{Model.Results}">
                <class type="Row" base="ListViewItem[Domain.Models.Product]">
-                  <ProductCardItem Model.Data="@Item" />
+                  <ProductCardItem Model.Holder="@FindParent&lt;SearchPage&gt;().Model" Model.Data="@Item" />
                </class>
             </ListView>
          </ScrollView>

@@ -7,43 +7,45 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using UI;
+using ViewModel.Base;
 using Zebble;
 using Zebble.Mvvm;
 
 namespace ViewModel
 {
-    class ProfilePage : FullScreen
+    class ProfilePage : EzPage
     {
         public Bindable<User> User { get; set; } = new User();
         public BindableCollection<Order> Orders { get; set; } = new();
         public BindableCollection<Product> Favorites { get; set; } = new();
 
-        public ProfilePage()
+        public override async Task Setup()
         {
-            Setup().RunInParallel();
-        }
-
-        private async Task Setup()
-        {
-            User.Value = await Api.ShopApi.GetUser();
-            Orders.Replace(User.Value.Orders);
-            Favorites.Replace(User.Value.Favorits);
+            await OnRefresh();
         }
 
         public async Task ShowOrderInfo(Order order)
         {
-            Forward<OrderInfoPage>(vm => vm.Order.Value = order);
+            EzForward<OrderInfoPage>(config: vm => vm.Order.Value = order);
         }
 
         public async Task ShowProductDetail(Product product)
         {
-            Forward<ProductDetailPage>(vm => vm.Setup(product).RunInParallel());
+            EzForward<ProductDetailPage>(config: vm => vm.Setup(product).RunInParallel());
         }
 
         public async Task RefreshFavorites()
         {
             User.Value = await Api.ShopApi.GetUser();
             Favorites.Replace(User.Value.Favorits);
+        }
+
+        public override async Task OnRefresh()
+        {
+            User.Value = await Api.ShopApi.GetUser();
+            Orders.Replace(User.Value.Orders);
+            Favorites.Replace(User.Value.Favorits);
+            Favorites.Refresh();
         }
     }
 }

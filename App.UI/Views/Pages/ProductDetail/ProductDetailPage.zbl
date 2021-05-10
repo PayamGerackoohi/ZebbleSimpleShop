@@ -2,7 +2,7 @@
 <zbl xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
      xsi:noNamespaceSchemaLocation="../../.zebble-schema.xml">
    <class type="ProductDetailPage"
-          base="UI.Templates.SimpleNavBarPage"
+          base="UI.Templates.EzNavBarPage"
           Title="Product Detail"
           namespace="UI.Pages"
           viewmodel="ViewModel.ProductDetailPage">
@@ -31,7 +31,7 @@
          <Row>
             <Stack Id="DescriptionSection">
                <TextView Id="Description" Text="@{Model.Data, d => d.Description}" />
-               <Modules.RatingBox Model.Data="@Model.Data.Value" />
+               <Modules.RatingBox Model.Holder="@Model" Model.Data="@Model.Data.Value" />
             </Stack>
          </Row>
          <Row CssClass="Space" />

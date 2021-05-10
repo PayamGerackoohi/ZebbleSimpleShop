@@ -12,11 +12,15 @@ using Zebble.Mvvm;
 
 namespace ViewModel
 {
-    class OfferSubPage : SubPage
+    class OfferSubPage : EzSubPage
     {
         public BindableCollection<Product> Products = new();
 
-        public override async Task OnUIReady()
+        //public override async Task OnRefresh()
+        //{
+        //}
+
+        protected override async Task Setup()
         {
             Products.Replace(await Api.ShopApi.OfferProducts());
         }

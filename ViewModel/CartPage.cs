@@ -7,23 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UI;
+using ViewModel.Base;
 using Zebble;
 using Zebble.Mvvm;
 
 namespace ViewModel
 {
-    class CartPage : FullScreen
+    class CartPage : EzPage
     {
         public Bindable<Order> Cart = new();
 
-        public CartPage()
+        public override async Task Setup()
         {
-            Setup().RunInParallel();
-        }
-
-        private async Task Setup()
-        {
-            Cart.Value = await Api.ShopApi.GetCart();
+            await OnRefresh();
         }
 
         public async Task Buy()
@@ -40,6 +36,11 @@ namespace ViewModel
         {
             Cart.Value.OrderItems.RemoveWhere(oi => oi.Id == orderItem.Id);
             Cart.Refresh();
+        }
+
+        public override async Task OnRefresh()
+        {
+            Cart.Value = await Api.ShopApi.GetCart();
         }
     }
 }

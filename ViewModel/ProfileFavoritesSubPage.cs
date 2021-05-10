@@ -13,7 +13,7 @@ using Zebble.Mvvm;
 
 namespace ViewModel
 {
-    class ProfileFavoritesSubPage : SubPage
+    class ProfileFavoritesSubPage : EzSubPage
     {
         public BindableCollection<Product> Favorites { get; set; } = new();
         public Bindable<Product> ShowRemoveConfirmationDialog = new();
@@ -30,7 +30,11 @@ namespace ViewModel
             await Api.ShopApi.RemoveFavorite(product.Id);
         }
 
-        public override async Task OnUIReady()
+        //public override async Task OnRefresh()
+        //{
+        //}
+
+        protected override async Task Setup()
         {
         }
     }

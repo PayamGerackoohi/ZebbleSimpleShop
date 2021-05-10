@@ -2,7 +2,7 @@
 <zbl xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
      xsi:noNamespaceSchemaLocation="../../.zebble-schema.xml">
    <class type="ProfilePage"
-          base="UI.Templates.SimpleNavBarPage"
+          base="UI.Templates.EzNavBarPage"
           Title="Profile"
           namespace="UI.Pages"
           viewmodel="ViewModel.ProfilePage">
@@ -11,13 +11,13 @@
          <Row>
             <TextView Id="InfoButton" Text="❖ Info" CssClass="ProfileExpanderButton" on-Tapped="@InfoExpander.Toggle()" />
          </Row>
-         <Modules.ExpandableLayout Id="InfoExpander">
-            <ProfileInfoSubPage />
+         <Modules.ExpandableLayout ModelHolder="@Model" Id="InfoExpander">
+            <ProfileInfoSubPage Model.Holder="@Model" />
          </Modules.ExpandableLayout>
          <Row>
             <TextView Id="OrdersButton" Text="❖ Orders" CssClass="ProfileExpanderButton" on-Tapped="OrdersExpander.Toggle()" />
          </Row>
-         <Modules.ExpandableLayout Id="OrdersExpander">
+         <Modules.ExpandableLayout ModelHolder="@Model" Id="OrdersExpander">
             <ProfileOrdersSubPage Model.Orders.Value="@Model.Orders.Value"
                                   Model.ShowOrderInfo="@order => Model.ShowOrderInfo(order).RunInParallel()" />
          </Modules.ExpandableLayout>
@@ -27,8 +27,8 @@
                       CssClass="ProfileExpanderButton"
                       on-Tapped="FavoritesExpander.Toggle()" />
          </Row>
-         <Modules.ExpandableLayout Id="FavoritesExpander">
-            <ProfileFavoritesSubPage Model.Favorites.Value="@Model.Favorites.Value"
+         <Modules.ExpandableLayout ModelHolder="@Model" Id="FavoritesExpander">
+            <ProfileFavoritesSubPage Id="FavoritesSubPage"
                                      Model.ShowDetail="@p => Model.ShowProductDetail(p).RunInParallel()"
                                      Model.RefreshFavorites="@() => Model.RefreshFavorites().RunInParallel()" />
          </Modules.ExpandableLayout>
@@ -38,7 +38,7 @@
                       CssClass="ProfileExpanderButton"
                       on-Tapped="@SecurityExpander.Toggle()" />
          </Row>
-         <Modules.ExpandableLayout Id="SecurityExpander">
+         <Modules.ExpandableLayout ModelHolder="@Model" Id="SecurityExpander">
             <ProfileSecuritySubPage />
          </Modules.ExpandableLayout>
          <Row CssClass="SpaceTight" />

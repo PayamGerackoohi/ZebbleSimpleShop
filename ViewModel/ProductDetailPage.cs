@@ -7,11 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UI;
+using ViewModel.Base;
 using Zebble.Mvvm;
 
 namespace ViewModel
 {
-    class ProductDetailPage : FullScreen
+    class ProductDetailPage : EzPage
     {
         public Bindable<Product> Data = new();
         public Bindable<bool> IsFavorite = false;
@@ -60,6 +61,14 @@ namespace ViewModel
         {
             await Api.ShopApi.RemoveFavorite(Data.Value.Id);
             "Product is removed from the favorites list.".Toast();
+        }
+
+        public override async Task OnRefresh()
+        {
+        }
+
+        public override async Task Setup()
+        {
         }
     }
 }

@@ -7,18 +7,27 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using UI;
+using ViewModel.Base;
 using Zebble;
 using Zebble.Mvvm;
 
 namespace ViewModel
 {
-    class OrderInfoPage : FullScreen
+    class OrderInfoPage : EzPage
     {
         public Bindable<Order> Order { get; set; } = new();
 
+        public override async Task OnRefresh()
+        {
+        }
+
+        public override async Task Setup()
+        {
+        }
+
         public async Task ShowProductDetail(Product product)
         {
-            Forward<ProductDetailPage>(vm => vm.Setup(product).RunInParallel());
+            EzForward<ProductDetailPage>(config: vm => vm.Setup(product).RunInParallel());
         }
     }
 }

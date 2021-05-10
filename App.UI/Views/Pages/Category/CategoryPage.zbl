@@ -2,7 +2,7 @@
 <zbl xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
      xsi:noNamespaceSchemaLocation="../../.zebble-schema.xml">
    <class type="CategoryPage"
-          base="UI.Templates.SimpleNavBarPage"
+          base="UI.Templates.EzNavBarPage"
           Title="@{Model.Title}"
           namespace="UI.Pages"
           viewmodel="ViewModel.CategoryPage">
@@ -10,7 +10,7 @@
          <Canvas>
             <ListView of="Domain.Models.Product, Row" DataSource="@{Model.Products}" Id="List">
                <class type="Row" base="ListViewItem[Domain.Models.Product]">
-                  <Pages.ProductCardItem Model.Data="@Item" />
+                  <Pages.ProductCardItem Model.Holder="@FindParent&lt;CategoryPage&gt;().Model" Model.Data="@Item" />
                </class>
             </ListView>
          </Canvas>

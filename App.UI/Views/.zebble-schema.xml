@@ -1287,17 +1287,17 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="UI.Templates.Blank" nillable="true" type="UI__Templates__BlankType" />
-  <xs:complexType name="UI__Templates__SimpleNavBarPageType">
+  <xs:complexType name="UI__Templates__EzNavBarPageType">
     <xs:complexContent mixed="false">
       <xs:extension base="NavBarPage-AbstractType">
         <xs:anyAttribute processContents="skip" />
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="UI.Templates.SimpleNavBarPage" nillable="true" type="UI__Templates__SimpleNavBarPageType" />
+  <xs:element name="UI.Templates.EzNavBarPage" nillable="true" type="UI__Templates__EzNavBarPageType" />
   <xs:complexType name="UI__Pages__TestPageType">
     <xs:complexContent mixed="false">
-      <xs:extension base="UI__Templates__SimpleNavBarPageType">
+      <xs:extension base="UI__Templates__EzNavBarPageType">
         <xs:attribute name="Model" type="xs:string" />
         <xs:attribute name="Expander" type="xs:string" />
         <xs:attribute name="FolderView" type="xs:string" />
@@ -1309,6 +1309,7 @@
   <xs:complexType name="UI__Pages__CartOrderCardItemType">
     <xs:complexContent mixed="false">
       <xs:extension base="RowType">
+        <xs:attribute name="ModelHolder" type="xs:string" />
         <xs:attribute name="OnDataChanged" type="xs:string" />
         <xs:attribute name="OnRemove" type="xs:string" />
         <xs:attribute name="Name" type="xs:string" />
@@ -1323,7 +1324,7 @@
   <xs:element name="UI.Pages.CartOrderCardItem" nillable="true" type="UI__Pages__CartOrderCardItemType" />
   <xs:complexType name="UI__Pages__CartPageType">
     <xs:complexContent mixed="false">
-      <xs:extension base="UI__Templates__SimpleNavBarPageType">
+      <xs:extension base="UI__Templates__EzNavBarPageType">
         <xs:attribute name="Model" type="xs:string" />
         <xs:attribute name="HeaderPrice" type="xs:string" />
         <xs:attribute name="BuyButton" type="xs:string" />
@@ -1334,7 +1335,7 @@
   <xs:element name="UI.Pages.CartPage" nillable="true" type="UI__Pages__CartPageType" />
   <xs:complexType name="UI__Pages__CategoryPageType">
     <xs:complexContent mixed="false">
-      <xs:extension base="UI__Templates__SimpleNavBarPageType">
+      <xs:extension base="UI__Templates__EzNavBarPageType">
         <xs:attribute name="Model" type="xs:string" />
         <xs:attribute name="List" type="xs:string" />
         <xs:anyAttribute processContents="skip" />
@@ -1360,7 +1361,7 @@
   <xs:element name="UI.Pages.ProductCardItem" nillable="true" type="UI__Pages__ProductCardItemType" />
   <xs:complexType name="UI__Pages__HomePageType">
     <xs:complexContent mixed="false">
-      <xs:extension base="UI__Templates__SimpleNavBarPageType">
+      <xs:extension base="UI__Templates__EzNavBarPageType">
         <xs:attribute name="Model" type="xs:string" />
         <xs:attribute name="BottomNavBar" type="xs:string" />
         <xs:anyAttribute processContents="skip" />
@@ -1371,6 +1372,7 @@
   <xs:complexType name="UI__Pages__OrderCardItemType">
     <xs:complexContent mixed="false">
       <xs:extension base="StackType">
+        <xs:attribute name="ModelHolder" type="xs:string" />
         <xs:attribute name="OrderItem" type="xs:string" />
         <xs:attribute name="ShowProductDetail" type="xs:string" />
         <xs:attribute name="Image" type="xs:string" />
@@ -1381,7 +1383,7 @@
   <xs:element name="UI.Pages.OrderCardItem" nillable="true" type="UI__Pages__OrderCardItemType" />
   <xs:complexType name="UI__Pages__OrderInfoPageType">
     <xs:complexContent mixed="false">
-      <xs:extension base="UI__Templates__SimpleNavBarPageType">
+      <xs:extension base="UI__Templates__EzNavBarPageType">
         <xs:attribute name="Model" type="xs:string" />
         <xs:attribute name="Description" type="xs:string" />
         <xs:attribute name="OrderGrid" type="xs:string" />
@@ -1392,7 +1394,7 @@
   <xs:element name="UI.Pages.OrderInfoPage" nillable="true" type="UI__Pages__OrderInfoPageType" />
   <xs:complexType name="UI__Pages__ProductDetailPageType">
     <xs:complexContent mixed="false">
-      <xs:extension base="UI__Templates__SimpleNavBarPageType">
+      <xs:extension base="UI__Templates__EzNavBarPageType">
         <xs:attribute name="Model" type="xs:string" />
         <xs:attribute name="InfoSection" type="xs:string" />
         <xs:attribute name="Image" type="xs:string" />
@@ -1411,7 +1413,7 @@
   <xs:element name="UI.Pages.ProductDetailPage" nillable="true" type="UI__Pages__ProductDetailPageType" />
   <xs:complexType name="UI__Pages__ProfilePageType">
     <xs:complexContent mixed="false">
-      <xs:extension base="UI__Templates__SimpleNavBarPageType">
+      <xs:extension base="UI__Templates__EzNavBarPageType">
         <xs:attribute name="Model" type="xs:string" />
         <xs:attribute name="InfoButton" type="xs:string" />
         <xs:attribute name="InfoExpander" type="xs:string" />
@@ -1419,6 +1421,7 @@
         <xs:attribute name="OrdersExpander" type="xs:string" />
         <xs:attribute name="FavoritesButton" type="xs:string" />
         <xs:attribute name="FavoritesExpander" type="xs:string" />
+        <xs:attribute name="FavoritesSubPage" type="xs:string" />
         <xs:attribute name="SecurityButton" type="xs:string" />
         <xs:attribute name="SecurityExpander" type="xs:string" />
         <xs:anyAttribute processContents="skip" />
@@ -1428,7 +1431,7 @@
   <xs:element name="UI.Pages.ProfilePage" nillable="true" type="UI__Pages__ProfilePageType" />
   <xs:complexType name="UI__Pages__SearchPageType">
     <xs:complexContent mixed="false">
-      <xs:extension base="UI__Templates__SimpleNavBarPageType">
+      <xs:extension base="UI__Templates__EzNavBarPageType">
         <xs:attribute name="Model" type="xs:string" />
         <xs:attribute name="SearchInput" type="xs:string" />
         <xs:anyAttribute processContents="skip" />
@@ -1502,6 +1505,7 @@
   <xs:complexType name="UI__Pages__ProfileFavoriteCardItemType">
     <xs:complexContent mixed="false">
       <xs:extension base="StackType">
+        <xs:attribute name="ModelHolder" type="xs:string" />
         <xs:attribute name="Favorite" type="xs:string" />
         <xs:attribute name="ShowDetail" type="xs:string" />
         <xs:attribute name="RemoveButtonClicked" type="xs:string" />
@@ -1527,6 +1531,7 @@
   <xs:complexType name="UI__Pages__ProfileInfoSubPageType">
     <xs:complexContent mixed="false">
       <xs:extension base="StackType">
+        <xs:attribute name="ModelHolder" type="xs:string" />
         <xs:attribute name="Model" type="xs:string" />
         <xs:attribute name="ProfileInfoCard" type="xs:string" />
         <xs:attribute name="FirstName" type="xs:string" />
@@ -1549,6 +1554,7 @@
   <xs:complexType name="UI__Pages__ProfileOrderCardItemType">
     <xs:complexContent mixed="false">
       <xs:extension base="StackType">
+        <xs:attribute name="ModelHolder" type="xs:string" />
         <xs:attribute name="Order" type="xs:string" />
         <xs:attribute name="ShowInfo" type="xs:string" />
         <xs:anyAttribute processContents="skip" />
@@ -1597,6 +1603,7 @@
         <xs:attribute name="Direction" type="RepeatDirection" />
         <xs:attribute name="Duration" type="xs:string" />
         <xs:attribute name="AnimationEasing" type="AnimationEasing" />
+        <xs:attribute name="ModelHolder" type="xs:string" />
         <xs:anyAttribute processContents="skip" />
       </xs:extension>
     </xs:complexContent>
@@ -1611,6 +1618,7 @@
         <xs:attribute name="Indentation" type="xs:string" />
         <xs:attribute name="OnItemSelected" type="xs:string" />
         <xs:attribute name="Duration" type="xs:string" />
+        <xs:attribute name="ModelHolder" type="xs:string" />
         <xs:anyAttribute processContents="skip" />
       </xs:extension>
     </xs:complexContent>

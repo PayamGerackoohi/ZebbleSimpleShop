@@ -4,7 +4,8 @@
    <class type="ProfileFavoritesSubPage" base="Stack" namespace="UI.Pages" viewmodel="ViewModel.ProfileFavoritesSubPage">
       <ListView of="Domain.Models.Product, Row" DataSource="@{Model.Favorites}" Id="List">
          <class type="Row" base="ListViewItem[Domain.Models.Product]">
-            <ProfileFavoriteCardItem Favorite="@Item"
+            <ProfileFavoriteCardItem ModelHolder="@FindParent&lt;ProfileFavoritesSubPage&gt;().Model.Holder"
+                                     Favorite="@Item"
                                      ShowDetail="@p => FindParent&lt;ProfileFavoritesSubPage&gt;().Model.ShowDetail(p)"
                                      RemoveButtonClicked="@p => FindParent&lt;ProfileFavoritesSubPage&gt;().Model.RemoveButtonClicked(p)" />
          </class>

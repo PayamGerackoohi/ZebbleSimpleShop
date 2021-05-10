@@ -18,7 +18,19 @@ namespace UI.Pages
         {
             await base.OnInitializing();
             SetupViewModelBidings();
+            //Model.Favorites.Changed += () => UpdateFavorites().RunInParallel();
         }
+
+        //private async Task UpdateFavorites()
+        //{
+        //    $"UpdateFavorites: size: {Model.Favorites.Value.Count}".Toast();
+        //    //var list =
+        //    while (List.DataSource.Count() > 1)
+        //    {
+        //        await List.Remove(List.DataSource.First(), false);
+        //    }
+        //    List.DataSource = Model.Favorites.Value;
+        //}
 
         private void SetupViewModelBidings()
         {

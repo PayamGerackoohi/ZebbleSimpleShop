@@ -18,7 +18,7 @@
     <None Include="$(MSBuildThisFileDirectory)Styles\Common.scss" />
     <None Include="$(MSBuildThisFileDirectory)Styles\Shared\_Colors.scss" />
     <None Include="$(MSBuildThisFileDirectory)Styles\Shared\_Fonts.scss" />
-    <None Include="$(MSBuildThisFileDirectory)Templates\SimpleNavBarPage.zbl" />
+    <None Include="$(MSBuildThisFileDirectory)Templates\EzNavBarPage.zbl" />
     <None Include="$(MSBuildThisFileDirectory)Templates\Blank.zbl" />
     <None Include="$(MSBuildThisFileDirectory)Views\Modules\RatingBox.zbl" />
     <None Include="$(MSBuildThisFileDirectory)Views\Pages\Cart\CartPage.zbl" />
@@ -77,7 +77,7 @@
     <Compile Include="$(MSBuildThisFileDirectory).zebble-generated-css.cs" />
     <Compile Include="$(MSBuildThisFileDirectory).zebble-generated.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)StartUp.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Templates\SimpleNavBarPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Templates\EzNavBarPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utils\Extensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\Modules\ExpandableLayout.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\Modules\FolderLayout.cs" />

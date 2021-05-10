@@ -6,7 +6,7 @@
          <Canvas>
             <ListView of="Domain.Models.Product, Row" DataSource="@{Model.Products}" Id="List">
                <class type="Row" base="ListViewItem[Domain.Models.Product]">
-                  <ProductCardItem Model.Data="@Item" />
+                  <ProductCardItem Model.Holder="@FindParent&lt;MostVisitedSubPage&gt;().Model.Holder" Model.Data="@Item" />
                </class>
             </ListView>
          </Canvas>

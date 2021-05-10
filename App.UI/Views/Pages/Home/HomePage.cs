@@ -59,11 +59,11 @@ namespace UI.Pages
 
         private async Task SetupCarousel()
         {
-            await Body.Add(new CategorySubPage().MatchHeight(Body));
-            await Body.Add(new MostVisitedSubPage().MatchHeight(Body));
-            await Body.Add(new PopularSubPage().MatchHeight(Body));
-            await Body.Add(new OfferSubPage().MatchHeight(Body));
-            await Body.Add(new NewSubPage().MatchHeight(Body));
+            await Body.Add(new CategorySubPage().Set(x => x.Model.Holder = Model).MatchHeight(Body));
+            await Body.Add(new MostVisitedSubPage().Set(x => x.Model.Holder = Model).MatchHeight(Body));
+            await Body.Add(new PopularSubPage().Set(x => x.Model.Holder = Model).MatchHeight(Body));
+            await Body.Add(new OfferSubPage().Set(x => x.Model.Holder = Model).MatchHeight(Body));
+            await Body.Add(new NewSubPage().Set(x => x.Model.Holder = Model).MatchHeight(Body));
             Body.On(x => x.SlideChanged, () => OnSlideChanged());
         }
 

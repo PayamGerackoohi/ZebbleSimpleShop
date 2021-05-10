@@ -13,17 +13,12 @@ using Zebble.Mvvm;
 
 namespace ViewModel
 {
-    class ProfileInfoSubPage : SubPage
+    class ProfileInfoSubPage : EzSubPage
     {
         public Bindable<User> User { get; set; } = new User();
         public BindableCollection<string> Countries { get; set; } = new() { "Germany", "US", "UK", "Iran", "Other" };
         public BindableCollection<Gender> Genders { get; set; } = new() { (Gender[])Enum.GetValues(typeof(Gender)) };
         public int MaxBirthYear { get; set; } = DateTime.Now.Year - Constants.MAX_AGE;
-
-        override public async Task OnUIReady()
-        {
-            User.Value = await Api.ShopApi.GetUser();
-        }
 
         public async Task OnSave(string gender, string country)
         {
@@ -36,6 +31,15 @@ namespace ViewModel
             }
             else
                 "Invalid data!".Toast();
+        }
+
+        //public override async Task OnRefresh()
+        //{
+        //}
+
+        protected override async Task Setup()
+        {
+            User.Value = await Api.ShopApi.GetUser();
         }
     }
 }

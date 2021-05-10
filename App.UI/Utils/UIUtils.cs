@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using ViewModel.Base;
+using ViewModel.Base.Interface;
 using Zebble;
 
 namespace UI
@@ -22,7 +24,7 @@ namespace UI
             content.Margin.Bottom.BindTo(bottomNavBar.Height, bh => bottomNavBar.CalculateTotalHeight() + offset);
         }
 
-        public static void Trim(this NavigationBar navBar)
+        public static void Trim(this NavigationBar navBar, EzPage navHandler)
         {
             foreach (var ib in navBar.Left.AllChildren.OfType<IconButton>())
             {
@@ -33,7 +35,7 @@ namespace UI
                         t.Text = "<";
                         t.ScaleY(1.5f);
                     }
-                }).On(x => x.Tapped, () => Zebble.Mvvm.ViewModel.Back());
+                }).On(x => x.Tapped, () => navHandler.OnBack());
             }
         }
     }

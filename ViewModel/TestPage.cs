@@ -6,12 +6,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ViewModel.Base;
 using Zebble;
 using Zebble.Mvvm;
 
 namespace ViewModel
 {
-    class TestPage : FullScreen
+    class TestPage : EzPage
     {
+        public override async Task OnRefresh()
+        {
+        }
+
+        public override async Task Setup()
+        {
+        }
     }
 }

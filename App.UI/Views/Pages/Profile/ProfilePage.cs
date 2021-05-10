@@ -18,6 +18,14 @@ namespace UI.Pages
         {
             await base.OnInitializing();
             SeutpShadows();
+            UpdateFavorites();
+            Model.Favorites.Changed += () => UpdateFavorites();
+        }
+
+        private void UpdateFavorites()
+        {
+            FavoritesSubPage.Model.Favorites.Replace(Model.Favorites.Value);
+            FavoritesSubPage.Model.Favorites.Refresh();
         }
 
         private void SeutpShadows()

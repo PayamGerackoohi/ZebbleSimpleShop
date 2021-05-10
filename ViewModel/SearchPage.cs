@@ -7,12 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UI;
+using ViewModel.Base;
 using Zebble;
 using Zebble.Mvvm;
 
 namespace ViewModel
 {
-    class SearchPage : FullScreen
+    class SearchPage : EzPage
     {
         private const int SearchInterval = 1000;
         private bool IsSearching;
@@ -54,5 +55,13 @@ namespace ViewModel
 
         private void NotifyUser(string keyword, int count) =>
             $"On searching \"{keyword}\" {count} result{(count > 1 ? "s are" : " is")} found.".Toast();
+
+        public override async Task OnRefresh()
+        {
+        }
+
+        public override async Task Setup()
+        {
+        }
     }
 }

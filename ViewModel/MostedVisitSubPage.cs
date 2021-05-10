@@ -12,11 +12,15 @@ using Zebble.Mvvm;
 
 namespace ViewModel
 {
-    class MostVisitedSubPage : SubPage
+    class MostVisitedSubPage : EzSubPage
     {
         public BindableCollection<Product> Products = new();
 
-        public override async Task OnUIReady()
+        //public override async Task OnRefresh()
+        //{
+        //}
+
+        protected override async Task Setup()
         {
             Products.Replace(await Api.ShopApi.MostVisitedProducts());
         }

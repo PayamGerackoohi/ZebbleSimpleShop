@@ -7,24 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UI;
+using ViewModel.Base;
 using Zebble;
 using Zebble.Mvvm;
 
 namespace ViewModel
 {
-    class HomePage : FullScreen
+    class HomePage : EzPage
     {
         public Bindable<PageType> CurrentPage = PageType.Popular;
         public Bindable<Order> Cart = new();
 
-        public HomePage()
+        public override async Task Setup()
         {
-            Setup().RunInParallel();
-        }
-
-        private async Task Setup()
-        {
-            Cart.Value = await Api.ShopApi.GetCart();
+            await OnRefresh();
         }
 
         public void TabSelected(PageType page)
@@ -32,10 +28,15 @@ namespace ViewModel
             CurrentPage.Value = page;
         }
 
-        public async Task OnCartTapped() => Forward<CartPage>();
+        public async Task OnCartTapped() => EzForward<CartPage>();
 
-        public void OnSearchTapped() => Forward<SearchPage>(PageTransition.Fade);
+        public void OnSearchTapped() => EzForward<SearchPage>(PageTransition.Fade);
 
-        public void OnProfileTapped() => Forward<ProfilePage>(PageTransition.Fade);
+        public void OnProfileTapped() => EzForward<ProfilePage>(PageTransition.Fade);
+
+        public override async Task OnRefresh()
+        {
+            Cart.Value = await Api.ShopApi.GetCart();
+        }
     }
 }

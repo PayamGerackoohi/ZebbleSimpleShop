@@ -2,18 +2,19 @@
 <zbl xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
      xsi:noNamespaceSchemaLocation="../.zebble-schema.xml">
    <class type="TestPage"
-          base="UI.Templates.SimpleNavBarPage"
+          base="UI.Templates.EzNavBarPage"
           Title="Test Page"
           namespace="UI.Pages"
           viewmodel="ViewModel.TestPage">
       <z-place inside="Body">
          <Button Text="Toggle" on-Tapped="@Expander.Toggle()" />
-         <Modules.ExpandableLayout Id="Expander">
+         <Modules.ExpandableLayout ModelHolder="@Model" Id="Expander">
             <TextView Text="Text 1" />
             <TextView Text="Text 2" />
             <TextView Text="Text 3" />
          </Modules.ExpandableLayout>
          <Modules.FolderLayout of="Domain.Models.Category, CategoryViewGen"
+                               ModelHolder="@Model"
                                Id="FolderView"
                                OnItemSelected="@data => NotifyUser(data.Name).RunInParallel()"
                                ViewGen="@new CategoryViewGen()"

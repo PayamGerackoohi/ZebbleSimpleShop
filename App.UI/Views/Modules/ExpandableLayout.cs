@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using UI;
 using Zebble;
 using Zebble.Plugin;
+using ViewModel.Base;
 
 namespace UI.Modules
 {
@@ -20,6 +21,7 @@ namespace UI.Modules
     /// <param name="Direction">The initial state of the direction of expansion and view layout.</param>
     /// <param name="Duration">The duration of the animation.</param>
     /// <param name="AnimationEasing">The AnimationEasing of the animation.</param>
+    /// <param name="ModelHolder">The EzPage holder of the module</param>
     /// 
     /// <exmaple>
     /// <code>
@@ -48,6 +50,7 @@ namespace UI.Modules
         public RepeatDirection Direction { get => holder.Direction; set => holder.Direction = value; }
         public int Duration { get; set; } = 300;
         public AnimationEasing AnimationEasing { get; set; } = AnimationEasing.EaseInOut;
+        public EzPage ModelHolder { get; set; }
 
         /// <summary>
         /// It adds views to the holder no the root view, in or to manipulate margin, padding, sizing, etc, without the need to notify any exterior view.

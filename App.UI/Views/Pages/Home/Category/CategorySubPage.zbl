@@ -5,6 +5,7 @@
       <ScrollView CssClass="Scroller">
          <Row CssClass="SpaceTight" />
          <Modules.FolderLayout of="Domain.Models.Category, CategoryViewGen"
+                               ModelHolder="@Model.Holder"
                                Id="FolderView"
                                OnItemSelected="@data => Model.OnCategorySelected(data)"
                                ViewGen="@new CategoryViewGen()"
