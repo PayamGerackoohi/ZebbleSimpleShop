@@ -15,10 +15,10 @@ namespace ViewModel
 {
     class ProfileFavoritesSubPage : EzSubPage
     {
-        public BindableCollection<Product> Favorites { get; set; } = new();
-        public Bindable<Product> ShowRemoveConfirmationDialog = new();
-        public Action<Product> ShowDetail { get; set; }
-        public Action RefreshFavorites { get; set; }
+        public BindableCollection<Product> Favorites { get; private set; } = new();
+        public Bindable<Product> ShowRemoveConfirmationDialog { get; private set; } = new();
+        public Action<Product> ShowDetail { get; set; } = p => { };
+        public Action RefreshFavorites { get; set; } = () => { };
 
         public void RemoveButtonClicked(Product product)
         {

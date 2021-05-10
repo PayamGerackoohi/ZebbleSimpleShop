@@ -9,8 +9,8 @@ namespace Domain.Models
     {
         private static int GlobalId = 0;
         public Guid Id { get; private set; } = (++GlobalId).ToGuid();
-        public string Name { get; set; }
-        public List<Category> Categories { get; set; }
+        public string Name { get; set; } = "";
+        public List<Category> Categories { get; set; } = new();
 
         public override bool Equals(object obj) => obj != null && obj is Category o && o.Id == Id;
 

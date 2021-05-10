@@ -15,9 +15,9 @@ namespace ViewModel
 {
     class ProfileInfoSubPage : EzSubPage
     {
-        public Bindable<User> User { get; set; } = new User();
-        public BindableCollection<string> Countries { get; set; } = new() { "Germany", "US", "UK", "Iran", "Other" };
-        public BindableCollection<Gender> Genders { get; set; } = new() { (Gender[])Enum.GetValues(typeof(Gender)) };
+        public Bindable<User> User { get; private set; } = new();
+        public BindableCollection<string> Countries { get; private set; } = new() { "Germany", "US", "UK", "Iran", "Other" };
+        public BindableCollection<Gender> Genders { get; private set; } = new() { (Gender[])Enum.GetValues(typeof(Gender)) };
         public int MaxBirthYear { get; set; } = DateTime.Now.Year - Constants.MAX_AGE;
 
         public async Task OnSave(string gender, string country)
@@ -32,10 +32,6 @@ namespace ViewModel
             else
                 "Invalid data!".Toast();
         }
-
-        //public override async Task OnRefresh()
-        //{
-        //}
 
         protected override async Task Setup()
         {

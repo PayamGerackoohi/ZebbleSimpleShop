@@ -1,5 +1,6 @@
 ﻿using Domain.Api;
 using Domain.Models;
+using Domain.Utils;
 using Olive;
 using System;
 using System.Collections.Generic;
@@ -15,7 +16,7 @@ namespace ViewModel
 {
     class CartPage : EzPage
     {
-        public Bindable<Order> Cart = new();
+        public Bindable<Order> Cart { get; private set; } = new();
 
         public override async Task Setup()
         {
@@ -24,7 +25,10 @@ namespace ViewModel
 
         public async Task Buy()
         {
-            ($"Buy {Cart.Value.FormattedTotalPrice()}\n" + Cart.Value.OrderItems.Select(oi => $"{oi.Count} * [{oi.Product.Name}] = {oi.Price}").ToString("\n")).Toast();
+            Cart.Value.OrderItems.Also(list =>
+            {
+                ("Buy " + Cart.Value.FormattedTotalPrice() + (list.None() ? "" : "\n") + list.Select(oi => $"{oi.Count} * [{oi.Product.Name}] = {oi.Price}").ToString("\n")).Toast();
+            });
         }
 
         public void OnDataChanged()

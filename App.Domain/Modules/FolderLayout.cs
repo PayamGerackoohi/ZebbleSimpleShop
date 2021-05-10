@@ -15,7 +15,7 @@ namespace Domain.Modules
     public class FolderData<T>
     {
         public T Data { get; set; }
-        public IEnumerable<FolderData<T>> Children { get; set; }
+        public IEnumerable<FolderData<T>> Children { get; set; } = new List<FolderData<T>>();
         public bool IsFile { get => Children.None(); }
 
         /// <summary>

@@ -11,13 +11,9 @@ namespace ViewModel
 {
     class RatingBox : EzSubPage
     {
-        public Bindable<Product> Data = new();
+        public Bindable<Product> Data { get; set; } = new();
 
         public int GetRating() => (int)Math.Round(Data.Value.Rating.Saturate(1, 5));
-
-        //public override async Task OnRefresh()
-        //{
-        //}
 
         protected override async Task Setup()
         {

@@ -14,7 +14,7 @@ namespace ViewModel
 {
     class PopularSubPage : EzSubPage
     {
-        public BindableCollection<Product> Products = new();
+        public BindableCollection<Product> Products { get; private set; } = new();
 
         //public override async Task OnRefresh()
         //{

@@ -11,22 +11,21 @@ namespace Domain.Models
         private static int GlobalId = 0;
         public Guid Id { get; private set; } = (++GlobalId).ToGuid();
         public string Name { get; set; } = "";
-        public List<Category> Categories { get; set; }
-        public string Description { get; set; }
-        public string ShortCription { get; set; }
-        public decimal Price { get; set; }
+        public List<Category> Categories { get; set; } = new();
+        public string Description { get; set; } = "";
+        public string ShortCription { get; set; } = "";
+        public decimal Price { get; set; } = 0;
         public byte[] Image { get; set; }
         public byte[] ThumbnailImage { get; set; }
-        public decimal Rating { get; set; }
-        public int Votes { get; set; }
-        public int Views { get; set; }
-        public int Sells { get; set; }
-        public DateTime OnSale { get; set; }
+        public decimal Rating { get; set; } = 0;
+        public int Votes { get; set; } = 0;
+        public int Views { get; set; } = 0;
+        public int Sells { get; set; } = 0;
+        public DateTime OnSale { get; set; } = DateTime.Now;
 
         public string FormattedPrice() => Price.CurrencyFormat();
 
         public string RatingText() => string.Format("{0:0.#} / 5 of {1:#,##0} Votes", Rating, Votes);
-        //public string RatingText() => $"{Rate}/5 {Votes} Votes";
 
         public override bool Equals(object obj) => obj != null && obj is Product o && o.Id == Id;
 

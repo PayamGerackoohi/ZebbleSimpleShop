@@ -15,7 +15,7 @@ namespace ViewModel
 {
     class CategorySubPage : EzSubPage
     {
-        public BindableCollection<Category> Categories = new();
+        public BindableCollection<Category> Categories { get; private set; } = new();
 
         public IEnumerable<FolderData<Category>> GetData()
         {

@@ -3,16 +3,15 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using ViewModel.Base;
-using ViewModel.Base.Interface;
 using Zebble;
 
 namespace UI
 {
     public static class NavBarUtil
     {
-        public static void AddShadow(this View self, int y = 0)
+        public static void AddShadow(this View self, int yOffset = 0)
         {
-            self.BoxShadow(xOffset: 0, yOffset: y, blurRadius: 7, expand: -5, color: Colors.DarkGray);
+            self.BoxShadow(xOffset: 0, yOffset: yOffset, blurRadius: 7, expand: -5, color: Colors.DarkGray);
         }
 
         public static void SetupContent(View content, View navBar, View bottomNavBar)

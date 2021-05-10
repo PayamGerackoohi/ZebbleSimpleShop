@@ -16,8 +16,8 @@ namespace UI.Pages
     partial class ProfileOrderCardItem
     {
         public EzPage ModelHolder { get; set; }
-        public Order Order { get; set; }
-        public Action<Order> ShowInfo { get; set; }
+        public Order Order { get; set; } = new();
+        public Action<Order> ShowInfo { get; set; } = o => { };
 
         override public async Task OnInitializing()
         {

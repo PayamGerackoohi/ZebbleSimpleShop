@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
-using ViewModel.Base.Interface;
 using Zebble;
 using Zebble.Mvvm;
 

@@ -44,13 +44,13 @@ namespace UI.Modules
     partial class ExpandableLayout : Canvas
     {
         private readonly Stack holder = new();
-        public bool IsAnimating { get; private set; }
+        public bool IsAnimating { get; private set; } = false;
 
-        public bool IsExpanded { get; set; }
+        public bool IsExpanded { get; set; } = false;
         public RepeatDirection Direction { get => holder.Direction; set => holder.Direction = value; }
         public int Duration { get; set; } = 300;
         public AnimationEasing AnimationEasing { get; set; } = AnimationEasing.EaseInOut;
-        public EzPage ModelHolder { get; set; }
+        public EzPage ModelHolder { get; set; } = null;
 
         /// <summary>
         /// It adds views to the holder no the root view, in or to manipulate margin, padding, sizing, etc, without the need to notify any exterior view.

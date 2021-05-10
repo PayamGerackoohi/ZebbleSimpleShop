@@ -15,8 +15,8 @@ namespace ViewModel
 {
     class HomePage : EzPage
     {
-        public Bindable<PageType> CurrentPage = PageType.Popular;
-        public Bindable<Order> Cart = new();
+        public Bindable<PageType> CurrentPage { get; private set; } = PageType.Popular;
+        public Bindable<Order> Cart { get; private set; } = new();
 
         public override async Task Setup()
         {

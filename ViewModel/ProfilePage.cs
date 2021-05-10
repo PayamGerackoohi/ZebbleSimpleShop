@@ -15,9 +15,9 @@ namespace ViewModel
 {
     class ProfilePage : EzPage
     {
-        public Bindable<User> User { get; set; } = new User();
-        public BindableCollection<Order> Orders { get; set; } = new();
-        public BindableCollection<Product> Favorites { get; set; } = new();
+        public Bindable<User> User { get; private set; } = new();
+        public BindableCollection<Order> Orders { get; private set; } = new();
+        public BindableCollection<Product> Favorites { get; private set; } = new();
 
         public override async Task Setup()
         {
@@ -45,7 +45,7 @@ namespace ViewModel
             User.Value = await Api.ShopApi.GetUser();
             Orders.Replace(User.Value.Orders);
             Favorites.Replace(User.Value.Favorites);
-            //Favorites.Refresh();
+            // Favorites.Refresh(); // evil rests here in peace >:)
         }
     }
 }

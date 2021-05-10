@@ -10,7 +10,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Base\EzNav.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Base\Interface\INavigationHandler.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Base\EzPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CategoryCardItem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CartPage.cs" />

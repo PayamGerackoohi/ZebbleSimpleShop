@@ -14,8 +14,8 @@ namespace ViewModel
 {
     class ProductDetailPage : EzPage
     {
-        public Bindable<Product> Data = new();
-        public Bindable<bool> IsFavorite = false;
+        public Bindable<Product> Data { get; private set; } = new();
+        public Bindable<bool> IsFavorite { get; private set; } = false;
 
         public async Task Setup(Product product)
         {

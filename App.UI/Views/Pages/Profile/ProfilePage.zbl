@@ -7,7 +7,7 @@
           namespace="UI.Pages"
           viewmodel="ViewModel.ProfilePage">
       <z-place inside="BodyScroller">
-         <Row CssClass="ErrorButton" Ignored="false">
+         <Row CssClass="ErrorButton" Ignored="true">
             <Button Text="Known Bug: Favorites Test" on-Tapped="@() => InformErrorLog()" />
          </Row>
          <Row CssClass="SpaceTight" />

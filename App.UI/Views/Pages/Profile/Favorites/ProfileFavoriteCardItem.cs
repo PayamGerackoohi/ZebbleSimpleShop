@@ -16,9 +16,9 @@ namespace UI.Pages
     partial class ProfileFavoriteCardItem
     {
         public EzPage ModelHolder { get; set; }
-        public Product Favorite { get; set; }
-        public Action<Product> ShowDetail { get; set; }
-        public Action<Product> RemoveButtonClicked { get; set; }
+        public Product Favorite { get; set; } = new();
+        public Action<Product> ShowDetail { get; set; } = p => { };
+        public Action<Product> RemoveButtonClicked { get; set; } = p => { };
 
         override public async Task OnInitializing()
         {

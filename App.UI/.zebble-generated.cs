@@ -702,7 +702,7 @@ namespace UI.Pages
 
             this.Title = "Profile";
 
-            var __row1 = new Row() { CssClass = "ErrorButton", Ignored = false };
+            var __row1 = new Row() { CssClass = "ErrorButton", Ignored = true };
 
             var __button1 = new Button() { Text = "Known Bug: Favorites Test" }.On(x => x.Tapped, () => InformErrorLog());
 

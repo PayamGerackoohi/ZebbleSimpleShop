@@ -15,7 +15,7 @@ namespace ViewModel
 {
     class OrderInfoPage : EzPage
     {
-        public Bindable<Order> Order { get; set; } = new();
+        public Bindable<Order> Order { get; private set; } = new();
 
         public override async Task OnRefresh()
         {

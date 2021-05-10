@@ -14,8 +14,8 @@ namespace UI.Pages
 {
     partial class CategoryCardItem
     {
-        public new Category Data { get; set; }
-        public bool IsHead { get; set; }
+        public new Category Data { get; set; } = new();
+        public bool IsHead { get; set; } = false;
         public string DataValue { get => $"{(IsHead ? "❖ " : "")}{Data.Name}"; }
 
         override public async Task OnInitializing()

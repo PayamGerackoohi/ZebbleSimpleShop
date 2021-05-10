@@ -16,7 +16,7 @@ namespace UI.Pages
     partial class CartOrderCardItem
     {
         public EzPage ModelHolder { get; set; }
-        public OrderItem OrderItem;
+        public OrderItem OrderItem { get; set; } = new();
         public IEnumerable<string> Counts { get => Enumerable.Range(1, 5).Select(i => i.ToString()); }
         public Action OnDataChanged { get; set; }
         public Action<OrderItem> OnRemove { get; set; }

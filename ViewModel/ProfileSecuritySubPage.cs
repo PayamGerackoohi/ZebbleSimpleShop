@@ -15,7 +15,7 @@ namespace ViewModel
 {
     class ProfileSecuritySubPage : EzSubPage
     {
-        public Bindable<User> User { get; set; } = new User();
+        public Bindable<User> User { get; private set; } = new ();
 
         public async Task OnSave()
         {

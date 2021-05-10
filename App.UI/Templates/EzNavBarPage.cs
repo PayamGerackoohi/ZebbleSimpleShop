@@ -7,7 +7,6 @@ using UI;
 using UI.Pages;
 using UI.Templates;
 using ViewModel.Base;
-using ViewModel.Base.Interface;
 using Zebble;
 using Zebble.Mvvm;
 

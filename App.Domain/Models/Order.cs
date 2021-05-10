@@ -13,8 +13,8 @@ namespace Domain.Models
         public Guid Id { get; private set; } = (++GlobalId).ToGuid();
         public List<OrderItem> OrderItems { get; set; } = new();
         public decimal TotalPrice { get => OrderItems.Sum(o => o.Price); }
-        public DateTime Time { get; set; }
-        public OrderStatus Status { get; set; }
+        public DateTime Time { get; set; } = DateTime.Now;
+        public OrderStatus Status { get; set; } = new();
 
         public string FormattedTime() => Time.FormattedDate();
 
@@ -41,6 +41,7 @@ namespace Domain.Models
         public Product Product { get; set; } = new();
         public int Count { get; set; } = 1;
         public decimal Price { get => Count * Product.Price; }
+
         public string FormattedPrice() => Price.CurrencyFormat();
     }
 

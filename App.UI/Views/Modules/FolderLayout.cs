@@ -62,11 +62,11 @@ namespace UI.Modules
     /// </example>
     public class FolderLayout<T, TViewGen> : Stack where TViewGen : IViewGenerator<T>
     {
-        public IEnumerable<FolderData<T>> FolderData { private get; set; }
+        public IEnumerable<FolderData<T>> FolderData { private get; set; } = new List<FolderData<T>>();
         public TViewGen ViewGen { private get; set; }
         public int Indentation { get; set; } = 16;
-        public Action<T> OnItemSelected { get; set; }
-        public int? Duration { get; set; }
+        public Action<T> OnItemSelected { get; set; } = t => { };
+        public int? Duration { get; set; } = null;
         public EzPage ModelHolder { get; set; }
 
         override public async Task OnInitializing()

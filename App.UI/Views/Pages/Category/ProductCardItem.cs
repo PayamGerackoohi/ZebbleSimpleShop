@@ -14,7 +14,7 @@ namespace UI.Pages
 {
     partial class ProductCardItem
     {
-        public Product Product;
+        public Product Product { get; set; } = new();
 
         override public async Task OnInitializing()
         {

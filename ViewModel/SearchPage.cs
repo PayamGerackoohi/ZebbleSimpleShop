@@ -16,9 +16,9 @@ namespace ViewModel
     class SearchPage : EzPage
     {
         private const int SearchInterval = 1000;
-        private bool IsSearching;
+        private bool IsSearching = false;
         private string Keyword = null;
-        public BindableCollection<Product> Results = new();
+        public BindableCollection<Product> Results { get; private set; } = new();
 
         public async Task OnSearch(string keyword)
         {

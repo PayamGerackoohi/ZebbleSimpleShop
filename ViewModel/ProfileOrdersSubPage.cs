@@ -15,13 +15,9 @@ namespace ViewModel
 {
     class ProfileOrdersSubPage : EzSubPage
     {
-        public BindableCollection<Order> Orders { get; set; } = new();
+        public BindableCollection<Order> Orders { get; private set; } = new();
 
-        public Action<Order> ShowOrderInfo { get; set; }
-
-        //public override async Task OnRefresh()
-        //{
-        //}
+        public Action<Order> ShowOrderInfo { get; set; } = o => { };
 
         protected override async Task Setup()
         {

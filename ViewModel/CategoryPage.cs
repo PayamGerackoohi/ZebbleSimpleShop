@@ -14,9 +14,9 @@ namespace ViewModel
 {
     class CategoryPage : EzPage
     {
-        private Category Category;
-        public Bindable<string> Title = new();
-        public BindableCollection<Product> Products = new();
+        private Category Category = new();
+        public Bindable<string> Title { get; private set; } = new();
+        public BindableCollection<Product> Products { get; private set; } = new();
 
         public override async Task OnRefresh()
         {

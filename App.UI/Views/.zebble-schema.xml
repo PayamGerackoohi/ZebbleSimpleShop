@@ -1312,13 +1312,13 @@
     <xs:complexContent mixed="false">
       <xs:extension base="RowType">
         <xs:attribute name="ModelHolder" type="xs:string" />
+        <xs:attribute name="OrderItem" type="xs:string" />
         <xs:attribute name="OnDataChanged" type="xs:string" />
         <xs:attribute name="OnRemove" type="xs:string" />
         <xs:attribute name="Name" type="xs:string" />
         <xs:attribute name="ShortCription" type="xs:string" />
         <xs:attribute name="CountPicker" type="xs:string" />
         <xs:attribute name="Image" type="xs:string" />
-        <xs:attribute name="OrderItem" type="xs:string" />
         <xs:anyAttribute processContents="skip" />
       </xs:extension>
     </xs:complexContent>
@@ -1348,6 +1348,7 @@
   <xs:complexType name="UI__Pages__ProductCardItemType">
     <xs:complexContent mixed="false">
       <xs:extension base="Page-AbstractType">
+        <xs:attribute name="Product" type="xs:string" />
         <xs:attribute name="Model" type="xs:string" />
         <xs:attribute name="CardItem" type="xs:string" />
         <xs:attribute name="TextHolder" type="xs:string" />
@@ -1355,7 +1356,6 @@
         <xs:attribute name="Description" type="xs:string" />
         <xs:attribute name="Price" type="xs:string" />
         <xs:attribute name="Image" type="xs:string" />
-        <xs:attribute name="Product" type="xs:string" />
         <xs:anyAttribute processContents="skip" />
       </xs:extension>
     </xs:complexContent>
