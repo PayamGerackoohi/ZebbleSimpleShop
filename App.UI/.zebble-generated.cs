@@ -1513,7 +1513,6 @@ namespace UI.Pages
             Username.LabelText = "Username";
             Username.Bind("Value", () => Model.User, u => u.Credential.Username)
             .Set(x => x.Control.On(v => v.UserTextChanged, () => Model.User.Value.Credential.Username = Username.Text))
-            .Set(x => x.Control.Enabled = false)
             .Set(x => x.Control.TextMode = TextMode.Auto);
 
             Password.Id = "Password";

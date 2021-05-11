@@ -13,7 +13,7 @@ namespace Domain.Api.Fake
     {
         private const int MaxQueryResults = 30;
         private static readonly List<Category> SubCategories = new();
-        private static readonly List<Category> Categories = GenCategoryList(6);
+        private static readonly List<Category> Categories = GenCategoryList(4);
         private static readonly List<Product> Products = GenProducts();
         private static User User = GenUser();
         private static Order Cart = GenOrder();

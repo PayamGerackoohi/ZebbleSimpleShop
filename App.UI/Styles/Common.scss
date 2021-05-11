@@ -281,17 +281,18 @@ ProfilePage {
             FormField {
                 #Icon { }
                 #Label { }
-                TextInput { }
+                TextInput {
+                    &:disabled { background-color: blue; }
+                }
             }
         }
 
         Button {
-            @include marginHv;
+            @include item-margin-tight;
             color: white;
-            margin-left: $space;
         }
         #SaveButton { background-color: green; margin-right: $space; }
-        #LogoutButton { background-color: red; }
+        #LogoutButton { background-color: red; margin-left: $space; }
     }
 }
 

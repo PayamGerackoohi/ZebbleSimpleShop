@@ -8,7 +8,6 @@
                     LabelText="Username"
                     Value="@{Model.User, u => u.Credential.Username}"
                     Control.on-UserTextChanged="@{Model.User.Value.Credential.Username = Username.Text}"
-                    Control.Enabled="false"
                     Control.TextMode="Auto" />
          <FormField of="TextInput"
                     Id="Password"

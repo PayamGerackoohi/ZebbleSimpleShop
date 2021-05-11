@@ -42,7 +42,7 @@ namespace UI.Pages
             Model.ShowRemoveConfirmationDialog.Changed += () => ShowRemoveConfirmationDialog(Model.ShowRemoveConfirmationDialog.Value).RunInParallel();
         }
 
-        // todo: find a better solution than doing this each 100ms in a period of 1 seconds
+        // todo: find a better solution than doing this each 100ms in a period of 1 second
         private async Task ClipListChildren(int count)
         {
             if (count < 1) return;

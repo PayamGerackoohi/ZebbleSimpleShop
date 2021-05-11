@@ -338,3 +338,7 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+
+App.UI/.zebble-generated.cs
+App.UI/.zebble-generated-css.cs
+App.UI/Views/.zebble-schema.xml

@@ -235,6 +235,7 @@
       <xs:enumeration value="options-list" />
       <xs:enumeration value="toggle-icon" />
       <xs:enumeration value="tree-node" />
+      <xs:enumeration value="DisabledText" />
       <xs:enumeration value="@....." />
     </xs:restriction>
   </xs:simpleType>

@@ -1,5 +1,6 @@
 ﻿using Domain;
 using Domain.Models;
+using Domain.Utils;
 using Olive;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,16 @@ namespace UI.Pages
         {
             await base.OnInitializing();
             SetupShadows();
+            SetupUsernameInput();
+        }
+
+        private void SetupUsernameInput()
+        {
+            Username.Control.Activate();
+            Username.Control.Deactivate();
+
+            Password.Control.Deactivate();
+            Password.Control.Activate();
         }
 
         private void SetupShadows()
