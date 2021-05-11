@@ -1,4 +1,5 @@
 # Version 1.0.0
+
 ## Favorites List
 - On Nav back on the detailed product page, when it's removed from the favorites list, the removed view would stay in the list, although ListView claims that both the DataSource and children count are decreased, but it renders out of the canvas and ClipChildren = true even would be reset to false and no idea why does not work.
 

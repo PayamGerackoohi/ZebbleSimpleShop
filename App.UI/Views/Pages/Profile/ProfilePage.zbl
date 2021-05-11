@@ -7,9 +7,6 @@
           namespace="UI.Pages"
           viewmodel="ViewModel.ProfilePage">
       <z-place inside="BodyScroller">
-         <Row CssClass="ErrorButton" Ignored="true">
-            <Button Text="Known Bug: Favorites Test" on-Tapped="@() => InformErrorLog()" />
-         </Row>
          <Row CssClass="SpaceTight" />
          <Row>
             <TextView Id="InfoButton" Text="❖ Info" CssClass="ProfileExpanderButton" on-Tapped="@InfoExpander.Toggle()" />
@@ -30,7 +27,7 @@
                       CssClass="ProfileExpanderButton"
                       on-Tapped="FavoritesExpander.Toggle()" />
          </Row>
-         <Modules.ExpandableLayout ModelHolder="@Model" Id="FavoritesExpander" ClipChildren="true">
+         <Modules.ExpandableLayout ModelHolder="@Model" Id="FavoritesExpander">
             <ProfileFavoritesSubPage Id="FavoritesSubPage"
                                      Model.ShowDetail="@p => Model.ShowProductDetail(p).RunInParallel()"
                                      Model.RefreshFavorites="@() => Model.RefreshFavorites().RunInParallel()" />

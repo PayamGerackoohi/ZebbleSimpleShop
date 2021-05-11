@@ -18,7 +18,18 @@ namespace UI.Pages
         override public async Task OnInitializing()
         {
             await base.OnInitializing();
+            SetupUI();
             SetupViewModelBidings();
+        }
+
+        private void SetupUI()
+        {
+            SetupListHeight();
+        }
+
+        private void SetupListHeight()
+        {
+            List.Height.Changed.Event += () => ClipListChildren(10).RunInParallel();
         }
 
         override public async Task OnRendered()
@@ -29,23 +40,16 @@ namespace UI.Pages
         private void SetupViewModelBidings()
         {
             Model.ShowRemoveConfirmationDialog.Changed += () => ShowRemoveConfirmationDialog(Model.ShowRemoveConfirmationDialog.Value).RunInParallel();
-            //Model.Favorites.Changed += () => UpdateFavorites().RunInParallel();
         }
 
-        //private async Task UpdateFavorites()
-        //{
-        //    $"UpdateFavorites: size: {Model.Favorites.Value.Count}, DS: {List.DataSource.Count()}, Children: {List.ManagedChildren.Count()}".Toast();
-        //    //List.DataSource = new List<Product>();
-        //    //List.DataSource = Model.Favorites.Value;
-        //await List.ClearChildren();
-        //List.DataSource.Also(x =>
-        //{
-        //    if (x.None())
-        //        List.Height(0);
-        //    else
-        //        List.Height(x.Count() * List.AllChildren.First().CalculateTotalHeight());
-        //});
-        //}
+        // todo: find a better solution than doing this each 100ms in a period of 1 seconds
+        private async Task ClipListChildren(int count)
+        {
+            if (count < 1) return;
+            await Task.Delay(100);
+            List.ClipChildren = true;
+            ClipListChildren(count - 1).RunInParallel();
+        }
 
         private async Task ShowRemoveConfirmationDialog(Product product)
         {

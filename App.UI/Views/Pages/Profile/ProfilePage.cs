@@ -18,17 +18,20 @@ namespace UI.Pages
         override public async Task OnInitializing()
         {
             await base.OnInitializing();
-            SeutpShadows();
-            UpdateFavorites();
-            Model.Favorites.Changed += () => UpdateFavorites();
-            //FavoritesSubPage.List.Height.Changed.Event += () => OnListHeightChanged();
+            SetupUI();
+            SetupViewModelBinding();
         }
 
-        //private void OnListHeightChanged()
-        //{
-        //    FavoritesExpander.ClipChildren = true;
-        //$"OnListHeightChanged is called. FavoritesExpander.ClipChildren: {FavoritesExpander.ClipChildren}".Toast();
-        //}
+        private void SetupUI()
+        {
+            SeutpShadows();
+        }
+
+        private void SetupViewModelBinding()
+        {
+            UpdateFavorites();
+            Model.Favorites.Changed += () => UpdateFavorites();
+        }
 
         private void UpdateFavorites()
         {
@@ -37,7 +40,6 @@ namespace UI.Pages
                 x.Replace(Model.Favorites.Value);
                 x.Refresh();
             });
-            FavoritesExpander.ClipChildren = true;
         }
 
         private void SeutpShadows()
@@ -46,12 +48,6 @@ namespace UI.Pages
             OrdersButton.AddShadow();
             FavoritesButton.AddShadow();
             SecurityButton.AddShadow();
-        }
-
-        private void InformErrorLog()
-        {
-            $"FavList.Children: {FavoritesSubPage.List.AllChildren.Count()}, FavList.DataSource: {FavoritesSubPage.List.DataSource.Count()}\nFavoritesExpander.ClipChildren: {FavoritesExpander.ClipChildren}".Toast();
-            FavoritesExpander.ClipChildren = true;
         }
     }
 }

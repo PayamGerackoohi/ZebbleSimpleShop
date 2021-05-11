@@ -702,13 +702,9 @@ namespace UI.Pages
 
             this.Title = "Profile";
 
-            var __row1 = new Row() { CssClass = "ErrorButton", Ignored = true };
+            var __row1 = new Row() { CssClass = "SpaceTight" };
 
-            var __button1 = new Button() { Text = "Known Bug: Favorites Test" }.On(x => x.Tapped, () => InformErrorLog());
-
-            var __row2 = new Row() { CssClass = "SpaceTight" };
-
-            var __row3 = new Row();
+            var __row2 = new Row();
 
             InfoButton.Id = "InfoButton";
             InfoButton.Text = "❖ Info";
@@ -720,7 +716,7 @@ namespace UI.Pages
 
             var __profileInfoSubPage1 = new ProfileInfoSubPage().Set(x => x.Model.Holder = Model);
 
-            var __row4 = new Row();
+            var __row3 = new Row();
 
             OrdersButton.Id = "OrdersButton";
             OrdersButton.Text = "❖ Orders";
@@ -734,7 +730,7 @@ namespace UI.Pages
             .Set(x => x.Model.Orders.Value = Model.Orders.Value)
             .Set(x => x.Model.ShowOrderInfo = order => Model.ShowOrderInfo(order).RunInParallel());
 
-            var __row5 = new Row();
+            var __row4 = new Row();
 
             FavoritesButton.Id = "FavoritesButton";
             FavoritesButton.Text = "❖ Favorites";
@@ -743,13 +739,12 @@ namespace UI.Pages
 
             FavoritesExpander.Id = "FavoritesExpander";
             FavoritesExpander.ModelHolder = Model;
-            FavoritesExpander.ClipChildren = true;
 
             FavoritesSubPage.Id = "FavoritesSubPage";
             FavoritesSubPage.Set(x => x.Model.ShowDetail = p => Model.ShowProductDetail(p).RunInParallel())
             .Set(x => x.Model.RefreshFavorites = () => Model.RefreshFavorites().RunInParallel());
 
-            var __row6 = new Row();
+            var __row5 = new Row();
 
             SecurityButton.Id = "SecurityButton";
             SecurityButton.Text = "❖ Security";
@@ -761,18 +756,17 @@ namespace UI.Pages
 
             var __profileSecuritySubPage1 = new ProfileSecuritySubPage();
 
-            var __row7 = new Row() { CssClass = "SpaceTight" };
+            var __row6 = new Row() { CssClass = "SpaceTight" };
 
-            await __row1.Add(__button1);
-            await __row3.Add(InfoButton);
+            await __row2.Add(InfoButton);
             await InfoExpander.Add(__profileInfoSubPage1);
-            await __row4.Add(OrdersButton);
+            await __row3.Add(OrdersButton);
             await OrdersExpander.Add(__profileOrdersSubPage1);
-            await __row5.Add(FavoritesButton);
+            await __row4.Add(FavoritesButton);
             await FavoritesExpander.Add(FavoritesSubPage);
-            await __row6.Add(SecurityButton);
+            await __row5.Add(SecurityButton);
             await SecurityExpander.Add(__profileSecuritySubPage1);
-            await BodyScroller.AddRange(new View[] { __row1, __row2, __row3, InfoExpander, __row4, OrdersExpander, __row5, FavoritesExpander, __row6, SecurityExpander, __row7 });
+            await BodyScroller.AddRange(new View[] { __row1, __row2, InfoExpander, __row3, OrdersExpander, __row4, FavoritesExpander, __row5, SecurityExpander, __row6 });
         }
     }
 }
