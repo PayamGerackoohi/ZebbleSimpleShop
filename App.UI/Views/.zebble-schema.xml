@@ -60,6 +60,7 @@
       <xs:enumeration value="/Resources/Images/Icons/cart.png" />
       <xs:enumeration value="/Resources/Images/Icons/category.png" />
       <xs:enumeration value="/Resources/Images/Icons/category2.png" />
+      <xs:enumeration value="/Resources/Images/Icons/check.png" />
       <xs:enumeration value="/Resources/Images/Icons/eye.png" />
       <xs:enumeration value="/Resources/Images/Icons/eye2.png" />
       <xs:enumeration value="/Resources/Images/Icons/gift.png" />
@@ -71,6 +72,7 @@
       <xs:enumeration value="/Resources/Images/Icons/menu.png" />
       <xs:enumeration value="/Resources/Images/Icons/new.png" />
       <xs:enumeration value="/Resources/Images/Icons/new2.png" />
+      <xs:enumeration value="/Resources/Images/Icons/none.png" />
       <xs:enumeration value="/Resources/Images/Icons/not-found.png" />
       <xs:enumeration value="/Resources/Images/Icons/profile.png" />
       <xs:enumeration value="/Resources/Images/Icons/search.png" />
@@ -122,6 +124,7 @@
       <xs:enumeration value="/Resources/Images/Icons/Cart.png" />
       <xs:enumeration value="/Resources/Images/Icons/Category.png" />
       <xs:enumeration value="/Resources/Images/Icons/Category2.png" />
+      <xs:enumeration value="/Resources/Images/Icons/check.png" />
       <xs:enumeration value="/Resources/Images/Icons/Eye.png" />
       <xs:enumeration value="/Resources/Images/Icons/Eye2.png" />
       <xs:enumeration value="/Resources/Images/Icons/Gift.png" />
@@ -132,6 +135,7 @@
       <xs:enumeration value="/Resources/Images/Icons/Menu.png" />
       <xs:enumeration value="/Resources/Images/Icons/New.png" />
       <xs:enumeration value="/Resources/Images/Icons/New2.png" />
+      <xs:enumeration value="/Resources/Images/Icons/none.png" />
       <xs:enumeration value="/Resources/Images/Icons/not-found.png" />
       <xs:enumeration value="/Resources/Images/Icons/Profile.png" />
       <xs:enumeration value="/Resources/Images/Icons/Search.png" />
@@ -144,6 +148,7 @@
       <xs:enumeration value="/Resources/Images/Icons/cart.png" />
       <xs:enumeration value="/Resources/Images/Icons/category.png" />
       <xs:enumeration value="/Resources/Images/Icons/category2.png" />
+      <xs:enumeration value="/Resources/Images/Icons/check.png" />
       <xs:enumeration value="/Resources/Images/Icons/eye.png" />
       <xs:enumeration value="/Resources/Images/Icons/eye2.png" />
       <xs:enumeration value="/Resources/Images/Icons/gift.png" />
@@ -154,6 +159,7 @@
       <xs:enumeration value="/Resources/Images/Icons/menu.png" />
       <xs:enumeration value="/Resources/Images/Icons/new.png" />
       <xs:enumeration value="/Resources/Images/Icons/new2.png" />
+      <xs:enumeration value="/Resources/Images/Icons/none.png" />
       <xs:enumeration value="/Resources/Images/Icons/not-found.png" />
       <xs:enumeration value="/Resources/Images/Icons/profile.png" />
       <xs:enumeration value="/Resources/Images/Icons/search.png" />
@@ -182,6 +188,7 @@
       <xs:enumeration value="Pages.NewSubPage" />
       <xs:enumeration value="Pages.OfferSubPage" />
       <xs:enumeration value="Pages.PopularSubPage" />
+      <xs:enumeration value="Pages.LoginPage" />
       <xs:enumeration value="Pages.OrderCardItem" />
       <xs:enumeration value="Pages.OrderInfoPage" />
       <xs:enumeration value="Pages.ProductDetailPage" />
@@ -229,6 +236,9 @@
       <xs:enumeration value="Remove" />
       <xs:enumeration value="TopBorder" />
       <xs:enumeration value="ItemPickerHolder" />
+      <xs:enumeration value="SpaceFiller" />
+      <xs:enumeration value="SpaceFillerH" />
+      <xs:enumeration value="Hint" />
       <xs:enumeration value="windows-only" />
       <xs:enumeration value="ios-only" />
       <xs:enumeration value="android-only" />
@@ -1372,6 +1382,21 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="UI.Pages.HomePage" nillable="true" type="UI__Pages__HomePageType" />
+  <xs:complexType name="UI__Pages__LoginPageType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="UI__Templates__EzNavBarPageType">
+        <xs:attribute name="Model" type="xs:string" />
+        <xs:attribute name="LoginCard" type="xs:string" />
+        <xs:attribute name="Username" type="xs:string" />
+        <xs:attribute name="Password" type="xs:string" />
+        <xs:attribute name="RememberMeCB" type="xs:string" />
+        <xs:attribute name="SignupButton" type="xs:string" />
+        <xs:attribute name="LoginButton" type="xs:string" />
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UI.Pages.LoginPage" nillable="true" type="UI__Pages__LoginPageType" />
   <xs:complexType name="UI__Pages__OrderCardItemType">
     <xs:complexContent mixed="false">
       <xs:extension base="StackType">

@@ -1,5 +1,6 @@
 ﻿namespace ViewModel
 {
+    using Domain.Api;
     using System.Threading.Tasks;
     using ViewModel.Base;
     using Zebble;
@@ -10,7 +11,11 @@
         public static async Task Run()
         {
             //EzNav.Go<ProfilePage>(PageTransition.Fade);
-            EzNav.Go<HomePage>(PageTransition.Fade);
+            var user = await Api.ShopApi.GetUser();
+            if (user.Credential.StayLoggedIn)
+                EzNav.Go<HomePage>(PageTransition.Fade);
+            else
+                EzNav.Go<LoginPage>(PageTransition.Fade);
         }
     }
 }

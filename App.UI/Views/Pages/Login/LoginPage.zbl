@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<zbl xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:noNamespaceSchemaLocation="../../.zebble-schema.xml">
+   <class type="LoginPage"
+          base="UI.Templates.EzNavBarPage"
+          Title="Authentication"
+          namespace="UI.Pages"
+          viewmodel="ViewModel.LoginPage">
+      <z-place inside="Body">
+         <Row CssClass="SpaceFiller" />
+         <Stack Id="LoginCard">
+            <FormField of="TextInput"
+                       Id="Username"
+                       LabelText="Username"
+                       Value="@{Model.User, u => Model.Username}"
+                       Control.TextMode="Auto" />
+            <FormField of="TextInput"
+                       Id="Password"
+                       LabelText="Password"
+                       Value="@{Model.User, u => Model.Password}"
+                       Control.TextMode="Password" />
+            <Row>
+               <CheckBox Id="RememberMeCB" AutoFlash="true" Checked="@{Model.User, u => u.Credential.StayLoggedIn}" />
+               <TextView Text="Remember Me" on-Tapped="@() => RememberMeCB.Toggle()" />
+               <TextView Text="@{Model.User, u => Model.Hint}" CssClass="Hint" />
+            </Row>
+         </Stack>
+         <TextView Id="SignupButton" Text="New user? Signup now." on-Tapped="@{Model.SignupTapped()}" />
+         <Row CssClass="SpaceFiller" />
+         <Button Id="LoginButton"
+                 Text="Login"
+                 on-Tapped="@{Model.LoginTapped(Username.Text, Password.Text, RememberMeCB.Checked)}" />
+      </z-place>
+   </class>
+</zbl>

@@ -1,6 +1,5 @@
 ﻿using Domain;
 using Domain.Models;
-using Domain.Utils;
 using Olive;
 using System;
 using System.Collections.Generic;
@@ -13,25 +12,28 @@ using Zebble.Plugin;
 
 namespace UI.Pages
 {
-    partial class ProfileSecuritySubPage
+    partial class LoginPage
     {
         override public async Task OnInitializing()
         {
             await base.OnInitializing();
-            SetupShadows();
-            SetupUsernameInput();
+            await SetupUI();
         }
 
-        private void SetupUsernameInput()
+        private async Task SetupUI()
         {
-            Username.Control.Deactivate();
+            SetupShadows();
         }
 
         private void SetupShadows()
         {
-            ProfileSecurityCard.AddShadow();
-            SaveButton.AddShadow();
-            LogoutButton.AddShadow();
+            LoginCard.AddShadow();
+            LoginButton.AddShadow();
+        }
+
+        override public async Task OnRendered()
+        {
+            await base.OnRendered();
         }
     }
 }

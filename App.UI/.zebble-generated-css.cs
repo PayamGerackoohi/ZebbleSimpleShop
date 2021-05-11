@@ -160,7 +160,6 @@ namespace UI
             CssEngine.Add(new File_App.UI.Styles.Common.ProfilePageFavoritesExpanderProfileFavoritesSubPageProfileFavoriteCardItemTextHolderRemoveCssRule());
             CssEngine.Add(new File_App.UI.Styles.Common.ProfilePageFavoritesExpanderProfileFavoritesSubPageProfileFavoriteCardItemImageCssRule());
             CssEngine.Add(new File_App.UI.Styles.Common.ProfilePageSecurityExpanderProfileSecurityCardCssRule());
-            CssEngine.Add(new File_App.UI.Styles.Common.ProfilePageSecurityExpanderProfileSecurityCardFormFieldTextInputDisabledCssRule());
             CssEngine.Add(new File_App.UI.Styles.Common.ProfilePageSecurityExpanderButtonCssRule());
             CssEngine.Add(new File_App.UI.Styles.Common.ProfilePageSecurityExpanderSaveButtonCssRule());
             CssEngine.Add(new File_App.UI.Styles.Common.ProfilePageSecurityExpanderLogoutButtonCssRule());
@@ -196,6 +195,19 @@ namespace UI
             CssEngine.Add(new File_App.UI.Styles.Common.CartPageScrollViewCartOrderCardItemItemPickerHolderItemPickerLabelCssRule());
             CssEngine.Add(new File_App.UI.Styles.Common.CartPageScrollViewCartOrderCardItemItemPickerHolderItemPickerCaretCssRule());
             CssEngine.Add(new File_App.UI.Styles.Common.CartPageBuyButtonCssRule());
+            CssEngine.Add(new File_App.UI.Styles.Common.LoginPageCssRule());
+            CssEngine.Add(new File_App.UI.Styles.Common.LoginPageSpaceFillerCssRule());
+            CssEngine.Add(new File_App.UI.Styles.Common.LoginPageSpaceFillerHCssRule());
+            CssEngine.Add(new File_App.UI.Styles.Common.LoginPageLoginCardCssRule());
+            CssEngine.Add(new File_App.UI.Styles.Common.LoginPageLoginCardFormFieldLabelCssRule());
+            CssEngine.Add(new File_App.UI.Styles.Common.LoginPageLoginCardHintCssRule());
+            CssEngine.Add(new File_App.UI.Styles.Common.LoginPageLoginCardRowCssRule());
+            CssEngine.Add(new File_App.UI.Styles.Common.LoginPageLoginCardRowCheckBoxCssRule());
+            CssEngine.Add(new File_App.UI.Styles.Common.LoginPageLoginCardRowCheckBoxCheckedCssRule());
+            CssEngine.Add(new File_App.UI.Styles.Common.LoginPageLoginCardRowCheckBoxCheckedImageCssRule());
+            CssEngine.Add(new File_App.UI.Styles.Common.LoginPageLoginCardTextViewCssRule());
+            CssEngine.Add(new File_App.UI.Styles.Common.LoginPageSignupButtonCssRule());
+            CssEngine.Add(new File_App.UI.Styles.Common.LoginPageLoginButtonCssRule());
 
             // ======================================================================
             // App.UI\Styles\PlatformSpecific.css------------------------------------
@@ -284,7 +296,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Components/Defaults.scss:69", "TextView")]
+    [CssSelector("Styles/Components/Defaults.scss:71", "TextView")]
     [CssBody("padding: 8px;")]
     class TextViewCssRule : CssRule
     {
@@ -308,7 +320,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Components/Defaults.scss:73", "Carousel")]
+    [CssSelector("Styles/Components/Defaults.scss:75", "Carousel")]
     [CssBody("height: 100%;")]
     class CarouselCssRule : CssRule
     {
@@ -332,7 +344,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Components/Defaults.scss:73", "Carousel #BulletsContainer")]
+    [CssSelector("Styles/Components/Defaults.scss:75", "Carousel #BulletsContainer")]
     [CssBody("padding: 32px; margin-left: calc(\"view.Parent.Width, view.Parent.Padding.Left, view.Parent.Padding.Right, view.Width, (pw, ppl, ppr, vw) => (pw - ppl - ppr - vw) / 2\");")]
     class CarouselBulletsContainerCssRule : CssRule
     {
@@ -350,7 +362,7 @@ namespace File_App.UI.Styles.Common
         public override Task Apply(View view)
         {
             view.Css.Padding(32);
-            view.Css.Margin.Left = new Length.BindingLengthRequest(view.Parent.Width, view.Parent.Padding.Left, view.Parent.Padding.Right, view.Width, (pw, ppl, ppr, vw) => (pw  - ppl - ppr - vw) / 2);
+            view.Css.Margin.Left = new Length.BindingLengthRequest(view.Parent.Width, view.Parent.Padding.Left, view.Parent.Padding.Right, view.Width, (pw, ppl, ppr, vw) => (pw - ppl - ppr - vw) / 2);
 
             return Task.CompletedTask;
         }
@@ -360,7 +372,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Components/Defaults.scss:73", "Carousel #BulletsContainer Carousel-Bullet")]
+    [CssSelector("Styles/Components/Defaults.scss:75", "Carousel #BulletsContainer Carousel-Bullet")]
     [CssBody("width: 8px; height: 8px; background-color: #eee; margin: 4px; border-radius: 8px;")]
     class CarouselBulletsContainerCarouselBulletCssRule : CssRule
     {
@@ -396,7 +408,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Components/Defaults.scss:73", "Carousel #BulletsContainer Carousel-Bullet:active")]
+    [CssSelector("Styles/Components/Defaults.scss:75", "Carousel #BulletsContainer Carousel-Bullet:active")]
     [CssBody("background-color: #333;")]
     class CarouselBulletsContainerCarouselBulletActiveCssRule : CssRule
     {
@@ -428,8 +440,8 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Components/Defaults.scss:88", "AlertDialog")]
-    [CssBody("background-color: white; border-radius: 16px; margin: 16px; padding: 8px; margin-top: calc(\"view.Parent.Height, view.Parent.Padding.Top, view.Parent.Padding.Bottom, view.Height, (ph, ppt, ppb, vh) => (ph - ppt - ppb - vh) / 2\");")]
+    [CssSelector("Styles/Components/Defaults.scss:90", "AlertDialog")]
+    [CssBody("height: calc(\"Content\"); background-color: white; border-radius: 16px; margin: 16px; padding: 8px; margin-top: calc(\"view.Parent.Height, view.Parent.Padding.Top, view.Parent.Padding.Bottom, view.Height, (ph, ppt, ppb, vh) => (ph - ppt - ppb - vh) / 2\");")]
     class AlertDialogCssRule : CssRule
     {
         public override bool Matches(View view)
@@ -442,9 +454,10 @@ namespace File_App.UI.Styles.Common
         public override Task Apply(View untypedView)
         {
             var view = (AlertDialog)untypedView;
+            view.Css.Height = Length.AutoStrategy.Content;
             view.Css.Padding(8);
             view.Css.Margin(16);
-            view.Css.Margin.Top = new Length.BindingLengthRequest(view.Parent.Height, view.Parent.Padding.Top, view.Parent.Padding.Bottom, view.Height, (ph, ppt, ppb, vh) => (ph  - ppt - ppb - vh) / 2);
+            view.Css.Margin.Top = new Length.BindingLengthRequest(view.Parent.Height, view.Parent.Padding.Top, view.Parent.Padding.Bottom, view.Height, (ph, ppt, ppb, vh) => (ph - ppt - ppb - vh) / 2);
             view.Css.BackgroundColor = Colors.White;
             view.Css.Border.Radius = 16;
 
@@ -456,7 +469,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Components/Defaults.scss:88", "AlertDialog #Title")]
+    [CssSelector("Styles/Components/Defaults.scss:90", "AlertDialog #Title")]
     [CssBody("padding: 8px; font-weight: bold;")]
     class AlertDialogTitleCssRule : CssRule
     {
@@ -484,7 +497,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Components/Defaults.scss:88", "AlertDialog #Message")]
+    [CssSelector("Styles/Components/Defaults.scss:90", "AlertDialog #Message")]
     [CssBody("padding: 8px;")]
     class AlertDialogMessageCssRule : CssRule
     {
@@ -511,7 +524,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Components/Defaults.scss:88", "AlertDialog Button")]
+    [CssSelector("Styles/Components/Defaults.scss:90", "AlertDialog Button")]
     [CssBody("margin: 8px;")]
     class AlertDialogButtonCssRule : CssRule
     {
@@ -539,7 +552,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Components/Defaults.scss:95", "TextInput")]
+    [CssSelector("Styles/Components/Defaults.scss:97", "TextInput")]
     [CssBody("padding: 8px; margin: 8px; margin-top: 0; border-radius: 4px; border: 1px solid #aaaaaa;")]
     class TextInputCssRule : CssRule
     {
@@ -567,7 +580,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Components/Defaults.scss:103", "ItemPicker #Label")]
+    [CssSelector("Styles/Components/Defaults.scss:105", "ItemPicker #Label")]
     [CssBody("padding: 8px;")]
     class ItemPickerLabelCssRule : CssRule
     {
@@ -594,7 +607,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Components/Defaults.scss:103", "ItemPicker #Caret")]
+    [CssSelector("Styles/Components/Defaults.scss:105", "ItemPicker #Caret")]
     [CssBody("width: 40px; height: 40px;")]
     class ItemPickerCaretCssRule : CssRule
     {
@@ -622,8 +635,8 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Components/Defaults.scss:112", "ItemPickerDialog")]
-    [CssBody("background-color: white; border-radius: 16px; margin: 16px; padding: 8px; margin-top: calc(\"view.Parent.Height, view.Parent.Padding.Top, view.Parent.Padding.Bottom, view.Height, (ph, ppt, ppb, vh) => (ph - ppt - ppb - vh) / 2\");")]
+    [CssSelector("Styles/Components/Defaults.scss:114", "ItemPickerDialog")]
+    [CssBody("height: calc(\"Content\"); background-color: white; border-radius: 16px; margin: 16px; padding: 8px; margin-top: calc(\"view.Parent.Height, view.Parent.Padding.Top, view.Parent.Padding.Bottom, view.Height, (ph, ppt, ppb, vh) => (ph - ppt - ppb - vh) / 2\");")]
     class ItemPickerDialogCssRule : CssRule
     {
         public override bool Matches(View view)
@@ -636,9 +649,10 @@ namespace File_App.UI.Styles.Common
         public override Task Apply(View untypedView)
         {
             var view = (ItemPickerDialog)untypedView;
+            view.Css.Height = Length.AutoStrategy.Content;
             view.Css.Padding(8);
             view.Css.Margin(16);
-            view.Css.Margin.Top = new Length.BindingLengthRequest(view.Parent.Height, view.Parent.Padding.Top, view.Parent.Padding.Bottom, view.Height, (ph, ppt, ppb, vh) => (ph  - ppt - ppb - vh) / 2);
+            view.Css.Margin.Top = new Length.BindingLengthRequest(view.Parent.Height, view.Parent.Padding.Top, view.Parent.Padding.Bottom, view.Height, (ph, ppt, ppb, vh) => (ph - ppt - ppb - vh) / 2);
             view.Css.BackgroundColor = Colors.White;
             view.Css.Border.Radius = 16;
 
@@ -650,7 +664,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Components/Defaults.scss:112", "ItemPickerDialog #Title")]
+    [CssSelector("Styles/Components/Defaults.scss:114", "ItemPickerDialog #Title")]
     [CssBody("padding: 8px; margin: 8px;")]
     class ItemPickerDialogTitleCssRule : CssRule
     {
@@ -678,7 +692,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Components/Defaults.scss:112", "ItemPickerDialog ScrollView")]
+    [CssSelector("Styles/Components/Defaults.scss:114", "ItemPickerDialog ScrollView")]
     [CssBody("height: calc(\"Content\");")]
     class ItemPickerDialogScrollViewCssRule : CssRule
     {
@@ -706,7 +720,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Components/Defaults.scss:112", "ItemPickerDialog ScrollView .options-list")]
+    [CssSelector("Styles/Components/Defaults.scss:114", "ItemPickerDialog ScrollView .options-list")]
     [CssBody("margin: 0px;")]
     class ItemPickerDialogScrollViewOptionsListCssRule : CssRule
     {
@@ -737,7 +751,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Components/Defaults.scss:112", "ItemPickerDialog ScrollView .options-list SelectableItemView #CheckBox")]
+    [CssSelector("Styles/Components/Defaults.scss:114", "ItemPickerDialog ScrollView .options-list SelectableItemView #CheckBox")]
     [CssBody("margin: 8px; margin-top: calc(\"view.Parent.Height, view.Parent.Padding.Top, view.Parent.Padding.Bottom, view.Height, (ph, ppt, ppb, vh) => (ph - ppt - ppb - vh) / 2\");")]
     class ItemPickerDialogScrollViewOptionsListSelectableItemViewCheckBoxCssRule : CssRule
     {
@@ -767,7 +781,7 @@ namespace File_App.UI.Styles.Common
         public override Task Apply(View view)
         {
             view.Css.Margin(8);
-            view.Css.Margin.Top = new Length.BindingLengthRequest(view.Parent.Height, view.Parent.Padding.Top, view.Parent.Padding.Bottom, view.Height, (ph, ppt, ppb, vh) => (ph  - ppt - ppb - vh) / 2);
+            view.Css.Margin.Top = new Length.BindingLengthRequest(view.Parent.Height, view.Parent.Padding.Top, view.Parent.Padding.Bottom, view.Height, (ph, ppt, ppb, vh) => (ph - ppt - ppb - vh) / 2);
 
             return Task.CompletedTask;
         }
@@ -777,7 +791,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Components/Defaults.scss:112", "ItemPickerDialog ScrollView .options-list SelectableItemView #Label")]
+    [CssSelector("Styles/Components/Defaults.scss:114", "ItemPickerDialog ScrollView .options-list SelectableItemView #Label")]
     [CssBody("margin: 0px;")]
     class ItemPickerDialogScrollViewOptionsListSelectableItemViewLabelCssRule : CssRule
     {
@@ -816,7 +830,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Components/Defaults.scss:112", "ItemPickerDialog #ButtonsRow #CancelButton")]
+    [CssSelector("Styles/Components/Defaults.scss:114", "ItemPickerDialog #ButtonsRow #CancelButton")]
     [CssBody("margin: 8px; width: calc(\"Content\"); padding-left: 32px; padding-right: 32px; margin-left: calc(\"view.Parent.Width, view.Parent.Padding.Left, view.Parent.Padding.Right, view.Width, (pw, ppl, ppr, vw) => (pw - ppl - ppr - vw) / 2\");")]
     class ItemPickerDialogButtonsRowCancelButtonCssRule : CssRule
     {
@@ -841,7 +855,7 @@ namespace File_App.UI.Styles.Common
             view.Css.Padding.Left = 32;
             view.Css.Padding.Right = 32;
             view.Css.Margin(8);
-            view.Css.Margin.Left = new Length.BindingLengthRequest(view.Parent.Width, view.Parent.Padding.Left, view.Parent.Padding.Right, view.Width, (pw, ppl, ppr, vw) => (pw  - ppl - ppr - vw) / 2);
+            view.Css.Margin.Left = new Length.BindingLengthRequest(view.Parent.Width, view.Parent.Padding.Left, view.Parent.Padding.Right, view.Width, (pw, ppl, ppr, vw) => (pw - ppl - ppr - vw) / 2);
 
             return Task.CompletedTask;
         }
@@ -851,7 +865,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Components/Defaults.scss:112", "ItemPickerDialog #ButtonsRow #OkButton")]
+    [CssSelector("Styles/Components/Defaults.scss:114", "ItemPickerDialog #ButtonsRow #OkButton")]
     [CssBody("margin: 8px;")]
     class ItemPickerDialogButtonsRowOkButtonCssRule : CssRule
     {
@@ -882,7 +896,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Components/Defaults.scss:141", "CheckBox")]
+    [CssSelector("Styles/Components/Defaults.scss:143", "CheckBox")]
     [CssBody("width: 16px; height: 16px; border: 1px solid #aaaaaa; border-radius: 16px; background: transparent;")]
     class CheckBoxCssRule : CssRule
     {
@@ -910,7 +924,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Components/Defaults.scss:141", "CheckBox:checked")]
+    [CssSelector("Styles/Components/Defaults.scss:143", "CheckBox:checked")]
     [CssBody("background-color: #aaaaaa;")]
     class CheckBoxCheckedCssRule : CssRule
     {
@@ -934,7 +948,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Components/Defaults.scss:149", "DatePicker #Label")]
+    [CssSelector("Styles/Components/Defaults.scss:151", "DatePicker #Label")]
     [CssBody("background-color: red; height: calc(\"Content\"); color: white; font-weight: bold; padding: 16px;")]
     class DatePickerLabelCssRule : CssRule
     {
@@ -965,7 +979,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Components/Defaults.scss:149", "DatePicker #Caret")]
+    [CssSelector("Styles/Components/Defaults.scss:151", "DatePicker #Caret")]
     [CssBody("background-color: blue; width: 50px; height: 50px;")]
     class DatePickerCaretCssRule : CssRule
     {
@@ -994,8 +1008,8 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Components/Defaults.scss:157", "DatePicker-Dialog")]
-    [CssBody("background-color: white; border-radius: 16px; margin: 16px; padding: 8px; margin-top: calc(\"view.Parent.Height, view.Parent.Padding.Top, view.Parent.Padding.Bottom, view.Height, (ph, ppt, ppb, vh) => (ph - ppt - ppb - vh) / 2\");")]
+    [CssSelector("Styles/Components/Defaults.scss:159", "DatePicker-Dialog")]
+    [CssBody("height: calc(\"Content\"); background-color: white; border-radius: 16px; margin: 16px; padding: 8px; margin-top: calc(\"view.Parent.Height, view.Parent.Padding.Top, view.Parent.Padding.Bottom, view.Height, (ph, ppt, ppb, vh) => (ph - ppt - ppb - vh) / 2\");")]
     class DatePickerDialogCssRule : CssRule
     {
         public override bool Matches(View view)
@@ -1008,9 +1022,10 @@ namespace File_App.UI.Styles.Common
         public override Task Apply(View untypedView)
         {
             var view = (DatePicker.Dialog)untypedView;
+            view.Css.Height = Length.AutoStrategy.Content;
             view.Css.Padding(8);
             view.Css.Margin(16);
-            view.Css.Margin.Top = new Length.BindingLengthRequest(view.Parent.Height, view.Parent.Padding.Top, view.Parent.Padding.Bottom, view.Height, (ph, ppt, ppb, vh) => (ph  - ppt - ppb - vh) / 2);
+            view.Css.Margin.Top = new Length.BindingLengthRequest(view.Parent.Height, view.Parent.Padding.Top, view.Parent.Padding.Bottom, view.Height, (ph, ppt, ppb, vh) => (ph - ppt - ppb - vh) / 2);
             view.Css.BackgroundColor = Colors.White;
             view.Css.Border.Radius = 16;
 
@@ -1022,7 +1037,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Components/Defaults.scss:157", "DatePicker-Dialog #Title")]
+    [CssSelector("Styles/Components/Defaults.scss:159", "DatePicker-Dialog #Title")]
     [CssBody("padding: 8px;")]
     class DatePickerDialogTitleCssRule : CssRule
     {
@@ -1049,7 +1064,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Components/Defaults.scss:157", "DatePicker-Dialog #DialogContent")]
+    [CssSelector("Styles/Components/Defaults.scss:159", "DatePicker-Dialog #DialogContent")]
     [CssBody("padding: 8px;")]
     class DatePickerDialogDialogContentCssRule : CssRule
     {
@@ -1076,7 +1091,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Components/Defaults.scss:157", "DatePicker-Dialog #ButtonsRow > Button")]
+    [CssSelector("Styles/Components/Defaults.scss:159", "DatePicker-Dialog #ButtonsRow > Button")]
     [CssBody("margin: 8px;")]
     class DatePickerDialogButtonsRowButtonCssRule : CssRule
     {
@@ -1109,7 +1124,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Components/Defaults.scss:173", "Drawing")]
+    [CssSelector("Styles/Components/Defaults.scss:175", "Drawing")]
     [CssBody("height: 500px;")]
     class DrawingCssRule : CssRule
     {
@@ -1133,7 +1148,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Components/Defaults.scss:175", "FilePicker")]
+    [CssSelector("Styles/Components/Defaults.scss:177", "FilePicker")]
     [CssBody("height: 64px;")]
     class FilePickerCssRule : CssRule
     {
@@ -1157,7 +1172,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Components/Defaults.scss:175", "FilePicker Button")]
+    [CssSelector("Styles/Components/Defaults.scss:177", "FilePicker Button")]
     [CssBody("border-radius: 0; margin: 16px;")]
     class FilePickerButtonCssRule : CssRule
     {
@@ -1186,7 +1201,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Components/Defaults.scss:175", "FilePicker #Preview")]
+    [CssSelector("Styles/Components/Defaults.scss:177", "FilePicker #Preview")]
     [CssBody("width: 64px; height: 64px; background-color: blue;")]
     class FilePickerPreviewCssRule : CssRule
     {
@@ -1215,8 +1230,8 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Components/Defaults.scss:186", "FilePicker-Dialog")]
-    [CssBody("background-color: white; border-radius: 16px; margin: 16px; padding: 8px; margin-top: calc(\"view.Parent.Height, view.Parent.Padding.Top, view.Parent.Padding.Bottom, view.Height, (ph, ppt, ppb, vh) => (ph - ppt - ppb - vh) / 2\");")]
+    [CssSelector("Styles/Components/Defaults.scss:188", "FilePicker-Dialog")]
+    [CssBody("height: calc(\"Content\"); background-color: white; border-radius: 16px; margin: 16px; padding: 8px; margin-top: calc(\"view.Parent.Height, view.Parent.Padding.Top, view.Parent.Padding.Bottom, view.Height, (ph, ppt, ppb, vh) => (ph - ppt - ppb - vh) / 2\");")]
     class FilePickerDialogCssRule : CssRule
     {
         public override bool Matches(View view)
@@ -1229,9 +1244,10 @@ namespace File_App.UI.Styles.Common
         public override Task Apply(View untypedView)
         {
             var view = (FilePicker.Dialog)untypedView;
+            view.Css.Height = Length.AutoStrategy.Content;
             view.Css.Padding(8);
             view.Css.Margin(16);
-            view.Css.Margin.Top = new Length.BindingLengthRequest(view.Parent.Height, view.Parent.Padding.Top, view.Parent.Padding.Bottom, view.Height, (ph, ppt, ppb, vh) => (ph  - ppt - ppb - vh) / 2);
+            view.Css.Margin.Top = new Length.BindingLengthRequest(view.Parent.Height, view.Parent.Padding.Top, view.Parent.Padding.Bottom, view.Height, (ph, ppt, ppb, vh) => (ph - ppt - ppb - vh) / 2);
             view.Css.BackgroundColor = Colors.White;
             view.Css.Border.Radius = 16;
 
@@ -1243,7 +1259,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Components/Defaults.scss:186", "FilePicker-Dialog #Title")]
+    [CssSelector("Styles/Components/Defaults.scss:188", "FilePicker-Dialog #Title")]
     [CssBody("padding: 16px; font-weight: bold;")]
     class FilePickerDialogTitleCssRule : CssRule
     {
@@ -1271,7 +1287,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Components/Defaults.scss:186", "FilePicker-Dialog ScrollView Stack IconButton")]
+    [CssSelector("Styles/Components/Defaults.scss:188", "FilePicker-Dialog ScrollView Stack IconButton")]
     [CssBody("height: calc(\"Content\"); border: 1px solid #aaaaaa; margin: 8px; padding: 8px;")]
     class FilePickerDialogScrollViewStackIconButtonCssRule : CssRule
     {
@@ -1310,7 +1326,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Components/Defaults.scss:186", "FilePicker-Dialog ScrollView Stack IconButton #TextView")]
+    [CssSelector("Styles/Components/Defaults.scss:188", "FilePicker-Dialog ScrollView Stack IconButton #TextView")]
     [CssBody("margin: 8px; padding-left: 64px; height: calc(\"Container\");")]
     class FilePickerDialogScrollViewStackIconButtonTextViewCssRule : CssRule
     {
@@ -1351,7 +1367,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Components/Defaults.scss:186", "FilePicker-Dialog ScrollView Stack IconButton #Icon")]
+    [CssSelector("Styles/Components/Defaults.scss:188", "FilePicker-Dialog ScrollView Stack IconButton #Icon")]
     [CssBody("width: 64px; height: 64px; background-color: red;")]
     class FilePickerDialogScrollViewStackIconButtonIconCssRule : CssRule
     {
@@ -1392,7 +1408,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Components/Defaults.scss:186", "FilePicker-Dialog #ButtonsRow Button")]
+    [CssSelector("Styles/Components/Defaults.scss:188", "FilePicker-Dialog #ButtonsRow Button")]
     [CssBody("margin: 16px;")]
     class FilePickerDialogButtonsRowButtonCssRule : CssRule
     {
@@ -1424,8 +1440,8 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Components/Defaults.scss:226", "#Indicator")]
-    [CssBody("background-color: white; border-radius: 16px; margin: 16px; padding: 8px; margin-top: calc(\"view.Parent.Height, view.Parent.Padding.Top, view.Parent.Padding.Bottom, view.Height, (ph, ppt, ppb, vh) => (ph - ppt - ppb - vh) / 2\"); margin-left: calc(\"view.Parent.Width, view.Parent.Padding.Left, view.Parent.Padding.Right, view.Width, (pw, ppl, ppr, vw) => (pw - ppl - ppr - vw) / 2\"); width: 100px; height: 100px;")]
+    [CssSelector("Styles/Components/Defaults.scss:228", "#Indicator")]
+    [CssBody("height: calc(\"Content\"); background-color: white; border-radius: 16px; margin: 16px; padding: 8px; margin-top: calc(\"view.Parent.Height, view.Parent.Padding.Top, view.Parent.Padding.Bottom, view.Height, (ph, ppt, ppb, vh) => (ph - ppt - ppb - vh) / 2\"); margin-left: calc(\"view.Parent.Width, view.Parent.Padding.Left, view.Parent.Padding.Right, view.Width, (pw, ppl, ppr, vw) => (pw - ppl - ppr - vw) / 2\"); width: 100px; height: 100px;")]
     class IndicatorCssRule : CssRule
     {
         public override bool Matches(View view)
@@ -1437,12 +1453,13 @@ namespace File_App.UI.Styles.Common
 
         public override Task Apply(View view)
         {
+            view.Css.Height = Length.AutoStrategy.Content;
             view.Css.Height = 100;
             view.Css.Width = 100;
             view.Css.Padding(8);
             view.Css.Margin(16);
-            view.Css.Margin.Top = new Length.BindingLengthRequest(view.Parent.Height, view.Parent.Padding.Top, view.Parent.Padding.Bottom, view.Height, (ph, ppt, ppb, vh) => (ph  - ppt - ppb - vh) / 2);
-            view.Css.Margin.Left = new Length.BindingLengthRequest(view.Parent.Width, view.Parent.Padding.Left, view.Parent.Padding.Right, view.Width, (pw, ppl, ppr, vw) => (pw  - ppl - ppr - vw) / 2);
+            view.Css.Margin.Top = new Length.BindingLengthRequest(view.Parent.Height, view.Parent.Padding.Top, view.Parent.Padding.Bottom, view.Height, (ph, ppt, ppb, vh) => (ph - ppt - ppb - vh) / 2);
+            view.Css.Margin.Left = new Length.BindingLengthRequest(view.Parent.Width, view.Parent.Padding.Left, view.Parent.Padding.Right, view.Width, (pw, ppl, ppr, vw) => (pw - ppl - ppr - vw) / 2);
             view.Css.BackgroundColor = Colors.White;
             view.Css.Border.Radius = 16;
 
@@ -1454,7 +1471,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Components/Defaults.scss:226", "#Indicator ImageView")]
+    [CssSelector("Styles/Components/Defaults.scss:228", "#Indicator ImageView")]
     [CssBody("width: 100%; height: 100%;")]
     class IndicatorImageViewCssRule : CssRule
     {
@@ -1483,7 +1500,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Components/Defaults.scss:236", "NavigationBar")]
+    [CssSelector("Styles/Components/Defaults.scss:238", "NavigationBar")]
     [CssBody("background-color: #00b9f0;")]
     class NavigationBarCssRule : CssRule
     {
@@ -1507,7 +1524,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Components/Defaults.scss:236", "NavigationBar #Title")]
+    [CssSelector("Styles/Components/Defaults.scss:238", "NavigationBar #Title")]
     [CssBody("padding: 24px; text-align: center; font-weight: bold; color: white;")]
     class NavigationBarTitleCssRule : CssRule
     {
@@ -1537,7 +1554,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Components/Defaults.scss:236", "NavigationBar #Left")]
+    [CssSelector("Styles/Components/Defaults.scss:238", "NavigationBar #Left")]
     [CssBody("padding: 8px;")]
     class NavigationBarLeftCssRule : CssRule
     {
@@ -1564,7 +1581,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Components/Defaults.scss:236", "NavigationBar #Left #TextView")]
+    [CssSelector("Styles/Components/Defaults.scss:238", "NavigationBar #Left #TextView")]
     [CssBody("height: calc(\"Container\"); color: white; font-size: 7vw;")]
     class NavigationBarLeftTextViewCssRule : CssRule
     {
@@ -1597,7 +1614,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Components/Defaults.scss:236", "NavigationBar #Left #Icon")]
+    [CssSelector("Styles/Components/Defaults.scss:238", "NavigationBar #Left #Icon")]
     [CssBody("width: calc(\"Content\"); margin: 8px;")]
     class NavigationBarLeftIconCssRule : CssRule
     {
@@ -1629,7 +1646,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Components/Defaults.scss:236", "NavigationBar #Left ImageView")]
+    [CssSelector("Styles/Components/Defaults.scss:238", "NavigationBar #Left ImageView")]
     [CssBody("width: calc(\"Content\"); margin: 8px;")]
     class NavigationBarLeftImageViewCssRule : CssRule
     {
@@ -1662,7 +1679,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Components/Defaults.scss:236", "NavigationBar #Right")]
+    [CssSelector("Styles/Components/Defaults.scss:238", "NavigationBar #Right")]
     [CssBody("padding: 8px;")]
     class NavigationBarRightCssRule : CssRule
     {
@@ -1689,7 +1706,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Components/Defaults.scss:236", "NavigationBar #Right #TextView")]
+    [CssSelector("Styles/Components/Defaults.scss:238", "NavigationBar #Right #TextView")]
     [CssBody("height: calc(\"Container\"); color: white; font-size: 7vw;")]
     class NavigationBarRightTextViewCssRule : CssRule
     {
@@ -1722,7 +1739,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Components/Defaults.scss:236", "NavigationBar #Right #Icon")]
+    [CssSelector("Styles/Components/Defaults.scss:238", "NavigationBar #Right #Icon")]
     [CssBody("width: calc(\"Content\"); margin: 8px;")]
     class NavigationBarRightIconCssRule : CssRule
     {
@@ -1754,7 +1771,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Components/Defaults.scss:236", "NavigationBar #Right ImageView")]
+    [CssSelector("Styles/Components/Defaults.scss:238", "NavigationBar #Right ImageView")]
     [CssBody("width: calc(\"Content\"); margin: 8px;")]
     class NavigationBarRightImageViewCssRule : CssRule
     {
@@ -1787,7 +1804,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Components/Defaults.scss:265", "Tabs")]
+    [CssSelector("Styles/Components/Defaults.scss:267", "Tabs")]
     [CssBody("padding-top: 8px; margin-top: calc(\"view.Parent.Height, view.Parent.Padding.Top, view.Parent.Padding.Bottom, view.Height, (ph, ppt, ppb, vh) => ph - ppt - ppb - vh\"); background-color: #00b9f0; z-index: 10;")]
     class TabsCssRule : CssRule
     {
@@ -1802,7 +1819,7 @@ namespace File_App.UI.Styles.Common
         {
             var view = (Tabs)untypedView;
             view.Css.Padding.Top = 8;
-            view.Css.Margin.Top = new Length.BindingLengthRequest(view.Parent.Height, view.Parent.Padding.Top, view.Parent.Padding.Bottom, view.Height, (ph, ppt, ppb, vh) => ph  - ppt - ppb - vh);
+            view.Css.Margin.Top = new Length.BindingLengthRequest(view.Parent.Height, view.Parent.Padding.Top, view.Parent.Padding.Bottom, view.Height, (ph, ppt, ppb, vh) => ph - ppt - ppb - vh);
             view.Css.BackgroundColor = "#00b9f0";
             view.Css.ZIndex = 10;
 
@@ -1814,7 +1831,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Components/Defaults.scss:265", "Tabs Tabs-Tab #Icon")]
+    [CssSelector("Styles/Components/Defaults.scss:267", "Tabs Tabs-Tab #Icon")]
     [CssBody("background-position: center;")]
     class TabsTabsTabIconCssRule : CssRule
     {
@@ -1845,7 +1862,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Components/Defaults.scss:265", "Tabs Tabs-Tab #Label")]
+    [CssSelector("Styles/Components/Defaults.scss:267", "Tabs Tabs-Tab #Label")]
     [CssBody("font-size: 3vw; text-align: center; padding-left: 4px; padding-right: 4px;")]
     class TabsTabsTabLabelCssRule : CssRule
     {
@@ -1879,7 +1896,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Components/Defaults.scss:276", "TreeView Stack .toggle-icon")]
+    [CssSelector("Styles/Components/Defaults.scss:278", "TreeView Stack .toggle-icon")]
     [CssBody("width: calc(\"Content\");")]
     class TreeViewStackToggleIconCssRule : CssRule
     {
@@ -1910,7 +1927,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Components/Defaults.scss:283", "FormField")]
+    [CssSelector("Styles/Components/Defaults.scss:285", "FormField")]
     [CssBody("padding: 4px;")]
     class FormFieldCssRule : CssRule
     {
@@ -1934,7 +1951,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Components/Defaults.scss:283", "FormField #Label")]
+    [CssSelector("Styles/Components/Defaults.scss:285", "FormField #Label")]
     [CssBody("width: 35%; font-size: 3.5fvw; margin-top: calc(\"view.Parent.Height, view.Parent.Padding.Top, view.Parent.Padding.Bottom, view.Height, (ph, ppt, ppb, vh) => (ph - ppt - ppb - vh) / 2\");")]
     class FormFieldLabelCssRule : CssRule
     {
@@ -1953,7 +1970,7 @@ namespace File_App.UI.Styles.Common
         {
             view.Css.Width = 35.Percent();
             view.Css.Font.Size = View.Root.ActualWidth * (3.5f/ 100f);
-            view.Css.Margin.Top = new Length.BindingLengthRequest(view.Parent.Height, view.Parent.Padding.Top, view.Parent.Padding.Bottom, view.Height, (ph, ppt, ppb, vh) => (ph  - ppt - ppb - vh) / 2);
+            view.Css.Margin.Top = new Length.BindingLengthRequest(view.Parent.Height, view.Parent.Padding.Top, view.Parent.Padding.Bottom, view.Height, (ph, ppt, ppb, vh) => (ph - ppt - ppb - vh) / 2);
 
             return Task.CompletedTask;
         }
@@ -1963,7 +1980,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Components/Defaults.scss:283", "FormField TextInput")]
+    [CssSelector("Styles/Components/Defaults.scss:285", "FormField TextInput")]
     [CssBody("margin: 0;")]
     class FormFieldTextInputCssRule : CssRule
     {
@@ -1991,7 +2008,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Components/Defaults.scss:293", "Toast")]
+    [CssSelector("Styles/Components/Defaults.scss:295", "Toast")]
     [CssBody("background-color: rgba(1, 1, 1, 0.7); padding: 8px; margin: 16px; border-radius: 8px;")]
     class ToastCssRule : CssRule
     {
@@ -2018,7 +2035,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Components/Defaults.scss:293", "Toast #Label")]
+    [CssSelector("Styles/Components/Defaults.scss:295", "Toast #Label")]
     [CssBody("color: white;")]
     class ToastLabelCssRule : CssRule
     {
@@ -2045,7 +2062,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Components/Defaults.scss:293", "Toast #OKButton")]
+    [CssSelector("Styles/Components/Defaults.scss:295", "Toast #OKButton")]
     [CssBody("color: white;")]
     class ToastOKButtonCssRule : CssRule
     {
@@ -2072,7 +2089,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Components/Defaults.scss:302", ".DisabledText")]
+    [CssSelector("Styles/Components/Defaults.scss:304", ".DisabledText")]
     [CssBody("background-color: darkgray; color: white;")]
     class DisabledTextCssRule : CssRule
     {
@@ -3019,7 +3036,7 @@ namespace File_App.UI.Styles.Common
         {
             view.Css.Height = new Length.BindingLengthRequest(View.Root.Width, x => x * (6/ 100f));
             view.Css.Width = new Length.BindingLengthRequest(View.Root.Width, x => x * (6/ 100f));
-            view.Css.Margin.Top = new Length.BindingLengthRequest(view.Parent.Height, view.Parent.Padding.Top, view.Parent.Padding.Bottom, view.Height, (ph, ppt, ppb, vh) => (ph  - ppt - ppb - vh) / 2);
+            view.Css.Margin.Top = new Length.BindingLengthRequest(view.Parent.Height, view.Parent.Padding.Top, view.Parent.Padding.Bottom, view.Height, (ph, ppt, ppb, vh) => (ph - ppt - ppb - vh) / 2);
 
             return Task.CompletedTask;
         }
@@ -3051,7 +3068,7 @@ namespace File_App.UI.Styles.Common
         public override Task Apply(View view)
         {
             view.Css.Font.Size = View.Root.ActualWidth * (3/ 100f);
-            view.Css.Margin.Top = new Length.BindingLengthRequest(view.Parent.Height, view.Parent.Padding.Top, view.Parent.Padding.Bottom, view.Height, (ph, ppt, ppb, vh) => (ph  - ppt - ppb - vh) / 2);
+            view.Css.Margin.Top = new Length.BindingLengthRequest(view.Parent.Height, view.Parent.Padding.Top, view.Parent.Padding.Bottom, view.Height, (ph, ppt, ppb, vh) => (ph - ppt - ppb - vh) / 2);
 
             return Task.CompletedTask;
         }
@@ -3216,7 +3233,7 @@ namespace File_App.UI.Styles.Common
         public override Task Apply(View view)
         {
             view.Css.Padding(8);
-            view.Css.Margin.Top = new Length.BindingLengthRequest(view.Parent.Height, view.Parent.Padding.Top, view.Parent.Padding.Bottom, view.Height, (ph, ppt, ppb, vh) => (ph  - ppt - ppb - vh) / 2);
+            view.Css.Margin.Top = new Length.BindingLengthRequest(view.Parent.Height, view.Parent.Padding.Top, view.Parent.Padding.Bottom, view.Height, (ph, ppt, ppb, vh) => (ph - ppt - ppb - vh) / 2);
 
             return Task.CompletedTask;
         }
@@ -3361,7 +3378,7 @@ namespace File_App.UI.Styles.Common
             view.Css.Height = Length.AutoStrategy.Content;
             view.Css.Width = 30.Percent();
             view.Css.Padding(16);
-            view.Css.Margin.Top = new Length.BindingLengthRequest(view.Parent.Height, view.Parent.Padding.Top, view.Parent.Padding.Bottom, view.Height, (ph, ppt, ppb, vh) => (ph  - ppt - ppb - vh) / 2);
+            view.Css.Margin.Top = new Length.BindingLengthRequest(view.Parent.Height, view.Parent.Padding.Top, view.Parent.Padding.Bottom, view.Height, (ph, ppt, ppb, vh) => (ph - ppt - ppb - vh) / 2);
             view.Css.BackgroundImageAlignment = Alignment.Middle;
 
             return Task.CompletedTask;
@@ -3443,7 +3460,7 @@ namespace File_App.UI.Styles.Common
         {
             view.Css.Height = Length.AutoStrategy.Content;
             view.Css.Padding(8);
-            view.Css.Margin.Top = new Length.BindingLengthRequest(view.Parent.Height, view.Parent.Padding.Top, view.Parent.Padding.Bottom, view.Height, (ph, ppt, ppb, vh) => (ph  - ppt - ppb - vh) / 2);
+            view.Css.Margin.Top = new Length.BindingLengthRequest(view.Parent.Height, view.Parent.Padding.Top, view.Parent.Padding.Bottom, view.Height, (ph, ppt, ppb, vh) => (ph - ppt - ppb - vh) / 2);
             view.Css.BackgroundColor = Colors.White;
             view.Css.Border.RadiusBottomLeft = 8;
             view.Css.Border.RadiusTopRight = 8;
@@ -3739,7 +3756,7 @@ namespace File_App.UI.Styles.Common
         {
             view.Css.Width = 35.Percent();
             view.Css.Font.Size = View.Root.ActualWidth * (3.5f/ 100f);
-            view.Css.Margin.Top = new Length.BindingLengthRequest(view.Parent.Height, view.Parent.Padding.Top, view.Parent.Padding.Bottom, view.Height, (ph, ppt, ppb, vh) => (ph  - ppt - ppb - vh) / 2);
+            view.Css.Margin.Top = new Length.BindingLengthRequest(view.Parent.Height, view.Parent.Padding.Top, view.Parent.Padding.Bottom, view.Height, (ph, ppt, ppb, vh) => (ph - ppt - ppb - vh) / 2);
 
             return Task.CompletedTask;
         }
@@ -4438,7 +4455,7 @@ namespace File_App.UI.Styles.Common
             view.Css.Height = Length.AutoStrategy.Content;
             view.Css.Width = 30.Percent();
             view.Css.Padding(16);
-            view.Css.Margin.Top = new Length.BindingLengthRequest(view.Parent.Height, view.Parent.Padding.Top, view.Parent.Padding.Bottom, view.Height, (ph, ppt, ppb, vh) => (ph  - ppt - ppb - vh) / 2);
+            view.Css.Margin.Top = new Length.BindingLengthRequest(view.Parent.Height, view.Parent.Padding.Top, view.Parent.Padding.Bottom, view.Height, (ph, ppt, ppb, vh) => (ph - ppt - ppb - vh) / 2);
             view.Css.BackgroundImageAlignment = Alignment.Middle;
 
             return Task.CompletedTask;
@@ -4485,48 +4502,8 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:170", "ProfilePage #SecurityExpander #ProfileSecurityCard FormField TextInput:disabled")]
-    [CssBody("background-color: blue;")]
-    class ProfilePageSecurityExpanderProfileSecurityCardFormFieldTextInputDisabledCssRule : CssRule
-    {
-        public override bool Matches(View view)
-        {
-            if (!(view is TextInput && view.PseudoCssState.ContainsWholeWord("disabled"))) return false;
-
-            view = CssEngine.FindParentByType<FormField>(view);
-
-            if (view is null) return false;
-
-            view = CssEngine.FindParentById(view, "ProfileSecurityCard");
-
-            if (view is null) return false;
-
-            view = CssEngine.FindParentById(view, "SecurityExpander");
-
-            if (view is null) return false;
-
-            view = CssEngine.FindParentByType<ProfilePage>(view);
-
-            if (view is null) return false;
-
-            return true;
-        }
-
-        public override Task Apply(View untypedView)
-        {
-            var view = (TextInput)untypedView;
-            view.Css.BackgroundColor = Colors.Blue;
-
-            return Task.CompletedTask;
-        }
-    }
-}
-
-namespace File_App.UI.Styles.Common
-{
-    [EscapeGCop("Auto-generated")]
     [CssSelector("Styles/Common.scss:170", "ProfilePage #SecurityExpander Button")]
-    [CssBody("margin: 8px; color: white;")]
+    [CssBody("margin: 8px; color: white; border: none; border-radius: 16px;")]
     class ProfilePageSecurityExpanderButtonCssRule : CssRule
     {
         public override bool Matches(View view)
@@ -4549,6 +4526,8 @@ namespace File_App.UI.Styles.Common
             var view = (Button)untypedView;
             view.Css.Margin(8);
             view.Css.TextColor = Colors.White;
+            view.Css.Border = 0;
+            view.Css.Border.Radius = 16;
 
             return Task.CompletedTask;
         }
@@ -4622,7 +4601,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:298", "OrderInfoPage")]
+    [CssSelector("Styles/Common.scss:300", "OrderInfoPage")]
     [CssBody("background-color: #eaeaea;")]
     class OrderInfoPageCssRule : CssRule
     {
@@ -4646,7 +4625,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:298", "OrderInfoPage #Body")]
+    [CssSelector("Styles/Common.scss:300", "OrderInfoPage #Body")]
     [CssBody("height: calc(\"Content\");")]
     class OrderInfoPageBodyCssRule : CssRule
     {
@@ -4673,7 +4652,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:298", "OrderInfoPage #Description")]
+    [CssSelector("Styles/Common.scss:300", "OrderInfoPage #Description")]
     [CssBody("background-color: white; font-size: 3.5fvw; font-weight: bold; padding: 16px; border-radius: 8px; margin: 16px; margin-bottom: 0;")]
     class OrderInfoPageDescriptionCssRule : CssRule
     {
@@ -4706,7 +4685,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:298", "OrderInfoPage #OrderGrid")]
+    [CssSelector("Styles/Common.scss:300", "OrderInfoPage #OrderGrid")]
     [CssBody("height: calc(\"Content\"); padding-left: 16px; padding-bottom: 16px;")]
     class OrderInfoPageOrderGridCssRule : CssRule
     {
@@ -4735,7 +4714,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:298", "OrderInfoPage #OrderGrid OrderCardItem")]
+    [CssSelector("Styles/Common.scss:300", "OrderInfoPage #OrderGrid OrderCardItem")]
     [CssBody("height: calc(\"Content\"); background-color: white; border-radius: 8px; padding: 8px; padding-top: 16px; margin-top: 16px; margin-right: 16px;")]
     class OrderInfoPageOrderGridOrderCardItemCssRule : CssRule
     {
@@ -4773,7 +4752,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:298", "OrderInfoPage #OrderGrid OrderCardItem #Image")]
+    [CssSelector("Styles/Common.scss:300", "OrderInfoPage #OrderGrid OrderCardItem #Image")]
     [CssBody("background-position: center; height: 20vh;")]
     class OrderInfoPageOrderGridOrderCardItemImageCssRule : CssRule
     {
@@ -4809,7 +4788,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:298", "OrderInfoPage #OrderGrid OrderCardItem .Left")]
+    [CssSelector("Styles/Common.scss:300", "OrderInfoPage #OrderGrid OrderCardItem .Left")]
     [CssBody("width: calc(\"Content\"); font-size: 3fvw; color: gray; margin-top: calc(\"view.Parent.Height, view.Parent.Padding.Top, view.Parent.Padding.Bottom, view.Height, (ph, ppt, ppb, vh) => (ph - ppt - ppb - vh) / 2\");")]
     class OrderInfoPageOrderGridOrderCardItemLeftCssRule : CssRule
     {
@@ -4836,7 +4815,7 @@ namespace File_App.UI.Styles.Common
         {
             view.Css.Width = Length.AutoStrategy.Content;
             view.Css.Font.Size = View.Root.ActualWidth * (3f/ 100f);
-            view.Css.Margin.Top = new Length.BindingLengthRequest(view.Parent.Height, view.Parent.Padding.Top, view.Parent.Padding.Bottom, view.Height, (ph, ppt, ppb, vh) => (ph  - ppt - ppb - vh) / 2);
+            view.Css.Margin.Top = new Length.BindingLengthRequest(view.Parent.Height, view.Parent.Padding.Top, view.Parent.Padding.Bottom, view.Height, (ph, ppt, ppb, vh) => (ph - ppt - ppb - vh) / 2);
             view.Css.TextColor = Colors.Gray;
 
             return Task.CompletedTask;
@@ -4847,7 +4826,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:298", "OrderInfoPage #OrderGrid OrderCardItem .Right")]
+    [CssSelector("Styles/Common.scss:300", "OrderInfoPage #OrderGrid OrderCardItem .Right")]
     [CssBody("text-align: right; font-size: 3.5fvw;")]
     class OrderInfoPageOrderGridOrderCardItemRightCssRule : CssRule
     {
@@ -4883,7 +4862,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:298", "OrderInfoPage #OrderGrid OrderCardItem .Price")]
+    [CssSelector("Styles/Common.scss:300", "OrderInfoPage #OrderGrid OrderCardItem .Price")]
     [CssBody("color: green;")]
     class OrderInfoPageOrderGridOrderCardItemPriceCssRule : CssRule
     {
@@ -4918,7 +4897,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:334", "SearchPage")]
+    [CssSelector("Styles/Common.scss:336", "SearchPage")]
     [CssBody("background-color: #eaeaea;")]
     class SearchPageCssRule : CssRule
     {
@@ -4942,7 +4921,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:334", "SearchPage TextInput")]
+    [CssSelector("Styles/Common.scss:336", "SearchPage TextInput")]
     [CssBody("padding: 16px; margin: 0; background-color: white; border: none;")]
     class SearchPageTextInputCssRule : CssRule
     {
@@ -4973,7 +4952,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:334", "SearchPage .Scroller")]
+    [CssSelector("Styles/Common.scss:336", "SearchPage .Scroller")]
     [CssBody("z-index: -1;")]
     class SearchPageScrollerCssRule : CssRule
     {
@@ -5000,7 +4979,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:334", "SearchPage .Scroller ListView")]
+    [CssSelector("Styles/Common.scss:336", "SearchPage .Scroller ListView")]
     [CssBody("padding-top: 16px;")]
     class SearchPageScrollerListViewCssRule : CssRule
     {
@@ -5032,7 +5011,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:334", "SearchPage .Scroller ListView #Content")]
+    [CssSelector("Styles/Common.scss:336", "SearchPage .Scroller ListView #Content")]
     [CssBody("margin: 16px; margin-top: 0; margin-bottom: 0;")]
     class SearchPageScrollerListViewContentCssRule : CssRule
     {
@@ -5069,7 +5048,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:352", "CartPage")]
+    [CssSelector("Styles/Common.scss:354", "CartPage")]
     [CssBody("background-color: #eaeaea;")]
     class CartPageCssRule : CssRule
     {
@@ -5093,7 +5072,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:352", "CartPage #HeaderPrice")]
+    [CssSelector("Styles/Common.scss:354", "CartPage #HeaderPrice")]
     [CssBody("background-color: white; height: calc(\"Content\"); padding: 8px;")]
     class CartPageHeaderPriceCssRule : CssRule
     {
@@ -5122,7 +5101,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:352", "CartPage #HeaderPrice .Right")]
+    [CssSelector("Styles/Common.scss:354", "CartPage #HeaderPrice .Right")]
     [CssBody("color: green; text-align: right; font-weight: bold;")]
     class CartPageHeaderPriceRightCssRule : CssRule
     {
@@ -5155,7 +5134,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:352", "CartPage ScrollView")]
+    [CssSelector("Styles/Common.scss:354", "CartPage ScrollView")]
     [CssBody("z-index: -1;")]
     class CartPageScrollViewCssRule : CssRule
     {
@@ -5183,7 +5162,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:352", "CartPage ScrollView CartOrderCardItem")]
+    [CssSelector("Styles/Common.scss:354", "CartPage ScrollView CartOrderCardItem")]
     [CssBody("height: calc(\"Content\"); background: white; border-radius: 8px; padding: 16px; margin: 8px 16px 8px 16px;")]
     class CartPageScrollViewCartOrderCardItemCssRule : CssRule
     {
@@ -5219,7 +5198,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:352", "CartPage ScrollView CartOrderCardItem #Image")]
+    [CssSelector("Styles/Common.scss:354", "CartPage ScrollView CartOrderCardItem #Image")]
     [CssBody("width: 30%; height: calc(\"Content\");")]
     class CartPageScrollViewCartOrderCardItemImageCssRule : CssRule
     {
@@ -5255,7 +5234,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:352", "CartPage ScrollView CartOrderCardItem #Name")]
+    [CssSelector("Styles/Common.scss:354", "CartPage ScrollView CartOrderCardItem #Name")]
     [CssBody("font-size: 4vw;")]
     class CartPageScrollViewCartOrderCardItemNameCssRule : CssRule
     {
@@ -5290,7 +5269,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:352", "CartPage ScrollView CartOrderCardItem #ShortCription")]
+    [CssSelector("Styles/Common.scss:354", "CartPage ScrollView CartOrderCardItem #ShortCription")]
     [CssBody("font-size: 3vw; color: gray;")]
     class CartPageScrollViewCartOrderCardItemShortCriptionCssRule : CssRule
     {
@@ -5326,7 +5305,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:352", "CartPage ScrollView CartOrderCardItem .LabelText")]
+    [CssSelector("Styles/Common.scss:354", "CartPage ScrollView CartOrderCardItem .LabelText")]
     [CssBody("width: calc(\"Content\"); font-size: 3.5fvw; margin-top: calc(\"view.Parent.Height, view.Parent.Padding.Top, view.Parent.Padding.Bottom, view.Height, (ph, ppt, ppb, vh) => (ph - ppt - ppb - vh) / 2\");")]
     class CartPageScrollViewCartOrderCardItemLabelTextCssRule : CssRule
     {
@@ -5353,7 +5332,7 @@ namespace File_App.UI.Styles.Common
         {
             view.Css.Width = Length.AutoStrategy.Content;
             view.Css.Font.Size = View.Root.ActualWidth * (3.5f/ 100f);
-            view.Css.Margin.Top = new Length.BindingLengthRequest(view.Parent.Height, view.Parent.Padding.Top, view.Parent.Padding.Bottom, view.Height, (ph, ppt, ppb, vh) => (ph  - ppt - ppb - vh) / 2);
+            view.Css.Margin.Top = new Length.BindingLengthRequest(view.Parent.Height, view.Parent.Padding.Top, view.Parent.Padding.Bottom, view.Height, (ph, ppt, ppb, vh) => (ph - ppt - ppb - vh) / 2);
 
             return Task.CompletedTask;
         }
@@ -5363,7 +5342,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:352", "CartPage ScrollView CartOrderCardItem .Right")]
+    [CssSelector("Styles/Common.scss:354", "CartPage ScrollView CartOrderCardItem .Right")]
     [CssBody("text-align: right;")]
     class CartPageScrollViewCartOrderCardItemRightCssRule : CssRule
     {
@@ -5398,7 +5377,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:352", "CartPage ScrollView CartOrderCardItem .Price")]
+    [CssSelector("Styles/Common.scss:354", "CartPage ScrollView CartOrderCardItem .Price")]
     [CssBody("color: green;")]
     class CartPageScrollViewCartOrderCardItemPriceCssRule : CssRule
     {
@@ -5433,7 +5412,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:352", "CartPage ScrollView CartOrderCardItem .Remove")]
+    [CssSelector("Styles/Common.scss:354", "CartPage ScrollView CartOrderCardItem .Remove")]
     [CssBody("color: red;")]
     class CartPageScrollViewCartOrderCardItemRemoveCssRule : CssRule
     {
@@ -5468,7 +5447,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:352", "CartPage ScrollView CartOrderCardItem .TopBorder")]
+    [CssSelector("Styles/Common.scss:354", "CartPage ScrollView CartOrderCardItem .TopBorder")]
     [CssBody("border-top: 1px solid #AAAAAA;")]
     class CartPageScrollViewCartOrderCardItemTopBorderCssRule : CssRule
     {
@@ -5503,7 +5482,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:352", "CartPage ScrollView CartOrderCardItem .ItemPickerHolder")]
+    [CssSelector("Styles/Common.scss:354", "CartPage ScrollView CartOrderCardItem .ItemPickerHolder")]
     [CssBody("padding: 4px;")]
     class CartPageScrollViewCartOrderCardItemItemPickerHolderCssRule : CssRule
     {
@@ -5538,7 +5517,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:352", "CartPage ScrollView CartOrderCardItem .ItemPickerHolder ItemPicker")]
+    [CssSelector("Styles/Common.scss:354", "CartPage ScrollView CartOrderCardItem .ItemPickerHolder ItemPicker")]
     [CssBody("border: 1px solid #AAAAAA; margin: 0; width: calc(\"Content\");")]
     class CartPageScrollViewCartOrderCardItemItemPickerHolderItemPickerCssRule : CssRule
     {
@@ -5580,7 +5559,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:352", "CartPage ScrollView CartOrderCardItem .ItemPickerHolder ItemPicker #Label")]
+    [CssSelector("Styles/Common.scss:354", "CartPage ScrollView CartOrderCardItem .ItemPickerHolder ItemPicker #Label")]
     [CssBody("text-align: center;")]
     class CartPageScrollViewCartOrderCardItemItemPickerHolderItemPickerLabelCssRule : CssRule
     {
@@ -5623,7 +5602,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:352", "CartPage ScrollView CartOrderCardItem .ItemPickerHolder ItemPicker #Caret")]
+    [CssSelector("Styles/Common.scss:354", "CartPage ScrollView CartOrderCardItem .ItemPickerHolder ItemPicker #Caret")]
     [CssBody("display: none;")]
     class CartPageScrollViewCartOrderCardItemItemPickerHolderItemPickerCaretCssRule : CssRule
     {
@@ -5664,7 +5643,7 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:352", "CartPage #BuyButton")]
+    [CssSelector("Styles/Common.scss:354", "CartPage #BuyButton")]
     [CssBody("height: calc(\"Content\"); border-radius: 0; background-color: green; border: none; color: white; font-weight: bold; padding: 16px;")]
     class CartPageBuyButtonCssRule : CssRule
     {
@@ -5688,6 +5667,435 @@ namespace File_App.UI.Styles.Common
             view.Css.BackgroundColor = Colors.Green;
             view.Css.Border = 0;
             view.Css.TextColor = Colors.White;
+
+            return Task.CompletedTask;
+        }
+    }
+}
+
+namespace File_App.UI.Styles.Common
+{
+    [EscapeGCop("Auto-generated")]
+    [CssSelector("Styles/Common.scss:411", "LoginPage")]
+    [CssBody("background-color: #eaeaea;")]
+    class LoginPageCssRule : CssRule
+    {
+        public override bool Matches(View view)
+        {
+            // CssEngine will only call me if a view matches: LoginPage
+
+            return true;
+        }
+
+        public override Task Apply(View untypedView)
+        {
+            var view = (LoginPage)untypedView;
+            view.Css.BackgroundColor = "#eaeaea";
+
+            return Task.CompletedTask;
+        }
+    }
+}
+
+namespace File_App.UI.Styles.Common
+{
+    [EscapeGCop("Auto-generated")]
+    [CssSelector("Styles/Common.scss:411", "LoginPage .SpaceFiller")]
+    [CssBody("height: calc(\"Container\");")]
+    class LoginPageSpaceFillerCssRule : CssRule
+    {
+        public override bool Matches(View view)
+        {
+            // CssEngine will only call me if a view matches: .SpaceFiller
+
+            view = CssEngine.FindParentByType<LoginPage>(view);
+
+            if (view is null) return false;
+
+            return true;
+        }
+
+        public override Task Apply(View view)
+        {
+            view.Css.Height = Length.AutoStrategy.Container;
+
+            return Task.CompletedTask;
+        }
+    }
+}
+
+namespace File_App.UI.Styles.Common
+{
+    [EscapeGCop("Auto-generated")]
+    [CssSelector("Styles/Common.scss:411", "LoginPage .SpaceFillerH")]
+    [CssBody("width: calc(\"Container\");")]
+    class LoginPageSpaceFillerHCssRule : CssRule
+    {
+        public override bool Matches(View view)
+        {
+            // CssEngine will only call me if a view matches: .SpaceFillerH
+
+            view = CssEngine.FindParentByType<LoginPage>(view);
+
+            if (view is null) return false;
+
+            return true;
+        }
+
+        public override Task Apply(View view)
+        {
+            view.Css.Width = Length.AutoStrategy.Container;
+
+            return Task.CompletedTask;
+        }
+    }
+}
+
+namespace File_App.UI.Styles.Common
+{
+    [EscapeGCop("Auto-generated")]
+    [CssSelector("Styles/Common.scss:411", "LoginPage #LoginCard")]
+    [CssBody("height: calc(\"Content\"); background-color: white; border-radius: 8px; padding: 8px; margin: 16px; margin-bottom: 0;")]
+    class LoginPageLoginCardCssRule : CssRule
+    {
+        public override bool Matches(View view)
+        {
+            // CssEngine will only call me if a view matches: #LoginCard
+
+            view = CssEngine.FindParentByType<LoginPage>(view);
+
+            if (view is null) return false;
+
+            return true;
+        }
+
+        public override Task Apply(View view)
+        {
+            view.Css.Height = Length.AutoStrategy.Content;
+            view.Css.Padding(8);
+            view.Css.Margin(16);
+            view.Css.Margin.Bottom = 0;
+            view.Css.BackgroundColor = Colors.White;
+            view.Css.Border.Radius = 8;
+
+            return Task.CompletedTask;
+        }
+    }
+}
+
+namespace File_App.UI.Styles.Common
+{
+    [EscapeGCop("Auto-generated")]
+    [CssSelector("Styles/Common.scss:411", "LoginPage #LoginCard FormField #Label")]
+    [CssBody("width: 30%;")]
+    class LoginPageLoginCardFormFieldLabelCssRule : CssRule
+    {
+        public override bool Matches(View view)
+        {
+            // CssEngine will only call me if a view matches: #Label
+
+            view = CssEngine.FindParentByType<FormField>(view);
+
+            if (view is null) return false;
+
+            view = CssEngine.FindParentById(view, "LoginCard");
+
+            if (view is null) return false;
+
+            view = CssEngine.FindParentByType<LoginPage>(view);
+
+            if (view is null) return false;
+
+            return true;
+        }
+
+        public override Task Apply(View view)
+        {
+            view.Css.Width = 30.Percent();
+
+            return Task.CompletedTask;
+        }
+    }
+}
+
+namespace File_App.UI.Styles.Common
+{
+    [EscapeGCop("Auto-generated")]
+    [CssSelector("Styles/Common.scss:411", "LoginPage #LoginCard .Hint")]
+    [CssBody("width: calc(\"Container\"); color: darkgray; font-size: 3vw; padding: 0; margin: 0; margin-top: calc(\"view.Parent.Height, view.Parent.Padding.Top, view.Parent.Padding.Bottom, view.Height, (ph, ppt, ppb, vh) => (ph - ppt - ppb - vh) / 2\");")]
+    class LoginPageLoginCardHintCssRule : CssRule
+    {
+        public override bool Matches(View view)
+        {
+            // CssEngine will only call me if a view matches: .Hint
+
+            view = CssEngine.FindParentById(view, "LoginCard");
+
+            if (view is null) return false;
+
+            view = CssEngine.FindParentByType<LoginPage>(view);
+
+            if (view is null) return false;
+
+            return true;
+        }
+
+        public override Task Apply(View view)
+        {
+            view.Css.Width = Length.AutoStrategy.Container;
+            view.Css.Font.Size = View.Root.ActualWidth * (3/ 100f);
+            view.Css.Padding(0);
+            view.Css.Margin(0);
+            view.Css.Margin.Top = new Length.BindingLengthRequest(view.Parent.Height, view.Parent.Padding.Top, view.Parent.Padding.Bottom, view.Height, (ph, ppt, ppb, vh) => (ph - ppt - ppb - vh) / 2);
+            view.Css.TextColor = Colors.DarkGray;
+
+            return Task.CompletedTask;
+        }
+    }
+}
+
+namespace File_App.UI.Styles.Common
+{
+    [EscapeGCop("Auto-generated")]
+    [CssSelector("Styles/Common.scss:411", "LoginPage #LoginCard Row")]
+    [CssBody("margin: 8px;")]
+    class LoginPageLoginCardRowCssRule : CssRule
+    {
+        public override bool Matches(View view)
+        {
+            // CssEngine will only call me if a view matches: Row
+
+            view = CssEngine.FindParentById(view, "LoginCard");
+
+            if (view is null) return false;
+
+            view = CssEngine.FindParentByType<LoginPage>(view);
+
+            if (view is null) return false;
+
+            return true;
+        }
+
+        public override Task Apply(View untypedView)
+        {
+            var view = (Row)untypedView;
+            view.Css.Margin(8);
+
+            return Task.CompletedTask;
+        }
+    }
+}
+
+namespace File_App.UI.Styles.Common
+{
+    [EscapeGCop("Auto-generated")]
+    [CssSelector("Styles/Common.scss:411", "LoginPage #LoginCard Row CheckBox")]
+    [CssBody("border-radius: 4px; margin-top: calc(\"view.Parent.Height, view.Parent.Padding.Top, view.Parent.Padding.Bottom, view.Height, (ph, ppt, ppb, vh) => (ph - ppt - ppb - vh) / 2\"); background: transparent; background-image: url(\"Images/Icons/none.png\");")]
+    class LoginPageLoginCardRowCheckBoxCssRule : CssRule
+    {
+        public override bool Matches(View view)
+        {
+            // CssEngine will only call me if a view matches: CheckBox
+
+            view = CssEngine.FindParentByType<Row>(view);
+
+            if (view is null) return false;
+
+            view = CssEngine.FindParentById(view, "LoginCard");
+
+            if (view is null) return false;
+
+            view = CssEngine.FindParentByType<LoginPage>(view);
+
+            if (view is null) return false;
+
+            return true;
+        }
+
+        public override Task Apply(View untypedView)
+        {
+            var view = (CheckBox)untypedView;
+            view.Css.Margin.Top = new Length.BindingLengthRequest(view.Parent.Height, view.Parent.Padding.Top, view.Parent.Padding.Bottom, view.Height, (ph, ppt, ppb, vh) => (ph - ppt - ppb - vh) / 2);
+            view.Css.Border.Radius = 4;
+            view.Css.BackgroundColor = Colors.Transparent;
+            view.Css.BackgroundImagePath = "Images/Icons/none.png";
+
+            return Task.CompletedTask;
+        }
+    }
+}
+
+namespace File_App.UI.Styles.Common
+{
+    [EscapeGCop("Auto-generated")]
+    [CssSelector("Styles/Common.scss:411", "LoginPage #LoginCard Row CheckBox:checked")]
+    [CssBody("background-image: url(\"Images/Icons/check.png\");")]
+    class LoginPageLoginCardRowCheckBoxCheckedCssRule : CssRule
+    {
+        public override bool Matches(View view)
+        {
+            if (!(view is CheckBox && view.PseudoCssState.ContainsWholeWord("checked"))) return false;
+
+            view = CssEngine.FindParentByType<Row>(view);
+
+            if (view is null) return false;
+
+            view = CssEngine.FindParentById(view, "LoginCard");
+
+            if (view is null) return false;
+
+            view = CssEngine.FindParentByType<LoginPage>(view);
+
+            if (view is null) return false;
+
+            return true;
+        }
+
+        public override Task Apply(View untypedView)
+        {
+            var view = (CheckBox)untypedView;
+            view.Css.BackgroundImagePath = "Images/Icons/check.png";
+
+            return Task.CompletedTask;
+        }
+    }
+}
+
+namespace File_App.UI.Styles.Common
+{
+    [EscapeGCop("Auto-generated")]
+    [CssSelector("Styles/Common.scss:411", "LoginPage #LoginCard Row CheckBox #CheckedImage")]
+    [CssBody("width: calc(\"Container\"); height: calc(\"Container\"); margin-left: 4px; margin-bottom: 4px;")]
+    class LoginPageLoginCardRowCheckBoxCheckedImageCssRule : CssRule
+    {
+        public override bool Matches(View view)
+        {
+            // CssEngine will only call me if a view matches: #CheckedImage
+
+            view = CssEngine.FindParentByType<CheckBox>(view);
+
+            if (view is null) return false;
+
+            view = CssEngine.FindParentByType<Row>(view);
+
+            if (view is null) return false;
+
+            view = CssEngine.FindParentById(view, "LoginCard");
+
+            if (view is null) return false;
+
+            view = CssEngine.FindParentByType<LoginPage>(view);
+
+            if (view is null) return false;
+
+            return true;
+        }
+
+        public override Task Apply(View view)
+        {
+            view.Css.Height = Length.AutoStrategy.Container;
+            view.Css.Width = Length.AutoStrategy.Container;
+            view.Css.Margin.Left = 4;
+            view.Css.Margin.Bottom = 4;
+
+            return Task.CompletedTask;
+        }
+    }
+}
+
+namespace File_App.UI.Styles.Common
+{
+    [EscapeGCop("Auto-generated")]
+    [CssSelector("Styles/Common.scss:411", "LoginPage #LoginCard TextView")]
+    [CssBody("width: calc(\"Content\"); font-size: 3vw;")]
+    class LoginPageLoginCardTextViewCssRule : CssRule
+    {
+        public override bool Matches(View view)
+        {
+            // CssEngine will only call me if a view matches: TextView
+
+            view = CssEngine.FindParentById(view, "LoginCard");
+
+            if (view is null) return false;
+
+            view = CssEngine.FindParentByType<LoginPage>(view);
+
+            if (view is null) return false;
+
+            return true;
+        }
+
+        public override Task Apply(View untypedView)
+        {
+            var view = (TextView)untypedView;
+            view.Css.Width = Length.AutoStrategy.Content;
+            view.Css.Font.Size = View.Root.ActualWidth * (3/ 100f);
+
+            return Task.CompletedTask;
+        }
+    }
+}
+
+namespace File_App.UI.Styles.Common
+{
+    [EscapeGCop("Auto-generated")]
+    [CssSelector("Styles/Common.scss:411", "LoginPage #SignupButton")]
+    [CssBody("width: calc(\"Content\"); color: #00b9f0; padding: 0 32px 0 32px; margin: 16px; margin-bottom: 0; margin-left: calc(\"view.Parent.Width, view.Parent.Padding.Left, view.Parent.Padding.Right, view.Width, (pw, ppl, ppr, vw) => (pw - ppl - ppr - vw) / 2\");")]
+    class LoginPageSignupButtonCssRule : CssRule
+    {
+        public override bool Matches(View view)
+        {
+            // CssEngine will only call me if a view matches: #SignupButton
+
+            view = CssEngine.FindParentByType<LoginPage>(view);
+
+            if (view is null) return false;
+
+            return true;
+        }
+
+        public override Task Apply(View view)
+        {
+            view.Css.Width = Length.AutoStrategy.Content;
+            view.Css.Padding(top: 0, right: 32, bottom: 0, left: 32);
+            view.Css.Margin(16);
+            view.Css.Margin.Bottom = 0;
+            view.Css.Margin.Left = new Length.BindingLengthRequest(view.Parent.Width, view.Parent.Padding.Left, view.Parent.Padding.Right, view.Width, (pw, ppl, ppr, vw) => (pw - ppl - ppr - vw) / 2);
+            view.Css.TextColor = "#00b9f0";
+
+            return Task.CompletedTask;
+        }
+    }
+}
+
+namespace File_App.UI.Styles.Common
+{
+    [EscapeGCop("Auto-generated")]
+    [CssSelector("Styles/Common.scss:411", "LoginPage #LoginButton")]
+    [CssBody("width: calc(\"Content\"); color: white; background-color: #00b9f0; padding: 0 64px 0 64px; margin: 16px; margin-left: calc(\"view.Parent.Width, view.Parent.Padding.Left, view.Parent.Padding.Right, view.Width, (pw, ppl, ppr, vw) => (pw - ppl - ppr - vw) / 2\"); border: none; border-radius: 16px;")]
+    class LoginPageLoginButtonCssRule : CssRule
+    {
+        public override bool Matches(View view)
+        {
+            // CssEngine will only call me if a view matches: #LoginButton
+
+            view = CssEngine.FindParentByType<LoginPage>(view);
+
+            if (view is null) return false;
+
+            return true;
+        }
+
+        public override Task Apply(View view)
+        {
+            view.Css.Width = Length.AutoStrategy.Content;
+            view.Css.Padding(top: 0, right: 64, bottom: 0, left: 64);
+            view.Css.Margin(16);
+            view.Css.Margin.Left = new Length.BindingLengthRequest(view.Parent.Width, view.Parent.Padding.Left, view.Parent.Padding.Right, view.Width, (pw, ppl, ppr, vw) => (pw - ppl - ppr - vw) / 2);
+            view.Css.TextColor = Colors.White;
+            view.Css.BackgroundColor = "#00b9f0";
+            view.Css.Border = 0;
+            view.Css.Border.Radius = 16;
 
             return Task.CompletedTask;
         }

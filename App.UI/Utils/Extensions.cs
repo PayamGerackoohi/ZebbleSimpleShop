@@ -44,5 +44,7 @@ namespace UI
                 }
             });
         }
+
+        public static void Toggle(this CheckBox self) => self.Checked = !self.Checked;
     }
 }

@@ -15,7 +15,7 @@ namespace ViewModel
 {
     class ProfileSecuritySubPage : EzSubPage
     {
-        public Bindable<User> User { get; private set; } = new ();
+        public Bindable<User> User { get; private set; } = new();
 
         public async Task OnSave()
         {
@@ -29,12 +29,9 @@ namespace ViewModel
         }
         public async Task OnLogout()
         {
-            "Not implemented yet!".Toast();
+            User.Value.Credential.StayLoggedIn = false;
+            Holder.EzGo<LoginPage>();
         }
-
-        //public override async Task OnRefresh()
-        //{
-        //}
 
         protected override async Task Setup()
         {

@@ -484,6 +484,79 @@ namespace UI.Pages
 }
 #endregion
 
+#region UI.Pages.LoginPage
+namespace UI.Pages
+{
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+    using Domain;
+    using Zebble;
+    using Zebble.Plugin;
+    using Olive;
+    using Zebble.Services.Css;
+
+    [CacheView]
+    [EscapeGCop("Auto-generated")]
+    [SourceCode(@"Views\Pages\Login\LoginPage.zbl")]
+    partial class LoginPage : UI.Templates.EzNavBarPage, ITemplate<ViewModel.LoginPage>
+    {
+        public ViewModel.LoginPage Model = Zebble.Mvvm.ViewModel.The<ViewModel.LoginPage>();
+        public Stack LoginCard = new Stack();
+        public FormField<TextInput> Username = new FormField<TextInput>();
+        public FormField<TextInput> Password = new FormField<TextInput>();
+        public CheckBox RememberMeCB = new CheckBox();
+        public TextView SignupButton = new TextView();
+        public Button LoginButton = new Button();
+        protected override async Task InitializeFromMarkup()
+        {
+            await base.InitializeFromMarkup();
+
+            this.Title = "Authentication";
+
+            var __row1 = new Row() { CssClass = "SpaceFiller" };
+
+            LoginCard.Id = "LoginCard";
+
+            Username.Id = "Username";
+            Username.LabelText = "Username";
+            Username.Bind("Value", () => Model.User, u => Model.Username).Set(x => x.Control.TextMode = TextMode.Auto);
+
+            Password.Id = "Password";
+            Password.LabelText = "Password";
+            Password.Bind("Value", () => Model.User, u => Model.Password)
+            .Set(x => x.Control.TextMode = TextMode.Password);
+
+            var __row2 = new Row();
+
+            RememberMeCB.Id = "RememberMeCB";
+            RememberMeCB.AutoFlash = true;
+            RememberMeCB.Bind("Checked", () => Model.User, u => u.Credential.StayLoggedIn);
+
+            var __textView1 = new TextView() { Text = "Remember Me" }.On(x => x.Tapped, () => RememberMeCB.Toggle());
+
+            var __textView2 = new TextView() { CssClass = "Hint" }.Bind("Text", () => Model.User, u => Model.Hint);
+
+            SignupButton.Id = "SignupButton";
+            SignupButton.Text = "New user? Signup now.";
+            SignupButton.On(v => v.Tapped, () => Model.SignupTapped());
+
+            var __row3 = new Row() { CssClass = "SpaceFiller" };
+
+            LoginButton.Id = "LoginButton";
+            LoginButton.Text = "Login";
+            LoginButton.On(v => v.Tapped, () => Model.LoginTapped(Username.Text, Password.Text, RememberMeCB.Checked));
+
+            await __row2.AddRange(new View[] { RememberMeCB, __textView1, __textView2 });
+            await LoginCard.AddRange(new View[] { Username, Password, __row2 });
+            await Body.AddRange(new View[] { __row1, LoginCard, SignupButton, __row3, LoginButton });
+        }
+    }
+}
+#endregion
+
 #region UI.Pages.OrderCardItem
 namespace UI.Pages
 {
@@ -754,7 +827,7 @@ namespace UI.Pages
             SecurityExpander.Id = "SecurityExpander";
             SecurityExpander.ModelHolder = Model;
 
-            var __profileSecuritySubPage1 = new ProfileSecuritySubPage();
+            var __profileSecuritySubPage1 = new ProfileSecuritySubPage().Set(x => x.Model.Holder = Model);
 
             var __row6 = new Row() { CssClass = "SpaceTight" };
 
@@ -1544,6 +1617,6 @@ namespace UI
     partial class StartUp
     {
         // Hashed content of all resources
-        public override string GetResourcesVersion() => "L3FfeGKSiNLeSMM8BxTlfam8OI4";
+        public override string GetResourcesVersion() => "SvndD33xripxE18tITCxXZcpEw";
     }
 }

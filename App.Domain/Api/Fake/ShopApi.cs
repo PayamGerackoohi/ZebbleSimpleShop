@@ -102,7 +102,6 @@ namespace Domain.Api.Fake
             {
                 Username = "PayamGr",
                 Password = "123321",
-                StayLoggedIn = true,
             },
         };
 

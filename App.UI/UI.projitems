@@ -24,6 +24,7 @@
     <None Include="$(MSBuildThisFileDirectory)Views\Pages\Cart\CartPage.zbl" />
     <None Include="$(MSBuildThisFileDirectory)Views\Pages\Cart\CartOrderCardItem.zbl" />
     <None Include="$(MSBuildThisFileDirectory)Views\Pages\Home\Category\CategoryCardItem.zbl" />
+    <None Include="$(MSBuildThisFileDirectory)Views\Pages\Login\LoginPage.zbl" />
     <None Include="$(MSBuildThisFileDirectory)Views\Pages\OrderInfo\OrderCardItem.zbl" />
     <None Include="$(MSBuildThisFileDirectory)Views\Pages\Profile\Favorites\ProfileFavoriteCardItem.zbl" />
     <None Include="$(MSBuildThisFileDirectory)Views\Pages\Profile\Favorites\ProfileFavoritesSubPage.zbl" />
@@ -86,6 +87,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Views\Pages\Cart\CartOrderCardItem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\Pages\Home\Category\CategorySubPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\Pages\Home\Category\CategoryCardItem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Pages\Login\LoginPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\Pages\OrderInfo\OrderInfoPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\Pages\OrderInfo\OrderCardItem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\Pages\Profile\Favorites\ProfileFavoriteCardItem.cs" />
@@ -108,6 +110,12 @@
     <Compile Include="$(MSBuildThisFileDirectory)Utils\UIUtils.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Images\Icons\none.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Images\Icons\check.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Images\Icons\star2.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>

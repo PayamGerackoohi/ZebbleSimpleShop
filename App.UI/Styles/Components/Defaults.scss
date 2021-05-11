@@ -3,6 +3,7 @@ $checkbox-checked-color: dimgray;
 $checkbox-size: 16px;
 $file-picker-size: 64px;
 $spacex2: 32px;
+$spacex4: 64px;
 $space: 16px;
 $space-tight: 8px;
 $bullet-size: 8px;
@@ -40,10 +41,10 @@ $form-border-color: #AAAAAA;
     @return a * b;
 }
 
-@mixin horizontal-align { margin-left: calc("view.Parent.Width, view.Parent.Padding.Left, view.Parent.Padding.Right, view.Width, (pw, ppl, ppr, vw) => (pw  - ppl - ppr - vw) / 2"); }
-@mixin right-align { margin-left: calc("view.Parent.Width, view.Parent.Padding.Left, view.Parent.Padding.Right, view.Width, (pw, ppl, ppr, vw) => pw  - ppl - ppr - vw"); }
-@mixin vertical-align { margin-top: calc("view.Parent.Height, view.Parent.Padding.Top, view.Parent.Padding.Bottom, view.Height, (ph, ppt, ppb, vh) => (ph  - ppt - ppb - vh) / 2"); }
-@mixin bottom-align { margin-top: calc("view.Parent.Height, view.Parent.Padding.Top, view.Parent.Padding.Bottom, view.Height, (ph, ppt, ppb, vh) => ph  - ppt - ppb - vh"); }
+@mixin horizontal-align { margin-left: calc("view.Parent.Width, view.Parent.Padding.Left, view.Parent.Padding.Right, view.Width, (pw, ppl, ppr, vw) => (pw - ppl - ppr - vw) / 2"); }
+@mixin right-align { margin-left: calc("view.Parent.Width, view.Parent.Padding.Left, view.Parent.Padding.Right, view.Width, (pw, ppl, ppr, vw) => pw - ppl - ppr - vw"); }
+@mixin vertical-align { margin-top: calc("view.Parent.Height, view.Parent.Padding.Top, view.Parent.Padding.Bottom, view.Height, (ph, ppt, ppb, vh) => (ph - ppt - ppb - vh) / 2"); }
+@mixin bottom-align { margin-top: calc("view.Parent.Height, view.Parent.Padding.Top, view.Parent.Padding.Bottom, view.Height, (ph, ppt, ppb, vh) => ph - ppt - ppb - vh"); }
 @mixin item-paddingx2 { padding: $spacex2; }
 @mixin item-padding { padding: $space; }
 @mixin item-padding-tight { padding: $space-tight; }
@@ -60,6 +61,7 @@ $form-border-color: #AAAAAA;
 }
 
 @mixin dialog-center {
+    height: wrap-content();
     background-color: white;
     border-radius: $space;
     @include item-margin;

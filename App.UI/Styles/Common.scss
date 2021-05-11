@@ -281,17 +281,19 @@ ProfilePage {
             FormField {
                 #Icon { }
                 #Label { }
-                TextInput {
-                    &:disabled { background-color: blue; }
-                }
+                TextInput { }
             }
         }
 
         Button {
             @include item-margin-tight;
             color: white;
+            border: none;
+            @include full-smooth-round;
         }
+
         #SaveButton { background-color: green; margin-right: $space; }
+
         #LogoutButton { background-color: red; margin-left: $space; }
     }
 }
@@ -404,5 +406,74 @@ CartPage { background-color: $back-color;
         color: white;
         font-weight: bold;
         @include item-padding;
+    }
+}
+
+LoginPage { background-color: $back-color;
+    .SpaceFiller { height: match-parent(); }
+    .SpaceFillerH { width: match-parent(); }
+
+    #LoginCard {
+        height: wrap-content();
+        background-color: white;
+        @include full-round;
+        @include item-padding-tight;
+        @include item-margin;
+        margin-bottom: 0;
+
+        FormField {
+            #Icon { }
+            #Label { width: 30%; }
+            TextInput { }
+        }
+
+        .Hint {
+            width: match-parent();
+            color: darkgray;
+            font-size: 3vw;
+            padding: 0;
+            margin: 0;
+            @include vertical-align;
+        }
+
+        Row {
+            @include item-margin-tight;
+
+            CheckBox {
+                border-radius: 4px;
+                @include vertical-align;
+                background: transparent;
+                background-image: url("Images/Icons/none.png");
+                &:checked { background-image: url("Images/Icons/check.png"); }
+
+                #CheckedImage {
+                    @include square(match-parent());
+                    margin-left: 4px;
+                    margin-bottom: 4px;
+                }
+            }
+        }
+
+        TextView { width: wrap-content(); font-size: 3vw; }
+    }
+
+    #SignupButton {
+        width: wrap-content();
+        color: $primary-color;
+        padding: 0 $spacex2 0 $spacex2;
+        @include item-margin;
+        margin-bottom: 0;
+        @include horizontal-align;
+    }
+
+    #LoginButton {
+        width: wrap-content();
+        color: white;
+        background-color: $primary-color;
+        padding: 0 $spacex4 0 $spacex4;
+        @include item-margin;
+        @include horizontal-align;
+        border: none;
+        @include full-smooth-round;
     }
 }

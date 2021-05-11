@@ -5,6 +5,7 @@
   <image path="Images/Icons/cart.png" width="512" height="512" />
   <image path="Images/Icons/category.png" width="512" height="512" />
   <image path="Images/Icons/category2.png" width="512" height="512" />
+  <image path="Images/Icons/check.png" width="258" height="258" />
   <image path="Images/Icons/eye.png" width="512" height="512" />
   <image path="Images/Icons/eye2.png" width="512" height="512" />
   <image path="Images/Icons/gift.png" width="512" height="512" />
@@ -16,6 +17,7 @@
   <image path="Images/Icons/menu.png" width="200" height="200" />
   <image path="Images/Icons/new.png" width="512" height="512" />
   <image path="Images/Icons/new2.png" width="512" height="512" />
+  <image path="Images/Icons/none.png" width="258" height="258" />
   <image path="Images/Icons/not-found.png" width="255" height="256" />
   <image path="Images/Icons/profile.png" width="512" height="512" />
   <image path="Images/Icons/search.png" width="512" height="512" />

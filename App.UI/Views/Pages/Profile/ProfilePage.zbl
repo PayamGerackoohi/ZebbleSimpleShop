@@ -39,7 +39,7 @@
                       on-Tapped="@SecurityExpander.Toggle()" />
          </Row>
          <Modules.ExpandableLayout ModelHolder="@Model" Id="SecurityExpander">
-            <ProfileSecuritySubPage />
+            <ProfileSecuritySubPage Model.Holder="@Model" />
          </Modules.ExpandableLayout>
          <Row CssClass="SpaceTight" />
       </z-place>
