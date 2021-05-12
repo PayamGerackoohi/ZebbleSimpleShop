@@ -19,7 +19,6 @@
             <TextView Text="Gender" CssClass="LabelText" />
             <ItemPicker of="Domain.Models.Gender"
                         Id="Gender"
-                        Placeholder="dd/MM/yyyy"
                         MultiSelect="false"
                         Searchable="false"
                         Source="@{Model.Genders}"

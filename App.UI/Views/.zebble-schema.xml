@@ -177,6 +177,8 @@
   <xs:simpleType name="ZNavTypeEnum">
     <xs:restriction base="xs:string">
       <xs:enumeration value="Pages.TestPage" />
+      <xs:enumeration value="Pages.LoginPage" />
+      <xs:enumeration value="Pages.SignUpPage" />
       <xs:enumeration value="Pages.CartOrderCardItem" />
       <xs:enumeration value="Pages.CartPage" />
       <xs:enumeration value="Pages.CategoryPage" />
@@ -188,7 +190,6 @@
       <xs:enumeration value="Pages.NewSubPage" />
       <xs:enumeration value="Pages.OfferSubPage" />
       <xs:enumeration value="Pages.PopularSubPage" />
-      <xs:enumeration value="Pages.LoginPage" />
       <xs:enumeration value="Pages.OrderCardItem" />
       <xs:enumeration value="Pages.OrderInfoPage" />
       <xs:enumeration value="Pages.ProductDetailPage" />
@@ -239,6 +240,9 @@
       <xs:enumeration value="SpaceFiller" />
       <xs:enumeration value="SpaceFillerH" />
       <xs:enumeration value="Hint" />
+      <xs:enumeration value="Section" />
+      <xs:enumeration value="ItemPickerHolder" />
+      <xs:enumeration value="LabelText" />
       <xs:enumeration value="windows-only" />
       <xs:enumeration value="ios-only" />
       <xs:enumeration value="android-only" />
@@ -1382,21 +1386,6 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="UI.Pages.HomePage" nillable="true" type="UI__Pages__HomePageType" />
-  <xs:complexType name="UI__Pages__LoginPageType">
-    <xs:complexContent mixed="false">
-      <xs:extension base="UI__Templates__EzNavBarPageType">
-        <xs:attribute name="Model" type="xs:string" />
-        <xs:attribute name="LoginCard" type="xs:string" />
-        <xs:attribute name="Username" type="xs:string" />
-        <xs:attribute name="Password" type="xs:string" />
-        <xs:attribute name="RememberMeCB" type="xs:string" />
-        <xs:attribute name="SignupButton" type="xs:string" />
-        <xs:attribute name="LoginButton" type="xs:string" />
-        <xs:anyAttribute processContents="skip" />
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="UI.Pages.LoginPage" nillable="true" type="UI__Pages__LoginPageType" />
   <xs:complexType name="UI__Pages__OrderCardItemType">
     <xs:complexContent mixed="false">
       <xs:extension base="StackType">
@@ -1467,6 +1456,45 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="UI.Pages.SearchPage" nillable="true" type="UI__Pages__SearchPageType" />
+  <xs:complexType name="UI__Pages__LoginPageType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="UI__Templates__EzNavBarPageType">
+        <xs:attribute name="Model" type="xs:string" />
+        <xs:attribute name="LoginCard" type="xs:string" />
+        <xs:attribute name="Username" type="xs:string" />
+        <xs:attribute name="Password" type="xs:string" />
+        <xs:attribute name="RememberMeCB" type="xs:string" />
+        <xs:attribute name="SignupButton" type="xs:string" />
+        <xs:attribute name="LoginButton" type="xs:string" />
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UI.Pages.LoginPage" nillable="true" type="UI__Pages__LoginPageType" />
+  <xs:complexType name="UI__Pages__SignUpPageType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="UI__Templates__EzNavBarPageType">
+        <xs:attribute name="Model" type="xs:string" />
+        <xs:attribute name="SignUpInfoCard" type="xs:string" />
+        <xs:attribute name="Username" type="xs:string" />
+        <xs:attribute name="Password" type="xs:string" />
+        <xs:attribute name="FirstName" type="xs:string" />
+        <xs:attribute name="LastName" type="xs:string" />
+        <xs:attribute name="Gender" type="xs:string" />
+        <xs:attribute name="BirthDate" type="xs:string" />
+        <xs:attribute name="Email" type="xs:string" />
+        <xs:attribute name="PhoneNumber" type="xs:string" />
+        <xs:attribute name="Country" type="xs:string" />
+        <xs:attribute name="State" type="xs:string" />
+        <xs:attribute name="City" type="xs:string" />
+        <xs:attribute name="StreetAddress" type="xs:string" />
+        <xs:attribute name="ZipCode" type="xs:string" />
+        <xs:attribute name="SaveButton" type="xs:string" />
+        <xs:anyAttribute processContents="skip" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UI.Pages.SignUpPage" nillable="true" type="UI__Pages__SignUpPageType" />
   <xs:complexType name="UI__Pages__CategoryCardItemType">
     <xs:complexContent mixed="false">
       <xs:extension base="Page-AbstractType">
@@ -2149,9 +2177,9 @@
   </xs:simpleType>
   <xs:simpleType name="Domain.Models.GenderEnum">
     <xs:restriction base="xs:string">
+      <xs:enumeration value="Unknown" />
       <xs:enumeration value="Male" />
       <xs:enumeration value="Female" />
-      <xs:enumeration value="Unknown" />
       <xs:enumeration value="@....." />
     </xs:restriction>
   </xs:simpleType>

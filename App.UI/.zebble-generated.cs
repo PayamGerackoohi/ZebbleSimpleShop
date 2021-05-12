@@ -484,79 +484,6 @@ namespace UI.Pages
 }
 #endregion
 
-#region UI.Pages.LoginPage
-namespace UI.Pages
-{
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
-    using Domain;
-    using Zebble;
-    using Zebble.Plugin;
-    using Olive;
-    using Zebble.Services.Css;
-
-    [CacheView]
-    [EscapeGCop("Auto-generated")]
-    [SourceCode(@"Views\Pages\Login\LoginPage.zbl")]
-    partial class LoginPage : UI.Templates.EzNavBarPage, ITemplate<ViewModel.LoginPage>
-    {
-        public ViewModel.LoginPage Model = Zebble.Mvvm.ViewModel.The<ViewModel.LoginPage>();
-        public Stack LoginCard = new Stack();
-        public FormField<TextInput> Username = new FormField<TextInput>();
-        public FormField<TextInput> Password = new FormField<TextInput>();
-        public CheckBox RememberMeCB = new CheckBox();
-        public TextView SignupButton = new TextView();
-        public Button LoginButton = new Button();
-        protected override async Task InitializeFromMarkup()
-        {
-            await base.InitializeFromMarkup();
-
-            this.Title = "Authentication";
-
-            var __row1 = new Row() { CssClass = "SpaceFiller" };
-
-            LoginCard.Id = "LoginCard";
-
-            Username.Id = "Username";
-            Username.LabelText = "Username";
-            Username.Bind("Value", () => Model.User, u => Model.Username).Set(x => x.Control.TextMode = TextMode.Auto);
-
-            Password.Id = "Password";
-            Password.LabelText = "Password";
-            Password.Bind("Value", () => Model.User, u => Model.Password)
-            .Set(x => x.Control.TextMode = TextMode.Password);
-
-            var __row2 = new Row();
-
-            RememberMeCB.Id = "RememberMeCB";
-            RememberMeCB.AutoFlash = true;
-            RememberMeCB.Bind("Checked", () => Model.User, u => u.Credential.StayLoggedIn);
-
-            var __textView1 = new TextView() { Text = "Remember Me" }.On(x => x.Tapped, () => RememberMeCB.Toggle());
-
-            var __textView2 = new TextView() { CssClass = "Hint" }.Bind("Text", () => Model.User, u => Model.Hint);
-
-            SignupButton.Id = "SignupButton";
-            SignupButton.Text = "New user? Signup now.";
-            SignupButton.On(v => v.Tapped, () => Model.SignupTapped());
-
-            var __row3 = new Row() { CssClass = "SpaceFiller" };
-
-            LoginButton.Id = "LoginButton";
-            LoginButton.Text = "Login";
-            LoginButton.On(v => v.Tapped, () => Model.LoginTapped(Username.Text, Password.Text, RememberMeCB.Checked));
-
-            await __row2.AddRange(new View[] { RememberMeCB, __textView1, __textView2 });
-            await LoginCard.AddRange(new View[] { Username, Password, __row2 });
-            await Body.AddRange(new View[] { __row1, LoginCard, SignupButton, __row3, LoginButton });
-        }
-    }
-}
-#endregion
-
 #region UI.Pages.OrderCardItem
 namespace UI.Pages
 {
@@ -899,6 +826,226 @@ namespace UI.Pages
             }}
         }
         #endregion
+
+#region UI.Pages.LoginPage
+namespace UI.Pages
+{
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+    using Domain;
+    using Zebble;
+    using Zebble.Plugin;
+    using Olive;
+    using Zebble.Services.Css;
+
+    [CacheView]
+    [EscapeGCop("Auto-generated")]
+    [SourceCode(@"Views\Pages\Authentication\Login\LoginPage.zbl")]
+    partial class LoginPage : UI.Templates.EzNavBarPage, ITemplate<ViewModel.LoginPage>
+    {
+        public ViewModel.LoginPage Model = Zebble.Mvvm.ViewModel.The<ViewModel.LoginPage>();
+        public Stack LoginCard = new Stack();
+        public FormField<TextInput> Username = new FormField<TextInput>();
+        public FormField<TextInput> Password = new FormField<TextInput>();
+        public CheckBox RememberMeCB = new CheckBox();
+        public TextView SignupButton = new TextView();
+        public Button LoginButton = new Button();
+        protected override async Task InitializeFromMarkup()
+        {
+            await base.InitializeFromMarkup();
+
+            this.Title = "Login";
+
+            var __row1 = new Row() { CssClass = "SpaceFiller" };
+
+            LoginCard.Id = "LoginCard";
+
+            Username.Id = "Username";
+            Username.LabelText = "Username";
+            Username.Bind("Value", () => Model.User, u => Model.Username).Set(x => x.Control.TextMode = TextMode.Auto);
+
+            Password.Id = "Password";
+            Password.LabelText = "Password";
+            Password.Bind("Value", () => Model.User, u => Model.Password)
+            .Set(x => x.Control.TextMode = TextMode.Password);
+
+            var __row2 = new Row();
+
+            RememberMeCB.Id = "RememberMeCB";
+            RememberMeCB.AutoFlash = true;
+            RememberMeCB.Bind("Checked", () => Model.User, u => u.Credential.StayLoggedIn);
+
+            var __textView1 = new TextView() { Text = "Remember Me" }.On(x => x.Tapped, () => RememberMeCB.Toggle());
+
+            var __textView2 = new TextView() { CssClass = "Hint" }.Bind("Text", () => Model.User, u => Model.Hint);
+
+            SignupButton.Id = "SignupButton";
+            SignupButton.Text = "New user? Signup now.";
+            SignupButton.On(v => v.Tapped, () => Model.SignupTapped());
+
+            var __row3 = new Row() { CssClass = "SpaceFiller" };
+
+            LoginButton.Id = "LoginButton";
+            LoginButton.Text = "Login";
+            LoginButton.On(v => v.Tapped, () => Model.LoginTapped(Username.Text, Password.Text, RememberMeCB.Checked));
+
+            await __row2.AddRange(new View[] { RememberMeCB, __textView1, __textView2 });
+            await LoginCard.AddRange(new View[] { Username, Password, __row2 });
+            await Body.AddRange(new View[] { __row1, LoginCard, SignupButton, __row3, LoginButton });
+        }
+    }
+}
+#endregion
+
+#region UI.Pages.SignUpPage
+namespace UI.Pages
+{
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+    using Domain;
+    using Zebble;
+    using Zebble.Plugin;
+    using Olive;
+    using Zebble.Services.Css;
+
+    [CacheView]
+    [EscapeGCop("Auto-generated")]
+    [SourceCode(@"Views\Pages\Authentication\Signup\SignUpPage.zbl")]
+    partial class SignUpPage : UI.Templates.EzNavBarPage, ITemplate<ViewModel.SignUpPage>
+    {
+        public ViewModel.SignUpPage Model = Zebble.Mvvm.ViewModel.The<ViewModel.SignUpPage>();
+        public Stack SignUpInfoCard = new Stack();
+        public FormField<TextInput> Username = new FormField<TextInput>();
+        public FormField<TextInput> Password = new FormField<TextInput>();
+        public FormField<TextInput> FirstName = new FormField<TextInput>();
+        public FormField<TextInput> LastName = new FormField<TextInput>();
+        public ItemPicker<Domain.Models.Gender> Gender = new ItemPicker<Domain.Models.Gender>();
+        public DatePicker BirthDate = new DatePicker();
+        public FormField<TextInput> Email = new FormField<TextInput>();
+        public FormField<TextInput> PhoneNumber = new FormField<TextInput>();
+        public ItemPicker<string> Country = new ItemPicker<string>();
+        public FormField<TextInput> State = new FormField<TextInput>();
+        public FormField<TextInput> City = new FormField<TextInput>();
+        public FormField<TextInput> StreetAddress = new FormField<TextInput>();
+        public FormField<TextInput> ZipCode = new FormField<TextInput>();
+        public Button SaveButton = new Button();
+        protected override async Task InitializeFromMarkup()
+        {
+            await base.InitializeFromMarkup();
+
+            this.Title = "Sign Up";
+
+            var __row1 = new Row() { CssClass = "SpaceTight" };
+
+            var __row2 = new Row();
+
+            SignUpInfoCard.Id = "SignUpInfoCard";
+
+            Username.Id = "Username";
+            Username.LabelText = "Username";
+            Username.Set(x => x.Control.On(v => v.UserTextChanged, () => Model.User.Value.Credential.Username = Username.Text))
+            .Set(x => x.Control.TextMode = TextMode.Auto);
+
+            Password.Id = "Password";
+            Password.LabelText = "Password";
+            Password.Set(x => x.Control.On(v => v.UserTextChanged, () => Model.User.Value.Credential.Password = Password.Text))
+            .Set(x => x.Control.TextMode = TextMode.Password);
+
+            FirstName.Id = "FirstName";
+            FirstName.LabelText = "First Name";
+            FirstName.Set(x => x.Control.On(v => v.UserTextChanged, () => Model.User.Value.FirstName = FirstName.Text))
+            .Set(x => x.Control.TextMode = TextMode.PersonName);
+
+            LastName.Id = "LastName";
+            LastName.LabelText = "Last Name";
+            LastName.Set(x => x.Control.On(v => v.UserTextChanged, () => Model.User.Value.LastName = LastName.Text))
+            .Set(x => x.Control.TextMode = TextMode.PersonName);
+
+            var __row3 = new Row() { CssClass = "ItemPickerHolder" };
+
+            var __textView1 = new TextView() { Text = "Gender", CssClass = "LabelText" };
+
+            Gender.Id = "Gender";
+            Gender.MultiSelect = false;
+            Gender.Searchable = false;
+            Gender.Bind("Source", () => Model.Genders)
+            .Set(x => x.Label.Bind("Text", () => Model.User, u => u.Gender));
+
+            var __row4 = new Row() { CssClass = "ItemPickerHolder" };
+
+            var __textView2 = new TextView() { Text = "Birth Date", CssClass = "LabelText" };
+
+            BirthDate.Id = "BirthDate";
+            BirthDate.TextFormat = "dd/MM/yyyy";
+            BirthDate.On(v => v.SelectedValueChanged, () => Model.User.Value.BirthDate = BirthDate.SelectedValue);
+
+            Email.Id = "Email";
+            Email.LabelText = "E-Mail";
+            Email.Set(x => x.Control.On(v => v.UserTextChanged, () => Model.User.Value.Email = Email.Text))
+            .Set(x => x.Control.TextMode = TextMode.Email);
+
+            PhoneNumber.Id = "PhoneNumber";
+            PhoneNumber.LabelText = "Phone Number";
+            PhoneNumber.Set(x => x.Control.On(v => v.UserTextChanged, () => Model.User.Value.PhoneNumber = PhoneNumber.Text))
+            .Set(x => x.Control.TextMode = TextMode.Telephone);
+
+            var __textView3 = new TextView() { Text = "Address:", CssClass = "Section" };
+
+            var __row5 = new Row() { CssClass = "ItemPickerHolder" };
+
+            var __textView4 = new TextView() { Text = "Country", CssClass = "LabelText" };
+
+            Country.Id = "Country";
+            Country.MultiSelect = false;
+            Country.Searchable = false;
+            Country.Bind("Source", () => Model.Countries);
+
+            State.Id = "State";
+            State.LabelText = "State";
+            State.Set(x => x.Control.On(v => v.UserTextChanged, () => Model.User.Value.Address.State = State.Text))
+            .Set(x => x.Control.TextMode = TextMode.GeneralText);
+
+            City.Id = "City";
+            City.LabelText = "City";
+            City.Set(x => x.Control.On(v => v.UserTextChanged, () => Model.User.Value.Address.City = City.Text))
+            .Set(x => x.Control.TextMode = TextMode.GeneralText);
+
+            StreetAddress.Id = "StreetAddress";
+            StreetAddress.LabelText = "Street Address";
+            StreetAddress.Set(x => x.Control.On(v => v.UserTextChanged, () => Model.User.Value.Address.StreetAddress = StreetAddress.Text))
+            .Set(x => x.Control.Lines = 2)
+            .Set(x => x.Control.TextMode = TextMode.GeneralText);
+
+            ZipCode.Id = "ZipCode";
+            ZipCode.LabelText = "Zip Code";
+            ZipCode.Set(x => x.Control.On(v => v.UserTextChanged, () => Model.User.Value.Address.ZipCode = ZipCode.Text))
+            .Set(x => x.Control.TextMode = TextMode.Integer);
+
+            var __row6 = new Row();
+
+            SaveButton.Id = "SaveButton";
+            SaveButton.Text = "Save";
+            SaveButton.On(v => v.Tapped, () => Model.OnSave(Gender.Label.Text, Country.Label.Text));
+
+            var __row7 = new Row() { CssClass = "SpaceTight" };
+
+            await __row3.AddRange(new View[] { __textView1, Gender });
+            await __row4.AddRange(new View[] { __textView2, BirthDate });
+            await __row5.AddRange(new View[] { __textView4, Country });
+            await SignUpInfoCard.AddRange(new View[] { Username, Password, FirstName, LastName, __row3, __row4, Email, PhoneNumber, __textView3, __row5, State, City, StreetAddress, ZipCode });
+            await __row2.Add(SignUpInfoCard);
+            await __row6.Add(SaveButton);
+            await BodyScroller.AddRange(new View[] { __row1, __row2, __row6, __row7 });
+        }
+    }
+}
+#endregion
 
 #region UI.Pages.CategoryCardItem
 namespace UI.Pages
@@ -1355,7 +1502,6 @@ namespace UI.Pages
             var __textView1 = new TextView() { Text = "Gender", CssClass = "LabelText" };
 
             Gender.Id = "Gender";
-            Gender.Placeholder = "dd/MM/yyyy";
             Gender.MultiSelect = false;
             Gender.Searchable = false;
             Gender.Bind("Source", () => Model.Genders)

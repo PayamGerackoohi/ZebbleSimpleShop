@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using ViewModel.Base;
 using Zebble;
 
 namespace UI
@@ -46,5 +47,25 @@ namespace UI
         }
 
         public static void Toggle(this CheckBox self) => self.Checked = !self.Checked;
+
+        public static void AddShadow(this View self, int yOffset = 0)
+        {
+            self.BoxShadow(xOffset: 0, yOffset: yOffset, blurRadius: 7, expand: -5, color: Colors.DarkGray);
+        }
+
+        public static void Trim(this NavigationBar navBar, EzPage navHandler)
+        {
+            foreach (var ib in navBar.Left.AllChildren.OfType<IconButton>())
+            {
+                ib.TextView.Set(t =>
+                {
+                    if (t.Text == "Back")
+                    {
+                        t.Text = "<";
+                        t.ScaleY(1.5f);
+                    }
+                }).On(x => x.Tapped, () => navHandler.OnBack());
+            }
+        }
     }
 }

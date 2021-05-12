@@ -24,7 +24,7 @@ namespace Domain.Models
         public List<Order> Orders { get; set; } = new();
         public Credential Credential { get; set; } = new();
 
-        public string BirthDateString() => BirthDate?.FormattedDate();
+        public string BirthDateString() => BirthDate?.FormattedDate() ?? "";
 
         public override string ToString() => new string[] {
             $"FullName: {FullName}",

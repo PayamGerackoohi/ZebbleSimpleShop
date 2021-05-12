@@ -12,5 +12,11 @@ namespace Domain.Models
         public bool StayLoggedIn = false;
 
         public bool IsValid() => !Username.None() && !Password.None();
+
+        public override string ToString() => new string[] {
+            $"Username: {Username}",
+            $"Password: {Password}",
+            $"StayLoggedIn: {StayLoggedIn}",
+        }.ToString("\n");
     }
 }

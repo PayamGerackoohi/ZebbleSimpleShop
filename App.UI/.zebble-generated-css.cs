@@ -208,6 +208,17 @@ namespace UI
             CssEngine.Add(new File_App.UI.Styles.Common.LoginPageLoginCardTextViewCssRule());
             CssEngine.Add(new File_App.UI.Styles.Common.LoginPageSignupButtonCssRule());
             CssEngine.Add(new File_App.UI.Styles.Common.LoginPageLoginButtonCssRule());
+            CssEngine.Add(new File_App.UI.Styles.Common.SignUpPageCssRule());
+            CssEngine.Add(new File_App.UI.Styles.Common.SignUpPageBodyCssRule());
+            CssEngine.Add(new File_App.UI.Styles.Common.SignUpPageSignUpInfoCardCssRule());
+            CssEngine.Add(new File_App.UI.Styles.Common.SignUpPageSignUpInfoCardSectionCssRule());
+            CssEngine.Add(new File_App.UI.Styles.Common.SignUpPageSignUpInfoCardItemPickerHolderCssRule());
+            CssEngine.Add(new File_App.UI.Styles.Common.SignUpPageSignUpInfoCardItemPickerHolderLabelTextCssRule());
+            CssEngine.Add(new File_App.UI.Styles.Common.SignUpPageSignUpInfoCardItemPickerHolderItemPickerCssRule());
+            CssEngine.Add(new File_App.UI.Styles.Common.SignUpPageSignUpInfoCardItemPickerHolderItemPickerCaretCssRule());
+            CssEngine.Add(new File_App.UI.Styles.Common.SignUpPageSignUpInfoCardDatePickerLabelCssRule());
+            CssEngine.Add(new File_App.UI.Styles.Common.SignUpPageSignUpInfoCardDatePickerCaretCssRule());
+            CssEngine.Add(new File_App.UI.Styles.Common.SignUpPageSaveButtonCssRule());
 
             // ======================================================================
             // App.UI\Styles\PlatformSpecific.css------------------------------------
@@ -5965,7 +5976,7 @@ namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
     [CssSelector("Styles/Common.scss:411", "LoginPage #LoginCard Row CheckBox #CheckedImage")]
-    [CssBody("width: calc(\"Container\"); height: calc(\"Container\"); margin-left: 4px; margin-bottom: 4px;")]
+    [CssBody("width: calc(\"Container\"); height: calc(\"Container\"); margin: 4px; padding: 4px;")]
     class LoginPageLoginCardRowCheckBoxCheckedImageCssRule : CssRule
     {
         public override bool Matches(View view)
@@ -5995,8 +6006,8 @@ namespace File_App.UI.Styles.Common
         {
             view.Css.Height = Length.AutoStrategy.Container;
             view.Css.Width = Length.AutoStrategy.Container;
-            view.Css.Margin.Left = 4;
-            view.Css.Margin.Bottom = 4;
+            view.Css.Padding(4);
+            view.Css.Margin(4);
 
             return Task.CompletedTask;
         }
@@ -6096,6 +6107,366 @@ namespace File_App.UI.Styles.Common
             view.Css.BackgroundColor = "#00b9f0";
             view.Css.Border = 0;
             view.Css.Border.Radius = 16;
+
+            return Task.CompletedTask;
+        }
+    }
+}
+
+namespace File_App.UI.Styles.Common
+{
+    [EscapeGCop("Auto-generated")]
+    [CssSelector("Styles/Common.scss:480", "SignUpPage")]
+    [CssBody("background-color: #eaeaea;")]
+    class SignUpPageCssRule : CssRule
+    {
+        public override bool Matches(View view)
+        {
+            // CssEngine will only call me if a view matches: SignUpPage
+
+            return true;
+        }
+
+        public override Task Apply(View untypedView)
+        {
+            var view = (SignUpPage)untypedView;
+            view.Css.BackgroundColor = "#eaeaea";
+
+            return Task.CompletedTask;
+        }
+    }
+}
+
+namespace File_App.UI.Styles.Common
+{
+    [EscapeGCop("Auto-generated")]
+    [CssSelector("Styles/Common.scss:480", "SignUpPage #Body")]
+    [CssBody("height: calc(\"Content\");")]
+    class SignUpPageBodyCssRule : CssRule
+    {
+        public override bool Matches(View view)
+        {
+            // CssEngine will only call me if a view matches: #Body
+
+            view = CssEngine.FindParentByType<SignUpPage>(view);
+
+            if (view is null) return false;
+
+            return true;
+        }
+
+        public override Task Apply(View view)
+        {
+            view.Css.Height = Length.AutoStrategy.Content;
+
+            return Task.CompletedTask;
+        }
+    }
+}
+
+namespace File_App.UI.Styles.Common
+{
+    [EscapeGCop("Auto-generated")]
+    [CssSelector("Styles/Common.scss:480", "SignUpPage #SignUpInfoCard")]
+    [CssBody("height: calc(\"Content\"); background-color: white; border-top-right-radius: 16px; border-bottom-left-radius: 16px; padding: 8px; margin: 8px 16px 8px 16px;")]
+    class SignUpPageSignUpInfoCardCssRule : CssRule
+    {
+        public override bool Matches(View view)
+        {
+            // CssEngine will only call me if a view matches: #SignUpInfoCard
+
+            view = CssEngine.FindParentByType<SignUpPage>(view);
+
+            if (view is null) return false;
+
+            return true;
+        }
+
+        public override Task Apply(View view)
+        {
+            view.Css.Height = Length.AutoStrategy.Content;
+            view.Css.Padding(8);
+            view.Css.Margin(top: 8, right: 16, bottom: 8, left: 16);
+            view.Css.BackgroundColor = Colors.White;
+            view.Css.Border.RadiusTopRight = 16;
+            view.Css.Border.RadiusBottomLeft = 16;
+
+            return Task.CompletedTask;
+        }
+    }
+}
+
+namespace File_App.UI.Styles.Common
+{
+    [EscapeGCop("Auto-generated")]
+    [CssSelector("Styles/Common.scss:480", "SignUpPage #SignUpInfoCard .Section")]
+    [CssBody("padding-top: 16px; font-weight: bold;")]
+    class SignUpPageSignUpInfoCardSectionCssRule : CssRule
+    {
+        public override bool Matches(View view)
+        {
+            // CssEngine will only call me if a view matches: .Section
+
+            view = CssEngine.FindParentById(view, "SignUpInfoCard");
+
+            if (view is null) return false;
+
+            view = CssEngine.FindParentByType<SignUpPage>(view);
+
+            if (view is null) return false;
+
+            return true;
+        }
+
+        public override Task Apply(View view)
+        {
+            view.Css.Font.Bold = true;
+            view.Css.Padding.Top = 16;
+
+            return Task.CompletedTask;
+        }
+    }
+}
+
+namespace File_App.UI.Styles.Common
+{
+    [EscapeGCop("Auto-generated")]
+    [CssSelector("Styles/Common.scss:480", "SignUpPage #SignUpInfoCard .ItemPickerHolder")]
+    [CssBody("padding: 4px;")]
+    class SignUpPageSignUpInfoCardItemPickerHolderCssRule : CssRule
+    {
+        public override bool Matches(View view)
+        {
+            // CssEngine will only call me if a view matches: .ItemPickerHolder
+
+            view = CssEngine.FindParentById(view, "SignUpInfoCard");
+
+            if (view is null) return false;
+
+            view = CssEngine.FindParentByType<SignUpPage>(view);
+
+            if (view is null) return false;
+
+            return true;
+        }
+
+        public override Task Apply(View view)
+        {
+            view.Css.Padding(4);
+
+            return Task.CompletedTask;
+        }
+    }
+}
+
+namespace File_App.UI.Styles.Common
+{
+    [EscapeGCop("Auto-generated")]
+    [CssSelector("Styles/Common.scss:480", "SignUpPage #SignUpInfoCard .ItemPickerHolder .LabelText")]
+    [CssBody("width: 35%; font-size: 3.5fvw; margin-top: calc(\"view.Parent.Height, view.Parent.Padding.Top, view.Parent.Padding.Bottom, view.Height, (ph, ppt, ppb, vh) => (ph - ppt - ppb - vh) / 2\");")]
+    class SignUpPageSignUpInfoCardItemPickerHolderLabelTextCssRule : CssRule
+    {
+        public override bool Matches(View view)
+        {
+            // CssEngine will only call me if a view matches: .LabelText
+
+            view = CssEngine.FindParentByCssClass(view, "ItemPickerHolder");
+
+            if (view is null) return false;
+
+            view = CssEngine.FindParentById(view, "SignUpInfoCard");
+
+            if (view is null) return false;
+
+            view = CssEngine.FindParentByType<SignUpPage>(view);
+
+            if (view is null) return false;
+
+            return true;
+        }
+
+        public override Task Apply(View view)
+        {
+            view.Css.Width = 35.Percent();
+            view.Css.Font.Size = View.Root.ActualWidth * (3.5f/ 100f);
+            view.Css.Margin.Top = new Length.BindingLengthRequest(view.Parent.Height, view.Parent.Padding.Top, view.Parent.Padding.Bottom, view.Height, (ph, ppt, ppb, vh) => (ph - ppt - ppb - vh) / 2);
+
+            return Task.CompletedTask;
+        }
+    }
+}
+
+namespace File_App.UI.Styles.Common
+{
+    [EscapeGCop("Auto-generated")]
+    [CssSelector("Styles/Common.scss:480", "SignUpPage #SignUpInfoCard .ItemPickerHolder ItemPicker")]
+    [CssBody("border: 1px solid #AAAAAA; margin: 0;")]
+    class SignUpPageSignUpInfoCardItemPickerHolderItemPickerCssRule : CssRule
+    {
+        public override bool Matches(View view)
+        {
+            // CssEngine will only call me if a view matches: ItemPicker
+
+            view = CssEngine.FindParentByCssClass(view, "ItemPickerHolder");
+
+            if (view is null) return false;
+
+            view = CssEngine.FindParentById(view, "SignUpInfoCard");
+
+            if (view is null) return false;
+
+            view = CssEngine.FindParentByType<SignUpPage>(view);
+
+            if (view is null) return false;
+
+            return true;
+        }
+
+        public override Task Apply(View untypedView)
+        {
+            var view = (ItemPicker)untypedView;
+            view.Css.Margin(0);
+            view.Css.Border = new Border(1, "#AAAAAA");
+
+            return Task.CompletedTask;
+        }
+    }
+}
+
+namespace File_App.UI.Styles.Common
+{
+    [EscapeGCop("Auto-generated")]
+    [CssSelector("Styles/Common.scss:480", "SignUpPage #SignUpInfoCard .ItemPickerHolder ItemPicker #Caret")]
+    [CssBody("display: none;")]
+    class SignUpPageSignUpInfoCardItemPickerHolderItemPickerCaretCssRule : CssRule
+    {
+        public override bool Matches(View view)
+        {
+            // CssEngine will only call me if a view matches: #Caret
+
+            view = CssEngine.FindParentByType<ItemPicker>(view);
+
+            if (view is null) return false;
+
+            view = CssEngine.FindParentByCssClass(view, "ItemPickerHolder");
+
+            if (view is null) return false;
+
+            view = CssEngine.FindParentById(view, "SignUpInfoCard");
+
+            if (view is null) return false;
+
+            view = CssEngine.FindParentByType<SignUpPage>(view);
+
+            if (view is null) return false;
+
+            return true;
+        }
+
+        public override async Task Apply(View view)
+        {
+            await view.Css.IgnoredAsync(true);
+        }
+    }
+}
+
+namespace File_App.UI.Styles.Common
+{
+    [EscapeGCop("Auto-generated")]
+    [CssSelector("Styles/Common.scss:480", "SignUpPage #SignUpInfoCard DatePicker #Label")]
+    [CssBody("font-size: 3.5fvw; background-color: transparent; color: black; font-weight: normal; border: 1px solid #AAAAAA; padding: 8px; margin: 0;")]
+    class SignUpPageSignUpInfoCardDatePickerLabelCssRule : CssRule
+    {
+        public override bool Matches(View view)
+        {
+            // CssEngine will only call me if a view matches: #Label
+
+            view = CssEngine.FindParentByType<DatePicker>(view);
+
+            if (view is null) return false;
+
+            view = CssEngine.FindParentById(view, "SignUpInfoCard");
+
+            if (view is null) return false;
+
+            view = CssEngine.FindParentByType<SignUpPage>(view);
+
+            if (view is null) return false;
+
+            return true;
+        }
+
+        public override Task Apply(View view)
+        {
+            view.Css.Font.Size = View.Root.ActualWidth * (3.5f/ 100f);
+            view.Css.Font.Bold = false;
+            view.Css.Padding(8);
+            view.Css.Margin(0);
+            view.Css.BackgroundColor = Colors.Transparent;
+            view.Css.TextColor = Colors.Black;
+            view.Css.Border = new Border(1, "#AAAAAA");
+
+            return Task.CompletedTask;
+        }
+    }
+}
+
+namespace File_App.UI.Styles.Common
+{
+    [EscapeGCop("Auto-generated")]
+    [CssSelector("Styles/Common.scss:480", "SignUpPage #SignUpInfoCard DatePicker #Caret")]
+    [CssBody("display: none;")]
+    class SignUpPageSignUpInfoCardDatePickerCaretCssRule : CssRule
+    {
+        public override bool Matches(View view)
+        {
+            // CssEngine will only call me if a view matches: #Caret
+
+            view = CssEngine.FindParentByType<DatePicker>(view);
+
+            if (view is null) return false;
+
+            view = CssEngine.FindParentById(view, "SignUpInfoCard");
+
+            if (view is null) return false;
+
+            view = CssEngine.FindParentByType<SignUpPage>(view);
+
+            if (view is null) return false;
+
+            return true;
+        }
+
+        public override async Task Apply(View view)
+        {
+            await view.Css.IgnoredAsync(true);
+        }
+    }
+}
+
+namespace File_App.UI.Styles.Common
+{
+    [EscapeGCop("Auto-generated")]
+    [CssSelector("Styles/Common.scss:480", "SignUpPage #SaveButton")]
+    [CssBody("background-color: green; color: white; margin: 8px 16px 8px 16px;")]
+    class SignUpPageSaveButtonCssRule : CssRule
+    {
+        public override bool Matches(View view)
+        {
+            // CssEngine will only call me if a view matches: #SaveButton
+
+            view = CssEngine.FindParentByType<SignUpPage>(view);
+
+            if (view is null) return false;
+
+            return true;
+        }
+
+        public override Task Apply(View view)
+        {
+            view.Css.Margin(top: 8, right: 16, bottom: 8, left: 16);
+            view.Css.BackgroundColor = Colors.Green;
+            view.Css.TextColor = Colors.White;
 
             return Task.CompletedTask;
         }

@@ -18,6 +18,12 @@
 ### App Halt
 - It seems strolling in app would fill the memory up and halt and exit the app. No idea why it happens and how to solve it.
 
+### DatePicker Awkward UI (UWP)
+- The wheels would just be scrolled if been clicked and up-down arrow keys been used. They're not responding to neither mouse drag nor trackpad scroll.
+
+### DatePicker Crash On Default
+- If from-to years be set on a DatePicker, then pressing ok without turning any wheels would crash inside try closure of System.Runtime.CompilerServices.AsyncVoidMethodBuilder.Start at stateMachine.MoveNext() with null reference exception. without from-to it would work. I call it a featureless DatePicker.
+
 ## Resolved Bugs
 
 ### Favorites List

@@ -33,7 +33,7 @@ namespace ViewModel
 
         public async Task SignupTapped()
         {
-            "Not implemented yet!".Toast();
+            EzForward<SignUpPage>();
         }
 
         public async Task LoginTapped(string username, string password, bool rememberMe)

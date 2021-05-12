@@ -7,13 +7,8 @@ using Zebble;
 
 namespace UI
 {
-    public static class NavBarUtil
+    public class NavBarUtil
     {
-        public static void AddShadow(this View self, int yOffset = 0)
-        {
-            self.BoxShadow(xOffset: 0, yOffset: yOffset, blurRadius: 7, expand: -5, color: Colors.DarkGray);
-        }
-
         public static void SetupContent(View content, View navBar, View bottomNavBar)
         {
             var offset = 20; // todo: No idea what this number is for! Remove it ASAP.
@@ -21,21 +16,6 @@ namespace UI
             //content.Height.BindTo(View.Root.Height, h => h - navBar.CalculateTotalHeight() - bottomNavBar.CalculateTotalHeight());
             //content.Height.BindTo(navBar.Height, nbh => View.Root.CalculateTotalHeight() - nbh - bottomNavBar.CalculateTotalHeight());
             content.Margin.Bottom.BindTo(bottomNavBar.Height, bh => bottomNavBar.CalculateTotalHeight() + offset);
-        }
-
-        public static void Trim(this NavigationBar navBar, EzPage navHandler)
-        {
-            foreach (var ib in navBar.Left.AllChildren.OfType<IconButton>())
-            {
-                ib.TextView.Set(t =>
-                {
-                    if (t.Text == "Back")
-                    {
-                        t.Text = "<";
-                        t.ScaleY(1.5f);
-                    }
-                }).On(x => x.Tapped, () => navHandler.OnBack());
-            }
         }
     }
 

@@ -448,8 +448,8 @@ LoginPage { background-color: $back-color;
 
                 #CheckedImage {
                     @include square(match-parent());
-                    margin-left: 4px;
-                    margin-bottom: 4px;
+                    margin: 4px;
+                    padding: 4px;
                 }
             }
         }
@@ -475,5 +475,57 @@ LoginPage { background-color: $back-color;
         @include horizontal-align;
         border: none;
         @include full-smooth-round;
+    }
+}
+
+SignUpPage {
+    #Body { height: wrap-content(); }
+    background-color: $back-color;
+
+    #SignUpInfoCard {
+        height: wrap-content();
+        background-color: white;
+        @include half-smooth-round;
+        @include item-padding-tight;
+        margin: $space-tight $space $space-tight $space;
+
+        FormField {
+            #Icon { }
+            #Label { }
+            TextInput { }
+        }
+
+        .Section { padding-top: $space; font-weight: bold; }
+
+        .ItemPickerHolder { padding: 4px;
+            .LabelText {
+                width: $form-label-size;
+                font-size: $form-label-font-size;
+                @include vertical-align;
+            }
+            ItemPicker { border: 1px solid $form-border-color; margin: 0;
+                #Label { }
+                #Caret { display: none; }
+            }
+        }
+
+        DatePicker {
+            #Label {
+                font-size: $form-label-font-size;
+                background-color: transparent;
+                color: black;
+                font-weight: normal;
+                border: 1px solid $form-border-color;
+                @include item-padding-tight;
+                margin: 0;
+            }
+            #Caret { display: none; }
+        }
+    }
+
+    #SaveButton {
+        background-color: green;
+        color: white;
+        @include marginHv;
     }
 }

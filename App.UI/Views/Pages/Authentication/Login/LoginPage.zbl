@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <zbl xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-     xsi:noNamespaceSchemaLocation="../../.zebble-schema.xml">
+     xsi:noNamespaceSchemaLocation="../../../.zebble-schema.xml">
    <class type="LoginPage"
           base="UI.Templates.EzNavBarPage"
-          Title="Authentication"
+          Title="Login"
           namespace="UI.Pages"
           viewmodel="ViewModel.LoginPage">
       <z-place inside="Body">
@@ -25,7 +25,7 @@
                <TextView Text="@{Model.User, u => Model.Hint}" CssClass="Hint" />
             </Row>
          </Stack>
-         <TextView Id="SignupButton" Text="New user? Signup now." on-Tapped="@{Model.SignupTapped()}" />
+         <TextView Id="SignupButton" Text="New user? Sign Up now." on-Tapped="@{Model.SignupTapped()}" />
          <Row CssClass="SpaceFiller" />
          <Button Id="LoginButton"
                  Text="Login"

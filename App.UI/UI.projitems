@@ -21,10 +21,11 @@
     <None Include="$(MSBuildThisFileDirectory)Templates\EzNavBarPage.zbl" />
     <None Include="$(MSBuildThisFileDirectory)Templates\Blank.zbl" />
     <None Include="$(MSBuildThisFileDirectory)Views\Modules\RatingBox.zbl" />
+    <None Include="$(MSBuildThisFileDirectory)Views\Pages\Authentication\Signup\SignUpPage.zbl" />
     <None Include="$(MSBuildThisFileDirectory)Views\Pages\Cart\CartPage.zbl" />
     <None Include="$(MSBuildThisFileDirectory)Views\Pages\Cart\CartOrderCardItem.zbl" />
     <None Include="$(MSBuildThisFileDirectory)Views\Pages\Home\Category\CategoryCardItem.zbl" />
-    <None Include="$(MSBuildThisFileDirectory)Views\Pages\Login\LoginPage.zbl" />
+    <None Include="$(MSBuildThisFileDirectory)Views\Pages\Authentication\Login\LoginPage.zbl" />
     <None Include="$(MSBuildThisFileDirectory)Views\Pages\OrderInfo\OrderCardItem.zbl" />
     <None Include="$(MSBuildThisFileDirectory)Views\Pages\Profile\Favorites\ProfileFavoriteCardItem.zbl" />
     <None Include="$(MSBuildThisFileDirectory)Views\Pages\Profile\Favorites\ProfileFavoritesSubPage.zbl" />
@@ -83,11 +84,12 @@
     <Compile Include="$(MSBuildThisFileDirectory)Views\Modules\ExpandableLayout.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\Modules\FolderLayout.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\Modules\RatingBox.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Pages\Authentication\Signup\SignUpPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\Pages\Cart\CartPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\Pages\Cart\CartOrderCardItem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\Pages\Home\Category\CategorySubPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\Pages\Home\Category\CategoryCardItem.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Views\Pages\Login\LoginPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Pages\Authentication\Login\LoginPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\Pages\OrderInfo\OrderInfoPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\Pages\OrderInfo\OrderCardItem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\Pages\Profile\Favorites\ProfileFavoriteCardItem.cs" />
