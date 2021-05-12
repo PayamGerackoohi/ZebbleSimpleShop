@@ -63,8 +63,9 @@ namespace UI
                     {
                         t.Text = "<";
                         t.ScaleY(1.5f);
+                        ib.On(x => x.Tapped, () => navHandler.OnBack());
                     }
-                }).On(x => x.Tapped, () => navHandler.OnBack());
+                });
             }
         }
     }
