@@ -457,7 +457,7 @@ LoginPage { background-color: $back-color;
         TextView { width: wrap-content(); font-size: 3vw; }
     }
 
-    #SignupButton {
+    #SignUpButton {
         width: wrap-content();
         color: $primary-color;
         padding: 0 $spacex2 0 $spacex2;
@@ -528,4 +528,8 @@ SignUpPage {
         color: white;
         @include marginHv;
     }
+}
+
+TestPage {
+    #Body { height: wrap-content(); }
 }

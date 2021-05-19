@@ -21,6 +21,8 @@ namespace UI
 
         public static void Toast(this string self) => Alert.Toast(self, false).RunInParallel();
 
+        public static void Dialog(this string self) => Alert.Show(self).RunInParallel();
+
         public static View MatchHeight(this View self, View view) => self.Set(s => s.Height.BindTo(view.Height));
 
         public static void Deactivate(this TextInput self) => self.Activate(false);
@@ -63,7 +65,7 @@ namespace UI
                     {
                         t.Text = "<";
                         t.ScaleY(1.5f);
-                        ib.On(x => x.Tapped, () => navHandler.OnBack());
+                        t.On(x => x.Tapped, () => navHandler.OnBack());
                     }
                 });
             }

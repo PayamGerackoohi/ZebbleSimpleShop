@@ -13,7 +13,7 @@
          </Stack>
          <ScrollView CssClass="Scroller">
             <TextView CssClass="SpaceTight" />
-            <ListView of="Domain.Models.OrderItem, Row" DataSource="@{Model.Cart, c => c.OrderItems}">
+            <ListView of="Domain.Models.OrderItem, Row" DataSource="@{Model.OrderItems}" Id="List">
                <class type="Row" base="ListViewItem[Domain.Models.OrderItem]">
                   <CartOrderCardItem ModelHolder="@FindParent&lt;CartPage&gt;().Model"
                                      OrderItem="@Item"

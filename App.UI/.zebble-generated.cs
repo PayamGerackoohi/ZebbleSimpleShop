@@ -117,35 +117,23 @@ namespace UI.Pages
     partial class TestPage : UI.Templates.EzNavBarPage, ITemplate<ViewModel.TestPage>
     {
         public ViewModel.TestPage Model = Zebble.Mvvm.ViewModel.The<ViewModel.TestPage>();
-        public Modules.ExpandableLayout Expander = new Modules.ExpandableLayout();
-        public Modules.FolderLayout<Domain.Models.Category, CategoryViewGen> FolderView = new Modules.FolderLayout<Domain.Models.Category, CategoryViewGen>();
+
         protected override async Task InitializeFromMarkup()
         {
             await base.InitializeFromMarkup();
 
             this.Title = "Test Page";
 
-            var __button1 = new Button() { Text = "Toggle" }.On(x => x.Tapped, () => Expander.Toggle());
+            var __row1 = new Row() { CssClass = "SpaceTight" };
 
-            Expander.Id = "Expander";
-            Expander.ModelHolder = Model;
+            var __row2 = new Row();
 
-            var __textView1 = new TextView() { Text = "Text 1" };
+            var __textView1 = new TextView().Bind("Text", () => Model.Data);
 
-            var __textView2 = new TextView() { Text = "Text 2" };
+            var __row3 = new Row() { CssClass = "SpaceTight" };
 
-            var __textView3 = new TextView() { Text = "Text 3" };
-
-            FolderView.Id = "FolderView";
-            FolderView.ModelHolder = Model;
-            FolderView.OnItemSelected = data => NotifyUser(data.Name).RunInParallel();
-            FolderView.ViewGen = new CategoryViewGen();
-            FolderView.FolderData = await GetData();
-
-            var __imageView1 = new ImageView().Set(x => x.Style.BackgroundColor = "#f00").Set(x => x.Style.Height(100));
-
-            await Expander.AddRange(new View[] { __textView1, __textView2, __textView3 });
-            await Body.AddRange(new View[] { __button1, Expander, FolderView, __imageView1 });
+            await __row2.Add(__textView1);
+            await BodyScroller.AddRange(new View[] { __row1, __row2, __row3 });
         }
     }
 }
@@ -246,6 +234,7 @@ namespace UI.Pages
     {
         public ViewModel.CartPage Model = Zebble.Mvvm.ViewModel.The<ViewModel.CartPage>();
         public Stack HeaderPrice = new Stack();
+        public ListView<Domain.Models.OrderItem, Row> List = new ListView<Domain.Models.OrderItem, Row>();
         public Button BuyButton = new Button();
         protected override async Task InitializeFromMarkup()
         {
@@ -264,7 +253,8 @@ namespace UI.Pages
 
             var __textView3 = new TextView() { CssClass = "SpaceTight" };
 
-            var __listView1 = new ListView<Domain.Models.OrderItem, Row>().Bind("DataSource", () => Model.Cart, c => c.OrderItems);
+            List.Id = "List";
+            List.Bind("DataSource", () => Model.OrderItems);
 
             var __textView4 = new TextView() { CssClass = "SpaceTight" };
 
@@ -273,7 +263,7 @@ namespace UI.Pages
             BuyButton.On(x => x.Tapped, () => Model.Buy());
 
             await HeaderPrice.AddRange(new View[] { __textView1, __textView2 });
-            await __scrollView1.AddRange(new View[] { __textView3, __listView1, __textView4 });
+            await __scrollView1.AddRange(new View[] { __textView3, List, __textView4 });
             await Body.AddRange(new View[] { HeaderPrice, __scrollView1, BuyButton });
         }
 
@@ -851,7 +841,7 @@ namespace UI.Pages
         public FormField<TextInput> Username = new FormField<TextInput>();
         public FormField<TextInput> Password = new FormField<TextInput>();
         public CheckBox RememberMeCB = new CheckBox();
-        public TextView SignupButton = new TextView();
+        public TextView SignUpButton = new TextView();
         public Button LoginButton = new Button();
         protected override async Task InitializeFromMarkup()
         {
@@ -882,9 +872,9 @@ namespace UI.Pages
 
             var __textView2 = new TextView() { CssClass = "Hint" }.Bind("Text", () => Model.User, u => Model.Hint);
 
-            SignupButton.Id = "SignupButton";
-            SignupButton.Text = "New user? Signup now.";
-            SignupButton.On(v => v.Tapped, () => Model.SignupTapped());
+            SignUpButton.Id = "SignUpButton";
+            SignUpButton.Text = "New User? Sign Up Now";
+            SignUpButton.On(v => v.Tapped, () => Model.SignUpTapped());
 
             var __row3 = new Row() { CssClass = "SpaceFiller" };
 
@@ -894,7 +884,7 @@ namespace UI.Pages
 
             await __row2.AddRange(new View[] { RememberMeCB, __textView1, __textView2 });
             await LoginCard.AddRange(new View[] { Username, Password, __row2 });
-            await Body.AddRange(new View[] { __row1, LoginCard, SignupButton, __row3, LoginButton });
+            await Body.AddRange(new View[] { __row1, LoginCard, SignUpButton, __row3, LoginButton });
         }
     }
 }
@@ -982,6 +972,8 @@ namespace UI.Pages
             var __textView2 = new TextView() { Text = "Birth Date", CssClass = "LabelText" };
 
             BirthDate.Id = "BirthDate";
+            BirthDate.YearFrom = 1900;
+            BirthDate.YearTo = Model.MaxBirthYear;
             BirthDate.TextFormat = "dd/MM/yyyy";
             BirthDate.On(v => v.SelectedValueChanged, () => Model.User.Value.BirthDate = BirthDate.SelectedValue);
 
@@ -1512,7 +1504,6 @@ namespace UI.Pages
             var __textView2 = new TextView() { Text = "Birth Date", CssClass = "LabelText" };
 
             BirthDate.Id = "BirthDate";
-            BirthDate.DayFormat = "d";
             BirthDate.TextFormat = "dd/MM/yyyy";
             BirthDate.YearFrom = 1900;
             BirthDate.YearTo = Model.MaxBirthYear;

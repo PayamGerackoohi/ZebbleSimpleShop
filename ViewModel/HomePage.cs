@@ -37,6 +37,7 @@ namespace ViewModel
         public override async Task OnRefresh()
         {
             Cart.Value = await Api.ShopApi.GetCart();
+            await base.OnRefresh();
         }
     }
 }

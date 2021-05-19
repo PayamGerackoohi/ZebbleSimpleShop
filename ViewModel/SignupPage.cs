@@ -1,4 +1,5 @@
 ﻿using Domain.Api;
+using Domain.Database;
 using Domain.Models;
 using Domain.Utils;
 using Olive;
@@ -20,7 +21,6 @@ namespace ViewModel
         public BindableCollection<string> Countries { get; private set; } = new() { "Germany", "US", "UK", "Iran", "Other" };
         public BindableCollection<Gender> Genders { get; private set; } = new() { (Gender[])Enum.GetValues(typeof(Gender)) };
         public int MaxBirthYear { get; set; } = DateTime.Now.Year - Constants.MAX_AGE;
-        public string DefaultDate { get => $"1/1/{MaxBirthYear}"; }
 
         public override async Task Setup()
         {
@@ -29,6 +29,7 @@ namespace ViewModel
 
         public override async Task OnRefresh()
         {
+            await base.OnRefresh();
         }
 
         public async Task OnSave(string gender, string country)
@@ -37,7 +38,7 @@ namespace ViewModel
             User.Value.Address.Country = country;
             if (User.Value.IsValid() && User.Value.Credential.IsValid())
             {
-                await Api.ShopApi.SaveUser(User);
+                await Api.ShopApi.Save(User.Value);
                 "Sign up was successful!".Toast();
                 await OnBack();
             }

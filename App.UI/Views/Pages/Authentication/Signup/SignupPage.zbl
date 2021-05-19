@@ -42,6 +42,8 @@
                <Row CssClass="ItemPickerHolder">
                   <TextView Text="Birth Date" CssClass="LabelText" />
                   <DatePicker Id="BirthDate"
+                              YearFrom="1900"
+                              YearTo="@Model.MaxBirthYear"
                               TextFormat="dd/MM/yyyy"
                               on-SelectedValueChanged="@{Model.User.Value.BirthDate = BirthDate.SelectedValue}" />
                </Row>

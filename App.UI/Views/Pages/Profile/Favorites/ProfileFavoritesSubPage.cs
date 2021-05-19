@@ -42,11 +42,11 @@ namespace UI.Pages
             Model.ShowRemoveConfirmationDialog.Changed += () => ShowRemoveConfirmationDialog(Model.ShowRemoveConfirmationDialog.Value).RunInParallel();
         }
 
-        // todo: find a better solution than doing this each 100ms in a period of 1 second
+        // todo: find a better solution than doing this each 500ms in a period of 5"
         private async Task ClipListChildren(int count)
         {
             if (count < 1) return;
-            await Task.Delay(100);
+            await Task.Delay(500);
             List.ClipChildren = true;
             ClipListChildren(count - 1).RunInParallel();
         }

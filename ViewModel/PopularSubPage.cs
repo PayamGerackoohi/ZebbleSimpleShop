@@ -16,11 +16,7 @@ namespace ViewModel
     {
         public BindableCollection<Product> Products { get; private set; } = new();
 
-        //public override async Task OnRefresh()
-        //{
-        //}
-
-        protected override async Task Setup()
+        public override async Task Setup()
         {
             Products.Replace(await Api.ShopApi.PopularProducts());
         }

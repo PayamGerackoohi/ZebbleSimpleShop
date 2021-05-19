@@ -25,7 +25,7 @@
                <TextView Text="@{Model.User, u => Model.Hint}" CssClass="Hint" />
             </Row>
          </Stack>
-         <TextView Id="SignupButton" Text="New user? Sign Up now." on-Tapped="@{Model.SignupTapped()}" />
+         <TextView Id="SignUpButton" Text="New User? Sign Up Now" on-Tapped="@{Model.SignUpTapped()}" />
          <Row CssClass="SpaceFiller" />
          <Button Id="LoginButton"
                  Text="Login"

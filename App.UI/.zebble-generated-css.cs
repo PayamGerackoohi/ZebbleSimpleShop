@@ -206,7 +206,7 @@ namespace UI
             CssEngine.Add(new File_App.UI.Styles.Common.LoginPageLoginCardRowCheckBoxCheckedCssRule());
             CssEngine.Add(new File_App.UI.Styles.Common.LoginPageLoginCardRowCheckBoxCheckedImageCssRule());
             CssEngine.Add(new File_App.UI.Styles.Common.LoginPageLoginCardTextViewCssRule());
-            CssEngine.Add(new File_App.UI.Styles.Common.LoginPageSignupButtonCssRule());
+            CssEngine.Add(new File_App.UI.Styles.Common.LoginPageSignUpButtonCssRule());
             CssEngine.Add(new File_App.UI.Styles.Common.LoginPageLoginButtonCssRule());
             CssEngine.Add(new File_App.UI.Styles.Common.SignUpPageCssRule());
             CssEngine.Add(new File_App.UI.Styles.Common.SignUpPageBodyCssRule());
@@ -219,6 +219,7 @@ namespace UI
             CssEngine.Add(new File_App.UI.Styles.Common.SignUpPageSignUpInfoCardDatePickerLabelCssRule());
             CssEngine.Add(new File_App.UI.Styles.Common.SignUpPageSignUpInfoCardDatePickerCaretCssRule());
             CssEngine.Add(new File_App.UI.Styles.Common.SignUpPageSaveButtonCssRule());
+            CssEngine.Add(new File_App.UI.Styles.Common.TestPageBodyCssRule());
 
             // ======================================================================
             // App.UI\Styles\PlatformSpecific.css------------------------------------
@@ -6050,13 +6051,13 @@ namespace File_App.UI.Styles.Common
 namespace File_App.UI.Styles.Common
 {
     [EscapeGCop("Auto-generated")]
-    [CssSelector("Styles/Common.scss:411", "LoginPage #SignupButton")]
+    [CssSelector("Styles/Common.scss:411", "LoginPage #SignUpButton")]
     [CssBody("width: calc(\"Content\"); color: #00b9f0; padding: 0 32px 0 32px; margin: 16px; margin-bottom: 0; margin-left: calc(\"view.Parent.Width, view.Parent.Padding.Left, view.Parent.Padding.Right, view.Width, (pw, ppl, ppr, vw) => (pw - ppl - ppr - vw) / 2\");")]
-    class LoginPageSignupButtonCssRule : CssRule
+    class LoginPageSignUpButtonCssRule : CssRule
     {
         public override bool Matches(View view)
         {
-            // CssEngine will only call me if a view matches: #SignupButton
+            // CssEngine will only call me if a view matches: #SignUpButton
 
             view = CssEngine.FindParentByType<LoginPage>(view);
 
@@ -6467,6 +6468,33 @@ namespace File_App.UI.Styles.Common
             view.Css.Margin(top: 8, right: 16, bottom: 8, left: 16);
             view.Css.BackgroundColor = Colors.Green;
             view.Css.TextColor = Colors.White;
+
+            return Task.CompletedTask;
+        }
+    }
+}
+
+namespace File_App.UI.Styles.Common
+{
+    [EscapeGCop("Auto-generated")]
+    [CssSelector("Styles/Common.scss:532", "TestPage #Body")]
+    [CssBody("height: calc(\"Content\");")]
+    class TestPageBodyCssRule : CssRule
+    {
+        public override bool Matches(View view)
+        {
+            // CssEngine will only call me if a view matches: #Body
+
+            view = CssEngine.FindParentByType<TestPage>(view);
+
+            if (view is null) return false;
+
+            return true;
+        }
+
+        public override Task Apply(View view)
+        {
+            view.Css.Height = Length.AutoStrategy.Content;
 
             return Task.CompletedTask;
         }

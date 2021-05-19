@@ -34,7 +34,7 @@ namespace ViewModel
         //{
         //}
 
-        protected override async Task Setup()
+        public override async Task Setup()
         {
         }
     }

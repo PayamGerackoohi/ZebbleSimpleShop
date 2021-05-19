@@ -26,19 +26,15 @@ namespace ViewModel
         private async Task InitiateIsFavorite()
         {
             var user = await Api.ShopApi.GetUser();
-            var isFav = user.Favorites.Any(f => f == Data.Value);
+            //var isFav = user.Favorites.Any(f => f == Data.Value);
+            var isFav = user.Favorites.Any(f => f.Id == Data.Value.Id);
             IsFavorite.Value = isFav;
         }
 
         public async Task OnBuyButtonClicked()
         {
-            var cart = await Api.ShopApi.GetCart();
-            var list = cart.OrderItems;
-            var item = list.Where(oi => oi.Product.Id == Data.Value.Id).FirstOrDefault();
-            if (item == null)
-                list.Add(new OrderItem { Product = Data.Value });
-            else
-                item.Count++;
+            //var cart = await Api.ShopApi.GetCart();
+            await Api.ShopApi.AddToCart(Data.Value);
             "The Product is added to your cart.".Toast();
         }
 
@@ -65,6 +61,7 @@ namespace ViewModel
 
         public override async Task OnRefresh()
         {
+            await base.OnRefresh();
         }
 
         public override async Task Setup()

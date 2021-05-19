@@ -26,14 +26,14 @@ namespace ViewModel
             User.Value.Address.Country = country;
             if (User.Value.IsValid())
             {
-                await Api.ShopApi.SaveUser(User);
+                await Api.ShopApi.Save(User);
                 "User data saved!".Toast();
             }
             else
                 "Invalid data!".Toast();
         }
 
-        protected override async Task Setup()
+        public override async Task Setup()
         {
             User.Value = await Api.ShopApi.GetUser();
         }

@@ -4,8 +4,5 @@ using System.Text;
 
 namespace Domain.Models
 {
-    public enum Gender
-    {
-        Unknown, Male, Female,
-    }
+    public enum Gender { Unknown, Male, Female, }
 }

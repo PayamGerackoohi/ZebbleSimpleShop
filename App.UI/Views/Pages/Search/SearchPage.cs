@@ -17,6 +17,22 @@ namespace UI.Pages
         override public async Task OnInitializing()
         {
             await base.OnInitializing();
+            SetupUI();
+            SetupViewModelBindings();
+        }
+
+        private void SetupViewModelBindings()
+        {
+            Model.CleanFlag.Changed += () => { SearchInput.Text = ""; };
+        }
+
+        private void SetupUI()
+        {
+            SetupShadows();
+        }
+
+        private void SetupShadows()
+        {
             SearchInput.AddShadow(2);
         }
     }

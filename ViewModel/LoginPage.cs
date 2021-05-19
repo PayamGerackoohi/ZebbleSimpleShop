@@ -1,4 +1,5 @@
 ﻿using Domain.Api;
+using Domain.Database;
 using Domain.Models;
 using Domain.Utils;
 using Olive;
@@ -29,9 +30,11 @@ namespace ViewModel
         public override async Task OnRefresh()
         {
             User.Value = await Api.ShopApi.GetUser();
+            //User.Value.Let(u => $"{u}\n{u.Credential}").Toast();
+            await base.OnRefresh();
         }
 
-        public async Task SignupTapped()
+        public async Task SignUpTapped()
         {
             EzForward<SignUpPage>();
         }
@@ -40,7 +43,7 @@ namespace ViewModel
         {
             User.Value.Credential.Also(user =>
             {
-                if (username == user.Username && password == user.Password)
+                if (user.IsValid() && user.IsAuthenticated(username, password))
                     Login(rememberMe);
                 else
                     "Username or password are incorrect!".Toast();
@@ -50,6 +53,7 @@ namespace ViewModel
         private void Login(bool rememberMe)
         {
             User.Value.Credential.StayLoggedIn = rememberMe;
+            ShopDatabase.Instance.CredentialDao.Save(User.Value.Credential);
             EzGo<HomePage>();
         }
     }

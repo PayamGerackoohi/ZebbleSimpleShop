@@ -1,28 +1,77 @@
 ﻿using Domain.Models.Interfaces;
 using Domain.Utils;
 using Olive;
+using SQLite;
+using SQLiteNetExtensions.Attributes;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Domain.Models
 {
-    class User : IValidable, ICopyable<User>
+    [Table("user")]
+    public class User : IValidable, ICopyable<User>
     {
-        private static int GlobalId = 0;
-        public Guid Id { get; private set; } = (++GlobalId).ToGuid();
+        #region Properties
+
+        [PrimaryKey, AutoIncrement]
+        [Column("id")]
+        public int Id { get; set; }
+
+        [Column("first_name")]
         public string FirstName { get; set; } = "";
+
+        [Column("last_name")]
         public string LastName { get; set; } = "";
+
+        [Ignore]
         public string FullName { get => FirstName + " " + LastName; }
+
+        [ForeignKey(typeof(Address))]
+        [Column("address_fk")]
+        public int AddressId { get; set; }
+
+        [OneToOne]
+        [Column("address")]
         public Address Address { get; set; } = new Address();
+
+        [Column("email")]
         public string Email { get; set; } = "";
+
+        [Column("phone_number")]
         public string PhoneNumber { get; set; } = "";
+
+        [Column("photo")]
         public byte[] Photo { get; set; }
+
+        [Column("gender")]
         public Gender Gender { get; set; } = Gender.Unknown;
+
+        [Column("birth_date")]
         public DateTime? BirthDate { get; set; }
+
+        //[Column("fav_count")]
+        //public int FavCount { get; set; } = -1;
+
+        [OneToMany(CascadeOperations = CascadeOperation.All)]
+        [Column("favorite_list")]
         public List<Product> Favorites { get; set; } = new();
+
+        [OneToMany(CascadeOperations = CascadeOperation.All)]
+        [Column("order_list")]
         public List<Order> Orders { get; set; } = new();
+
+        [ForeignKey(typeof(Credential))]
+        [Column("credential_fk")]
+        public int CredentialId { get; set; }
+
+        [OneToOne]
+        [Column("credential")]
         public Credential Credential { get; set; } = new();
+
+        #endregion
+
+        #region Public Methods
 
         public string BirthDateString() => BirthDate?.FormattedDate() ?? "";
 
@@ -71,8 +120,9 @@ namespace Domain.Models
             user.Address = Address.Copy();
             user.Favorites = new List<Product>(Favorites);
             user.Orders = new List<Order>(Orders);
-            //public byte[] Photo { get; set; }
+            user.Photo = new List<byte>(Photo).ToArray();
             return user;
         }
+        #endregion
     }
 }

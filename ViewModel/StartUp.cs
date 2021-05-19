@@ -1,21 +1,31 @@
 ﻿namespace ViewModel
 {
-    using Domain.Api;
+    using Domain.Database;
+    using Domain.Models;
     using System.Threading.Tasks;
     using ViewModel.Base;
     using Zebble;
-    using Zebble.Mvvm;
+    using System;
+    using Olive;
 
     class StartUp
     {
+        private static readonly bool Debug = false;
+
         public static async Task Run()
         {
-            //EzNav.Go<ProfilePage>(PageTransition.Fade);
-            var user = await Api.ShopApi.GetUser();
-            if (user.Credential.StayLoggedIn)
-                EzNav.Go<HomePage>(PageTransition.Fade);
+            ShopDatabase.Setup();
+
+            if (Debug)
+                EzNav.Go<TestPage>(PageTransition.Fade);
             else
-                EzNav.Go<LoginPage>(PageTransition.Fade);
+            {
+                var user = ShopDatabase.Instance.UserDao.Read();
+                if (user.Credential.StayLoggedIn)
+                    EzNav.Go<HomePage>(PageTransition.Fade);
+                else
+                    EzNav.Go<LoginPage>(PageTransition.Fade);
+            }
         }
     }
 }

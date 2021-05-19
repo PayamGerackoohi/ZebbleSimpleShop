@@ -1,22 +1,20 @@
 ﻿using Domain.Api;
+using Domain.Database;
 using Domain.Models;
 using Domain.Utils;
 using Olive;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using UI;
 using ViewModel.Base;
-using Zebble;
-using Zebble.Mvvm;
 
 namespace ViewModel
 {
     class CartPage : EzPage
     {
         public Bindable<Order> Cart { get; private set; } = new();
+        public BindableCollection<OrderItem> OrderItems { get; private set; } = new();
 
         public override async Task Setup()
         {
@@ -33,18 +31,26 @@ namespace ViewModel
 
         public void OnDataChanged()
         {
+            Api.ShopApi.SaveCart(Cart.Value);
             Cart.Refresh();
+            OrderItems.Refresh();
         }
 
         public void OnRemove(OrderItem orderItem)
         {
             Cart.Value.OrderItems.RemoveWhere(oi => oi.Id == orderItem.Id);
-            Cart.Refresh();
+            OrderItems.Replace(Cart.Value.OrderItems);
+            Api.ShopApi.RemoveFromCart(orderItem);
+            OnDataChanged();
         }
 
         public override async Task OnRefresh()
         {
             Cart.Value = await Api.ShopApi.GetCart();
+            OrderItems.Replace(Cart.Value.OrderItems);
+            Cart.Refresh();
+            //OrderItems.Refresh(); // evil rests here in peace >:)
+            await base.OnRefresh();
         }
     }
 }

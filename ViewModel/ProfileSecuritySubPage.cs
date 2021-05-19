@@ -1,4 +1,5 @@
 ﻿using Domain.Api;
+using Domain.Database;
 using Domain.Models;
 using Domain.Utils;
 using Olive;
@@ -21,19 +22,21 @@ namespace ViewModel
         {
             if (User.Value.Credential.IsValid())
             {
-                await Api.ShopApi.SaveUser(User);
+                await Api.ShopApi.Save(User);
                 "User's credentials are saved!".Toast();
             }
             else
                 "Invalid data!".Toast();
         }
+
         public async Task OnLogout()
         {
             User.Value.Credential.StayLoggedIn = false;
+            ShopDatabase.Instance.CredentialDao.Save(User.Value.Credential);
             Holder.EzGo<LoginPage>();
         }
 
-        protected override async Task Setup()
+        public override async Task Setup()
         {
             User.Value = await Api.ShopApi.GetUser();
         }

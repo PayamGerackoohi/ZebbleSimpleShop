@@ -19,7 +19,7 @@ namespace ViewModel
 
         public Action<Order> ShowOrderInfo { get; set; } = o => { };
 
-        protected override async Task Setup()
+        public override async Task Setup()
         {
         }
     }

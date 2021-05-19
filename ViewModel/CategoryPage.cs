@@ -1,4 +1,5 @@
 ﻿using Domain.Api;
+using Domain.Database;
 using Domain.Models;
 using Olive;
 using System;
@@ -6,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UI;
 using ViewModel.Base;
 using Zebble;
 using Zebble.Mvvm;
@@ -22,6 +24,7 @@ namespace ViewModel
         {
             Products.Replace(await Api.ShopApi.GetProductsByCategory(Category.Id));
             Title.Value = Category.Name;
+            await base.OnRefresh();
         }
 
         public async Task Setup(Category category)

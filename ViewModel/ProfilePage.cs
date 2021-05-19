@@ -45,7 +45,11 @@ namespace ViewModel
             User.Value = await Api.ShopApi.GetUser();
             Orders.Replace(User.Value.Orders);
             Favorites.Replace(User.Value.Favorites);
+            User.Refresh();
+            //Orders.Refresh();
+            //Favorites.Refresh();
             // Favorites.Refresh(); // evil rests here in peace >:)
+            await base.OnRefresh();
         }
     }
 }

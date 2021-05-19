@@ -27,7 +27,6 @@
          <Row CssClass="ItemPickerHolder">
             <TextView Text="Birth Date" CssClass="LabelText" />
             <DatePicker Id="BirthDate"
-                        DayFormat="d"
                         TextFormat="dd/MM/yyyy"
                         YearFrom="1900"
                         YearTo="@Model.MaxBirthYear"

@@ -12,10 +12,30 @@
     <Compile Include="$(MSBuildThisFileDirectory)Api\Api.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Api\Fake\ShopApi.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Api\Interfaces\IShopApi.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Database\Dao\IBaseDao.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Database\Dao\Impl\OrderItemDaoImpl.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Database\Dao\Impl\OrderStatusDaoImpl.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Database\Dao\Impl\ProductDaoImpl.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Database\Dao\Impl\OrderDaoImpl.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Database\Dao\IOrderItemDao.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Database\Dao\IOrderStatusDao.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Database\Dao\IProductDao.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Database\Dao\ICredentialDao.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Database\Dao\IAddressDao.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Database\Dao\ICategoryDao.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Database\Dao\IOrderDao.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Database\Dao\IUserDao.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Database\ShopDatabase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Database\Dao\Base\BaseDao.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Database\Dao\Impl\CredentialDaoImpl.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Database\Dao\Impl\AddressDaoImpl.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Database\Dao\Impl\CategoryDaoImpl.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Database\Dao\Impl\UserDaoImpl.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Credential.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Interfaces\ICopyable.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Interfaces\IValidable.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\PageType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\TestItem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utils\Constants.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utils\Extensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Address.cs" />
@@ -28,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Api\Live\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Database\Dao\Base\" />
     <Folder Include="$(MSBuildThisFileDirectory)Utils\" />
   </ItemGroup>
 </Project>

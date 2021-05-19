@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Domain.Database;
+using Olive;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,6 +11,7 @@ namespace ViewModel.Base
 {
     public abstract class EzPage : FullScreen
     {
+        public List<EzSubPage> Children { get; private set; } = new();
         public EzPage PreviousPage;
 
         public virtual async Task OnBack()
@@ -17,7 +20,10 @@ namespace ViewModel.Base
             PreviousPage?.OnRefresh();
         }
 
-        public abstract Task OnRefresh();
+        public virtual async Task OnRefresh()
+        {
+            Children.Do(child => child.Setup().RunInParallel());
+        }
 
         public abstract Task Setup();
 

@@ -1316,8 +1316,6 @@
     <xs:complexContent mixed="false">
       <xs:extension base="UI__Templates__EzNavBarPageType">
         <xs:attribute name="Model" type="xs:string" />
-        <xs:attribute name="Expander" type="xs:string" />
-        <xs:attribute name="FolderView" type="xs:string" />
         <xs:anyAttribute processContents="skip" />
       </xs:extension>
     </xs:complexContent>
@@ -1344,6 +1342,7 @@
       <xs:extension base="UI__Templates__EzNavBarPageType">
         <xs:attribute name="Model" type="xs:string" />
         <xs:attribute name="HeaderPrice" type="xs:string" />
+        <xs:attribute name="List" type="xs:string" />
         <xs:attribute name="BuyButton" type="xs:string" />
         <xs:anyAttribute processContents="skip" />
       </xs:extension>
@@ -1464,7 +1463,7 @@
         <xs:attribute name="Username" type="xs:string" />
         <xs:attribute name="Password" type="xs:string" />
         <xs:attribute name="RememberMeCB" type="xs:string" />
-        <xs:attribute name="SignupButton" type="xs:string" />
+        <xs:attribute name="SignUpButton" type="xs:string" />
         <xs:attribute name="LoginButton" type="xs:string" />
         <xs:anyAttribute processContents="skip" />
       </xs:extension>

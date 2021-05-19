@@ -15,7 +15,7 @@ namespace ViewModel
 
         public int GetRating() => (int)Math.Round(Data.Value.Rating.Saturate(1, 5));
 
-        protected override async Task Setup()
+        public override async Task Setup()
         {
         }
     }

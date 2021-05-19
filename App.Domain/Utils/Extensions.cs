@@ -23,6 +23,20 @@ namespace Domain.Utils
         }
         // no C# equivalent for Kotlin apply is found :'(
 
+        public static IEnumerable<R> LetList<T, R>(this IEnumerable<T> self, Func<T, R> block)
+        {
+            var list = new List<R>();
+            foreach (var item in self)
+                list.Add(block(item));
+            return list;
+        }
+
+        public static IEnumerable<T> AlsoList<T>(this IEnumerable<T> self, Action<T> block)
+        {
+            self.Do(item => block(item));
+            return self;
+        }
+
         public static decimal Saturate(this decimal self, decimal min, decimal max) => Math.Max(min, Math.Min(max, self));
 
         public static DateTime ToDateTime(this string self) => self.To<DateTime>();

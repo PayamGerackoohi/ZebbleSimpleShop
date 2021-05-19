@@ -19,6 +19,7 @@ namespace ViewModel
 
         public override async Task OnRefresh()
         {
+            await base.OnRefresh();
         }
 
         public override async Task Setup()

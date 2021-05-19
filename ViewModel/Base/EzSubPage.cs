@@ -5,15 +5,25 @@ using System.Threading.Tasks;
 
 namespace ViewModel.Base
 {
-    abstract class EzSubPage : Zebble.Mvvm.ViewModel
+    public abstract class EzSubPage : Zebble.Mvvm.ViewModel
     {
+        private EzPage holder;
+
+        public EzPage Holder
+        {
+            get => holder;
+            set
+            {
+                holder = value;
+                holder.Children.Add(this);
+            }
+        }
+
         public EzSubPage()
         {
             Setup().RunInParallel();
         }
 
-        public EzPage Holder;
-
-        protected abstract Task Setup();
+        public abstract Task Setup();
     }
 }

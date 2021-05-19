@@ -19,7 +19,7 @@ namespace ViewModel
 
         public IEnumerable<FolderData<Category>> GetData()
         {
-            return FolderData<Category>.Compact(Categories, c => c.Categories);
+            return FolderData<Category>.Compact(Categories, c => c.SubCategoryList);
         }
 
         public void OnCategorySelected(Category category)
@@ -27,8 +27,7 @@ namespace ViewModel
             Holder.EzForward<CategoryPage>(config: vm => vm.Setup(category).RunInParallel());
         }
 
-        //public override async Task Setup()
-        protected override async Task Setup()
+        public override async Task Setup()
         {
             Categories.Clear();
             Categories.Add(await Api.ShopApi.GetCategories());

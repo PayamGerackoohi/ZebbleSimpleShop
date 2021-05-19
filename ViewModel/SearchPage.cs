@@ -18,6 +18,7 @@ namespace ViewModel
         private const int SearchInterval = 1000;
         private bool IsSearching = false;
         private string Keyword = null;
+        public Bindable<bool> CleanFlag = false;
         public BindableCollection<Product> Results { get; private set; } = new();
 
         public async Task OnSearch(string keyword)
@@ -56,8 +57,22 @@ namespace ViewModel
         private void NotifyUser(string keyword, int count) =>
             $"On searching \"{keyword}\" {count} result{(count > 1 ? "s are" : " is")} found.".Toast();
 
+        public override async Task OnBack()
+        {
+            await base.OnBack();
+            await CleanUp();
+        }
+
+        private async Task CleanUp()
+        {
+            CleanFlag.Value = !CleanFlag.Value;
+            Results.Clear();
+            Keyword = null;
+        }
+
         public override async Task OnRefresh()
         {
+            await base.OnRefresh();
         }
 
         public override async Task Setup()

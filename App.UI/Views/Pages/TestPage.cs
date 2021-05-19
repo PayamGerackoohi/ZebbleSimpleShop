@@ -22,14 +22,6 @@ namespace UI.Pages
             await base.OnInitializing();
         }
 
-        public async Task<IEnumerable<FolderData<Category>>> GetData()
-        {
-            var categories = await Api.ShopApi.GetCategories();
-            return FolderData<Category>.Compact(categories, c => c.Categories);
-        }
-
-        public async Task NotifyUser(string message) => await message.NotifyUser();
-
         override public async Task OnRendered()
         {
             await base.OnRendered();
