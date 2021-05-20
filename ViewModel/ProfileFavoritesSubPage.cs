@@ -6,7 +6,6 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
-using UI;
 using ViewModel.Base;
 using Zebble;
 using Zebble.Mvvm;
@@ -29,10 +28,6 @@ namespace ViewModel
         {
             await Api.ShopApi.RemoveFavorite(product.Id);
         }
-
-        //public override async Task OnRefresh()
-        //{
-        //}
 
         public override async Task Setup()
         {

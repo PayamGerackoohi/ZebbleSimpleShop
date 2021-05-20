@@ -8,7 +8,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using UI;
 using ViewModel.Base;
 using Zebble;
 using Zebble.Mvvm;
@@ -30,7 +29,6 @@ namespace ViewModel
         public override async Task OnRefresh()
         {
             User.Value = await Api.ShopApi.GetUser();
-            //User.Value.Let(u => $"{u}\n{u.Credential}").Toast();
             await base.OnRefresh();
         }
 
@@ -46,7 +44,7 @@ namespace ViewModel
                 if (user.IsValid() && user.IsAuthenticated(username, password))
                     Login(rememberMe);
                 else
-                    "Username or password are incorrect!".Toast();
+                    "Username or password are incorrect!".Toast(this);
             });
         }
 

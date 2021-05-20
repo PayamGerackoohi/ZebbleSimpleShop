@@ -6,7 +6,6 @@ using Olive;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
-using UI;
 using ViewModel.Base;
 
 namespace ViewModel
@@ -25,7 +24,7 @@ namespace ViewModel
         {
             Cart.Value.OrderItems.Also(list =>
             {
-                ("Buy " + Cart.Value.FormattedTotalPrice() + (list.None() ? "" : "\n") + list.Select(oi => $"{oi.Count} * [{oi.Product.Name}] = {oi.Price}").ToString("\n")).Toast();
+                ("Buy " + Cart.Value.FormattedTotalPrice() + (list.None() ? "" : "\n") + list.Select(oi => $"{oi.Count} * [{oi.Product.Name}] = {oi.Price}").ToString("\n")).Toast(this);
             });
         }
 

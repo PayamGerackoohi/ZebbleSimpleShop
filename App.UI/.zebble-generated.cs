@@ -128,12 +128,17 @@ namespace UI.Pages
 
             var __row2 = new Row();
 
+            var __button1 = new Button() { Text = "Test Button" }.On(v => v.Tapped, () => Model.TestButtonClicked());
+
+            var __row3 = new Row();
+
             var __textView1 = new TextView().Bind("Text", () => Model.Data);
 
-            var __row3 = new Row() { CssClass = "SpaceTight" };
+            var __row4 = new Row() { CssClass = "SpaceTight" };
 
-            await __row2.Add(__textView1);
-            await BodyScroller.AddRange(new View[] { __row1, __row2, __row3 });
+            await __row2.Add(__button1);
+            await __row3.Add(__textView1);
+            await BodyScroller.AddRange(new View[] { __row1, __row2, __row3, __row4 });
         }
     }
 }

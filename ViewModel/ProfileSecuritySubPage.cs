@@ -7,7 +7,6 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
-using UI;
 using ViewModel.Base;
 using Zebble;
 using Zebble.Mvvm;
@@ -23,10 +22,10 @@ namespace ViewModel
             if (User.Value.Credential.IsValid())
             {
                 await Api.ShopApi.Save(User);
-                "User's credentials are saved!".Toast();
+                "User's credentials are saved!".Toast(this);
             }
             else
-                "Invalid data!".Toast();
+                "Invalid data!".Toast(this);
         }
 
         public async Task OnLogout()

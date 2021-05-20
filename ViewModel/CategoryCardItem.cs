@@ -14,11 +14,6 @@ namespace ViewModel
     {
         //public Bindable<Category> Data = new();
 
-        //public string Name() => Data.Value.Name;
-        //public override async Task OnRefresh()
-        //{
-        //}
-
         public override async Task Setup()
         {
         }

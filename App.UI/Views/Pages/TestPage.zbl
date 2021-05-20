@@ -9,6 +9,9 @@
       <z-place inside="BodyScroller">
          <Row CssClass="SpaceTight" />
          <Row>
+            <Button Text="Test Button" on-Tapped="@{Model.TestButtonClicked()}" />
+         </Row>
+         <Row>
             <TextView Text="@{Model.Data}" />
          </Row>
          <Row CssClass="SpaceTight" />

@@ -632,6 +632,7 @@
     <xs:attribute name="on-VisibilityChanged" type="xs:string" />
     <xs:attribute name="on-ZIndexChanged" type="xs:string" />
     <xs:attribute name="on-BorderChanged" type="xs:string" />
+    <xs:attribute name="on-ReusedInCollectionView" type="xs:string" />
     <xs:attribute name="on-OpacityChanged" type="xs:string" />
     <xs:attribute name="on-ParentSet" type="xs:string" />
     <xs:attribute name="Style" type="xs:string" />
@@ -1065,7 +1066,6 @@
   <xs:complexType name="ContentFrameType">
     <xs:complexContent mixed="false">
       <xs:extension base="StackType">
-        <xs:attribute name="Shadow" type="xs:string" />
         <xs:anyAttribute processContents="skip" />
       </xs:extension>
     </xs:complexContent>
@@ -2160,6 +2160,16 @@
   </xs:simpleType>
   <xs:simpleType name="QueueStatus">
     <xs:union memberTypes="QueueStatusEnum StringPattern" />
+  </xs:simpleType>
+  <xs:simpleType name="ViewModel.Base.AlertTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Toast" />
+      <xs:enumeration value="Dialog" />
+      <xs:enumeration value="@....." />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AlertType">
+    <xs:union memberTypes="ViewModel.Base.AlertTypeEnum StringPattern" />
   </xs:simpleType>
   <xs:simpleType name="Domain.Models.PageTypeEnum">
     <xs:restriction base="xs:string">

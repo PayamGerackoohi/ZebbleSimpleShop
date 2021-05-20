@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using UI;
 using ViewModel.Base;
 using Zebble.Mvvm;
 
@@ -26,16 +25,14 @@ namespace ViewModel
         private async Task InitiateIsFavorite()
         {
             var user = await Api.ShopApi.GetUser();
-            //var isFav = user.Favorites.Any(f => f == Data.Value);
             var isFav = user.Favorites.Any(f => f.Id == Data.Value.Id);
             IsFavorite.Value = isFav;
         }
 
         public async Task OnBuyButtonClicked()
         {
-            //var cart = await Api.ShopApi.GetCart();
             await Api.ShopApi.AddToCart(Data.Value);
-            "The Product is added to your cart.".Toast();
+            "The Product is added to your cart.".Toast(this);
         }
 
         public async Task OnFavoriteButtonClicked()
@@ -50,13 +47,13 @@ namespace ViewModel
         private async Task AddFavorite()
         {
             await Api.ShopApi.AddFavorite(Data.Value.Id);
-            "Product is added to the favorites list.".Toast();
+            "Product is added to the favorites list.".Toast(this);
         }
 
         private async Task RemoveFavorite()
         {
             await Api.ShopApi.RemoveFavorite(Data.Value.Id);
-            "Product is removed from the favorites list.".Toast();
+            "Product is removed from the favorites list.".Toast(this);
         }
 
         public override async Task OnRefresh()

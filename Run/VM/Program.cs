@@ -13,6 +13,7 @@
         public static async Task Main(string[] args)
         {
             UIRuntime.Initialize<Program>("ZebbleTestApp");
+            //UIRuntime.Initialize<Program>("SimpleShop");
 
             await ViewModel.StartUp.Run();
 

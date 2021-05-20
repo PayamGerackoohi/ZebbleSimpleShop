@@ -13,6 +13,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Base\EzPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CategoryCardItem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CartPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extension\ViewModelExtension.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SignUpPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)LoginPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SearchPage.cs" />

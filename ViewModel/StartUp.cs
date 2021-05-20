@@ -7,9 +7,12 @@
     using Zebble;
     using System;
     using Olive;
+    using System.Diagnostics.CodeAnalysis;
 
     class StartUp
     {
+        // in order to prevent #pragma warning disable CS0162 // Unreachable code detected
+        [SuppressMessage("Design", "GCop139: Use constant instead of field.")]
         private static readonly bool Debug = false;
 
         public static async Task Run()

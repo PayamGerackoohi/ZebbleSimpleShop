@@ -16,7 +16,9 @@
   <Import Project="..\..\ViewModel\ViewModel.projitems" Label="Shared" />
 
   <ItemGroup>
-    <PackageReference Include="Zebble" Version="4.5.504" />    
+    <PackageReference Include="sqlite-net-pcl" Version="1.7.335" />
+    <PackageReference Include="SQLiteNetExtensions.Async" Version="2.1.0" />
+    <PackageReference Include="Zebble" Version="4.5.524" />    
     <PackageReference Include="Zebble.FirebaseAuth" Version="1.0.9" />
     <PackageReference Include="Zebble.WebApi" Version="4.5.395" />
   </ItemGroup>

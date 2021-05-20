@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
-using UI;
 using ViewModel.Base;
 using Zebble;
 using Zebble.Mvvm;
@@ -21,14 +20,10 @@ namespace ViewModel
 
         public string Price() => Data.Value.FormattedPrice();
 
-        public void ShowDetails(Product p)
+        public void ShowDetails(Product product)
         {
-            Holder.EzForward<ProductDetailPage>(config: vm => vm.Setup(p).RunInParallel());
+            Holder.EzForward<ProductDetailPage>(config: vm => vm.Setup(product).RunInParallel());
         }
-
-        //public override async Task OnRefresh()
-        //{
-        //}
 
         public override async Task Setup()
         {
