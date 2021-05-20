@@ -10,10 +10,14 @@ namespace Domain.Database
     {
         public List<Category> ReadAllRaw();
 
+        public Category ReadRaw(int id);
+
+        public List<Category> ReadChildrenOf(int parentId);
+
         public List<Category> GetSubCategories();
 
         public void SaveAll(List<Category> categories);
 
-        public Category ReadRaw(int id);
+        public void SaveRaw(Category category);
     }
 }

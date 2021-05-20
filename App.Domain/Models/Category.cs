@@ -10,6 +10,18 @@ using System.Text;
 
 namespace Domain.Models
 {
+    //[Table("id_holder")]
+    //public class IntHolder
+    //{
+    //    [PrimaryKey, AutoIncrement]
+    //    public int Key { get; set; }
+
+    //    [Column("data")]
+    //    public int data { get; set; }
+
+    //    public static implicit operator int(IntHolder intHolder) => intHolder.data;
+    //}
+
     [Table("category")]
     public class Category
     {
@@ -18,8 +30,8 @@ namespace Domain.Models
         [PrimaryKey, AutoIncrement]
         [Column("id")]
         // just supports 255 categories. Zebble with 100 of them would gladly fill memory on PC! So, seems enough :)
-        public byte Id { get; set; }
-        //public int Id { get; set; }
+        //public byte Id { get; set; }
+        public int Id { get; set; }
 
         [Column("name")]
         public string Name { get; set; } = "";
@@ -27,11 +39,16 @@ namespace Domain.Models
         [Column("is_root")]
         public bool IsRoot { get; set; }
 
-        [Column("sub_category_id_list")]
-        public byte[] SubCategoryIdList { get; set; }
-        //public int[] SubCategoryIdList { get; set; }
+        //[OneToMany]
+        //[Ignore]
+        //public List<IntHolder> SubCategoryIdList { get; set; }
+        //[Column("sub_category_id_list")]
+        //public byte[] SubCategoryIdList { get; set; }
 
         //[ManyToMany(typeof(CategoryCategory))] // just provides self connection of a sub-category with itself!
+        [Column("parent_id")]
+        public int ParentId { get; set; }
+
         [Ignore]
         public List<Category> SubCategoryList { get; set; } = new();
 
@@ -57,21 +74,27 @@ namespace Domain.Models
 
         public void PrepareDBWrite()
         {
-            SubCategoryIdList = SubCategoryList?.Select(c => c.Id).ToArray();
+            //SubCategoryIdList = SubCategoryList?.Select(c => c.Id).ToArray();
+            SubCategoryList?.Do(c =>
+            {
+                c.ParentId = Id;
+                ShopDatabase.Instance.CategoryDao.SaveRaw(c);
+            });
         }
 
         public void PrepareDBRead()
         {
-            SubCategoryList = SubCategoryIdList?.Select(id => ShopDatabase.Instance.CategoryDao.ReadRaw(id).Set(c => c.PrepareDBRead()))?.ToList();
+            //SubCategoryList = SubCategoryIdList?.Select(id => ShopDatabase.Instance.CategoryDao.ReadRaw(id).Set(c => c.PrepareDBRead()))?.ToList();
+            SubCategoryList = ShopDatabase.Instance.CategoryDao.ReadChildrenOf(Id);
         }
-
-        public override bool Equals(object obj) => obj != null && obj is Category o && o.Id == Id;
 
         public override string ToString() => $"{Name} <{Id}>";
 
-        //public string Log(string indent) => $"{indent} {Name}:\n{indent} {SubCategoryList?.Count()}";
-        //public string Log(string indent = "") => $"{indent} {Name}:\n" + SubCategoryList?.Select(c => c.Log(indent + "*").ToString("\n"));
-        public string Log(string indent = "") => $"{indent} {Name}\n" + SubCategoryList?.Select(c => c.Log(indent + "*")).ToString("\n");
+        public string PrintHierarchy(string indent = "") =>
+            $"{(indent.None() ? "" : (indent + " "))}{this} -> {ParentId}\n" +
+            SubCategoryList?.Select(c => c.PrintHierarchy(indent + "*")).ToString("");
+
+        public override bool Equals(object obj) => obj != null && obj is Category o && o.Id == Id;
 
         public override int GetHashCode()
         {
@@ -84,6 +107,7 @@ namespace Domain.Models
 
         #endregion
     }
+
     [Table("category_product")]
     public class CategoryProduct
     {

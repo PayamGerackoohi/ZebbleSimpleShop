@@ -26,17 +26,20 @@ namespace ViewModel
 
         public override async Task OnRefresh()
         {
-            var str = "";
-            ShopDatabase.Instance.OrderDao.GetCart().Also(cart =>
-            {
-                str = $"{cart.OrderItems.Select(oi => oi.Count + "").ToString(", ")}";
-                cart.OrderItems.Do(oi => oi.Count *= 2);
-                ShopDatabase.Instance.OrderDao.Save(cart);
-            });
-            var cart = ShopDatabase.Instance.OrderDao.GetCart();
+            //var str = "";
+            //ShopDatabase.Instance.OrderDao.GetCart().Also(cart =>
+            //{
+            //    str = $"{cart.OrderItems.Select(oi => oi.Count + "").ToString(", ")}";
+            //    cart.OrderItems.Do(oi => oi.Count *= 2);
+            //    ShopDatabase.Instance.OrderDao.Save(cart);
+            //});
+            //var cart = ShopDatabase.Instance.OrderDao.GetCart();
 
-            str += $"\n{cart.OrderItems.Select(oi => oi.Count + "").ToString(", ")}";
-            Data.Value = $"Start\n\n{str}\n\nEnd";
+            //str += $"\n{cart.OrderItems.Select(oi => oi.Count + "").ToString(", ")}";
+            var cats = ShopDatabase.Instance.CategoryDao.ReadAll();
+            var str = cats.Select(c => c.PrintHierarchy()).ToString("");
+            Data.Value = str;
+            //Data.Value = $"Start\n\n{str}\n\nEnd";
             await base.OnRefresh();
         }
     }

@@ -46,8 +46,7 @@ namespace ViewModel
             Orders.Replace(User.Value.Orders);
             Favorites.Replace(User.Value.Favorites);
             User.Refresh();
-            //Orders.Refresh();
-            //Favorites.Refresh();
+            // Orders.Refresh(); // evil rests here in peace >:)
             // Favorites.Refresh(); // evil rests here in peace >:)
             await base.OnRefresh();
         }

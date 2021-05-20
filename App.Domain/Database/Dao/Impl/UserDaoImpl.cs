@@ -37,9 +37,7 @@ namespace Domain.Database.Dao.Impl
             if (u == null)
                 Create(user);
             else
-            {
                 user.Id = u.Id;
-            }
             Update(user);
         }
 
